@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Typography Comparison: TPL vs Wordle</title>
+    
+    <style>
+        /* Load NYT Fonts */
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-400.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-600.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnakcondensed';
+            src: url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./src/public/fonts/karnak/karnak-normal-400.woff2') format('woff2'),
+                 url('./src/public/fonts/karnak/karnak-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./src/public/fonts/karnak/karnak-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/karnak/karnak-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+    
+    <style>
+        body {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            margin: 0;
+            padding: 30px;
+            background-color: #fafafa;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #2c3e50 0%, #34495e 100%);
+            color: white;
+            padding: 40px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 32px;
+            font-weight: 700;
+            font-family: 'nyt-karnakcondensed', Georgia, serif;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 16px;
+            opacity: 0.9;
+        }
+        
+        .main-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            min-height: 80vh;
+        }
+        
+        .tpl-column {
+            background: linear-gradient(180deg, #f8f9fa 0%, #e9ecef 100%);
+            padding: 40px;
+            border-right: 1px solid #dee2e6;
+        }
+        
+        .wordle-column {
+            background: linear-gradient(180deg, #fff 0%, #f8f9fa 100%);
+            padding: 40px;
+        }
+        
+        .column-title {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 30px 0;
+            padding-bottom: 15px;
+            border-bottom: 3px solid #007acc;
+            color: #2c3e50;
+        }
+        
+        .wordle-column .column-title {
+            border-bottom-color: #6aaa64;
+        }
+        
+        .type-example {
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .type-example:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+        }
+        
+        .type-label {
+            font-size: 12px;
+            color: #6c757d;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+        
+        .type-sample {
+            margin-bottom: 12px;
+            line-height: 1.2;
+        }
+        
+        .type-code {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 4px;
+            padding: 8px 12px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 12px;
+            color: #495057;
+            margin-top: 8px;
+        }
+        
+        .source-ref {
+            font-size: 10px;
+            color: #6c757d;
+            margin-top: 4px;
+        }
+        
+        /* TPL Typography Tokens */
+        .tpl-title-56 { font: 600 3.5rem/1 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-48 { font: 600 3rem/1.1 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-32 { font: 600 2rem/1.2 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-28 { font: 600 1.75rem/1.2 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-24 { font: 600 1.5rem/1.2 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-20 { font: 600 1.25rem/1.2 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-18 { font: 600 1.125rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-title-16 { font: 600 1rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-text-20 { font: 500 1.25rem/1.2 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-text-18 { font: 500 1.125rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-text-16 { font: 500 1rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-text-14 { font: 500 0.875rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-text-12 { font: 500 0.75rem/1.3 nyt-franklin, helvetica, arial, sans-serif; }
+        .tpl-label-regular { font: 500 0.6875rem/1.25 nyt-franklin, helvetica, arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+        .tpl-label-emphasis { font: 800 0.6875rem/1.25 nyt-franklin, helvetica, arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
+        
+        .wordle-root { font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; }
+        .wordle-title-large { font-family: 'nyt-karnakcondensed'; font-size: 50px; font-weight: 700; }
+        .wordle-title-medium { font-family: 'nyt-karnakcondensed'; font-size: 44px; font-weight: 700; }
+        .wordle-title-small { font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; }
+        .wordle-subtitle-large { font-family: 'nyt-karnak'; font-size: 38px; font-weight: 400; }
+        .wordle-subtitle-medium { font-family: 'nyt-karnak'; font-size: 32px; font-weight: 400; }
+        .wordle-subtitle-small { font-family: 'nyt-karnak'; font-size: 24px; font-weight: 400; }
+        .wordle-tile-text { font-family: 'nyt-franklin'; font-size: 32px; font-weight: 700; }
+        .wordle-body { font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 400; }
+        .wordle-button { font-family: 'nyt-franklin'; font-size: 14px; font-weight: 600; }
+        .wordle-stats-label { font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 12px; font-weight: 400; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>Typography System Comparison</h1>
+            <p>TPL Standards vs Wordle Implementation</p>
+        </div>
+        
+        <div class="main-grid">
+            <div class="tpl-column">
+                <h2 class="column-title">TPL Typography System</h2>
+                
+                <div class="type-example">
+                    <div class="type-label">Title/56</div>
+                    <div class="type-sample tpl-title-56">Wordle</div>
+                    <div class="type-code">font: 600 3.5rem/1 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Title/56</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Title/48</div>
+                    <div class="type-sample tpl-title-48">Congratulations!</div>
+                    <div class="type-code">font: 600 3rem/1.1 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Title/48</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Title/32</div>
+                    <div class="type-sample tpl-title-32">Statistics</div>
+                    <div class="type-code">font: 600 2rem/1.2 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Title/32</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Title/28</div>
+                    <div class="type-sample tpl-title-28">How to Play</div>
+                    <div class="type-code">font: 600 1.75rem/1.2 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Title/28</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Title/24</div>
+                    <div class="type-sample tpl-title-24">Settings</div>
+                    <div class="type-code">font: 600 1.5rem/1.2 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Title/24</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Text/20</div>
+                    <div class="type-sample tpl-text-20">A daily word game</div>
+                    <div class="type-code">font: 500 1.25rem/1.2 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Text/20</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Text/18</div>
+                    <div class="type-sample tpl-text-18">Guess the WORDLE in 6 tries.</div>
+                    <div class="type-code">font: 500 1.125rem/1.3 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Text/18</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Text/16</div>
+                    <div class="type-sample tpl-text-16">Each guess must be a valid 5-letter word. Hit the enter button to submit.</div>
+                    <div class="type-code">font: 500 1rem/1.3 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Text/16</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Text/14</div>
+                    <div class="type-sample tpl-text-14">After each guess, the color of the tiles will change to show how close your guess was to the word.</div>
+                    <div class="type-code">font: 500 0.875rem/1.3 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Text/14</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Text/12</div>
+                    <div class="type-sample tpl-text-12">Share your results</div>
+                    <div class="type-code">font: 500 0.75rem/1.3 nyt-franklin</div>
+                    <div class="source-ref">TPL Token: Text/12</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Label/Regular</div>
+                    <div class="type-sample tpl-label-regular">PLAYED</div>
+                    <div class="type-code">font: 500 0.6875rem/1.25 nyt-franklin<br>letter-spacing: 0.1em<br>text-transform: uppercase</div>
+                    <div class="source-ref">TPL Token: Label/Regular</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Label/Emphasis</div>
+                    <div class="type-sample tpl-label-emphasis">WIN STREAK</div>
+                    <div class="type-code">font: 800 0.6875rem/1.25 nyt-franklin<br>letter-spacing: 0.1em<br>text-transform: uppercase</div>
+                    <div class="source-ref">TPL Token: Label/Emphasis</div>
+                </div>
+                
+                <div style="margin-top: 40px; padding: 20px; background: rgba(0, 122, 204, 0.1); border-radius: 8px;">
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #0056b3;">📱 TPL Responsive Approach</div>
+                    <div style="font-size: 13px; color: #495057; line-height: 1.4;">
+                        <strong>Facepaint Arrays:</strong> TPL uses arrays for responsive sizing<br>
+                        <code style="background: white; padding: 2px 6px; border-radius: 3px;">size={[18, null, 24]}</code><br>
+                        <strong>Breakpoints:</strong> medium (481px), large (1025px)
+                    </div>
+                </div>
+            </div>
+            
+            <div class="wordle-column">
+                <h2 class="column-title">Wordle Current Implementation</h2>
+                
+                <div class="type-example">
+                    <div class="type-label">Game Title (Desktop)</div>
+                    <div class="type-sample wordle-title-large">Wordle</div>
+                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 50px;<br>font-weight: bold;</div>
+                    <div class="source-ref">Welcome.module.scss:67</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Game Title (Tablet)</div>
+                    <div class="type-sample wordle-title-medium">Wordle</div>
+                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 44px;<br>font-weight: bold;</div>
+                    <div class="source-ref">Welcome.module.scss:62</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Game Title (Mobile)</div>
+                    <div class="type-sample wordle-title-small">Wordle</div>
+                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 36px;<br>font-weight: bold;</div>
+                    <div class="source-ref">Welcome.module.scss:53</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Welcome Message (Desktop)</div>
+                    <div class="type-sample wordle-subtitle-large">Hi Wordler</div>
+                    <div class="type-code">font-family: 'nyt-karnak';<br>font-size: 38px;<br>font-weight: 400;</div>
+                    <div class="source-ref">Welcome.module.scss:94</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Welcome Message (Tablet)</div>
+                    <div class="type-sample wordle-subtitle-medium">Welcome Back</div>
+                    <div class="type-code">font-family: 'nyt-karnak';<br>font-size: 32px;<br>font-weight: 400;</div>
+                    <div class="source-ref">Welcome.module.scss:88</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Welcome Message (Mobile)</div>
+                    <div class="type-sample wordle-subtitle-small">Keep your streak alive!</div>
+                    <div class="type-code">font-family: 'nyt-karnak';<br>font-size: 24px;<br>font-weight: 400;</div>
+                    <div class="source-ref">Welcome.module.scss:84</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Game Tiles</div>
+                    <div class="type-sample wordle-tile-text">WORDLE</div>
+                    <div class="type-code">font-family: 'nyt-franklin';<br>font-size: 2rem; /* 32px */<br>font-weight: bold;</div>
+                    <div class="source-ref">Tile.module.scss:2</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Interface Text</div>
+                    <div class="type-sample wordle-body">Each guess must be a valid 5-letter word. Hit the enter button to submit.</div>
+                    <div class="type-code">font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;<br>font-size: 16px;<br>font-weight: 400;</div>
+                    <div class="source-ref">index.scss:79</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Button Text</div>
+                    <div class="type-sample wordle-button">PLAY TODAY</div>
+                    <div class="type-code">font-family: 'nyt-franklin';<br>font-size: 14px;<br>font-weight: 600;</div>
+                    <div class="source-ref">Welcome.module.scss:190</div>
+                </div>
+                
+                <div class="type-example">
+                    <div class="type-label">Stats Labels</div>
+                    <div class="type-sample wordle-stats-label">PLAYED</div>
+                    <div class="type-code">font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;<br>font-size: 12px;<br>font-weight: 400;</div>
+                    <div class="source-ref">Stats inherited from root</div>
+                </div>
+                
+                <div style="margin-top: 40px; padding: 20px; background: rgba(106, 170, 100, 0.1); border-radius: 8px;">
+                    <div style="font-size: 14px; font-weight: 600; margin-bottom: 8px; color: #155724;">📱 Wordle Responsive Approach</div>
+                    <div style="font-size: 13px; color: #495057; line-height: 1.4;">
+                        <strong>CSS Media Queries:</strong> Wordle uses traditional media queries<br>
+                        <code style="background: white; padding: 2px 6px; border-radius: 3px;">@media (min-width: 760px) { font-size: 44px; }</code><br>
+                        <strong>Breakpoints:</strong> 760px, 992px (custom breakpoints)
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div style="background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%); padding: 40px; border-top: 1px solid #dee2e6;">
+            <h2 style="margin: 0 0 30px 0; font-size: 24px; color: #2c3e50; text-align: center;">🍎 Low Hanging Fruit: Quick TPL Alignment Wins</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 30px;">
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #1: Root Font Family</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+:root {<br>
+&nbsp;&nbsp;font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+:root {<br>
+&nbsp;&nbsp;font-family: 'nyt-franklin', helvetica, arial, sans-serif;<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Instantly aligns all interface text with TPL standards
+                    </div>
+                </div>
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #2: Title Token Alignment</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+.title {<br>
+&nbsp;&nbsp;font-size: 36px; // mobile<br>
+&nbsp;&nbsp;@media (min-width: 760px) { font-size: 44px; }<br>
+&nbsp;&nbsp;@media (min-width: 992px) { font-size: 50px; }<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+.title {<br>
+&nbsp;&nbsp;font: 600 2rem/1.2 nyt-franklin; // Title/32<br>
+&nbsp;&nbsp;@media (min-width: 481px) { font-size: 3rem; } // Title/48<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Uses TPL tokens and breakpoints
+                    </div>
+                </div>
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #3: Stats Label Styling</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+.stat-label {<br>
+&nbsp;&nbsp;font-size: 12px;<br>
+&nbsp;&nbsp;color: #787c7e;<br>
+&nbsp;&nbsp;text-transform: uppercase;<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+.stat-label {<br>
+&nbsp;&nbsp;font: 500 0.6875rem/1.25 nyt-franklin; // Label/Regular<br>
+&nbsp;&nbsp;letter-spacing: 0.1em;<br>
+&nbsp;&nbsp;text-transform: uppercase;<br>
+}
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Matches TPL label styling exactly
+                    </div>
+                </div>
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #4: Font Weight Standardization</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+font-weight: bold; // Inconsistent<br>
+font-weight: 700;  // Mixed usage<br>
+font-weight: 600;  // Various patterns
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+font-weight: 600; // semiBold (Title)<br>
+font-weight: 500; // medium (Text)<br>
+font-weight: 800; // extraBold (Label/Emphasis)
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Consistent weight usage across all text
+                    </div>
+                </div>
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #5: Line Height Consistency</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+line-height: 38px; // Fixed pixel values<br>
+line-height: 1.045em; // Mixed units<br>
+line-height: 52px; // Inconsistent approach
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+line-height: 1.2; // Titles<br>
+line-height: 1.3; // Text<br>
+line-height: 1.25; // Labels
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Systematic line-height ratios
+                    </div>
+                </div>
+                
+                <div style="background: white; border-radius: 8px; padding: 25px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                    <h3 style="margin: 0 0 20px 0; color: #28a745; font-size: 18px;">✅ Easy Fix #6: Breakpoint Alignment</h3>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">CURRENT</div>
+                        <div style="background: #fff3cd; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+@media (min-width: 760px) { ... }<br>
+@media (min-width: 992px) { ... }
+                        </div>
+                    </div>
+                    
+                    <div style="margin-bottom: 15px;">
+                        <div style="font-size: 14px; color: #6c757d; margin-bottom: 8px;">TPL ALIGNED</div>
+                        <div style="background: #d4edda; padding: 12px; border-radius: 4px; font-family: 'Courier New', monospace; font-size: 13px;">
+@media (min-width: 481px) { ... } // TPL medium<br>
+@media (min-width: 1025px) { ... } // TPL large
+                        </div>
+                    </div>
+                    
+                    <div style="font-size: 13px; color: #495057;">
+                        <strong>Impact:</strong> Consistent breakpoints across NYT products
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: rgba(40, 167, 69, 0.1); border: 2px solid #28a745; border-radius: 8px; padding: 25px; margin-top: 30px;">
+                <h3 style="margin: 0 0 15px 0; color: #155724; font-size: 18px;">🎯 Implementation Priority</h3>
+                <p style="margin: 0 0 15px 0; font-size: 16px; color: #155724; line-height: 1.5;">
+                    These changes can be implemented incrementally without affecting game functionality. 
+                    Start with the root font family change for immediate visual alignment with TPL standards.
+                </p>
+                <div style="font-size: 14px; color: #495057;">
+                    <strong>Estimated effort:</strong> 2-4 hours • <strong>Risk:</strong> Low • <strong>Impact:</strong> High visual consistency
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

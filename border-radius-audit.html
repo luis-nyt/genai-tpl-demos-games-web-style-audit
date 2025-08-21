@@ -1,0 +1,1615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT Games Web UI Audit</title>
+    
+    <style>
+        /* Load NYT Fonts */
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-400.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-600.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-800.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-800.woff') format('woff');
+            font-weight: 800;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./src/public/fonts/karnak/karnak-normal-400.woff2') format('woff2'),
+                 url('./src/public/fonts/karnak/karnak-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./src/public/fonts/karnak/karnak-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/karnak/karnak-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnakcondensed';
+            src: url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-cheltenham';
+            src: url('./src/public/fonts/cheltenham/cheltenham-normal-300.woff2') format('woff2'),
+                 url('./src/public/fonts/cheltenham/cheltenham-normal-300.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-cheltenham';
+            src: url('./src/public/fonts/cheltenham/cheltenham-normal-500.woff2') format('woff2'),
+                 url('./src/public/fonts/cheltenham/cheltenham-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-stymie';
+            src: url('./src/public/fonts/stymie/stymie-normal-500.woff2') format('woff2'),
+                 url('./src/public/fonts/stymie/stymie-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-stymie';
+            src: url('./src/public/fonts/stymie/stymie-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/stymie/stymie-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+    
+    <style>
+        body {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            color: #444;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+        }
+        
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 25px;
+            margin-bottom: 30px;
+        }
+        
+        .example {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 25px;
+            text-align: center;
+            border-radius: 8px;
+        }
+        
+        .example h3 {
+            margin-top: 0;
+            color: #555;
+            font-size: 16px;
+        }
+        
+        /* REALISTIC BUTTON STYLES */
+        .shared-button {
+            display: inline-block;
+            padding: 12px 32px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            font-size: 16px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            transition: all 0.2s ease;
+        }
+        
+        .shared-button:hover {
+            background-color: #333;
+        }
+        
+        .connections-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #fff;
+            color: #000;
+            border: 1px solid #000;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            min-width: 120px;
+            transition: all 0.2s ease;
+        }
+        
+        .connections-button.filled {
+            background-color: #000;
+            color: white;
+            border: none;
+        }
+        
+        .leaderboard-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            font-weight: 700;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            min-width: 105px;
+        }
+        
+        .foundation-button {
+            display: inline-block;
+            padding: 12px 24px;
+            background-color: #000;
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px 0;
+            cursor: pointer;
+            border: none;
+            font-size: 14px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            min-width: 86px;
+        }
+        
+        .letter-boxed-button {
+            display: inline-block;
+            padding: 12px 20px;
+            background-color: transparent;
+            color: #000;
+            border: 1px solid #ccc;
+            text-decoration: none;
+            font-weight: normal;
+            margin: 10px 0;
+            cursor: pointer;
+            font-size: 16px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            min-width: 86px;
+        }
+        
+        /* REALISTIC MODAL STYLES */
+        .modal-example {
+            width: 280px;
+            height: 180px;
+            background-color: white;
+            border: 1px solid #e0e0e0;
+            margin: 15px auto;
+            box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+        }
+        
+        .modal-header {
+            padding: 20px 20px 0;
+            text-align: right;
+        }
+        
+        .modal-close {
+            font-size: 24px;
+            color: #999;
+            cursor: pointer;
+            font-weight: lighter;
+        }
+        
+        .modal-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .modal-title {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .modal-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.4;
+        }
+        
+        /* REALISTIC COMPONENT STYLES */
+        .wordle-stats {
+            width: 200px;
+            height: 60px;
+            background-color: #f6f7f8;
+            border: 1px solid #d3d6da;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0 15px;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+        }
+        
+        .stats-label {
+            font-size: 12px;
+            color: #787c7e;
+            text-transform: uppercase;
+        }
+        
+        .stats-value {
+            font-size: 18px;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .letter-boxed-message {
+            width: 220px;
+            height: 50px;
+            background-color: #faa6a4;
+            color: white;
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-size: 14px;
+            font-weight: 500;
+        }
+        
+        .letter-boxed-word {
+            width: 180px;
+            height: 40px;
+            background-color: #fff;
+            border: 1px solid #faa6a4;
+            margin: 8px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-size: 13px;
+            color: #333;
+        }
+        
+        .pips-component {
+            width: 160px;
+            height: 80px;
+            background: linear-gradient(135deg, #daa8d0 0%, #c49bc2 100%);
+            margin: 15px auto;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-size: 14px;
+            color: white;
+            font-weight: 600;
+        }
+        
+        /* Specific border-radius values */
+        .radius-9999 { border-radius: 9999px; }
+        .radius-50 { border-radius: 50px; }
+        .radius-40 { border-radius: 40px; }
+        .radius-32 { border-radius: 32px; }
+        .radius-8 { border-radius: 8px; }
+        .radius-7 { border-radius: 7px; }
+        .radius-5 { border-radius: 5px; }
+        .radius-4 { border-radius: 4px; }
+        .radius-3 { border-radius: 3px; }
+        
+        .code {
+            background-color: #f8f8f8;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #d63384;
+            margin-top: 15px;
+        }
+        
+        .file-path {
+            font-size: 11px;
+            color: #666;
+            font-style: italic;
+            margin-top: 5px;
+        }
+        
+        .inconsistency-highlight {
+            background-color: #fff3cd;
+            border: 1px solid #ffeaa7;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+        
+        .recommendation {
+            background-color: #d1ecf1;
+            border: 1px solid #b8daff;
+            padding: 20px;
+            border-radius: 6px;
+            margin: 30px 0;
+        }
+        
+        /* Game-specific styling */
+        .spelling-bee-style {
+            background-color: #f7da21;
+            color: #000;
+        }
+        
+        .connections-style {
+            background-color: #b3a7fe;
+            color: #000;
+        }
+        
+        .wordle-style {
+            background-color: #6aaa64;
+            color: white;
+        }
+        
+        .strands-style {
+            background-color: #c0ddd9;
+            color: #000;
+        }
+        
+        /* TYPOGRAPHY EXAMPLES */
+        .typography-example {
+            margin: 20px 0;
+            padding: 0;
+            background: transparent;
+            border: none;
+        }
+        
+        .font-demo {
+            margin: 15px 0;
+            padding: 0;
+        }
+        
+        .font-sample {
+            margin: 8px 0 4px 0;
+            line-height: 1.2;
+        }
+        
+        .type-scale-item {
+            display: flex;
+            align-items: baseline;
+            margin: 20px 0;
+            padding: 15px 0;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .type-scale-item:last-child {
+            border-bottom: none;
+        }
+        
+        .size-label {
+            font-size: 12px;
+            color: #666;
+            font-weight: 500;
+            width: 60px;
+            flex-shrink: 0;
+            text-align: right;
+            margin-right: 20px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .type-sample {
+            flex: 1;
+            margin: 0;
+        }
+        
+        .condensed-section {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+        
+        .condensed-column {
+            flex: 1;
+            min-width: 300px;
+        }
+        
+        .source-link {
+            font-size: 11px;
+            color: #007acc;
+            text-decoration: none;
+            margin-left: 10px;
+            font-family: 'Courier New', monospace;
+        }
+        
+        .source-link:hover {
+            text-decoration: underline;
+        }
+        
+        .real-usage-preview {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            border-radius: 12px;
+            padding: 25px;
+            margin-bottom: 40px;
+            border: 1px solid #dee2e6;
+        }
+        
+        .usage-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-top: 20px;
+        }
+        
+        .usage-example {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e0e0e0;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }
+        
+        .usage-label {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 8px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        /* FILTER DROPDOWN STYLES */
+        .filter-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 30px;
+            padding: 15px;
+            background: #f8f9fa;
+            border-radius: 8px;
+            border: 1px solid #e9ecef;
+        }
+        
+        .filter-label {
+            font-size: 14px;
+            font-weight: 600;
+            color: #495057;
+            white-space: nowrap;
+        }
+        
+        .filter-dropdown {
+            padding: 8px 12px;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+            background: white;
+            font-size: 14px;
+            color: #495057;
+            cursor: pointer;
+            min-width: 150px;
+        }
+        
+        .filter-dropdown:focus {
+            outline: none;
+            border-color: #007acc;
+            box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.25);
+        }
+        
+        .section-header-with-filter {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
+        }
+        
+        .section-header-with-filter h2 {
+            margin: 0;
+        }
+        
+        .font-franklin { font-family: 'nyt-franklin', Arial, sans-serif; }
+        .font-karnak { font-family: 'nyt-karnak', Georgia, serif; }
+        .font-karnak-condensed { font-family: 'nyt-karnakcondensed', Georgia, serif; }
+        .font-cheltenham { font-family: 'nyt-cheltenham', Georgia, serif; }
+        .font-stymie { font-family: 'nyt-stymie', Georgia, serif; }
+        .font-clear-sans { font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; }
+        
+        .size-50 { font-size: 50px; line-height: 52px; }
+        .size-44 { font-size: 44px; line-height: 46px; }
+        .size-38 { font-size: 38px; line-height: 44px; }
+        .size-36 { font-size: 36px; line-height: 38px; }
+        .size-32 { font-size: 32px; line-height: 36px; }
+        .size-28 { font-size: 28px; line-height: 32px; }
+        .size-24 { font-size: 24px; line-height: 28px; }
+        .size-20 { font-size: 20px; line-height: 24px; }
+        .size-18 { font-size: 18px; line-height: 22px; }
+        .size-16 { font-size: 16px; line-height: 20px; }
+        .size-14 { font-size: 14px; line-height: 18px; }
+        .size-12 { font-size: 12px; line-height: 16px; }
+        .size-10 { font-size: 10px; line-height: 14px; }
+        
+        .weight-200 { font-weight: 200; }
+        .weight-300 { font-weight: 300; }
+        .weight-400 { font-weight: 400; }
+        .weight-500 { font-weight: 500; }
+        .weight-600 { font-weight: 600; }
+        .weight-700 { font-weight: 700; }
+        .weight-800 { font-weight: 800; }
+        
+        /* COLOR EXAMPLES */
+        .color-example {
+            display: flex;
+            align-items: center;
+            margin: 8px 0;
+            padding: 12px;
+            border-radius: 6px;
+            border: 1px solid #e0e0e0;
+        }
+        
+        .color-swatch {
+            width: 40px;
+            height: 40px;
+            border-radius: 6px;
+            margin-right: 15px;
+            border: 1px solid #ccc;
+            flex-shrink: 0;
+        }
+        
+        .color-info {
+            flex: 1;
+        }
+        
+        .color-name {
+            font-weight: 600;
+            font-size: 14px;
+            margin-bottom: 4px;
+        }
+        
+        .color-value {
+            font-family: 'Courier New', monospace;
+            font-size: 12px;
+            color: #666;
+        }
+        
+        /* SPACING EXAMPLES */
+        .spacing-example {
+            margin: 15px 0;
+            border: 1px dashed #ccc;
+            position: relative;
+        }
+        
+        .spacing-demo {
+            background: #e3f2fd;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: 600;
+            color: #1976d2;
+        }
+        
+        .spacing-label {
+            position: absolute;
+            top: -10px;
+            left: 10px;
+            background: white;
+            padding: 2px 8px;
+            font-size: 11px;
+            color: #666;
+            border-radius: 3px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>NYT Games Web UI Audit</h1>
+        
+        <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin-bottom: 40px; text-align: center;">
+            <h2 style="margin: 0 0 10px 0; font-size: 24px;">Interactive Design System Explorer</h2>
+            <p style="margin: 0; font-size: 14px; opacity: 0.8;">Explore UI patterns across all NYT Games • Filter by game • Compare implementations</p>
+        </div>
+        
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>🔘 Button Components</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('buttons', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            <div class="examples-grid">
+                <div class="example" data-game="shared">
+                    <h3>Shared Buttons</h3>
+                    <button class="shared-button radius-9999">Play Today</button>
+                    <div style="margin: 15px 0;">
+                        <button class="shared-button radius-9999" style="background-color: #fff; color: #000; border: 1px solid #000;">Secondary</button>
+                    </div>
+                    <div class="code">border-radius: 9999px;</div>
+                    <div class="file-path">src/games/shared/Button/button.scss</div>
+                </div>
+                
+                <div class="example" data-game="shared">
+                    <h3>Leaderboard Buttons</h3>
+                    <button class="leaderboard-button radius-50">Add Friend</button>
+                    <div style="margin: 15px 0;">
+                        <button class="leaderboard-button radius-50" style="background-color: white; color: #000; border: 1px solid #ccc;">White Button</button>
+                    </div>
+                    <div class="code">border-radius: 50px;</div>
+                    <div class="file-path">src/shared/leaderboard/Button/Button.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Foundation Modal Buttons</h3>
+                    <button class="foundation-button radius-40">Continue</button>
+                    <div style="margin: 15px 0;">
+                        <button class="foundation-button radius-40" style="background-color: #fff; color: #000; border: 1px solid #ccc;">Cancel</button>
+                    </div>
+                    <div class="code">border-radius: 40px;</div>
+                    <div class="file-path">src/shared/foundation-game/modals.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Letter Boxed Buttons</h3>
+                    <button class="letter-boxed-button radius-40">Shuffle</button>
+                    <div style="margin: 15px 0;">
+                        <button class="letter-boxed-button radius-40" style="width: 120px;">Clear</button>
+                    </div>
+                    <div class="code">border-radius: 40px;</div>
+                    <div class="file-path">src/games/letter-boxed/scss/layout.scss</div>
+                </div>
+                
+                <div class="example" data-game="connections">
+                    <h3>Connections Buttons</h3>
+                    <button class="connections-button radius-32">Submit</button>
+                    <div style="margin: 15px 0;">
+                        <button class="connections-button filled radius-32">Shuffle</button>
+                    </div>
+                    <div class="code">border-radius: 32px;</div>
+                    <div class="file-path">src/games/connections/components/ActionButton/</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>🔲 Modal Components</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('modals', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Wordle Modals</h3>
+                    <div class="modal-example radius-8">
+                        <div class="modal-header">
+                            <div class="modal-close">×</div>
+                        </div>
+                        <div class="modal-content">
+                            <div class="modal-title">Statistics</div>
+                            <div class="modal-text">Your game stats and performance</div>
+                        </div>
+                    </div>
+                    <div class="code">border-radius: 8px;</div>
+                    <div class="file-path">src/games/wordle/js/components/Modal/</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Foundation Modals</h3>
+                    <div class="modal-example radius-7">
+                        <div class="modal-header">
+                            <div class="modal-close">×</div>
+                        </div>
+                        <div class="modal-content">
+                            <div class="modal-title">Game Settings</div>
+                            <div class="modal-text">Customize your experience</div>
+                        </div>
+                    </div>
+                    <div class="code">border-radius: 7px;</div>
+                    <div class="file-path">src/shared/foundation-game/modals.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Spelling Bee Modals</h3>
+                    <div class="modal-example radius-5 spelling-bee-style">
+                        <div class="modal-header">
+                            <div class="modal-close">×</div>
+                        </div>
+                        <div class="modal-content">
+                            <div class="modal-title">Your Words</div>
+                            <div class="modal-text">Found words and progress</div>
+                        </div>
+                    </div>
+                    <div class="code">border-radius: 5px;</div>
+                    <div class="file-path">src/games/spelling-bee/scss/modals.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Shared Modal Wrapper</h3>
+                    <div class="modal-example radius-4">
+                        <div class="modal-header">
+                            <div class="modal-close">×</div>
+                        </div>
+                        <div class="modal-content">
+                            <div class="modal-title">Help</div>
+                            <div class="modal-text">How to play instructions</div>
+                        </div>
+                    </div>
+                    <div class="code">border-radius: 4px;</div>
+                    <div class="file-path">src/games/shared/ModalSystem/ModalWrapper.scss</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>🔹 Small Components</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('components', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Pips Components</h3>
+                    <div class="pips-component radius-8">
+                        PIPS TILE
+                    </div>
+                    <div class="code">border-radius: 8px;</div>
+                    <div class="file-path">src/games/prototypes-sandbox/pips/App.module.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Wordle Stats Disclosure</h3>
+                    <div class="wordle-stats radius-4">
+                        <div>
+                            <div class="stats-label">Played</div>
+                            <div class="stats-value">127</div>
+                        </div>
+                        <div>
+                            <div class="stats-label">Win %</div>
+                            <div class="stats-value">94</div>
+                        </div>
+                    </div>
+                    <div class="code">border-radius: 4px;</div>
+                    <div class="file-path">src/games/wordle-archive/js/StatsDisclosure/</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Letter Boxed Messages</h3>
+                    <div class="letter-boxed-message radius-3">
+                        Great job! Keep going!
+                    </div>
+                    <div class="letter-boxed-message radius-3" style="background-color: #fc716b;">
+                        Try a different word
+                    </div>
+                    <div class="code">border-radius: 3px;</div>
+                    <div class="file-path">src/games/letter-boxed/scss/message.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Letter Boxed Wordlist</h3>
+                    <div class="letter-boxed-word radius-3">EXAMPLE</div>
+                    <div class="letter-boxed-word radius-3">WORDLIST</div>
+                    <div class="letter-boxed-word radius-3">ITEMS</div>
+                    <div class="code">border-radius: 3px;</div>
+                    <div class="file-path">src/games/letter-boxed/scss/wordlist.scss</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="real-usage-preview">
+            <h3 style="margin: 0 0 10px 0; color: #495057;">🎯 Real Typography Usage Examples</h3>
+            <p style="margin: 0 0 20px 0; color: #6c757d; font-size: 14px;">Here's how these inconsistent font sizes actually appear across different games in your application:</p>
+            
+            <div class="usage-grid">
+                <div class="usage-example">
+                    <div class="usage-label">Wordle Welcome</div>
+                    <div class="font-karnakcondensed size-50 weight-700" style="margin-bottom: 8px;">Wordle</div>
+                    <div class="font-karnak size-28 weight-400">A daily word game</div>
+                </div>
+                
+                <div class="usage-example">
+                    <div class="usage-label">Connections Modal</div>
+                    <div class="font-karnak size-38 weight-700" style="margin-bottom: 8px;">Statistics</div>
+                    <div class="font-franklin size-16 weight-500">Your puzzle solving performance</div>
+                </div>
+                
+                <div class="usage-example">
+                    <div class="usage-label">Spelling Bee Modal</div>
+                    <div class="font-karnakcondensed size-36 weight-700" style="margin-bottom: 8px;">Your Words</div>
+                    <div class="font-franklin size-14 weight-500">Found: 15/42 words</div>
+                </div>
+                
+                <div class="usage-example">
+                    <div class="usage-label">Game Instructions</div>
+                    <div class="font-franklin size-18 weight-500" style="margin-bottom: 8px;">Guess the WORDLE in 6 tries.</div>
+                    <div class="font-franklin size-16 weight-500">Each guess must be a valid 5-letter word.</div>
+                </div>
+            </div>
+            
+
+        </div>
+
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>📝 Typography System</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('typography', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div style="text-align: center; margin: 30px 0 50px 0;">
+                <button onclick="randomizeTypography()" style="background: #fff; color: #333; border: 1px solid #ccc; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
+                    🎲 Randomize Typography Examples
+                </button>
+            </div>
+            
+            <div style="margin-bottom: 50px;">
+                <h3 style="color: #d32f2f; margin-bottom: 30px;">Font Size Scale Issues</h3>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">50px</div>
+                    <div class="type-sample font-franklin size-50 weight-700">Wordle</div>
+                    <div class="code" style="margin-left: 20px;">/* Welcome screen titles */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Welcome/Welcome.module.scss#L67" class="source-link" target="_blank">Welcome.module.scss:67</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">44px</div>
+                    <div class="type-sample font-franklin size-44 weight-700">Congratulations!</div>
+                    <div class="code" style="margin-left: 20px;">/* Game completion */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/crossword/components/Modals/CongratsModal/DefaultCongrats.tsx#L419" class="source-link" target="_blank">DefaultCongrats.tsx:419</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">38px</div>
+                    <div class="type-sample font-karnak size-38 weight-700">Statistics</div>
+                    <div class="code" style="margin-left: 20px;">/* Modal titles */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/connections/components/Modals/Stats.tsx#L176" class="source-link" target="_blank">Stats.tsx:176</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">36px</div>
+                    <div class="type-sample font-karnakcondensed size-36 weight-700">Your Words</div>
+                    <div class="code" style="margin-left: 20px;">/* Spelling Bee modals */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/spelling-bee/js/modals/stats/ModalStats.tsx#L156" class="source-link" target="_blank">ModalStats.tsx:156</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">32px</div>
+                    <div class="type-sample font-franklin size-32 weight-600">Play Today's Puzzle</div>
+                    <div class="code" style="margin-left: 20px;">/* Hub subtitles */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Welcome/Welcome.module.scss#L88" class="source-link" target="_blank">Welcome.module.scss:88</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">28px</div>
+                    <div class="type-sample font-karnak size-28 weight-400">Keep your streak alive!</div>
+                    <div class="code" style="margin-left: 20px;">/* Hub components */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Welcome/Welcome.module.scss#L78" class="source-link" target="_blank">Welcome.module.scss:78</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">24px</div>
+                    <div class="type-sample font-franklin size-24 weight-600">Download the App</div>
+                    <div class="code" style="margin-left: 20px;">/* Banner components */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/shared/Banner/ConversionBurgerCTA.module.scss#L76" class="source-link" target="_blank">ConversionBurgerCTA.module.scss:76</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">20px</div>
+                    <div class="type-sample font-franklin size-20 weight-500">Share your results with friends and family.</div>
+                    <div class="code" style="margin-left: 20px;">/* Modal content */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/spelling-bee/scss/modals.scss#L597" class="source-link" target="_blank">modals.scss:597</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">18px</div>
+                    <div class="type-sample font-franklin size-18 weight-500">Guess the WORDLE in 6 tries.</div>
+                    <div class="code" style="margin-left: 20px;">/* Instructions */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/spelling-bee-hub/js/PastPuzzlesSections.module.scss#L126" class="source-link" target="_blank">PastPuzzlesSections.module.scss:126</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">16px</div>
+                    <div class="type-sample font-franklin size-16 weight-500">Each guess must be a valid 5-letter word.</div>
+                    <div class="code" style="margin-left: 20px;">/* Body text */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/connections/components/ActionButton/ActionButton.module.scss#L6" class="source-link" target="_blank">ActionButton.module.scss:6</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">14px</div>
+                    <div class="type-sample font-franklin size-14 weight-600">Submit</div>
+                    <div class="code" style="margin-left: 20px;">/* Button text */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/shared/foundation-game/modals.scss#L297" class="source-link" target="_blank">modals.scss:297</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">12px</div>
+                    <div class="type-sample font-franklin size-12 weight-500">PLAYED</div>
+                    <div class="code" style="margin-left: 20px;">/* Stats labels */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/sudoku/index.scss#L102" class="source-link" target="_blank">index.scss:102</a>
+                    </div>
+                </div>
+                
+                <div class="type-scale-item">
+                    <div class="size-label">10px</div>
+                    <div class="type-sample font-franklin size-10 weight-500">© 2024 The New York Times</div>
+                    <div class="code" style="margin-left: 20px;">/* Fine print */
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/spelling-bee-hub/js/components/PastPuzzleCard.module.scss#L135" class="source-link" target="_blank">PastPuzzleCard.module.scss:135</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="condensed-section" style="margin-bottom: 50px;">
+                <div class="condensed-column">
+                    <h3 style="color: #d32f2f; margin-bottom: 20px;">Font Family Issues</h3>
+                    
+                    <div class="font-demo">
+                        <div class="font-sample font-franklin size-18 weight-600">nyt-franklin</div>
+                        <div class="code">Most components</div>
+                    </div>
+                    
+                    <div class="font-demo">
+                        <div class="font-sample font-karnak size-18 weight-700">nyt-karnak</div>
+                        <div class="code">Headings, modal titles</div>
+                    </div>
+                    
+                    <div class="font-demo">
+                        <div class="font-sample font-karnakcondensed size-18 weight-700">nyt-karnakcondensed</div>
+                        <div class="code">Large titles</div>
+                    </div>
+                    
+                    <div class="font-demo">
+                        <div class="font-sample font-clear-sans size-18 weight-400">Clear Sans</div>
+                        <div class="code">Wordle only ⚠️</div>
+                    </div>
+                </div>
+                
+                <div class="condensed-column">
+                    <h3 style="color: #d32f2f; margin-bottom: 20px;">Font Weight Issues</h3>
+                    
+                    <div class="font-demo">
+                        <div class="font-sample font-franklin size-16 weight-300">300 Light</div>
+                        <div class="font-sample font-franklin size-16 weight-400">400 Normal</div>
+                        <div class="font-sample font-franklin size-16 weight-500">500 Medium</div>
+                        <div class="font-sample font-franklin size-16 weight-600">600 Semi Bold</div>
+                        <div class="font-sample font-franklin size-16 weight-700">700 Bold</div>
+                        <div class="font-sample font-franklin size-16 weight-800">800 Extra Bold</div>
+                    </div>
+                    
+                    <div style="margin-top: 15px; padding: 12px; background: #fff3cd; border-radius: 4px; font-size: 13px;">
+                        <strong>⚠️ Issue:</strong> Mixed usage of numeric (600) vs semantic (semi-bold) values
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>🎨 Color System</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('colors', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Primary Colors (Consistent)</h3>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #000;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Black</div>
+                            <div class="color-value">#000</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #fff; border: 2px solid #ccc;"></div>
+                        <div class="color-info">
+                            <div class="color-name">White</div>
+                            <div class="color-value">#fff</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #333;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 1</div>
+                            <div class="color-value">#333</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #ccc;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 3</div>
+                            <div class="color-value">#ccc</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h3>Game Brand Colors (Inconsistent Naming)</h3>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #b3a7fe;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Connections Periwinkle</div>
+                            <div class="color-value">#B3A7FE vs #b4a8ff</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #f7da21;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Spelling Bee Yellow</div>
+                            <div class="color-value">#f7da21 vs #f8cd05</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #faa6a4;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Letter Boxed Pink</div>
+                            <div class="color-value">#faa6a4 (consistent)</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #6aaa64;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Wordle Green</div>
+                            <div class="color-value">#6aaa64 (consistent)</div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h3>Gray Scale Issues</h3>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #959595;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 2</div>
+                            <div class="color-value">#959595</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #787c7e;"></div>
+                        <div class="color-info">
+                            <div class="color-name">Gray 18 (Wordle)</div>
+                            <div class="color-value">#787c7e</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #8b8b8b;"></div>
+                        <div class="color-info">
+                            <div class="color-name">News Gray 50</div>
+                            <div class="color-value">#8b8b8b</div>
+                        </div>
+                    </div>
+                    <div class="color-example">
+                        <div class="color-swatch" style="background-color: #727272;"></div>
+                        <div class="color-info">
+                            <div class="color-name">News Gray 60</div>
+                            <div class="color-value">#727272</div>
+                        </div>
+                    </div>
+                    <div style="font-size: 12px; color: #666; margin-top: 10px; font-style: italic;">
+                        ⚠️ Multiple similar grays with different naming conventions
+                    </div>
+                </div>
+                
+                <div class="example">
+                    <h3>Color Definition Conflicts</h3>
+                    <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 15px; border-radius: 6px; margin: 10px 0;">
+                        <div style="font-weight: 600; margin-bottom: 8px;">🔥 Critical Issues Found:</div>
+                        <ul style="margin: 0; font-size: 14px;">
+                            <li><strong>Connections Periwinkle:</strong> #B3A7FE (colors.ts) vs #b4a8ff (colors.scss)</li>
+                            <li><strong>Spelling Bee Yellow:</strong> Two different values across files</li>
+                            <li><strong>30+ Gray variations:</strong> Overlapping similar colors</li>
+                            <li><strong>Naming inconsistency:</strong> Some quoted, some not</li>
+                        </ul>
+                    </div>
+                    <div class="file-path">
+                        Sources: src/shared/scss-helpers/colors.scss vs src/games/shared/colors/colors.ts
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <div class="section-header-with-filter">
+                <h2>📏 Spacing System</h2>
+                <div class="filter-container">
+                    <span class="filter-label">Filter by game:</span>
+                    <select class="filter-dropdown" onchange="filterContent('spacing', this.value)">
+                        <option value="all">All Games</option>
+                        <option value="wordle">Wordle</option>
+                        <option value="connections">Connections</option>
+                        <option value="spelling-bee">Spelling Bee</option>
+                        <option value="crosswords">Crosswords</option>
+                        <option value="letter-boxed">Letter Boxed</option>
+                        <option value="tiles">Tiles</option>
+                        <option value="sudoku">Sudoku</option>
+                        <option value="strands">Strands</option>
+                        <option value="shared">Shared Components</option>
+                    </select>
+                </div>
+            </div>
+            <div class="examples-grid">
+                <div class="example">
+                    <h3>Design Token Spacing (Good)</h3>
+                    <div class="spacing-example">
+                        <div class="spacing-label">--spacing-1 (8px)</div>
+                        <div class="spacing-demo" style="padding: 8px;">0.5em spacing</div>
+                    </div>
+                    <div class="spacing-example">
+                        <div class="spacing-label">--spacing-2 (16px)</div>
+                        <div class="spacing-demo" style="padding: 16px;">1em spacing</div>
+                    </div>
+                    <div class="spacing-example">
+                        <div class="spacing-label">--spacing-4 (32px)</div>
+                        <div class="spacing-demo" style="padding: 32px;">2em spacing</div>
+                    </div>
+                    <div class="code">Uses design tokens consistently</div>
+                    <div class="file-path">src/shared/scss-helpers/spacing.scss</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Hardcoded Spacing (Bad)</h3>
+                    <div class="spacing-example">
+                        <div class="spacing-label">15px (hardcoded)</div>
+                        <div class="spacing-demo" style="padding: 15px;">Modal margins</div>
+                    </div>
+                    <div class="spacing-example">
+                        <div class="spacing-label">24px (hardcoded)</div>
+                        <div class="spacing-demo" style="padding: 24px;">Modal padding</div>
+                    </div>
+                    <div class="spacing-example">
+                        <div class="spacing-label">50px (hardcoded)</div>
+                        <div class="spacing-demo" style="padding: 50px;">Large padding</div>
+                    </div>
+                    <div class="code">Should use design tokens instead</div>
+                    <div class="file-path">Various component files</div>
+                </div>
+                
+                <div class="example">
+                    <h3>Inconsistent Patterns</h3>
+                    <div style="background: #f8f9fa; padding: 15px; border-radius: 6px; margin: 10px 0;">
+                        <div style="font-weight: 600; margin-bottom: 10px;">Common Issues:</div>
+                        <div style="font-size: 14px; line-height: 1.6;">
+                            <div>• <code>padding: 16px;</code> instead of <code>var(--spacing-2)</code></div>
+                            <div>• <code>margin: 24px;</code> instead of design tokens</div>
+                            <div>• <code>gap: 10px;</code> random values</div>
+                            <div>• Mixed units: px, em, rem, %</div>
+                        </div>
+                    </div>
+                    <div style="background: #fff3cd; border: 1px solid #ffeaa7; padding: 10px; border-radius: 4px; margin-top: 15px;">
+                        <strong>📊 Impact:</strong> Many files disable <code>stylelint-playbook-spacing-rules</code> to bypass standardization
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="inconsistency-highlight">
+            <h3>🚨 Platform-Wide Critical Issues</h3>
+            <div style="background: rgba(220, 53, 69, 0.1); padding: 20px; border-radius: 8px; margin: 20px 0;">
+                <p style="margin: 0; font-size: 16px; font-weight: 600; color: #721c24;">
+                    These inconsistencies span the entire NYT Games platform, affecting user experience across 
+                    Crosswords, Spelling Bee, Wordle, Letter Boxed, Tiles, Sudoku, Statistics, Leaderboards, and Archive.
+                </p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px; margin-top: 20px;">
+                <div>
+                    <h4 style="margin: 0 0 10px 0; color: #d32f2f;">🔘 Border Radius</h4>
+                    <ul style="margin: 0; font-size: 14px;">
+                        <li><strong>12 different values</strong> across platform buttons</li>
+                        <li><strong>Modal inconsistency</strong> confuses users switching games</li>
+                        <li><strong>No design system</strong> guidance for developers</li>
+                        <li><strong>Brand fragmentation</strong> across game portfolio</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 10px 0; color: #d32f2f;">📝 Typography</h4>
+                    <ul style="margin: 0; font-size: 14px;">
+                        <li><strong>6+ font family</strong> declaration patterns</li>
+                        <li><strong>50+ font sizes</strong> with no systematic scale</li>
+                        <li><strong>Cross-game confusion</strong> from varied text hierarchy</li>
+                        <li><strong>Accessibility issues</strong> from inconsistent sizing</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 10px 0; color: #d32f2f;">🎨 Colors</h4>
+                    <ul style="margin: 0; font-size: 14px;">
+                        <li><strong>Color conflicts</strong> between games (same name, different hex)</li>
+                        <li><strong>30+ gray variations</strong> causing visual inconsistency</li>
+                        <li><strong>Theming problems</strong> across platform features</li>
+                        <li><strong>Brand dilution</strong> from inconsistent game colors</li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 style="margin: 0 0 10px 0; color: #d32f2f;">📏 Spacing</h4>
+                    <ul style="margin: 0; font-size: 14px;">
+                        <li><strong>Hundreds of hardcoded</strong> px values platform-wide</li>
+                        <li><strong>Linting bypassed</strong> in many game directories</li>
+                        <li><strong>Responsive issues</strong> from inconsistent units</li>
+                        <li><strong>Maintenance burden</strong> across 9 products</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="recommendation">
+            <h3>💡 Comprehensive Standardization Roadmap</h3>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 25px;">
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #28a745;">
+                    <h4 style="margin: 0 0 15px 0; color: #155724;">🔘 Border Radius System</h4>
+                    <div style="font-size: 14px; line-height: 1.6;">
+                        <div><code>--radius-none: 0;</code></div>
+                        <div><code>--radius-sm: 4px;</code> - Cards, small components</div>
+                        <div><code>--radius-md: 8px;</code> - Modals, containers</div>
+                        <div><code>--radius-lg: 16px;</code> - Large buttons</div>
+                        <div><code>--radius-xl: 24px;</code> - Prominent buttons</div>
+                        <div><code>--radius-full: 9999px;</code> - Pills, fully rounded</div>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #007bff;">
+                    <h4 style="margin: 0 0 15px 0; color: #004085;">📝 Typography Scale</h4>
+                    <div style="font-size: 14px; line-height: 1.6;">
+                        <div><code>--text-xs: 12px;</code> - Captions, labels</div>
+                        <div><code>--text-sm: 14px;</code> - Small text</div>
+                        <div><code>--text-base: 16px;</code> - Body text</div>
+                        <div><code>--text-lg: 18px;</code> - Large text</div>
+                        <div><code>--text-xl: 20px;</code> - Headings</div>
+                        <div><code>--text-2xl: 24px;</code> - Large headings</div>
+                        <div><code>--text-3xl: 32px;</code> - Display text</div>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #dc3545;">
+                    <h4 style="margin: 0 0 15px 0; color: #721c24;">🎨 Color Consolidation</h4>
+                    <div style="font-size: 14px; line-height: 1.6;">
+                        <div><strong>Single Source:</strong> Consolidate colors.scss & colors.ts</div>
+                        <div><strong>Gray Scale:</strong> Reduce 30+ grays to 8-10 systematic values</div>
+                        <div><strong>Game Colors:</strong> Fix conflicting hex values</div>
+                        <div><strong>Semantic Names:</strong> Use purpose-based naming</div>
+                    </div>
+                </div>
+                
+                <div style="background: #f8f9fa; padding: 20px; border-radius: 8px; border-left: 4px solid #ffc107;">
+                    <h4 style="margin: 0 0 15px 0; color: #856404;">📏 Spacing Enforcement</h4>
+                    <div style="font-size: 14px; line-height: 1.6;">
+                        <div><strong>Enable Linting:</strong> Remove stylelint-disable comments</div>
+                        <div><strong>Token Migration:</strong> Replace hardcoded px values</div>
+                        <div><strong>Consistent Units:</strong> Standardize on rem/em</div>
+                        <div><strong>Design Tokens:</strong> Expand spacing scale</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 30px; border-radius: 12px; margin-top: 30px;">
+                <h4 style="margin: 0 0 20px 0; font-size: 20px;">🚀 Platform-Wide Implementation Strategy</h4>
+                <div style="background: rgba(255,255,255,0.1); padding: 20px; border-radius: 8px; margin-bottom: 25px;">
+                    <p style="margin: 0; font-size: 16px; font-weight: 500;">
+                        <strong>NYT Games Platform Scope:</strong> These inconsistencies affect the entire NYT Games ecosystem, 
+                        impacting millions of users across 9 major game products and their associated features.
+                    </p>
+                </div>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 25px; font-size: 14px;">
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">Phase 1 - Platform Foundation</div>
+                        <div>• Audit all 9 game products</div>
+                        <div>• Consolidate shared design tokens</div>
+                        <div>• Fix critical color/spacing conflicts</div>
+                        <div>• Establish design system governance</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">Phase 2 - Shared Components</div>
+                        <div>• Unify button systems across games</div>
+                        <div>• Standardize modal implementations</div>
+                        <div>• Create platform typography scale</div>
+                        <div>• Consolidate navigation patterns</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">Phase 3 - Game-by-Game Migration</div>
+                        <div>• Migrate Crosswords (highest traffic)</div>
+                        <div>• Update Wordle & Spelling Bee</div>
+                        <div>• Standardize remaining games</div>
+                        <div>• Enable platform-wide linting</div>
+                    </div>
+                    <div>
+                        <div style="font-weight: 600; margin-bottom: 12px; font-size: 16px;">Phase 4 - Platform Maintenance</div>
+                        <div>• Cross-game design system testing</div>
+                        <div>• Platform documentation</div>
+                        <div>• Team training & governance</div>
+                        <div>• Continuous monitoring</div>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.15); padding: 20px; border-radius: 8px; margin-top: 25px;">
+                    <h5 style="margin: 0 0 10px 0; font-size: 16px;">💡 Strategic Recommendation</h5>
+                    <p style="margin: 0; font-size: 14px; line-height: 1.5;">
+                        Given the platform scope, consider establishing a <strong>Games Design System Team</strong> to own 
+                        standardization across all products, ensuring consistent user experience and reducing 
+                        development overhead for the entire NYT Games portfolio.
+                    </p>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666;">
+            <p>NYT Games Web UI Audit • games-phoenix repository</p>
+        </div>
+    </div>
+    
+    <script>
+        // Typography examples from different games
+        const typographyExamples = [
+            {
+                '50px': { text: 'Wordle', context: 'Welcome screen titles', file: 'src/games/wordle/js/components/Welcome/Welcome.module.scss#L67' },
+                '44px': { text: 'Congratulations!', context: 'Game completion', file: 'src/games/crossword/components/Modals/CongratsModal/DefaultCongrats.tsx#L419' },
+                '38px': { text: 'Statistics', context: 'Modal titles', file: 'src/games/connections/components/Modals/Stats.tsx#L176' },
+                '36px': { text: 'Your Words', context: 'Spelling Bee modals', file: 'src/games/spelling-bee/js/modals/stats/ModalStats.tsx#L156' },
+                '32px': { text: "Play Today's Puzzle", context: 'Hub subtitles', file: 'src/games/wordle/js/components/Welcome/Welcome.module.scss#L88' },
+                '28px': { text: 'Keep your streak alive!', context: 'Hub components', file: 'src/games/wordle/js/components/Welcome/Welcome.module.scss#L78' },
+                '24px': { text: 'Download the App', context: 'Banner components', file: 'src/games/shared/Banner/ConversionBurgerCTA.module.scss#L76' },
+                '20px': { text: 'Share your results with friends and family.', context: 'Modal content', file: 'src/games/spelling-bee/scss/modals.scss#L597' },
+                '18px': { text: 'Guess the WORDLE in 6 tries.', context: 'Instructions', file: 'src/games/spelling-bee-hub/js/PastPuzzlesSections.module.scss#L126' },
+                '16px': { text: 'Each guess must be a valid 5-letter word.', context: 'Body text', file: 'src/games/connections/components/ActionButton/ActionButton.module.scss#L6' },
+                '14px': { text: 'Submit', context: 'Button text', file: 'src/shared/foundation-game/modals.scss#L297' },
+                '12px': { text: 'PLAYED', context: 'Stats labels', file: 'src/games/sudoku/index.scss#L102' },
+                '10px': { text: '© 2024 The New York Times', context: 'Fine print', file: 'src/games/spelling-bee-hub/js/components/PastPuzzleCard.module.scss#L135' }
+            },
+            {
+                '50px': { text: 'Connections', context: 'Game titles', file: 'src/games/connections/components/Welcome/Welcome.module.scss#L45' },
+                '44px': { text: 'Well done!', context: 'Success messages', file: 'src/games/strands/components/Modals/Congrats.tsx#L199' },
+                '38px': { text: 'Settings', context: 'Modal headers', file: 'src/shared/foundation-game/modals.scss#L91' },
+                '36px': { text: 'How to Play', context: 'Help modals', file: 'src/games/connections/components/Modals/HowToPlay.tsx#L86' },
+                '32px': { text: 'Continue Playing', context: 'CTA buttons', file: 'src/games/shared/NextGameButton/nextGameButtonContent.ts#L24' },
+                '28px': { text: 'Your best time today', context: 'Achievement text', file: 'src/games/spelling-bee-hub/js/components/HeroCard.module.scss#L62' },
+                '24px': { text: 'Play More Games', context: 'Navigation', file: 'src/games/shared/Banner/ConversionBurgerCTA.module.scss#L76' },
+                '20px': { text: 'Find groups of four items that share something in common.', context: 'Game descriptions', file: 'src/games/connections/components/Modals/HowToPlay.tsx#L89' },
+                '18px': { text: 'Create words using letters around the square.', context: 'Game rules', file: 'src/games/letter-boxed/js/modals/HowToPlay.tsx#L45' },
+                '16px': { text: 'Tap letters to create words.', context: 'Instructions', file: 'src/games/spelling-bee/js/modals/help/ModalHelp.tsx#L78' },
+                '14px': { text: 'Shuffle', context: 'Action buttons', file: 'src/games/connections/components/ActionButton/ActionButton.tsx#L45' },
+                '12px': { text: 'WIN %', context: 'Data labels', file: 'src/games/wordle/js/components/Stats/molecules/StatBar.module.scss#L34' },
+                '10px': { text: 'Edited by Will Shortz', context: 'Attribution', file: 'src/games/crossword/components/MetaData/MetaData.tsx#L67' }
+            },
+            {
+                '50px': { text: 'Spelling Bee', context: 'Game branding', file: 'src/games/spelling-bee/scss/modals.scss#L704' },
+                '44px': { text: 'Perfect!', context: 'Achievement messages', file: 'src/games/tiles/js/modals/Congrats.tsx#L89' },
+                '38px': { text: 'Help', context: 'Modal navigation', file: 'src/games/strands/components/Modals/Help.tsx#L45' },
+                '36px': { text: 'Yesterday', context: 'Date sections', file: 'src/games/spelling-bee/scss/modals.scss#L629' },
+                '32px': { text: 'Play the Archive', context: 'Archive links', file: 'src/games/shared/NextGameButton/nextGameButtonContent.ts#L34' },
+                '28px': { text: 'Ready for a challenge?', context: 'Motivational text', file: 'src/games/sudoku/components/Welcome/Welcome.tsx#L78' },
+                '24px': { text: 'Get the App', context: 'Download prompts', file: 'src/shared/apps/index.scss#L45' },
+                '20px': { text: 'Track your progress and compete with friends.', context: 'Feature descriptions', file: 'src/shared/leaderboard/Onboarding/Onboarding.scss#L89' },
+                '18px': { text: 'Select four items and tap Submit.', context: 'Step instructions', file: 'src/games/connections/components/Modals/HowToPlay.tsx#L94' },
+                '16px': { text: 'Words must contain the center letter.', context: 'Game constraints', file: 'src/games/spelling-bee/js/modals/help/ModalHelp.tsx#L89' },
+                '14px': { text: 'Deselect All', context: 'Secondary actions', file: 'src/games/connections/components/ActionButton/ActionButton.tsx#L67' },
+                '12px': { text: 'CURRENT STREAK', context: 'Performance metrics', file: 'src/games/wordle/js/components/Stats/molecules/StatBar.module.scss#L45' },
+                '10px': { text: 'Data may be delayed', context: 'Disclaimers', file: 'src/shared/stats/index.scss#L123' }
+            }
+        ];
+        
+        let currentExampleSet = 0;
+        
+        // Filter functionality
+        function filterContent(section, game) {
+            const sectionElement = document.querySelector(`[data-section="${section}"]`) || 
+                                 document.querySelector(`h2:contains("${section}")`).closest('.section');
+            
+            if (!sectionElement) return;
+            
+            const examples = sectionElement.querySelectorAll('.example');
+            
+            examples.forEach(example => {
+                const gameAttr = example.getAttribute('data-game');
+                if (game === 'all' || gameAttr === game || gameAttr === 'shared') {
+                    example.style.display = 'block';
+                } else {
+                    example.style.display = 'none';
+                }
+            });
+            
+            // Update section title to show filtered game
+            const sectionTitle = sectionElement.querySelector('h2');
+            const originalTitle = sectionTitle.textContent;
+            const baseTitleMap = {
+                'buttons': '🔘 Button Components',
+                'modals': '🔲 Modal Components', 
+                'components': '🔹 Small Components',
+                'typography': '📝 Typography System',
+                'colors': '🎨 Color System',
+                'spacing': '📏 Spacing System'
+            };
+            
+            if (game === 'all') {
+                sectionTitle.textContent = baseTitleMap[section] || originalTitle;
+            } else {
+                const gameNames = {
+                    'wordle': 'Wordle',
+                    'connections': 'Connections', 
+                    'spelling-bee': 'Spelling Bee',
+                    'crosswords': 'Crosswords',
+                    'letter-boxed': 'Letter Boxed',
+                    'tiles': 'Tiles',
+                    'sudoku': 'Sudoku',
+                    'strands': 'Strands',
+                    'shared': 'Shared Components'
+                };
+                sectionTitle.textContent = `${baseTitleMap[section]} - ${gameNames[game]}`;
+            }
+        }
+        
+        function randomizeTypography() {
+            currentExampleSet = (currentExampleSet + 1) % typographyExamples.length;
+            const examples = typographyExamples[currentExampleSet];
+            
+            // Update each type scale item
+            const typeScaleItems = document.querySelectorAll('.type-scale-item');
+            const sizes = ['50px', '44px', '38px', '36px', '32px', '28px', '24px', '20px', '18px', '16px', '14px', '12px', '10px'];
+            
+            typeScaleItems.forEach((item, index) => {
+                const size = sizes[index];
+                const example = examples[size];
+                
+                if (example) {
+                    const textElement = item.querySelector('.type-sample');
+                    const codeElement = item.querySelector('.code');
+                    const linkElement = item.querySelector('.source-link');
+                    
+                    if (textElement) textElement.textContent = example.text;
+                    if (codeElement) codeElement.innerHTML = `/* ${example.context} */ <a href="https://github.com/nytimes/games-phoenix/blob/main/${example.file}" class="source-link" target="_blank">${example.file.split('/').pop()}</a>`;
+                }
+            });
+            
+            // Update the button text to show progress
+            const button = event.target;
+            button.textContent = `🎲 Example Set ${currentExampleSet + 1}/${typographyExamples.length}`;
+            
+            // Reset button text after 2 seconds
+            setTimeout(() => {
+                button.textContent = '🎲 Randomize Typography Examples';
+            }, 2000);
+        }
+    </script>
+</body>
+</html>

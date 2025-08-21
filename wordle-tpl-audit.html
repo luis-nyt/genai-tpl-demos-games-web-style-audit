@@ -1,0 +1,623 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle TPL Design System Audit</title>
+    
+    <style>
+        /* Load NYT Fonts */
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-400.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-600.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./src/public/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/franklin/franklin-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnakcondensed';
+            src: url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2') format('woff2'),
+                 url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+    </style>
+    
+    <style>
+        body {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            background: white;
+            padding: 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+        }
+        
+        h1 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 40px;
+            font-size: 2.5em;
+            font-family: 'nyt-karnakcondensed', Georgia, serif;
+        }
+        
+        .game-header {
+            background: linear-gradient(135deg, #6aaa64 0%, #538d4e 100%);
+            color: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 40px;
+            text-align: center;
+        }
+        
+        .game-title {
+            font-size: 36px;
+            font-weight: 700;
+            margin: 0 0 10px 0;
+            font-family: 'nyt-karnakcondensed', Georgia, serif;
+        }
+        
+        .game-subtitle {
+            font-size: 16px;
+            opacity: 0.9;
+            margin: 0;
+        }
+        
+        .section {
+            margin-bottom: 50px;
+        }
+        
+        .section h2 {
+            color: #444;
+            border-bottom: 3px solid #6aaa64;
+            padding-bottom: 10px;
+            margin-bottom: 30px;
+            font-size: 24px;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tpl-column {
+            background: linear-gradient(135deg, #e8f5e8 0%, #d4edda 100%);
+            border: 2px solid #28a745;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .custom-column {
+            background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
+            border: 2px solid #ffc107;
+            border-radius: 12px;
+            padding: 25px;
+        }
+        
+        .column-header {
+            font-size: 18px;
+            font-weight: 700;
+            margin: 0 0 20px 0;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .tpl-badge {
+            background: #28a745;
+            color: white;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .custom-badge {
+            background: #ffc107;
+            color: #000;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .component-example {
+            margin: 20px 0;
+            padding: 20px;
+            background: white;
+            border-radius: 8px;
+            border: 1px solid rgba(0,0,0,0.1);
+        }
+        
+        .component-title {
+            font-size: 16px;
+            font-weight: 600;
+            margin: 0 0 15px 0;
+            color: #333;
+        }
+        
+        .component-demo {
+            margin: 15px 0;
+        }
+        
+        .code-snippet {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 6px;
+            padding: 12px;
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #495057;
+            margin: 10px 0;
+            overflow-x: auto;
+        }
+        
+        .source-link {
+            font-size: 11px;
+            color: #007acc;
+            text-decoration: none;
+            margin-left: 10px;
+        }
+        
+        .source-link:hover {
+            text-decoration: underline;
+        }
+        
+        /* Wordle-specific styling */
+        .wordle-tile {
+            width: 50px;
+            height: 50px;
+            border: 2px solid #d3d6da;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: 700;
+            margin: 2px;
+            text-transform: uppercase;
+            background: white;
+        }
+        
+        .wordle-tile.correct {
+            background: #6aaa64;
+            border-color: #6aaa64;
+            color: white;
+        }
+        
+        .wordle-tile.present {
+            background: #c9b458;
+            border-color: #c9b458;
+            color: white;
+        }
+        
+        .wordle-tile.absent {
+            background: #787c7e;
+            border-color: #787c7e;
+            color: white;
+        }
+        
+        .wordle-button {
+            background: #000;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 4px;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'nyt-franklin', Arial, sans-serif;
+        }
+        
+        .wordle-modal {
+            background: white;
+            border: 1px solid #d3d6da;
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
+            max-width: 400px;
+            margin: 20px auto;
+        }
+        
+        .wordle-modal h3 {
+            font-size: 24px;
+            font-weight: 700;
+            margin: 0 0 15px 0;
+            text-align: center;
+        }
+        
+        .wordle-stats {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 15px;
+            margin: 20px 0;
+        }
+        
+        .stat-item {
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000;
+        }
+        
+        .stat-label {
+            font-size: 12px;
+            color: #787c7e;
+            text-transform: uppercase;
+        }
+        
+        .analysis-note {
+            background: #e3f2fd;
+            border-left: 4px solid #2196f3;
+            padding: 15px;
+            margin: 20px 0;
+            border-radius: 4px;
+        }
+        
+        .note-title {
+            font-weight: 600;
+            margin: 0 0 8px 0;
+            color: #1976d2;
+        }
+        
+        .note-text {
+            margin: 0;
+            font-size: 14px;
+            color: #424242;
+        }
+        
+        .impact-high { border-left-color: #dc3545; background: #f8d7da; }
+        .impact-high .note-title { color: #721c24; }
+        
+        .impact-medium { border-left-color: #ffc107; background: #fff3cd; }
+        .impact-medium .note-title { color: #856404; }
+        
+        .impact-low { border-left-color: #28a745; background: #d4edda; }
+        .impact-low .note-title { color: #155724; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Wordle TPL Design System Audit</h1>
+        
+        <div class="game-header">
+            <div class="game-title">Wordle</div>
+            <div class="game-subtitle">TPL Design System Usage Analysis • NYT Games Platform</div>
+        </div>
+        
+        <div class="section">
+            <h2>📝 Typography System: Wordle vs TPL Standards</h2>
+            
+            <div class="comparison-grid">
+                <div class="tpl-column">
+                    <div class="column-header">
+                        <span>✅ TPL Typography Standards</span>
+                        <span class="tpl-badge">TPL</span>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Primary Font Family</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'nyt-franklin'; font-size: 24px; font-weight: 600;">NYT Franklin</div>
+                            <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 400; color: #666; margin-top: 5px;">Standard NYT Games font</div>
+                        </div>
+                        <div class="code-snippet">
+// TPL Standard: NYT Franklin
+font-family: 'nyt-franklin', Arial, sans-serif;
+// Consistent across all NYT products</div>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Headline Typography</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
+                            <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 500; color: #666;">Consistent with TPL hierarchy</div>
+                        </div>
+                        <div class="code-snippet">
+// TPL Headline Pattern
+font-family: 'nyt-karnakcondensed';
+font-size: 36px; // Base size, responsive scaling
+font-weight: 700;</div>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Body Text Standards</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 500; line-height: 1.5;">
+                                Guess the WORDLE in 6 tries. Each guess must be a valid 5-letter word.
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+// TPL Body Text
+font-family: 'nyt-franklin';
+font-size: 16px;
+font-weight: 500;
+line-height: 1.5;</div>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Button Text Standards</div>
+                        <div class="component-demo">
+                            <button style="background: #000; color: white; border: none; padding: 12px 24px; border-radius: 6px; font-family: 'nyt-franklin'; font-size: 14px; font-weight: 600; cursor: pointer;">
+                                Play Today
+                            </button>
+                        </div>
+                        <div class="code-snippet">
+// TPL Button Typography
+font-family: 'nyt-franklin';
+font-size: 14px;
+font-weight: 600;</div>
+                    </div>
+                </div>
+                
+                <div class="custom-column">
+                    <div class="column-header">
+                        <span>⚠️ Wordle Current Implementation</span>
+                        <span class="custom-badge">CUSTOM</span>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Primary Font Family</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 24px; font-weight: 600;">Clear Sans / Helvetica</div>
+                            <div style="font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 16px; font-weight: 400; color: #666; margin-top: 5px;">Inconsistent with NYT Games</div>
+                        </div>
+                        <div class="code-snippet">
+// Wordle Custom: Clear Sans fallback
+:root {
+  font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+}</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/index.scss#L79" class="source-link" target="_blank">index.scss:79</a>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Headline Typography</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 50px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
+                            <div style="font-family: 'nyt-karnak'; font-size: 38px; font-weight: 400; color: #666;">Responsive but inconsistent sizing</div>
+                        </div>
+                        <div class="code-snippet">
+// Wordle Custom: Multiple responsive sizes
+.title {
+  font-size: 36px; // mobile
+  @media (min-width: 760px) { font-size: 44px; }
+  @media (min-width: 992px) { font-size: 50px; }
+}</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Welcome/Welcome.module.scss#L52" class="source-link" target="_blank">Welcome.module.scss:52</a>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Game Tiles Typography</div>
+                        <div class="component-demo">
+                            <div style="display: flex; gap: 5px; justify-content: center;">
+                                <div class="wordle-tile" style="font-family: 'nyt-franklin'; font-size: 32px;">W</div>
+                                <div class="wordle-tile correct" style="font-family: 'nyt-franklin'; font-size: 32px;">O</div>
+                                <div class="wordle-tile present" style="font-family: 'nyt-franklin'; font-size: 32px;">R</div>
+                                <div class="wordle-tile absent" style="font-family: 'nyt-franklin'; font-size: 32px;">L</div>
+                                <div class="wordle-tile" style="font-family: 'nyt-franklin'; font-size: 32px;">E</div>
+                            </div>
+                        </div>
+                        <div class="code-snippet">
+// Wordle: Uses nyt-franklin for tiles (good!)
+.tile {
+  font-family: 'nyt-franklin';
+  font-size: 2rem; // 32px
+  font-weight: bold;
+}</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Tile/Tile.module.scss#L2" class="source-link" target="_blank">Tile.module.scss:2</a>
+                    </div>
+                    
+                    <div class="component-example">
+                        <div class="component-title">Mixed Font Usage</div>
+                        <div class="component-demo">
+                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Hi Wordler</div>
+                            <div style="font-family: 'nyt-karnak'; font-size: 24px; font-weight: 400; margin-bottom: 8px;">Welcome Back</div>
+                            <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 600;">Continue Playing</div>
+                        </div>
+                        <div class="code-snippet">
+// Wordle: Mixes different NYT fonts
+// Titles: 'nyt-karnakcondensed'
+// Subtitles: 'nyt-karnak' 
+// UI: 'nyt-franklin'</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/sharedStyles.scss#L58" class="source-link" target="_blank">sharedStyles.scss:58</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📊 Typography Alignment Analysis</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px;">
+                <div class="analysis-note impact-high">
+                    <div class="note-title">🔴 Primary Font Inconsistency</div>
+                    <div class="note-text">
+                        <strong>Clear Sans vs NYT Franklin:</strong> Wordle's root font family uses 'Clear Sans' which falls back to Helvetica/Arial, while TPL standards call for 'nyt-franklin' as the primary interface font.
+                        <br><br>
+                        <strong>Cross-Platform Inconsistency:</strong> Users see different fonts (Helvetica on Mac, Arial on Windows) instead of consistent NYT branding.
+                    </div>
+                </div>
+                
+                <div class="analysis-note impact-medium">
+                    <div class="note-title">🟡 Mixed Font Implementation</div>
+                    <div class="note-text">
+                        <strong>Partial TPL Compliance:</strong> Game tiles correctly use 'nyt-franklin', but overall interface uses non-TPL fonts.
+                        <br><br>
+                        <strong>Inconsistent Hierarchy:</strong> Mixes karnakcondensed, karnak, and franklin without clear TPL-aligned hierarchy.
+                    </div>
+                </div>
+                
+                <div class="analysis-note impact-low">
+                    <div class="note-title">🟢 Some TPL Alignment</div>
+                    <div class="note-text">
+                        <strong>NYT Font Usage:</strong> Uses nyt-karnakcondensed for headlines and nyt-franklin for game tiles, showing partial TPL awareness.
+                        <br><br>
+                        <strong>Foundation Integration:</strong> Imports shared foundation fonts, indicating infrastructure for TPL alignment exists.
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>🔧 Specific Implementation Examples</h2>
+            
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: #495057; margin-bottom: 25px;">Button Components</h3>
+                
+                <div class="comparison-grid">
+                    <div style="padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                        <h4 style="margin: 0 0 15px 0; color: #28a745;">✅ TPL Button (Available)</h4>
+                        <button style="background: #000; color: white; border: none; padding: 12px 32px; border-radius: 6px; font-size: 16px; font-weight: 600; cursor: pointer; font-family: 'nyt-franklin';">
+                            Play Today
+                        </button>
+                        <div class="code-snippet">
+// TPL Button component in /tpl/ directory
+import { Button } from '../../../tpl/cjs/Button'
+&lt;Button variant="primary"&gt;Play Today&lt;/Button&gt;</div>
+                    </div>
+                    
+                    <div style="padding: 20px; background: #fff3cd; border-radius: 8px;">
+                        <h4 style="margin: 0 0 15px 0; color: #856404;">⚠️ Current Custom Implementation</h4>
+                        <button class="wordle-button">
+                            Play Today
+                        </button>
+                        <div class="code-snippet">
+// Custom button styling in Wordle
+.button {
+  background: #000;
+  color: white;
+  border-radius: 4px;
+  padding: 12px 24px;
+}</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Welcome/Welcome.module.scss#L179" class="source-link" target="_blank">Welcome.module.scss:179</a>
+                    </div>
+                </div>
+            </div>
+            
+            <div style="margin-bottom: 40px;">
+                <h3 style="color: #495057; margin-bottom: 25px;">Typography Scale</h3>
+                
+                <div class="comparison-grid">
+                    <div style="padding: 20px; background: #f8f9fa; border-radius: 8px;">
+                        <h4 style="margin: 0 0 15px 0; color: #28a745;">✅ TPL Typography (Available)</h4>
+                        <div style="font-family: 'nyt-franklin'; font-size: 36px; font-weight: 700; margin-bottom: 10px;">Wordle</div>
+                        <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 500;">A daily word game</div>
+                        <div class="code-snippet">
+// TPL Typography component in /tpl/ directory
+import { Typography } from '../../../tpl/cjs/Typography'
+&lt;Typography variant="headline1"&gt;Wordle&lt;/Typography&gt;</div>
+                    </div>
+                    
+                    <div style="padding: 20px; background: #fff3cd; border-radius: 8px;">
+                        <h4 style="margin: 0 0 15px 0; color: #856404;">⚠️ Current Custom Implementation</h4>
+                        <div style="font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; font-size: 50px; font-weight: 700; margin-bottom: 10px;">Wordle</div>
+                        <div style="font-family: 'nyt-karnak'; font-size: 28px; font-weight: 400;">A daily word game</div>
+                        <div class="code-snippet">
+// Custom font declarations
+font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+font-size: 50px;
+font-weight: bold;</div>
+                        <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/index.scss#L79" class="source-link" target="_blank">index.scss:79</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="section">
+            <h2>📋 TPL Alignment Recommendations</h2>
+            
+            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 12px; padding: 30px; margin-bottom: 30px;">
+                <h3 style="margin: 0 0 15px 0; color: #856404;">⚠️ TPL Integration Status</h3>
+                <p style="margin: 0; font-size: 16px; color: #856404; font-weight: 500;">
+                    TPL design system is not currently available in the games-phoenix repository. 
+                    Analysis based on NYT typography standards and best practices.
+                </p>
+            </div>
+            
+            <div style="background: #e8f5e8; border: 2px solid #28a745; border-radius: 12px; padding: 30px;">
+                <h3 style="margin: 0 0 20px 0; color: #155724;">🎯 Typography Standardization Priorities</h3>
+                
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px;">
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #155724;">Phase 1 - Font Consistency</h4>
+                        <ul style="margin: 0; font-size: 14px; line-height: 1.6;">
+                            <li>Replace Clear Sans with nyt-franklin globally</li>
+                            <li>Ensure consistent font loading across platforms</li>
+                            <li>Standardize font weight usage</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #155724;">Phase 2 - Typography Scale</h4>
+                        <ul style="margin: 0; font-size: 14px; line-height: 1.6;">
+                            <li>Consolidate responsive font sizes</li>
+                            <li>Create systematic scale (16px, 20px, 24px, 32px, 44px)</li>
+                            <li>Align with NYT Games platform standards</li>
+                        </ul>
+                    </div>
+                    
+                    <div>
+                        <h4 style="margin: 0 0 10px 0; color: #155724;">Phase 3 - Hierarchy Alignment</h4>
+                        <ul style="margin: 0; font-size: 14px; line-height: 1.6;">
+                            <li>Establish clear font family roles</li>
+                            <li>Align headline/body text patterns</li>
+                            <li>Maintain game-specific tile styling</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div style="background: rgba(255,255,255,0.7); padding: 20px; border-radius: 8px; margin-top: 25px;">
+                    <h4 style="margin: 0 0 10px 0; color: #155724;">💡 Key Findings</h4>
+                    <ul style="margin: 0; font-size: 14px; line-height: 1.6;">
+                        <li><strong>Mixed Implementation:</strong> Wordle uses NYT fonts for some elements but Clear Sans for root styling</li>
+                        <li><strong>Platform Inconsistency:</strong> Different font rendering across devices due to Clear Sans unavailability</li>
+                        <li><strong>Partial Alignment:</strong> Game tiles and headlines do use NYT fonts correctly</li>
+                        <li><strong>Integration Opportunity:</strong> Foundation exists for full NYT typography alignment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #eee; text-align: center; color: #666;">
+            <p>Wordle TPL Integration Audit • NYT Games Platform</p>
+        </div>
+    </div>
+</body>
+</html>
