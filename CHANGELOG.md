@@ -9,6 +9,8 @@
 - updated fonts/fonts.css to use relative paths (./fontname/) instead of absolute paths (/fonts/fontname/) for local development compatibility
 - added missing nyt-karnak-cond font family definitions to fonts.css (weights 400 and 700)
 - removed non-existent franklin-normal-400 font-face declaration that was causing loading errors
+- updated fonts.css to use absolute paths (/fonts/fontname/) for proper Vercel deployment compatibility
+- successfully pushed font loading fixes to GitHub and triggered Vercel redeployment
 
 ## 2024-12-20
 
