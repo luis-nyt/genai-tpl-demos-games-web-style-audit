@@ -1,10 +1,10 @@
-/* NYT Font Definitions - Corrected for Available Files */
+/* NYT Font Definitions - Fixed Absolute Paths for Vercel */
 
 /* Cheltenham Family */
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-400.woff2') format('woff2'),
-       url('./cheltenham/cheltenham-normal-400.woff') format('woff');
+  src: url('/fonts/cheltenham/cheltenham-normal-400.woff2') format('woff2'),
+       url('/fonts/cheltenham/cheltenham-normal-400.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -12,8 +12,8 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-700.woff2') format('woff2'),
-       url('./cheltenham/cheltenham-normal-700.woff') format('woff');
+  src: url('/fonts/cheltenham/cheltenham-normal-700.woff2') format('woff2'),
+       url('/fonts/cheltenham/cheltenham-normal-700.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -21,8 +21,8 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-400.woff2') format('woff2'),
-       url('./cheltenham/cheltenham-italic-400.woff') format('woff');
+  src: url('/fonts/cheltenham/cheltenham-italic-400.woff2') format('woff2'),
+       url('/fonts/cheltenham/cheltenham-italic-400.woff') format('woff');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -31,8 +31,8 @@
 /* Franklin Family - Using Available Weights */
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-300.woff2') format('woff2'),
-       url('./franklin/franklin-normal-300.woff') format('woff');
+  src: url('/fonts/franklin/franklin-normal-300.woff2') format('woff2'),
+       url('/fonts/franklin/franklin-normal-300.woff') format('woff');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -40,8 +40,8 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-500.woff2') format('woff2'),
-       url('./franklin/franklin-normal-500.woff') format('woff');
+  src: url('/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+       url('/fonts/franklin/franklin-normal-500.woff') format('woff');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -49,8 +49,8 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-600.woff2') format('woff2'),
-       url('./franklin/franklin-normal-600.woff') format('woff');
+  src: url('/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+       url('/fonts/franklin/franklin-normal-600.woff') format('woff');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -58,8 +58,8 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-700.woff2') format('woff2'),
-       url('./franklin/franklin-normal-700.woff') format('woff');
+  src: url('/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+       url('/fonts/franklin/franklin-normal-700.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -67,8 +67,8 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-800.woff2') format('woff2'),
-       url('./franklin/franklin-normal-800.woff') format('woff');
+  src: url('/fonts/franklin/franklin-normal-800.woff2') format('woff2'),
+       url('/fonts/franklin/franklin-normal-800.woff') format('woff');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -77,8 +77,8 @@
 /* Karnak Family */
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-400.woff2') format('woff2'),
-       url('./karnak/karnak-normal-400.woff') format('woff');
+  src: url('/fonts/karnak/karnak-normal-400.woff2') format('woff2'),
+       url('/fonts/karnak/karnak-normal-400.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -86,8 +86,8 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-700.woff2') format('woff2'),
-       url('./karnak/karnak-normal-700.woff') format('woff');
+  src: url('/fonts/karnak/karnak-normal-700.woff2') format('woff2'),
+       url('/fonts/karnak/karnak-normal-700.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -96,7 +96,7 @@
 /* IBM Plex Family */
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -104,7 +104,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -113,8 +113,8 @@
 /* Imperial Family */
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-normal-400.woff2') format('woff2'),
-       url('./imperial/imperial-normal-400.woff') format('woff');
+  src: url('/fonts/imperial/imperial-normal-400.woff2') format('woff2'),
+       url('/fonts/imperial/imperial-normal-400.woff') format('woff');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -122,8 +122,8 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-normal-700.woff2') format('woff2'),
-       url('./imperial/imperial-normal-700.woff') format('woff');
+  src: url('/fonts/imperial/imperial-normal-700.woff2') format('woff2'),
+       url('/fonts/imperial/imperial-normal-700.woff') format('woff');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
