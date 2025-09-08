@@ -2,6 +2,13 @@
 
 ## 2024-12-20
 
+### UI Simplification
+- removed all "Filter by game" dropdown functionality from border-radius-audit.html to simplify interface
+- removed card/shadow treatments throughout the page for cleaner, flatter design
+- simplified container styling by removing background cards and box shadows
+- updated example boxes to use subtle background color instead of raised card appearance
+- removed complex filter JavaScript functionality and section header styling
+
 ### Font Loading Fix
 - fixed font loading issue where @font-face declarations were using incorrect paths (./src/public/fonts/) instead of proper relative paths
 - replaced inline font definitions in border-radius-audit.html, wordle-tpl-audit.html, and typography-comparison.html with correct CSS import

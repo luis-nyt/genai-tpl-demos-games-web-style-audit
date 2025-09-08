@@ -13,17 +13,14 @@
             font-family: 'nyt-franklin', Arial, sans-serif;
             margin: 0;
             padding: 20px;
-            background-color: #f5f5f5;
+            background-color: #fff;
             line-height: 1.6;
         }
         
         .container {
             max-width: 1400px;
             margin: 0 auto;
-            background: white;
             padding: 30px;
-            border-radius: 8px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
         }
         
         h1 {
@@ -52,11 +49,10 @@
         }
         
         .example {
-            background: #fff;
-            border: 1px solid #ddd;
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
             padding: 25px;
             text-align: center;
-            border-radius: 8px;
         }
         
         .example h3 {
@@ -159,7 +155,6 @@
             background-color: white;
             border: 1px solid #e0e0e0;
             margin: 15px auto;
-            box-shadow: 0 4px 23px 0 rgba(0, 0, 0, 0.2);
             position: relative;
             display: flex;
             flex-direction: column;
@@ -420,10 +415,8 @@
         
         .usage-example {
             background: white;
-            border-radius: 8px;
             padding: 20px;
             border: 1px solid #e0e0e0;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
         
         .usage-label {
@@ -435,54 +428,6 @@
             letter-spacing: 0.5px;
         }
         
-        /* FILTER DROPDOWN STYLES */
-        .filter-container {
-            display: flex;
-            align-items: center;
-            gap: 15px;
-            margin-bottom: 30px;
-            padding: 15px;
-            background: #f8f9fa;
-            border-radius: 8px;
-            border: 1px solid #e9ecef;
-        }
-        
-        .filter-label {
-            font-size: 14px;
-            font-weight: 600;
-            color: #495057;
-            white-space: nowrap;
-        }
-        
-        .filter-dropdown {
-            padding: 8px 12px;
-            border: 1px solid #ced4da;
-            border-radius: 4px;
-            background: white;
-            font-size: 14px;
-            color: #495057;
-            cursor: pointer;
-            min-width: 150px;
-        }
-        
-        .filter-dropdown:focus {
-            outline: none;
-            border-color: #007acc;
-            box-shadow: 0 0 0 2px rgba(0, 122, 204, 0.25);
-        }
-        
-        .section-header-with-filter {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            margin-bottom: 20px;
-            flex-wrap: wrap;
-            gap: 15px;
-        }
-        
-        .section-header-with-filter h2 {
-            margin: 0;
-        }
         
         .font-franklin { font-family: 'nyt-franklin', Arial, sans-serif; }
         .font-karnak { font-family: 'nyt-karnak', Georgia, serif; }
@@ -583,28 +528,11 @@
         
         <div style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 25px; border-radius: 12px; margin-bottom: 40px; text-align: center;">
             <h2 style="margin: 0 0 10px 0; font-size: 24px;">Interactive Design System Explorer</h2>
-            <p style="margin: 0; font-size: 14px; opacity: 0.8;">Explore UI patterns across all NYT Games • Filter by game • Compare implementations</p>
+            <p style="margin: 0; font-size: 14px; opacity: 0.8;">Explore UI patterns across all NYT Games • Compare implementations</p>
         </div>
         
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>🔘 Button Components</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('buttons', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>🔘 Button Components</h2>
             <div class="examples-grid">
                 <div class="example" data-game="shared">
                     <h3>Shared Buttons</h3>
@@ -659,24 +587,7 @@
         </div>
         
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>🔲 Modal Components</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('modals', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>🔲 Modal Components</h2>
             <div class="examples-grid">
                 <div class="example">
                     <h3>Wordle Modals</h3>
@@ -741,24 +652,7 @@
         </div>
         
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>🔹 Small Components</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('components', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>🔹 Small Components</h2>
             <div class="examples-grid">
                 <div class="example">
                     <h3>Pips Components</h3>
@@ -842,24 +736,7 @@
         </div>
 
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>📝 Typography System</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('typography', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>📝 Typography System</h2>
             
             <div style="text-align: center; margin: 30px 0 50px 0;">
                 <button onclick="randomizeTypography()" style="background: #fff; color: #333; border: 1px solid #ccc; padding: 10px 20px; border-radius: 6px; font-size: 14px; font-weight: 500; cursor: pointer; transition: all 0.2s ease;">
@@ -1020,24 +897,7 @@
         </div>
         
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>🎨 Color System</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('colors', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>🎨 Color System</h2>
             <div class="examples-grid">
                 <div class="example">
                     <h3>Primary Colors (Consistent)</h3>
@@ -1157,24 +1017,7 @@
         </div>
         
         <div class="section">
-            <div class="section-header-with-filter">
-                <h2>📏 Spacing System</h2>
-                <div class="filter-container">
-                    <span class="filter-label">Filter by game:</span>
-                    <select class="filter-dropdown" onchange="filterContent('spacing', this.value)">
-                        <option value="all">All Games</option>
-                        <option value="wordle">Wordle</option>
-                        <option value="connections">Connections</option>
-                        <option value="spelling-bee">Spelling Bee</option>
-                        <option value="crosswords">Crosswords</option>
-                        <option value="letter-boxed">Letter Boxed</option>
-                        <option value="tiles">Tiles</option>
-                        <option value="sudoku">Sudoku</option>
-                        <option value="strands">Strands</option>
-                        <option value="shared">Shared Components</option>
-                    </select>
-                </div>
-            </div>
+            <h2>📏 Spacing System</h2>
             <div class="examples-grid">
                 <div class="example">
                     <h3>Design Token Spacing (Good)</h3>
@@ -1434,54 +1277,6 @@
         ];
         
         let currentExampleSet = 0;
-        
-        // Filter functionality
-        function filterContent(section, game) {
-            const sectionElement = document.querySelector(`[data-section="${section}"]`) || 
-                                 document.querySelector(`h2:contains("${section}")`).closest('.section');
-            
-            if (!sectionElement) return;
-            
-            const examples = sectionElement.querySelectorAll('.example');
-            
-            examples.forEach(example => {
-                const gameAttr = example.getAttribute('data-game');
-                if (game === 'all' || gameAttr === game || gameAttr === 'shared') {
-                    example.style.display = 'block';
-                } else {
-                    example.style.display = 'none';
-                }
-            });
-            
-            // Update section title to show filtered game
-            const sectionTitle = sectionElement.querySelector('h2');
-            const originalTitle = sectionTitle.textContent;
-            const baseTitleMap = {
-                'buttons': '🔘 Button Components',
-                'modals': '🔲 Modal Components', 
-                'components': '🔹 Small Components',
-                'typography': '📝 Typography System',
-                'colors': '🎨 Color System',
-                'spacing': '📏 Spacing System'
-            };
-            
-            if (game === 'all') {
-                sectionTitle.textContent = baseTitleMap[section] || originalTitle;
-            } else {
-                const gameNames = {
-                    'wordle': 'Wordle',
-                    'connections': 'Connections', 
-                    'spelling-bee': 'Spelling Bee',
-                    'crosswords': 'Crosswords',
-                    'letter-boxed': 'Letter Boxed',
-                    'tiles': 'Tiles',
-                    'sudoku': 'Sudoku',
-                    'strands': 'Strands',
-                    'shared': 'Shared Components'
-                };
-                sectionTitle.textContent = `${baseTitleMap[section]} - ${gameNames[game]}`;
-            }
-        }
         
         function randomizeTypography() {
             currentExampleSet = (currentExampleSet + 1) % typographyExamples.length;
