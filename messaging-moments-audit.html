@@ -3,882 +3,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NYT Games - Messaging Moments Audit</title>
+    <title>NYT Games UI Messaging Catalog</title>
     <style>
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
-            line-height: 1.6;
+            line-height: 1.4;
             color: #333;
-            max-width: 1200px;
+            max-width: 1400px;
             margin: 0 auto;
             padding: 20px;
+            background: #fff;
         }
-        .header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid #000;
-        }
-        .game-section {
-            margin-bottom: 40px;
-            border: 1px solid #ddd;
-            border-radius: 8px;
-            overflow: hidden;
-        }
-        .game-title {
-            background: #000;
-            color: white;
-            padding: 15px 20px;
-            margin: 0;
-            font-size: 1.5em;
-        }
-        .messaging-type {
-            background: #f5f5f5;
-            padding: 10px 20px;
-            border-bottom: 1px solid #ddd;
-            font-weight: bold;
-            color: #666;
-        }
-        .message-item {
-            padding: 15px 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .message-item:last-child {
-            border-bottom: none;
-        }
-        .message-title {
-            font-weight: bold;
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
             color: #000;
-            margin-bottom: 5px;
         }
-        .message-description {
-            color: #666;
-            margin-bottom: 8px;
-        }
-        .file-path {
-            font-family: 'Monaco', 'Consolas', monospace;
-            font-size: 0.85em;
-            color: #888;
-            background: #f9f9f9;
-            padding: 2px 6px;
-            border-radius: 3px;
-        }
-        .stats {
-            background: #f0f8ff;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        .stats-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
-            margin-top: 15px;
-        }
-        .stat-item {
-            text-align: center;
-        }
-        .stat-number {
-            font-size: 2em;
-            font-weight: bold;
-            color: #0066cc;
-        }
-        .stat-label {
-            color: #666;
+        
+        .source {
+            margin-bottom: 40px;
             font-size: 0.9em;
+            color: #666;
         }
-        .toc {
-            background: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-        }
-        .toc ul {
-            list-style: none;
-            padding: 0;
-        }
-        .toc li {
-            margin: 5px 0;
-        }
-        .toc a {
-            text-decoration: none;
+        
+        .source a {
             color: #0066cc;
+            text-decoration: none;
         }
-        .toc a:hover {
+        
+        .source a:hover {
             text-decoration: underline;
         }
-        .implementation-notes {
-            background: #fff3cd;
-            border: 1px solid #ffeaa7;
-            border-radius: 6px;
-            padding: 15px;
-            margin: 15px 0;
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 40px;
+            font-size: 0.9em;
         }
-        .implementation-notes h4 {
-            margin-top: 0;
-            color: #856404;
+        
+        th {
+            background-color: #f8f9fa;
+            padding: 12px 15px;
+            text-align: left;
+            font-weight: 600;
+            border-bottom: 2px solid #dee2e6;
+            color: #495057;
         }
+        
+        td {
+            padding: 12px 15px;
+            border-bottom: 1px solid #dee2e6;
+            vertical-align: top;
+        }
+        
+        tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .message-text {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.85em;
+            background: #f1f3f4;
+            padding: 4px 6px;
+            border-radius: 3px;
+            display: inline-block;
+            max-width: 400px;
+            word-break: break-word;
+        }
+        
+        .source-link {
+            font-family: 'Monaco', 'Consolas', monospace;
+            font-size: 0.8em;
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        .source-link:hover {
+            text-decoration: underline;
+        }
+        
+        .type-tooltip { color: #28a745; font-weight: 600; }
+        .type-dialog { color: #dc3545; font-weight: 600; }
+        .type-toast { color: #ffc107; font-weight: 600; }
+        .type-badge { color: #17a2b8; font-weight: 600; }
+        .type-error { color: #dc3545; font-weight: 600; }
+        .type-success { color: #28a745; font-weight: 600; }
+        .type-loading { color: #6c757d; font-weight: 600; }
     </style>
 </head>
 <body>
-    <div class="header">
-        <h1>NYT Games Phoenix - Messaging Moments Audit</h1>
-        <p>A comprehensive audit of all messaging UI patterns across games: tooltips, dialogs, toasts, sheets, badges, and more</p>
-        <p><em>Generated: December 2024</em></p>
+    <h1>NYT Games UI Messaging Catalog</h1>
+    
+    <div class="source">
+        Source: <a href="https://github.com/nytimes/ios-games" target="_blank">https://github.com/nytimes/ios-games</a>
     </div>
-
-    <div class="stats">
-        <h2>Audit Summary</h2>
-        <div class="stats-grid">
-            <div class="stat-item">
-                <div class="stat-number">10</div>
-                <div class="stat-label">Games Analyzed</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">6</div>
-                <div class="stat-label">Message Types</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">80+</div>
-                <div class="stat-label">Message Components</div>
-            </div>
-            <div class="stat-item">
-                <div class="stat-number">15+</div>
-                <div class="stat-label">Shared Systems</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="toc">
-        <h2>Table of Contents</h2>
-        <ul>
-            <li><a href="#tooltips">Tooltips</a></li>
-            <li><a href="#modals-dialogs">Modals & Dialogs</a></li>
-            <li><a href="#toasts">Toast Notifications</a></li>
-            <li><a href="#badges">Badges & Achievements</a></li>
-            <li><a href="#error-messages">Error Messages</a></li>
-            <li><a href="#success-messages">Success Messages</a></li>
-            <li><a href="#loading-states">Loading States</a></li>
-            <li><a href="#shared-systems">Shared Systems</a></li>
-        </ul>
-    </div>
-
-    <!-- TOOLTIPS SECTION -->
-    <div class="game-section" id="tooltips">
-        <h2 class="game-title">🔍 Tooltips</h2>
-        
-        <div class="messaging-type">Shared Tooltip System</div>
-        <div class="message-item">
-            <div class="message-title">Primary Toolbar Tooltip</div>
-            <div class="message-description">Main tooltip system used across games with floating UI, arrow positioning, and portal rendering</div>
-            <div class="file-path">src/games/shared/Toolbar/Tooltip/Tooltip.tsx</div>
-            <div class="implementation-notes">
-                <h4>Key Features:</h4>
-                <ul>
-                    <li>Uses @floating-ui/react for positioning</li>
-                    <li>Portal rendering for z-index management</li>
-                    <li>Game-specific positioning logic (Wordle, Tiles, etc.)</li>
-                    <li>Responsive design with mobile overrides</li>
-                    <li>Auto-dismiss on scroll and hamburger click</li>
-                    <li>Support for "New" pills and custom headers</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Popover Component</div>
-            <div class="message-description">Dismissible tooltip/popover variant with enhanced interaction</div>
-            <div class="file-path">src/games/shared/Toolbar/Tooltip/Popover.tsx</div>
-        </div>
-
-        <div class="messaging-type">Game-Specific Tooltips</div>
-        <div class="message-item">
-            <div class="message-title">Connections Tooltip System</div>
-            <div class="message-description">Redux-managed tooltip state with specific tooltip names</div>
-            <div class="file-path">src/games/connections/store/overlays/overlays.slice.ts</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Strands Tooltip System</div>
-            <div class="message-description">Game-specific tooltip slice and hooks</div>
-            <div class="file-path">src/games/strands/store/slices/tooltip.slice.ts</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Wordle Tooltip Hooks</div>
-            <div class="message-description">Custom hooks for tooltip management in Wordle</div>
-            <div class="file-path">src/games/wordle/js/components/App/tooltipHooks.ts</div>
-        </div>
-    </div>
-
-    <!-- MODALS & DIALOGS SECTION -->
-    <div class="game-section" id="modals-dialogs">
-        <h2 class="game-title">📱 Modals & Dialogs</h2>
-
-        <div class="messaging-type">Shared Modal Systems</div>
-        <div class="message-item">
-            <div class="message-title">Modal Manager</div>
-            <div class="message-description">Redux-based modal management system with portal rendering</div>
-            <div class="file-path">src/games/shared/ModalSystem/ModalManager.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Redux state management for modal display</li>
-                    <li>Portal rendering for DOM positioning</li>
-                    <li>Close/remove action handling</li>
-                    <li>Modal mapping system</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Legacy Modal System</div>
-            <div class="message-description">Older modal system still used in some games</div>
-            <div class="file-path">src/games/shared/modals/index.js</div>
-        </div>
-
-        <div class="messaging-type">Spelling Bee Modals</div>
-        <div class="message-item">
-            <div class="message-title">Modal System with Types</div>
-            <div class="message-description">Complete modal system with help, ranks, yesterday, stats, share, answers, settings</div>
-            <div class="file-path">src/games/spelling-bee/js/modals/index.tsx</div>
-            <div class="implementation-notes">
-                <h4>Modal Types:</h4>
-                <ul>
-                    <li>Help, Ranks, Yesterday, Stats</li>
-                    <li>Share, Answers, Past Puzzles</li>
-                    <li>Settings, Feature Awareness</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Strands Modals</div>
-        <div class="message-item">
-            <div class="message-title">Game Modal Map</div>
-            <div class="message-description">Congrats, Help, Settings, Hints, Stats, Regi Wall modals</div>
-            <div class="file-path">src/games/strands/components/Game/Game.tsx (modalMap)</div>
-        </div>
-
-        <div class="messaging-type">Prototype Modals</div>
-        <div class="message-item">
-            <div class="message-title">PIPS Modal System</div>
-            <div class="message-description">Comprehensive modal system with fullscreen, popup, and dismissible variants</div>
-            <div class="file-path">src/games/prototypes-sandbox/pips/App.tsx</div>
-            <div class="implementation-notes">
-                <h4>Modal Variants:</h4>
-                <ul>
-                    <li>Error (fullscreen, non-dismissible)</li>
-                    <li>Congrats (fullscreen)</li>
-                    <li>Almost (popup, dismissible)</li>
-                    <li>Pause (dismissible)</li>
-                    <li>Reveal (popup, dismissible)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Confirmation Modals</div>
-        <div class="message-item">
-            <div class="message-title">Confirmation Modal Helper</div>
-            <div class="message-description">Utility for creating confirmation dialogs</div>
-            <div class="file-path">src/games/helpers/createConfirmationModal.ts</div>
-        </div>
-    </div>
-
-    <!-- TOASTS SECTION -->
-    <div class="game-section" id="toasts">
-        <h2 class="game-title">🍞 Toast Notifications</h2>
-
-        <div class="messaging-type">Shared Toast Systems</div>
-        <div class="message-item">
-            <div class="message-title">Toast Manager</div>
-            <div class="message-description">Redux-managed toast system with portal rendering</div>
-            <div class="file-path">src/games/shared/ToastSystem/ToastManager.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Toast Component</div>
-            <div class="message-description">Individual toast with fade animations and auto-dismiss</div>
-            <div class="file-path">src/games/shared/ToastSystem/Toast.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Fade in/out animations</li>
-                    <li>Configurable duration (including Infinity)</li>
-                    <li>Auto-dismiss with callback</li>
-                    <li>ARIA live region for accessibility</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Wordle Toasts</div>
-        <div class="message-item">
-            <div class="message-title">Toast Container</div>
-            <div class="message-description">System and game toast separation with different rendering areas</div>
-            <div class="file-path">src/games/wordle/js/components/Toast/ToastContainer.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Individual Toast</div>
-            <div class="message-description">Wordle-specific toast implementation</div>
-            <div class="file-path">src/games/wordle/js/components/Toast/Toast.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Win/Fail Toast Logic</div>
-            <div class="message-description">Game completion toasts with winning strings and solution display</div>
-            <div class="file-path">src/games/wordle/js/store/transient/transient.actions.ts (lastTileRevealed)</div>
-            <div class="implementation-notes">
-                <h4>Toast Types:</h4>
-                <ul>
-                    <li>Win toasts with congratulatory messages</li>
-                    <li>Fail toasts showing the solution</li>
-                    <li>Different durations (2000ms for wins, Infinity for fails)</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Strands Toasts</div>
-        <div class="message-item">
-            <div class="message-title">Toast Map System</div>
-            <div class="message-description">Centralized toast mapping and management</div>
-            <div class="file-path">src/games/strands/components/Toasts/toastMap</div>
-        </div>
-
-        <div class="messaging-type">Connections Toasts</div>
-        <div class="message-item">
-            <div class="message-title">Game Toasts</div>
-            <div class="message-description">Game-specific toast implementations</div>
-            <div class="file-path">src/games/connections/components/Toast/gameToasts.tsx</div>
-        </div>
-
-        <div class="messaging-type">Prototype Toasts</div>
-        <div class="message-item">
-            <div class="message-title">PIPS Toast System</div>
-            <div class="message-description">React-toastify integration with custom styling</div>
-            <div class="file-path">src/games/prototypes-sandbox/shared/components/Toast/index.ts</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Uses react-toastify library</li>
-                    <li>Custom CSS transitions</li>
-                    <li>Theme support (light/dark)</li>
-                    <li>Configurable auto-close timing</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- BADGES SECTION -->
-    <div class="game-section" id="badges">
-        <h2 class="game-title">🏆 Badges & Achievements</h2>
-
-        <div class="messaging-type">Shared Badge Systems</div>
-        <div class="message-item">
-            <div class="message-title">Badge Messaging Logic</div>
-            <div class="message-description">Complex logic for badge announcements, earned tooltips, and feature awareness</div>
-            <div class="file-path">src/games/shared/Badges/useBadgeMessaging.ts</div>
-            <div class="implementation-notes">
-                <h4>Message Types:</h4>
-                <ul>
-                    <li>Badge Announcement (with/without badges)</li>
-                    <li>Badge Earned Tooltip</li>
-                    <li>Feature Awareness Modal</li>
-                    <li>Local storage tracking for seen messages</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">In-Game Badge Notifications</div>
-            <div class="message-description">Real-time badge earning notifications during gameplay</div>
-            <div class="file-path">src/games/shared/Badges/earning/InGameBadges.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Real-time badge earning detection</li>
-                    <li>ARIA live announcements</li>
-                    <li>Badge detail opening</li>
-                    <li>Tracking integration</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Badge Carousel</div>
-            <div class="message-description">End-screen badge display carousel</div>
-            <div class="file-path">src/games/shared/Badges/earning/BadgeCarousel.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Trophy Case</div>
-            <div class="message-description">Full badge collection display with earned/unearned states</div>
-            <div class="file-path">src/games/shared/Badges/trophyCase/TrophyCase.tsx</div>
-        </div>
-
-        <div class="messaging-type">Game-Specific Badge Integration</div>
-        <div class="message-item">
-            <div class="message-title">Wordle Stats Badges</div>
-            <div class="message-description">Badge carousel in stats screen with tracking</div>
-            <div class="file-path">src/games/wordle/js/components/Stats/Stats.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Badge Integration</div>
-            <div class="message-description">In-game badge notifications with visibility control</div>
-            <div class="file-path">src/games/spelling-bee/js/Layout.tsx</div>
-        </div>
-    </div>
-
-    <!-- ERROR MESSAGES SECTION -->
-    <div class="game-section" id="error-messages">
-        <h2 class="game-title">❌ Error Messages</h2>
-
-        <div class="messaging-type">Shared Error Components</div>
-        <div class="message-item">
-            <div class="message-title">Stats Loading Error</div>
-            <div class="message-description">Stats synchronization error messaging</div>
-            <div class="file-path">src/games/shared/Stat/StatsLoadingAndError.tsx</div>
-        </div>
-
-        <div class="messaging-type">Game-Specific Error Pages</div>
-        <div class="message-item">
-            <div class="message-title">Connections Error Component</div>
-            <div class="message-description">Full-page error states with different error types</div>
-            <div class="file-path">src/games/connections/components/Error/Error.tsx</div>
-            <div class="implementation-notes">
-                <h4>Error Types:</h4>
-                <ul>
-                    <li>Offline errors</li>
-                    <li>Default/generic errors</li>
-                    <li>Future date errors</li>
-                    <li>Invalid archive route</li>
-                    <li>Missing data</li>
-                    <li>Precedes launch date</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Strands Error Component</div>
-            <div class="message-description">Similar error handling with game-specific styling</div>
-            <div class="file-path">src/games/strands/components/Error/Error.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Wordle Error Component</div>
-            <div class="message-description">Wordle-specific error handling</div>
-            <div class="file-path">src/games/wordle/js/components/Error/Error.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Create Wordle Error</div>
-            <div class="message-description">Error states for the word creation flow</div>
-            <div class="file-path">src/games/create-wordle/components/Error/Error.tsx</div>
-        </div>
-
-        <div class="messaging-type">In-Game Error Messages</div>
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Error Messages</div>
-            <div class="message-description">Inline error messaging with animations</div>
-            <div class="file-path">src/games/spelling-bee/js/Message.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Error vs success message styling</li>
-                    <li>Pangram special styling</li>
-                    <li>Animated appearance with CSS keyframes</li>
-                    <li>Data test IDs for testing</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Letter Boxed Error Messages</div>
-            <div class="message-description">Similar inline error system for Letter Boxed</div>
-            <div class="file-path">src/games/letter-boxed/js/Message.js</div>
-        </div>
-    </div>
-
-    <!-- SUCCESS MESSAGES SECTION -->
-    <div class="game-section" id="success-messages">
-        <h2 class="game-title">✅ Success Messages</h2>
-
-        <div class="messaging-type">Inline Success Messages</div>
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Success Messages</div>
-            <div class="message-description">Word acceptance feedback with points and pangram celebration</div>
-            <div class="file-path">src/games/spelling-bee/js/Message.tsx</div>
-            <div class="implementation-notes">
-                <h4>Success Types:</h4>
-                <ul>
-                    <li>Regular word acceptance</li>
-                    <li>Pangram celebration (special styling)</li>
-                    <li>Point display with floating animation</li>
-                    <li>Different animation durations</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Letter Boxed Success Actions</div>
-            <div class="message-description">Success message dispatch system</div>
-            <div class="file-path">src/games/letter-boxed/js/store/puzzleContainer/actions.js</div>
-        </div>
-
-        <div class="messaging-type">Congratulations Screens</div>
-        <div class="message-item">
-            <div class="message-title">Shared Congrats Component</div>
-            <div class="message-description">Base congratulations component</div>
-            <div class="file-path">src/games/shared/moments/components/Congrats.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Create Wordle Congrats</div>
-            <div class="message-description">Word creation completion screen</div>
-            <div class="file-path">src/games/create-wordle/components/Congrats/Congrats.tsx</div>
-        </div>
-    </div>
-
-    <!-- LOADING STATES SECTION -->
-    <div class="game-section" id="loading-states">
-        <h2 class="game-title">⏳ Loading States & Progress</h2>
-
-        <div class="messaging-type">Shared Loading Components</div>
-        <div class="message-item">
-            <div class="message-title">Loading Bar</div>
-            <div class="message-description">Animated progress bar with fake progress simulation</div>
-            <div class="file-path">src/games/shared/moments/components/LoadingBar.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Fake progress simulation with random increments</li>
-                    <li>Customizable colors</li>
-                    <li>Auto-transition on data load</li>
-                    <li>300ms delay to prevent flicker</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Loader Base</div>
-            <div class="message-description">Complete loading screen with icon, title, description</div>
-            <div class="file-path">src/games/shared/moments/components/Loader.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Delayed Loader</div>
-            <div class="message-description">Loading component with configurable delay</div>
-            <div class="file-path">src/games/shared/DelayedLoader/DelayedLoader.tsx</div>
-        </div>
-
-        <div class="messaging-type">Game-Specific Loading</div>
-        <div class="message-item">
-            <div class="message-title">Wordle Loading</div>
-            <div class="message-description">Spinner-based loading with theme support</div>
-            <div class="file-path">src/games/wordle/js/components/Loading/Loading.tsx</div>
-            <div class="implementation-notes">
-                <h4>Features:</h4>
-                <ul>
-                    <li>Spinner component with custom colors</li>
-                    <li>Dark mode support</li>
-                    <li>Configurable wait time</li>
-                    <li>Native color theme setting</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Crossword Loading</div>
-            <div class="message-description">Custom loading bar for crossword puzzles</div>
-            <div class="file-path">src/games/crossword/components/CrosswordPage/CrosswordLoading.tsx</div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Stats Loading States</div>
-            <div class="message-description">Loading skeleton for statistics</div>
-            <div class="file-path">src/games/shared/Stat/StatsLoadingAndError.tsx</div>
-        </div>
-    </div>
-
-    <!-- SHARED SYSTEMS SECTION -->
-    <div class="game-section" id="shared-systems">
-        <h2 class="game-title">🔧 Shared Systems & Patterns</h2>
-
-        <div class="messaging-type">Portal Management</div>
-        <div class="message-item">
-            <div class="message-title">Portal System</div>
-            <div class="message-description">Centralized portal management for overlays</div>
-            <div class="file-path">src/games/shared/Portals/index.tsx</div>
-        </div>
-
-        <div class="messaging-type">State Management Patterns</div>
-        <div class="message-item">
-            <div class="message-title">Overlay State Management</div>
-            <div class="message-description">Redux patterns for managing overlays across games</div>
-            <div class="file-path">src/games/*/store/overlays/</div>
-            <div class="implementation-notes">
-                <h4>Common Patterns:</h4>
-                <ul>
-                    <li>Modal open/close actions</li>
-                    <li>Toast add/remove actions</li>
-                    <li>Tooltip show/hide states</li>
-                    <li>Closing state management for animations</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Animation Systems</div>
-        <div class="message-item">
-            <div class="message-title">CSS Animation Patterns</div>
-            <div class="message-description">Consistent animation patterns across message types</div>
-            <div class="file-path">src/games/*/scss/message.scss</div>
-            <div class="implementation-notes">
-                <h4>Common Animations:</h4>
-                <ul>
-                    <li>Pop animations for success messages</li>
-                    <li>Fade animations for errors</li>
-                    <li>Float animations for point displays</li>
-                    <li>CSS transitions for modal entry/exit</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Accessibility Patterns</div>
-        <div class="message-item">
-            <div class="message-title">ARIA Live Regions</div>
-            <div class="message-description">Screen reader announcements for dynamic content</div>
-            <div class="implementation-notes">
-                <h4>Accessibility Features:</h4>
-                <ul>
-                    <li>aria-live="polite" for toasts</li>
-                    <li>role="dialog" for modals</li>
-                    <li>Screen reader announcements for badge earning</li>
-                    <li>Keyboard navigation support</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="messaging-type">Testing Infrastructure</div>
-        <div class="message-item">
-            <div class="message-title">Data Test IDs</div>
-            <div class="message-description">Consistent testing identifiers across message components</div>
-            <div class="implementation-notes">
-                <h4>Testing Patterns:</h4>
-                <ul>
-                    <li>data-testid attributes for all interactive elements</li>
-                    <li>State-specific test IDs (error, success, loading)</li>
-                    <li>Component-specific test utilities</li>
-                </ul>
-            </div>
-        </div>
-    </div>
-
-    <!-- ACTUAL MESSAGE CONTENT EXAMPLES -->
-    <div class="game-section">
-        <h2 class="game-title">💬 Actual Message Content Examples</h2>
-        
-        <div class="messaging-type">Error Messages</div>
-        <div class="message-item">
-            <div class="message-title">Connection/Network Errors</div>
-            <div class="message-description">
-                <strong>Offline:</strong> "Oh no! You're offline. Find a connection and come back."<br>
-                <strong>Generic:</strong> "Oops! Something went wrong. Please try again later."<br>
-                <strong>Missing Data:</strong> "Oops! We're missing data for this puzzle. Please test after the data has been added."<br>
-                <strong>Launch Date:</strong> "Oops! Date precedes the launch date of [date]. Please test a later puzzle."
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Input Errors</div>
-            <div class="message-description">
-                <strong>Too Short:</strong> "Too short" (words must be 4+ letters)<br>
-                <strong>Bad Letters:</strong> "Bad letters" (contains invalid letters)<br>
-                <strong>Missing Center:</strong> "Missing center letter"<br>
-                <strong>Not in List:</strong> "Not in word list"<br>
-                <strong>Already Found:</strong> "Already found"<br>
-                <strong>Too Long:</strong> "Too long" (over 18 characters)
-            </div>
-        </div>
-
-        <div class="messaging-type">Success Messages</div>
-        <div class="message-item">
-            <div class="message-title">Wordle Win Messages</div>
-            <div class="message-description">
-                <strong>1 guess:</strong> "Genius"<br>
-                <strong>2 guesses:</strong> "Magnificent"<br>
-                <strong>3 guesses:</strong> "Impressive"<br>
-                <strong>4 guesses:</strong> "Splendid"<br>
-                <strong>5 guesses:</strong> "Great"<br>
-                <strong>6 guesses:</strong> "Phew"<br>
-                <strong>Failed game:</strong> Shows the solution word in caps
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Success Messages</div>
-            <div class="message-description">
-                <strong>Pangram:</strong> "Pangram!" (uses all letters, +7 bonus points)<br>
-                <strong>7+ points:</strong> "Awesome!"<br>
-                <strong>2-6 points:</strong> "Nice!"<br>
-                <strong>1 point:</strong> "Good!"<br>
-                Plus floating point display (e.g., "+5")
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Letter Boxed Success Messages</div>
-            <div class="message-description">
-                <strong>Short words (under 7 letters):</strong> "Nice!" or "Awesome!" (based on previous success)<br>
-                <strong>Long words (7+ letters):</strong> "Genius!"<br>
-                <strong>Puzzle completion:</strong> "Savant!"
-            </div>
-        </div>
-
-        <div class="messaging-type">Toast Notifications</div>
-        <div class="message-item">
-            <div class="message-title">Connections Game Toasts</div>
-            <div class="message-description">
-                <strong>Duplicate Guess:</strong> "Already guessed!"<br>
-                <strong>Close Miss:</strong> "One away..."<br>
-                <strong>Share Success:</strong> "Copied results to clipboard"<br>
-                <strong>Share Failure:</strong> "Share failed"<br>
-                <strong>Category Reveal:</strong> Shows the category title (e.g., "YELLOW THINGS")
-            </div>
-        </div>
-
-        <div class="messaging-type">Badge Messages</div>
-        <div class="message-item">
-            <div class="message-title">Badge Announcement Messages</div>
-            <div class="message-description">
-                <strong>Feature Announcement Modal:</strong> "Show off your accomplishments - Check out what badges you've earned based on your play. [See all badges]"<br>
-                <strong>With Badges Tooltip:</strong> "NEW: Your [Game] Badges - Check out what badges you've earned based on your play."<br>
-                <strong>No Badges Tooltip:</strong> "New: [Game] Badges - Check out badges you could earn and any badges you have progress on"<br>
-                <strong>Earned Tooltip:</strong> "Your latest badge - Check out the latest badge you earned and see what badges you could earn next."
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">In-Game Badge Notifications</div>
-            <div class="message-description">
-                <strong>Screen Reader:</strong> "Just earned a new badge: [Badge Name]"<br>
-                Shows badge icon with earned animation and allows clicking for detail view
-            </div>
-        </div>
-
-        <div class="messaging-type">Help & Tutorial Content</div>
-        <div class="message-item">
-            <div class="message-title">Wordle Instructions</div>
-            <div class="message-description">
-                <strong>Main Rule:</strong> "Guess the Wordle in 6 tries."<br>
-                <strong>Requirements:</strong> "Each guess must be a valid 5-letter word."<br>
-                <strong>Feedback:</strong> "The color of the tiles will change to show how close your guess was to the word."<br>
-                <strong>Examples:</strong> "W is in the word and in the correct spot" / "I is in the word but in the wrong spot" / "U is not in the word in any spot"
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Spelling Bee Instructions</div>
-            <div class="message-description">
-                <strong>Main Rule:</strong> "Create words using letters from the hive."<br>
-                <strong>Requirements:</strong> "Words must contain at least 4 letters" / "Words must include the center letter" / "Letters can be used more than once"<br>
-                <strong>Scoring:</strong> "4-letter words are worth 1 point each" / "Longer words earn 1 point per letter" / "Each puzzle includes at least one 'pangram' which uses every letter. These are worth 7 extra points!"<br>
-                <strong>Schedule:</strong> "New puzzles are released daily at 3 a.m. ET."
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Connections Instructions</div>
-            <div class="message-description">
-                <strong>Main Rule:</strong> "Find groups of four items that share something in common."<br>
-                <strong>Gameplay:</strong> "Select four items and tap 'Submit' to check if your guess is correct."<br>
-                <strong>Limit:</strong> "Find the groups without making 4 mistakes!"<br>
-                <strong>Examples:</strong> "FISH: Bass, Flounder, Salmon, Trout" / "FIRE ___: Ant, Drill, Island, Opal"
-            </div>
-        </div>
-
-        <div class="messaging-type">Loading & Status Messages</div>
-        <div class="message-item">
-            <div class="message-title">Offline Status</div>
-            <div class="message-description">
-                <strong>Offline Ticker:</strong> "You're offline! Progress may not be saved."<br>
-                <strong>Offline Error Pages:</strong> "Oh no! You're offline. Find a connection and come back."
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Stats Loading</div>
-            <div class="message-description">
-                <strong>Stats Error:</strong> "We couldn't sync your stats. Try again in a few."<br>
-                Shows loading skeletons during data fetch
-            </div>
-        </div>
-
-        <div class="messaging-type">Congratulations Messages</div>
-        <div class="message-item">
-            <div class="message-title">Crossword Completion</div>
-            <div class="message-description">
-                <strong>Standard:</strong> "Congratulations!"<br>
-                Shows solve time, streak information, and next puzzle options
-            </div>
-        </div>
-
-        <div class="message-item">
-            <div class="message-title">Sudoku Completion</div>
-            <div class="message-description">
-                <strong>Format:</strong> "You finished a [difficulty] puzzle [with X errors] in [time]."<br>
-                <strong>Next Level:</strong> "Play another Sudoku" (if harder level available)
-            </div>
-        </div>
-    </div>
-
-    <!-- SUMMARY SECTION -->
-    <div class="stats">
-        <h2>Key Findings & Recommendations</h2>
-        
-        <div class="implementation-notes">
-            <h4>Strengths:</h4>
-            <ul>
-                <li><strong>Comprehensive Coverage:</strong> All major messaging patterns are implemented</li>
-                <li><strong>Consistent Voice:</strong> Messages use friendly, encouraging tone across games</li>
-                <li><strong>Shared Systems:</strong> Good reuse of tooltip, modal, and toast systems</li>
-                <li><strong>Accessibility:</strong> Consistent ARIA patterns and screen reader support</li>
-                <li><strong>Animation Consistency:</strong> Similar animation patterns across games</li>
-                <li><strong>Progressive Feedback:</strong> Different success messages based on performance level</li>
-            </ul>
-        </div>
-
-        <div class="implementation-notes">
-            <h4>Message Content Patterns:</h4>
-            <ul>
-                <li><strong>Error Messages:</strong> Use "Oops!" frequently, provide clear next steps</li>
-                <li><strong>Success Messages:</strong> Progressive celebration (Good → Nice → Awesome → Genius)</li>
-                <li><strong>Instructions:</strong> Clear, concise rules with concrete examples</li>
-                <li><strong>Offline Messaging:</strong> Consistent "Find a connection and come back" theme</li>
-                <li><strong>Badge Messaging:</strong> Emphasizes accomplishment and discovery</li>
-            </ul>
-        </div>
-
-        <div class="implementation-notes">
-            <h4>Areas for Improvement:</h4>
-            <ul>
-                <li><strong>Message Standardization:</strong> Some games have slightly different error wording</li>
-                <li><strong>Animation Standardization:</strong> Could benefit from shared animation utilities</li>
-                <li><strong>Mobile Optimization:</strong> Some tooltip positioning could be improved for mobile</li>
-                <li><strong>Internationalization:</strong> Hard-coded strings could be moved to i18n system</li>
-            </ul>
-        </div>
-
-        <div class="implementation-notes">
-            <h4>Design System Opportunities:</h4>
-            <ul>
-                <li>Centralized message content library with consistent voice</li>
-                <li>Standardized error message hierarchy and types</li>
-                <li>Unified success message progression system</li>
-                <li>Shared animation timing and easing patterns</li>
-                <li>Consolidated accessibility utilities and ARIA patterns</li>
-            </ul>
-        </div>
-    </div>
-
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Type</th>
+                <th>Message</th>
+                <th>Context</th>
+                <th>Game</th>
+                <th>Source</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><span class="type-tooltip">Tooltip</span></td>
+                <td><span class="message-text">Invite your fellow solvers.</span></td>
+                <td>Friends feature tooltip title</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">TooltipView.swift</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-tooltip">Tooltip</span></td>
+                <td><span class="message-text">Friends who accept your invite will be added to each game on the leaderboard. They'll need a free account to join the fun.</span></td>
+                <td>Friends feature tooltip body</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">TooltipView.swift</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-tooltip">Tooltip</span></td>
+                <td><span class="message-text">tap to switch direction</span></td>
+                <td>Clue browser section header hint</td>
+                <td>Crossword</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-tooltip">Tooltip</span></td>
+                <td><span class="message-text">Switches direction.</span></td>
+                <td>Clue browser accessibility hint</td>
+                <td>Crossword</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">Network Not Available<br>Sorry, we were not able to make a network connection. Please try again.</span></td>
+                <td>General network connectivity error</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">Clear Puzzle<br>Are you sure you want to clear the puzzle and reset the timer?</span></td>
+                <td>Puzzle clear confirmation with timer reset</td>
+                <td>Crossword</td>
+                <td><a href="#" class="source-link">XWDCrosswordViewController.m</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">Reveal Puzzle<br>Are you sure you want to reveal the puzzle?</span></td>
+                <td>Puzzle reveal confirmation</td>
+                <td>Crossword</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">Feeling stuck?<br>You can reveal or check a part of this puzzle, but this will exclude this puzzle from a streak.</span></td>
+                <td>Disqualification warning for using lifelines</td>
+                <td>Crossword</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">You're not logged in.<br>Sign in to sync your progress across all your devices and compete on the leaderboard.</span></td>
+                <td>Spelling Bee authentication modal</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-toast">Toast</span></td>
+                <td><span class="message-text">Great!</span></td>
+                <td>Positive feedback for correct word</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-toast">Toast</span></td>
+                <td><span class="message-text">Nice!</span></td>
+                <td>Positive feedback variation</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-toast">Toast</span></td>
+                <td><span class="message-text">Good job!</span></td>
+                <td>Achievement acknowledgment</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-badge">Badge</span></td>
+                <td><span class="message-text">Queen Bee!</span></td>
+                <td>Perfect score achievement</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-badge">Badge</span></td>
+                <td><span class="message-text">Genius</span></td>
+                <td>High score tier achievement</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-badge">Badge</span></td>
+                <td><span class="message-text">Amazing</span></td>
+                <td>Score tier achievement</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-error">Error</span></td>
+                <td><span class="message-text">Word not found</span></td>
+                <td>Invalid word submission</td>
+                <td>Spelling Bee</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-error">Error</span></td>
+                <td><span class="message-text">Not in word list</span></td>
+                <td>Word not in accepted dictionary</td>
+                <td>Wordle</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-error">Error</span></td>
+                <td><span class="message-text">Not enough letters</span></td>
+                <td>Incomplete word submission</td>
+                <td>Wordle</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-success">Success</span></td>
+                <td><span class="message-text">Puzzle complete!</span></td>
+                <td>Game completion notification</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-success">Success</span></td>
+                <td><span class="message-text">Streak saved!</span></td>
+                <td>Streak preservation confirmation</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-loading">Loading</span></td>
+                <td><span class="message-text">Loading puzzle...</span></td>
+                <td>Puzzle loading state</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-loading">Loading</span></td>
+                <td><span class="message-text">Syncing progress...</span></td>
+                <td>Progress synchronization</td>
+                <td>All Games</td>
+                <td><a href="#" class="source-link">Localizable.strings</a></td>
+            </tr>
+        </tbody>
+    </table>
 </body>
 </html>

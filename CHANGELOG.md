@@ -2,6 +2,13 @@
 
 ## 2024-12-20
 
+### Messaging Catalog Table Format
+- converted messaging-moments-audit.html from card-based layout to clean, simple HTML table format
+- implemented standard table with Type, Message, Context, Game, and Source columns
+- added color-coded message types (Tooltip, Dialog, Toast, Badge, Error, Success, Loading)
+- simplified styling for better readability and data scanning
+- maintained all messaging data while improving presentation format
+
 ### UI Simplification
 - removed all "Filter by game" dropdown functionality from border-radius-audit.html to simplify interface
 - removed card/shadow treatments throughout the page for cleaner, flatter design
