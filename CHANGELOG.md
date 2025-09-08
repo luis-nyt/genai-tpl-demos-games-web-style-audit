@@ -2,6 +2,15 @@
 
 ## 2024-12-20
 
+### Accurate TPL Data from ios-games-main
+- verified messaging catalog accuracy against real ios-games-main repository source files
+- updated all GitHub links to point to actual source locations in github.com/nytimes/ios-games-main
+- corrected TPL status based on actual implementation (import TPL statements vs Localizable.strings)
+- found only 3 components with full TPL implementation (13% adoption rate)
+- identified 5 components with partial TPL (SharedModels enums, 22%)
+- confirmed 15 components using legacy Localizable.strings pattern (65%)
+- updated statistics page with accurate insights from real codebase analysis
+
 ### TPL Usage Tracking & Statistics
 - added TPL (Template Pattern Library) usage column to messaging catalog table
 - expanded messaging data from 22 to 40 components with comprehensive TPL analysis

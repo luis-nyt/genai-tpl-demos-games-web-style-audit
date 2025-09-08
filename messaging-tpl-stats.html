@@ -193,37 +193,37 @@
     </div>
     
     <div class="insights">
-        <h3>📊 Key Insights</h3>
+        <h3>📊 Key Insights from ios-games-main</h3>
         <ul>
-            <li><strong>57% of messaging components</strong> are using TPL (full or partial implementation)</li>
-            <li><strong>Newer games</strong> (Spelling Bee, Connections) show higher TPL adoption rates</li>
-            <li><strong>Legacy systems</strong> (Crossword, Wordle) rely heavily on Localizable.strings</li>
-            <li><strong>Shared components</strong> have the highest TPL adoption (85% coverage)</li>
-            <li><strong>Loading states</strong> and <strong>Success messages</strong> show best TPL consistency</li>
+            <li><strong>Limited TPL adoption</strong> - Most components still use Localizable.strings pattern</li>
+            <li><strong>Friends feature leads TPL usage</strong> - TooltipView and FriendsDialogView use proper TPL imports</li>
+            <li><strong>Crossword is entirely legacy</strong> - All messaging through Localizable.strings (no TPL)</li>
+            <li><strong>Spelling Bee ranks</strong> use SharedModels enum pattern (partial TPL compatibility)</li>
+            <li><strong>Network errors</strong> and <strong>confirmations</strong> are legacy string-based implementations</li>
         </ul>
     </div>
     
     <div class="stats-grid">
         <div class="stat-card tpl-yes-card">
-            <div class="stat-number">17</div>
+            <div class="stat-number">3</div>
             <div class="stat-label">Using TPL</div>
-            <div class="stat-percentage">43%</div>
+            <div class="stat-percentage">13%</div>
         </div>
         
         <div class="stat-card tpl-partial-card">
-            <div class="stat-number">6</div>
+            <div class="stat-number">5</div>
             <div class="stat-label">Partial TPL</div>
-            <div class="stat-percentage">15%</div>
+            <div class="stat-percentage">22%</div>
         </div>
         
         <div class="stat-card tpl-no-card">
-            <div class="stat-number">17</div>
+            <div class="stat-number">15</div>
             <div class="stat-label">No TPL</div>
-            <div class="stat-percentage">43%</div>
+            <div class="stat-percentage">65%</div>
         </div>
         
         <div class="stat-card">
-            <div class="stat-number">40</div>
+            <div class="stat-number">23</div>
             <div class="stat-label">Total Components</div>
             <div class="stat-percentage">100%</div>
         </div>
@@ -394,28 +394,28 @@
             </thead>
             <tbody>
                 <tr>
-                    <td><strong>React Components (.tsx)</strong></td>
-                    <td>17</td>
-                    <td>TooltipView, ErrorModal, AchievementBadge</td>
-                    <td><span style="color: #28a745;">✓ TPL Ready</span></td>
+                    <td><strong>SwiftUI + TPL Import</strong></td>
+                    <td>3</td>
+                    <td>TooltipView, FriendsDialogView, FeatureAwarenessModal</td>
+                    <td><span style="color: #28a745;">✓ Full TPL</span></td>
+                </tr>
+                <tr>
+                    <td><strong>SharedModels Enums</strong></td>
+                    <td>5</td>
+                    <td>PlayerStats ranks, SpellingBeeRank</td>
+                    <td><span style="color: #ffc107;">⚡ Partial TPL</span></td>
                 </tr>
                 <tr>
                     <td><strong>Localizable.strings</strong></td>
                     <td>15</td>
-                    <td>Static text, legacy error messages</td>
-                    <td><span style="color: #dc3545;">✗ No TPL</span></td>
-                </tr>
-                <tr>
-                    <td><strong>Swift Views (.swift)</strong></td>
-                    <td>2</td>
-                    <td>TooltipView (iOS)</td>
-                    <td><span style="color: #28a745;">✓ TPL Compatible</span></td>
+                    <td>Crossword dialogs, network errors, confirmations</td>
+                    <td><span style="color: #dc3545;">✗ Legacy Strings</span></td>
                 </tr>
                 <tr>
                     <td><strong>Legacy Controllers (.m)</strong></td>
-                    <td>1</td>
-                    <td>XWDCrosswordViewController</td>
-                    <td><span style="color: #dc3545;">✗ Objective-C Legacy</span></td>
+                    <td>0</td>
+                    <td>No direct messaging in Objective-C controllers</td>
+                    <td><span style="color: #6c757d;">— N/A</span></td>
                 </tr>
             </tbody>
         </table>
