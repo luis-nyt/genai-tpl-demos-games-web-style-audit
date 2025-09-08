@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT Games Design Audits</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'nyt-franklin', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fff;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'nyt-cheltenham', Georgia, serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            color: #666;
+            margin-bottom: 3rem;
+            font-weight: 400;
+        }
+
+        .audit-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .audit-card {
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            padding: 2rem;
+            background-color: #fafafa;
+            transition: all 0.3s ease;
+        }
+
+        .audit-card:hover {
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .audit-card h2 {
+            font-family: 'nyt-cheltenham', Georgia, serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: #000;
+        }
+
+        .audit-card p {
+            color: #666;
+            margin-bottom: 1.5rem;
+            font-size: 0.95rem;
+        }
+
+        .audit-card a {
+            display: inline-block;
+            background-color: #000;
+            color: #fff;
+            padding: 0.75rem 1.5rem;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 500;
+            font-size: 0.9rem;
+            transition: background-color 0.3s ease;
+        }
+
+        .audit-card a:hover {
+            background-color: #333;
+        }
+
+        .footer {
+            text-align: center;
+            padding-top: 3rem;
+            border-top: 1px solid #e0e0e0;
+            color: #999;
+            font-size: 0.9rem;
+        }
+
+        .nyt-logo {
+            font-family: 'nyt-cheltenham', Georgia, serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #000;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                padding: 1rem;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .audit-grid {
+                grid-template-columns: 1fr;
+                gap: 1.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>NYT Games Design Audits</h1>
+            <p class="subtitle">Comprehensive analysis of design systems and component patterns across the NYT Games ecosystem</p>
+        </header>
+
+        <main>
+            <div class="audit-grid">
+                <div class="audit-card">
+                    <h2>Border Radius Audit</h2>
+                    <p>Complete analysis of border-radius usage patterns across games, identifying inconsistencies and opportunities for standardization.</p>
+                    <a href="./border-radius-audit.html">View Audit</a>
+                </div>
+
+                <div class="audit-card">
+                    <h2>Typography Comparison</h2>
+                    <p>Font and text styling patterns comparison across different games, highlighting typography system opportunities.</p>
+                    <a href="./typography-comparison.html">View Audit</a>
+                </div>
+
+                <div class="audit-card">
+                    <h2>Wordle TPL Audit</h2>
+                    <p>Component library usage analysis in Wordle, examining reusability patterns and design system integration.</p>
+                    <a href="./wordle-tpl-audit.html">View Audit</a>
+                </div>
+
+                <div class="audit-card">
+                    <h2>Messaging Moments Audit</h2>
+                    <p>Comprehensive analysis of messaging UI patterns including tooltips, modals, toasts, badges, and notification systems.</p>
+                    <a href="./messaging-moments-audit.html">View Audit</a>
+                </div>
+            </div>
+        </main>
+
+        <footer class="footer">
+            <p>Design System Audits by <span class="nyt-logo">The New York Times</span> Games Team</p>
+            <p>Helping identify design system opportunities and standardization possibilities</p>
+        </footer>
+    </div>
+</body>
+</html>

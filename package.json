@@ -1,0 +1,23 @@
+{
+  "name": "nyt-games-audits",
+  "version": "1.0.0",
+  "description": "A collection of comprehensive audits for NYT Games design systems and components",
+  "main": "index.html",
+  "scripts": {
+    "dev": "python -m http.server 8000",
+    "build": "echo 'Static site - no build needed'",
+    "start": "echo 'Static site ready for deployment'"
+  },
+  "keywords": [
+    "nyt",
+    "games",
+    "design-system",
+    "audit",
+    "components"
+  ],
+  "author": "NYT Games Team",
+  "license": "ISC",
+  "engines": {
+    "node": ">=14.0.0"
+  }
+}
