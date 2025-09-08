@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "name": "nyt-games-audits",
+  "name": "genai-tpl-demos-games-web-style-audit",
   "builds": [
     {
       "src": "*.html",

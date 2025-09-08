@@ -1,5 +1,5 @@
 {
-  "name": "nyt-games-audits",
+  "name": "genai-tpl-demos-games-web-style-audit",
   "version": "1.0.0",
   "description": "A collection of comprehensive audits for NYT Games design systems and components",
   "main": "index.html",
