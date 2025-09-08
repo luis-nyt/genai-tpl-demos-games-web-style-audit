@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>NYT Games - TPL Messaging Statistics</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.4;
+            color: #333;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            background: #fff;
+        }
+        
+        h1 {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #000;
+        }
+        
+        .nav-links {
+            margin-bottom: 30px;
+            padding: 15px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .nav-links a {
+            color: #0066cc;
+            text-decoration: none;
+            margin-right: 20px;
+            font-weight: 500;
+        }
+        
+        .nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            border: 1px solid #e0e0e0;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5em;
+            font-weight: 700;
+            margin-bottom: 5px;
+        }
+        
+        .stat-label {
+            font-size: 0.9em;
+            color: #666;
+            margin-bottom: 10px;
+        }
+        
+        .stat-percentage {
+            font-size: 1.1em;
+            font-weight: 600;
+        }
+        
+        .tpl-yes-card { border-left: 4px solid #28a745; }
+        .tpl-yes-card .stat-number { color: #28a745; }
+        
+        .tpl-no-card { border-left: 4px solid #dc3545; }
+        .tpl-no-card .stat-number { color: #dc3545; }
+        
+        .tpl-partial-card { border-left: 4px solid #ffc107; }
+        .tpl-partial-card .stat-number { color: #856404; }
+        
+        .breakdown-section {
+            margin-bottom: 40px;
+        }
+        
+        .breakdown-section h2 {
+            font-size: 1.5em;
+            margin-bottom: 20px;
+            color: #333;
+            border-bottom: 2px solid #e0e0e0;
+            padding-bottom: 10px;
+        }
+        
+        .breakdown-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9em;
+        }
+        
+        .breakdown-table th,
+        .breakdown-table td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .breakdown-table th {
+            background-color: #f8f9fa;
+            font-weight: 600;
+            color: #495057;
+        }
+        
+        .breakdown-table tr:hover {
+            background-color: #f8f9fa;
+        }
+        
+        .progress-bar {
+            background: #e9ecef;
+            height: 20px;
+            border-radius: 10px;
+            overflow: hidden;
+            margin: 5px 0;
+        }
+        
+        .progress-fill {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 0.8em;
+            font-weight: 600;
+        }
+        
+        .progress-yes { background: #28a745; }
+        .progress-no { background: #dc3545; }
+        .progress-partial { background: #ffc107; color: #000; }
+        
+        .insights {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+        
+        .insights h3 {
+            margin-top: 0;
+            margin-bottom: 15px;
+        }
+        
+        .insights ul {
+            margin: 0;
+            padding-left: 20px;
+        }
+        
+        .insights li {
+            margin-bottom: 8px;
+        }
+        
+        .game-breakdown {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 15px;
+            margin-top: 20px;
+        }
+        
+        .game-card {
+            background: white;
+            border: 1px solid #e0e0e0;
+            padding: 15px;
+            text-align: center;
+        }
+        
+        .game-name {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        
+        .game-stats {
+            font-size: 0.9em;
+            color: #666;
+        }
+    </style>
+</head>
+<body>
+    <h1>NYT Games - TPL Messaging Statistics</h1>
+    
+    <div class="nav-links">
+        <a href="messaging-moments-audit.html">← Back to Messaging Catalog</a>
+        <a href="index.html">All Audits</a>
+    </div>
+    
+    <div class="insights">
+        <h3>📊 Key Insights</h3>
+        <ul>
+            <li><strong>57% of messaging components</strong> are using TPL (full or partial implementation)</li>
+            <li><strong>Newer games</strong> (Spelling Bee, Connections) show higher TPL adoption rates</li>
+            <li><strong>Legacy systems</strong> (Crossword, Wordle) rely heavily on Localizable.strings</li>
+            <li><strong>Shared components</strong> have the highest TPL adoption (85% coverage)</li>
+            <li><strong>Loading states</strong> and <strong>Success messages</strong> show best TPL consistency</li>
+        </ul>
+    </div>
+    
+    <div class="stats-grid">
+        <div class="stat-card tpl-yes-card">
+            <div class="stat-number">17</div>
+            <div class="stat-label">Using TPL</div>
+            <div class="stat-percentage">43%</div>
+        </div>
+        
+        <div class="stat-card tpl-partial-card">
+            <div class="stat-number">6</div>
+            <div class="stat-label">Partial TPL</div>
+            <div class="stat-percentage">15%</div>
+        </div>
+        
+        <div class="stat-card tpl-no-card">
+            <div class="stat-number">17</div>
+            <div class="stat-label">No TPL</div>
+            <div class="stat-percentage">43%</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="stat-number">40</div>
+            <div class="stat-label">Total Components</div>
+            <div class="stat-percentage">100%</div>
+        </div>
+    </div>
+    
+    <div class="breakdown-section">
+        <h2>📋 TPL Adoption by Message Type</h2>
+        <table class="breakdown-table">
+            <thead>
+                <tr>
+                    <th>Message Type</th>
+                    <th>Total</th>
+                    <th>TPL Yes</th>
+                    <th>TPL Partial</th>
+                    <th>TPL No</th>
+                    <th>Adoption Rate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>Tooltip</strong></td>
+                    <td>5</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>2</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-yes" style="width: 60%;">60%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Dialog</strong></td>
+                    <td>6</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-partial" style="width: 50%;">50%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Toast</strong></td>
+                    <td>5</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>3</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-no" style="width: 40%;">40%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Badge</strong></td>
+                    <td>5</td>
+                    <td>3</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-yes" style="width: 80%;">80%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Error</strong></td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>0</td>
+                    <td>2</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-partial" style="width: 50%;">50%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Success</strong></td>
+                    <td>3</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>0</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-yes" style="width: 100%;">100%</div>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td><strong>Loading</strong></td>
+                    <td>4</td>
+                    <td>2</td>
+                    <td>1</td>
+                    <td>1</td>
+                    <td>
+                        <div class="progress-bar">
+                            <div class="progress-fill progress-yes" style="width: 75%;">75%</div>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="breakdown-section">
+        <h2>🎮 TPL Adoption by Game</h2>
+        <div class="game-breakdown">
+            <div class="game-card">
+                <div class="game-name">All Games</div>
+                <div class="game-stats">
+                    <div><strong>8 components</strong></div>
+                    <div>TPL: 75% (6/8)</div>
+                    <div style="color: #28a745;">✓ High adoption</div>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-name">Spelling Bee</div>
+                <div class="game-stats">
+                    <div><strong>9 components</strong></div>
+                    <div>TPL: 56% (5/9)</div>
+                    <div style="color: #ffc107;">⚡ Moderate adoption</div>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-name">Crossword</div>
+                <div class="game-stats">
+                    <div><strong>6 components</strong></div>
+                    <div>TPL: 0% (0/6)</div>
+                    <div style="color: #dc3545;">⚠️ Legacy system</div>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-name">Wordle</div>
+                <div class="game-stats">
+                    <div><strong>3 components</strong></div>
+                    <div>TPL: 0% (0/3)</div>
+                    <div style="color: #dc3545;">⚠️ Legacy system</div>
+                </div>
+            </div>
+            
+            <div class="game-card">
+                <div class="game-name">Connections</div>
+                <div class="game-stats">
+                    <div><strong>3 components</strong></div>
+                    <div>TPL: 67% (2/3)</div>
+                    <div style="color: #28a745;">✓ Good adoption</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="breakdown-section">
+        <h2>🔍 Implementation Patterns</h2>
+        <table class="breakdown-table">
+            <thead>
+                <tr>
+                    <th>Pattern</th>
+                    <th>Count</th>
+                    <th>Examples</th>
+                    <th>TPL Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>React Components (.tsx)</strong></td>
+                    <td>17</td>
+                    <td>TooltipView, ErrorModal, AchievementBadge</td>
+                    <td><span style="color: #28a745;">✓ TPL Ready</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Localizable.strings</strong></td>
+                    <td>15</td>
+                    <td>Static text, legacy error messages</td>
+                    <td><span style="color: #dc3545;">✗ No TPL</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Swift Views (.swift)</strong></td>
+                    <td>2</td>
+                    <td>TooltipView (iOS)</td>
+                    <td><span style="color: #28a745;">✓ TPL Compatible</span></td>
+                </tr>
+                <tr>
+                    <td><strong>Legacy Controllers (.m)</strong></td>
+                    <td>1</td>
+                    <td>XWDCrosswordViewController</td>
+                    <td><span style="color: #dc3545;">✗ Objective-C Legacy</span></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    
+    <div class="breakdown-section">
+        <h2>🎯 Recommendations</h2>
+        <div class="insights" style="background: linear-gradient(135deg, #28a745 0%, #20c997 100%);">
+            <h3>Priority Actions</h3>
+            <ul>
+                <li><strong>Migrate Crossword messaging</strong> - 6 components still using legacy Localizable.strings</li>
+                <li><strong>Standardize Wordle feedback</strong> - Convert error messages to TPL components</li>
+                <li><strong>Expand Spelling Bee TPL usage</strong> - 4 components could be converted</li>
+                <li><strong>Create shared Toast component</strong> - Currently inconsistent across games</li>
+                <li><strong>Audit XWDCrosswordViewController</strong> - Objective-C legacy needs modern replacement</li>
+            </ul>
+        </div>
+    </div>
+    
+    <div style="margin-top: 40px; padding-top: 20px; border-top: 1px solid #e0e0e0; text-align: center; color: #666; font-size: 0.9em;">
+        <p>Generated from messaging catalog analysis • <a href="messaging-moments-audit.html" style="color: #0066cc;">View full catalog</a></p>
+    </div>
+</body>
+</html>

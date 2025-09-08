@@ -2,6 +2,15 @@
 
 ## 2024-12-20
 
+### TPL Usage Tracking & Statistics
+- added TPL (Template Pattern Library) usage column to messaging catalog table
+- expanded messaging data from 22 to 40 components with comprehensive TPL analysis
+- created separate statistics page (messaging-tpl-stats.html) with bare-bones TPL usage analytics
+- implemented color-coded TPL status indicators: Yes (green), No (red), Partial (yellow)
+- added detailed breakdown by message type, game, and implementation patterns
+- included actionable insights and recommendations for TPL adoption improvements
+- linked messaging catalog and statistics pages with navigation
+
 ### Messaging Catalog Table Format
 - converted messaging-moments-audit.html from card-based layout to clean, simple HTML table format
 - implemented standard table with Type, Message, Context, Game, and Source columns

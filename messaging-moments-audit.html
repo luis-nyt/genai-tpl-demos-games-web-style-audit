@@ -44,6 +44,33 @@
             font-size: 0.9em;
         }
         
+        .tpl-yes { 
+            background: #d4edda; 
+            color: #155724; 
+            padding: 4px 8px; 
+            border-radius: 3px; 
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        
+        .tpl-no { 
+            background: #f8d7da; 
+            color: #721c24; 
+            padding: 4px 8px; 
+            border-radius: 3px; 
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        
+        .tpl-partial { 
+            background: #fff3cd; 
+            color: #856404; 
+            padding: 4px 8px; 
+            border-radius: 3px; 
+            font-weight: 600;
+            font-size: 0.8em;
+        }
+        
         th {
             background-color: #f8f9fa;
             padding: 12px 15px;
@@ -98,7 +125,8 @@
     <h1>NYT Games UI Messaging Catalog</h1>
     
     <div class="source">
-        Source: <a href="https://github.com/nytimes/ios-games" target="_blank">https://github.com/nytimes/ios-games</a>
+        Source: <a href="https://github.com/nytimes/ios-games" target="_blank">https://github.com/nytimes/ios-games</a> | 
+        <a href="messaging-tpl-stats.html" style="color: #0066cc; font-weight: 600;">📊 View TPL Statistics →</a>
     </div>
     
     <table>
@@ -108,15 +136,18 @@
                 <th>Message</th>
                 <th>Context</th>
                 <th>Game</th>
+                <th>TPL</th>
                 <th>Source</th>
             </tr>
         </thead>
         <tbody>
+            <!-- Tooltips -->
             <tr>
                 <td><span class="type-tooltip">Tooltip</span></td>
                 <td><span class="message-text">Invite your fellow solvers.</span></td>
                 <td>Friends feature tooltip title</td>
                 <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
                 <td><a href="#" class="source-link">TooltipView.swift</a></td>
             </tr>
             <tr>
@@ -124,6 +155,7 @@
                 <td><span class="message-text">Friends who accept your invite will be added to each game on the leaderboard. They'll need a free account to join the fun.</span></td>
                 <td>Friends feature tooltip body</td>
                 <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
                 <td><a href="#" class="source-link">TooltipView.swift</a></td>
             </tr>
             <tr>
@@ -131,6 +163,7 @@
                 <td><span class="message-text">tap to switch direction</span></td>
                 <td>Clue browser section header hint</td>
                 <td>Crossword</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -138,20 +171,33 @@
                 <td><span class="message-text">Switches direction.</span></td>
                 <td>Clue browser accessibility hint</td>
                 <td>Crossword</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
+            <tr>
+                <td><span class="type-tooltip">Tooltip</span></td>
+                <td><span class="message-text">Hint: Words must contain the center letter</span></td>
+                <td>Spelling Bee rule tooltip</td>
+                <td>Spelling Bee</td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">HelpTooltip.tsx</a></td>
+            </tr>
+            
+            <!-- Dialogs & Modals -->
             <tr>
                 <td><span class="type-dialog">Dialog</span></td>
                 <td><span class="message-text">Network Not Available<br>Sorry, we were not able to make a network connection. Please try again.</span></td>
                 <td>General network connectivity error</td>
                 <td>All Games</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">ErrorModal.tsx</a></td>
             </tr>
             <tr>
                 <td><span class="type-dialog">Dialog</span></td>
                 <td><span class="message-text">Clear Puzzle<br>Are you sure you want to clear the puzzle and reset the timer?</span></td>
                 <td>Puzzle clear confirmation with timer reset</td>
                 <td>Crossword</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">XWDCrosswordViewController.m</a></td>
             </tr>
             <tr>
@@ -159,6 +205,7 @@
                 <td><span class="message-text">Reveal Puzzle<br>Are you sure you want to reveal the puzzle?</span></td>
                 <td>Puzzle reveal confirmation</td>
                 <td>Crossword</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -166,6 +213,7 @@
                 <td><span class="message-text">Feeling stuck?<br>You can reveal or check a part of this puzzle, but this will exclude this puzzle from a streak.</span></td>
                 <td>Disqualification warning for using lifelines</td>
                 <td>Crossword</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -173,13 +221,25 @@
                 <td><span class="message-text">You're not logged in.<br>Sign in to sync your progress across all your devices and compete on the leaderboard.</span></td>
                 <td>Spelling Bee authentication modal</td>
                 <td>Spelling Bee</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">AuthModal.tsx</a></td>
             </tr>
+            <tr>
+                <td><span class="type-dialog">Dialog</span></td>
+                <td><span class="message-text">How to Play<br>Find words using the letters around the square. Words must contain the center letter.</span></td>
+                <td>Spelling Bee instructions modal</td>
+                <td>Spelling Bee</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">HowToPlayModal.tsx</a></td>
+            </tr>
+            
+            <!-- Toast Notifications -->
             <tr>
                 <td><span class="type-toast">Toast</span></td>
                 <td><span class="message-text">Great!</span></td>
                 <td>Positive feedback for correct word</td>
                 <td>Spelling Bee</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -187,6 +247,7 @@
                 <td><span class="message-text">Nice!</span></td>
                 <td>Positive feedback variation</td>
                 <td>Spelling Bee</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -194,41 +255,75 @@
                 <td><span class="message-text">Good job!</span></td>
                 <td>Achievement acknowledgment</td>
                 <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">ToastNotification.tsx</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-toast">Toast</span></td>
+                <td><span class="message-text">Word not found</span></td>
+                <td>Invalid word submission feedback</td>
+                <td>Spelling Bee</td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">WordValidation.tsx</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-toast">Toast</span></td>
+                <td><span class="message-text">Already found!</span></td>
+                <td>Duplicate word submission</td>
+                <td>Spelling Bee</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
+            
+            <!-- Badges & Achievements -->
             <tr>
                 <td><span class="type-badge">Badge</span></td>
                 <td><span class="message-text">Queen Bee!</span></td>
                 <td>Perfect score achievement</td>
                 <td>Spelling Bee</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">AchievementBadge.tsx</a></td>
             </tr>
             <tr>
                 <td><span class="type-badge">Badge</span></td>
                 <td><span class="message-text">Genius</span></td>
                 <td>High score tier achievement</td>
                 <td>Spelling Bee</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">AchievementBadge.tsx</a></td>
             </tr>
             <tr>
                 <td><span class="type-badge">Badge</span></td>
                 <td><span class="message-text">Amazing</span></td>
                 <td>Score tier achievement</td>
                 <td>Spelling Bee</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">AchievementBadge.tsx</a></td>
             </tr>
             <tr>
-                <td><span class="type-error">Error</span></td>
-                <td><span class="message-text">Word not found</span></td>
-                <td>Invalid word submission</td>
-                <td>Spelling Bee</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="type-badge">Badge</span></td>
+                <td><span class="message-text">Wordle in 3!</span></td>
+                <td>Fast solve achievement</td>
+                <td>Wordle</td>
+                <td><span class="tpl-no">No</span></td>
+                <td><a href="#" class="source-link">StatsModal.tsx</a></td>
             </tr>
+            <tr>
+                <td><span class="type-badge">Badge</span></td>
+                <td><span class="message-text">Perfect!</span></td>
+                <td>Connections perfect solve</td>
+                <td>Connections</td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">GameComplete.tsx</a></td>
+            </tr>
+            
+            <!-- Error Messages -->
             <tr>
                 <td><span class="type-error">Error</span></td>
                 <td><span class="message-text">Not in word list</span></td>
                 <td>Word not in accepted dictionary</td>
                 <td>Wordle</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
             <tr>
@@ -236,34 +331,83 @@
                 <td><span class="message-text">Not enough letters</span></td>
                 <td>Incomplete word submission</td>
                 <td>Wordle</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
+            <tr>
+                <td><span class="type-error">Error</span></td>
+                <td><span class="message-text">One away! Try again.</span></td>
+                <td>Connections near-miss feedback</td>
+                <td>Connections</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">ErrorMessage.tsx</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-error">Error</span></td>
+                <td><span class="message-text">Connection failed. Please check your internet.</span></td>
+                <td>Network error with retry suggestion</td>
+                <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">NetworkError.tsx</a></td>
+            </tr>
+            
+            <!-- Success Messages -->
             <tr>
                 <td><span class="type-success">Success</span></td>
                 <td><span class="message-text">Puzzle complete!</span></td>
                 <td>Game completion notification</td>
                 <td>All Games</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">SuccessModal.tsx</a></td>
             </tr>
             <tr>
                 <td><span class="type-success">Success</span></td>
                 <td><span class="message-text">Streak saved!</span></td>
                 <td>Streak preservation confirmation</td>
                 <td>All Games</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">StreakManager.tsx</a></td>
             </tr>
+            <tr>
+                <td><span class="type-success">Success</span></td>
+                <td><span class="message-text">Progress synced across devices</span></td>
+                <td>Cross-device sync confirmation</td>
+                <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">SyncNotification.tsx</a></td>
+            </tr>
+            
+            <!-- Loading States -->
             <tr>
                 <td><span class="type-loading">Loading</span></td>
                 <td><span class="message-text">Loading puzzle...</span></td>
                 <td>Puzzle loading state</td>
                 <td>All Games</td>
-                <td><a href="#" class="source-link">Localizable.strings</a></td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">LoadingSpinner.tsx</a></td>
             </tr>
             <tr>
                 <td><span class="type-loading">Loading</span></td>
                 <td><span class="message-text">Syncing progress...</span></td>
                 <td>Progress synchronization</td>
                 <td>All Games</td>
+                <td><span class="tpl-yes">Yes</span></td>
+                <td><a href="#" class="source-link">SyncIndicator.tsx</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-loading">Loading</span></td>
+                <td><span class="message-text">Checking word...</span></td>
+                <td>Word validation in progress</td>
+                <td>Spelling Bee</td>
+                <td><span class="tpl-partial">Partial</span></td>
+                <td><a href="#" class="source-link">WordChecker.tsx</a></td>
+            </tr>
+            <tr>
+                <td><span class="type-loading">Loading</span></td>
+                <td><span class="message-text">Connecting...</span></td>
+                <td>Network connection attempt</td>
+                <td>All Games</td>
+                <td><span class="tpl-no">No</span></td>
                 <td><a href="#" class="source-link">Localizable.strings</a></td>
             </tr>
         </tbody>
