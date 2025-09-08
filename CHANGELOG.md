@@ -1,0 +1,26 @@
+# Changelog
+
+## 2024-12-20
+
+### Project Setup and Deployment
+- renamed project directory from nyt-games-audits-1 to genai-tpl-demos-games-web-style-audit to align with generative tooling naming conventions
+- pulled comprehensive font files from nytimes/gen-design-context repository including Cheltenham, Franklin, Karnak, IBM Plex, Imperial, and other NYT font families
+- created simplified fonts.css with proper relative paths for Vercel deployment, avoiding hash-based filenames
+- configured vercel.json for static site deployment with optimized font caching headers (max-age=31536000)
+- added package.json with project metadata and deployment scripts
+- created professional index.html landing page showcasing all four audits with NYT typography and responsive design
+- pushed project to GitHub repository at luis-nyt/genai-tpl-demos-games-web-style-audit
+- successfully deployed to Vercel under nytimes organization at https://genai-tpl-demos-games-web-style-audit-7e8nabjm7.vercel.app
+- fixed vercel.json configuration by removing deprecated name property and conflicting routes to enable proper deployment
+
+### Design System Integration
+- integrated NYT font families (nyt-cheltenham, nyt-franklin, nyt-karnak, nyt-ibm-plex, nyt-imperial) with proper fallbacks
+- implemented consistent typography hierarchy using Cheltenham for headings and Franklin for body text
+- added font-display: swap for improved loading performance
+- configured proper WOFF2 and WOFF format support with fallbacks
+
+### Infrastructure Improvements
+- established proper git workflow with meaningful commit messages
+- configured Vercel deployment pipeline with production-ready settings
+- optimized asset delivery with long-term caching for font files
+- ensured responsive design compatibility across devices
