@@ -2,6 +2,16 @@
 
 ## 2024-12-20
 
+### Font Loading Fix
+- fixed font loading issue where @font-face declarations were using incorrect paths (./src/public/fonts/) instead of proper relative paths
+- replaced inline font definitions in border-radius-audit.html, wordle-tpl-audit.html, and typography-comparison.html with correct CSS import
+- corrected font family name from 'nyt-karnakcondensed' to 'nyt-karnak-cond' across all HTML files to match actual font definitions
+- updated fonts/fonts.css to use relative paths (./fontname/) instead of absolute paths (/fonts/fontname/) for local development compatibility
+- added missing nyt-karnak-cond font family definitions to fonts.css (weights 400 and 700)
+- removed non-existent franklin-normal-400 font-face declaration that was causing loading errors
+
+## 2024-12-20
+
 ### Project Setup and Deployment
 - renamed project directory from nyt-games-audits-1 to genai-tpl-demos-games-web-style-audit to align with generative tooling naming conventions
 - pulled comprehensive font files from nytimes/gen-design-context repository including Cheltenham, Franklin, Karnak, IBM Plex, Imperial, and other NYT font families

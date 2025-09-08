@@ -5,64 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Typography Comparison: TPL vs Wordle</title>
     
-    <style>
-        /* Load NYT Fonts */
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-400.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-400.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-500.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-600.woff') format('woff');
-            font-weight: 600;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnakcondensed';
-            src: url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2') format('woff2'),
-                 url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnak';
-            src: url('./src/public/fonts/karnak/karnak-normal-400.woff2') format('woff2'),
-                 url('./src/public/fonts/karnak/karnak-normal-400.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnak';
-            src: url('./src/public/fonts/karnak/karnak-normal-700.woff2') format('woff2'),
-                 url('./src/public/fonts/karnak/karnak-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-    </style>
+    <!-- Load NYT Fonts -->
+    <link rel="stylesheet" href="./fonts/fonts.css">
     
     <style>
         body {
@@ -93,7 +37,7 @@
             margin: 0 0 10px 0;
             font-size: 32px;
             font-weight: 700;
-            font-family: 'nyt-karnakcondensed', Georgia, serif;
+            font-family: 'nyt-karnak-cond', Georgia, serif;
         }
         
         .header p {
@@ -192,9 +136,9 @@
         .tpl-label-emphasis { font: 800 0.6875rem/1.25 nyt-franklin, helvetica, arial, sans-serif; letter-spacing: 0.1em; text-transform: uppercase; }
         
         .wordle-root { font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif; }
-        .wordle-title-large { font-family: 'nyt-karnakcondensed'; font-size: 50px; font-weight: 700; }
-        .wordle-title-medium { font-family: 'nyt-karnakcondensed'; font-size: 44px; font-weight: 700; }
-        .wordle-title-small { font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; }
+        .wordle-title-large { font-family: 'nyt-karnak-cond'; font-size: 50px; font-weight: 700; }
+        .wordle-title-medium { font-family: 'nyt-karnak-cond'; font-size: 44px; font-weight: 700; }
+        .wordle-title-small { font-family: 'nyt-karnak-cond'; font-size: 36px; font-weight: 700; }
         .wordle-subtitle-large { font-family: 'nyt-karnak'; font-size: 38px; font-weight: 400; }
         .wordle-subtitle-medium { font-family: 'nyt-karnak'; font-size: 32px; font-weight: 400; }
         .wordle-subtitle-small { font-family: 'nyt-karnak'; font-size: 24px; font-weight: 400; }
@@ -315,21 +259,21 @@
                 <div class="type-example">
                     <div class="type-label">Game Title (Desktop)</div>
                     <div class="type-sample wordle-title-large">Wordle</div>
-                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 50px;<br>font-weight: bold;</div>
+                    <div class="type-code">font-family: 'nyt-karnak-cond';<br>font-size: 50px;<br>font-weight: bold;</div>
                     <div class="source-ref">Welcome.module.scss:67</div>
                 </div>
                 
                 <div class="type-example">
                     <div class="type-label">Game Title (Tablet)</div>
                     <div class="type-sample wordle-title-medium">Wordle</div>
-                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 44px;<br>font-weight: bold;</div>
+                    <div class="type-code">font-family: 'nyt-karnak-cond';<br>font-size: 44px;<br>font-weight: bold;</div>
                     <div class="source-ref">Welcome.module.scss:62</div>
                 </div>
                 
                 <div class="type-example">
                     <div class="type-label">Game Title (Mobile)</div>
                     <div class="type-sample wordle-title-small">Wordle</div>
-                    <div class="type-code">font-family: 'nyt-karnakcondensed';<br>font-size: 36px;<br>font-weight: bold;</div>
+                    <div class="type-code">font-family: 'nyt-karnak-cond';<br>font-size: 36px;<br>font-weight: bold;</div>
                     <div class="source-ref">Welcome.module.scss:53</div>
                 </div>
                 

@@ -5,48 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle TPL Design System Audit</title>
     
-    <style>
-        /* Load NYT Fonts */
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-400.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-400.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-500.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-500.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-600.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-600.woff') format('woff');
-            font-weight: 600;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./src/public/fonts/franklin/franklin-normal-700.woff2') format('woff2'),
-                 url('./src/public/fonts/franklin/franklin-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnakcondensed';
-            src: url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff2') format('woff2'),
-                 url('./src/public/fonts/karnakcondensed/karnakcondensed-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-    </style>
+    <!-- Load NYT Fonts -->
+    <link rel="stylesheet" href="./fonts/fonts.css">
     
     <style>
         body {
@@ -71,7 +31,7 @@
             text-align: center;
             margin-bottom: 40px;
             font-size: 2.5em;
-            font-family: 'nyt-karnakcondensed', Georgia, serif;
+            font-family: 'nyt-karnak-cond', Georgia, serif;
         }
         
         .game-header {
@@ -87,7 +47,7 @@
             font-size: 36px;
             font-weight: 700;
             margin: 0 0 10px 0;
-            font-family: 'nyt-karnakcondensed', Georgia, serif;
+            font-family: 'nyt-karnak-cond', Georgia, serif;
         }
         
         .game-subtitle {
@@ -347,12 +307,12 @@ font-family: 'nyt-franklin', Arial, sans-serif;
                     <div class="component-example">
                         <div class="component-title">Headline Typography</div>
                         <div class="component-demo">
-                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
+                            <div style="font-family: 'nyt-karnak-cond'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
                             <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 500; color: #666;">Consistent with TPL hierarchy</div>
                         </div>
                         <div class="code-snippet">
 // TPL Headline Pattern
-font-family: 'nyt-karnakcondensed';
+font-family: 'nyt-karnak-cond';
 font-size: 36px; // Base size, responsive scaling
 font-weight: 700;</div>
                     </div>
@@ -410,7 +370,7 @@ font-weight: 600;</div>
                     <div class="component-example">
                         <div class="component-title">Headline Typography</div>
                         <div class="component-demo">
-                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 50px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
+                            <div style="font-family: 'nyt-karnak-cond'; font-size: 50px; font-weight: 700; margin-bottom: 8px;">Wordle</div>
                             <div style="font-family: 'nyt-karnak'; font-size: 38px; font-weight: 400; color: #666;">Responsive but inconsistent sizing</div>
                         </div>
                         <div class="code-snippet">
@@ -447,13 +407,13 @@ font-weight: 600;</div>
                     <div class="component-example">
                         <div class="component-title">Mixed Font Usage</div>
                         <div class="component-demo">
-                            <div style="font-family: 'nyt-karnakcondensed'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Hi Wordler</div>
+                            <div style="font-family: 'nyt-karnak-cond'; font-size: 36px; font-weight: 700; margin-bottom: 8px;">Hi Wordler</div>
                             <div style="font-family: 'nyt-karnak'; font-size: 24px; font-weight: 400; margin-bottom: 8px;">Welcome Back</div>
                             <div style="font-family: 'nyt-franklin'; font-size: 16px; font-weight: 600;">Continue Playing</div>
                         </div>
                         <div class="code-snippet">
 // Wordle: Mixes different NYT fonts
-// Titles: 'nyt-karnakcondensed'
+// Titles: 'nyt-karnak-cond'
 // Subtitles: 'nyt-karnak' 
 // UI: 'nyt-franklin'</div>
                         <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/sharedStyles.scss#L58" class="source-link" target="_blank">sharedStyles.scss:58</a>
@@ -487,7 +447,7 @@ font-weight: 600;</div>
                 <div class="analysis-note impact-low">
                     <div class="note-title">🟢 Some TPL Alignment</div>
                     <div class="note-text">
-                        <strong>NYT Font Usage:</strong> Uses nyt-karnakcondensed for headlines and nyt-franklin for game tiles, showing partial TPL awareness.
+                        <strong>NYT Font Usage:</strong> Uses nyt-karnak-cond for headlines and nyt-franklin for game tiles, showing partial TPL awareness.
                         <br><br>
                         <strong>Foundation Integration:</strong> Imports shared foundation fonts, indicating infrastructure for TPL alignment exists.
                     </div>
