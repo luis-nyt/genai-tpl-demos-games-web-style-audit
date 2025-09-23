@@ -1,6 +1,8 @@
 # Changelog
 
 ## 2025-09-23
+- updated README.md to align with new project name 'TPL Consistency Opportunities' and emphasize Template Pattern Library focus
+- updated vercel.json to set project name to 'tpl-consistency-opportunities' for proper Vercel deployment identification
 - fixed font loading issues by correcting all font directory paths in fonts.css and web-fonts.css
 - removed incorrect /fonts/family/ path structure and replaced with proper /fonts/ directory structure 
 - removed hash patterns from font filenames in web-fonts.css to match actual file structure
