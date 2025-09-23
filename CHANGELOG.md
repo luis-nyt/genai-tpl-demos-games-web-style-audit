@@ -1,6 +1,18 @@
 # Changelog
 
 ## 2025-09-23
+- created separate Wordle TPL audit documents: v2.0 (full adoption approach) and v2.1 (low-hanging fruit consistency approach)
+- added both audit versions to index.html with today's date (9/23/2025) for easy navigation
+- v2.1 focuses on incremental token swaps, color mapping, and styling consistency without architectural changes
+- v2.0 focuses on comprehensive TPL component adoption including Typography, Button, Dialog, and full design system integration
+- created comprehensive Wordle TPL consistency audit v2.1 focusing on low-hanging fruit opportunities rather than full component adoption
+- analyzed Wordle codebase structure including 15+ custom components, 85+ color variables, and custom styling patterns 
+- identified 12 specific token swap opportunities including color mapping, font weight standardization, spacing token adoption, and border radius consistency
+- added direct GitHub repository links throughout audit document pointing to specific files and line numbers in games-phoenix repo
+- structured opportunities by effort level (low/medium/high) with visual impact scoring and implementation timelines
+- emphasized incremental improvements that maintain game functionality while improving TPL alignment
+- included token mapping examples showing current Wordle patterns vs TPL-aligned alternatives
+- provided 3-phase implementation strategy focusing on immediate wins, organization improvements, and validation
 - updated README.md to align with new project name 'TPL Consistency Opportunities' and emphasize Template Pattern Library focus
 - updated vercel.json to set project name to 'tpl-consistency-opportunities' for proper Vercel deployment identification
 - fixed font loading issues by correcting all font directory paths in fonts.css and web-fonts.css
