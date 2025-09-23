@@ -1,0 +1,886 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Typography Analysis v2.5 - Clear Sans Focus</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <style>
+        /* Font definitions for typography examples */
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-300.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-300.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-600.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./fonts/karnak/karnak-normal-400.woff2') format('woff2'),
+                 url('./fonts/karnak/karnak-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak-cond';
+            src: url('./fonts/karnak-cond/karnak-cond-normal-700.woff2') format('woff2'),
+                 url('./fonts/karnak-cond/karnak-cond-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: monospace;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+        }
+        
+        .repo-link {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+        
+        .color-table th {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        
+        .color-table td {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+        
+        .color-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .var-name {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 2px 4px;
+            font-size: 11px;
+        }
+        
+        .hex-value {
+            font-family: monospace;
+            font-size: 11px;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .tpl-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #666;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .usage-count {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .sortable:hover {
+            background: #fafafa;
+        }
+        
+        .sortable::after {
+            content: ' ↕';
+            opacity: 0.5;
+        }
+        
+        .proposed {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .category {
+            margin: 30px 0;
+        }
+        
+        .font-example {
+            padding: 8px;
+            border: 1px solid #ccc;
+            margin: 4px 0;
+            background: #f9f9f9;
+        }
+        
+        .font-example.franklin {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+        }
+        
+        .font-example.franklin-300 {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-weight: 300;
+        }
+        
+        .font-example.franklin-500 {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-weight: 500;
+        }
+        
+        .font-example.franklin-600 {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-weight: 600;
+        }
+        
+        .font-example.franklin-700 {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-weight: 700;
+        }
+        
+        .font-example.karnak {
+            font-family: 'nyt-karnak', Georgia, serif;
+            font-weight: 400;
+        }
+        
+        .font-example.karnak-condensed {
+            font-family: 'nyt-karnak-cond', Georgia, serif;
+            font-weight: 700;
+        }
+        
+        .font-example.clear-sans {
+            font-family: 'Clear Sans', 'Helvetica Neue', Arial, sans-serif;
+        }
+        
+        .size-2rem { font-size: 2rem; }
+        .size-1-25em { font-size: 1.25em; }
+        .size-16px { font-size: 16px; }
+        .size-20px { font-size: 20px; }
+        .size-28px { font-size: 28px; }
+        .size-36px { font-size: 36px; }
+        
+        .weight-300 { font-weight: 300; }
+        .weight-500 { font-weight: 500; }
+        .weight-600 { font-weight: 600; }
+        .weight-700 { font-weight: 700; }
+        .weight-bold { font-weight: bold; }
+        
+        .lh-1 { line-height: 1; }
+        .lh-115 { line-height: 115%; }
+        .lh-120 { line-height: 120%; }
+        .lh-28px { line-height: 28px; }
+        .lh-20px { line-height: 20px; }
+        .lh-20-8px { line-height: 20.8px; }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .current-state, .tpl-equivalent {
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        
+        .current-state {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .tpl-equivalent {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .code-block {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+        
+        .effort-low {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .effort-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .effort-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .opportunity {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #fafafa;
+        }
+        
+        .opportunity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .tag.component {
+            background: #3498db;
+            color: white;
+        }
+        
+        .tag.styling {
+            background: #9b59b6;
+            color: white;
+        }
+        
+        .tag.tokens {
+            background: #e67e22;
+            color: white;
+        }
+        
+        .tag.colors {
+            background: #8e44ad;
+            color: white;
+        }
+        
+        .tag.spacing {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .tag.typography {
+            background: #3498db;
+            color: white;
+        }
+        
+        .token-mapping {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .token-current {
+            font-family: monospace;
+            background: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .token-tpl {
+            font-family: monospace;
+            background: #d4edda;
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #b3d7b8;
+        }
+        
+        .token-arrow {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .impact-score {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .impact-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e9ecef;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .impact-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .impact-low .impact-fill {
+            width: 30%;
+            background: #ffc107;
+        }
+        
+        .impact-medium .impact-fill {
+            width: 60%;
+            background: #fd7e14;
+        }
+        
+        .impact-high .impact-fill {
+            width: 90%;
+            background: #dc3545;
+        }
+        
+        .quick-wins {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .quick-wins h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .recommendation-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+        
+        .phase-1 {
+            background: #e74c3c;
+        }
+        
+        .phase-2 {
+            background: #f39c12;
+        }
+        
+        .phase-3 {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>WORDLE TYPOGRAPHY ANALYSIS v2.5 - CLEAR SANS FOCUS</h1>
+    
+    <div class="repo-link">
+        Repository: <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
+    </div>
+    
+    <p>COMPREHENSIVE typography analysis including Clear Sans as default root font. Analysis of font hierarchy, fallback patterns, and TPL alignment opportunities.</p>
+
+    <div class="category">
+        <h2>ROOT FONT HIERARCHY</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>FONT LEVEL</th>
+                    <th>FONT FAMILY</th>
+                    <th>SCOPE</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>IMPACT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">:root</span></td>
+                    <td><div class="font-example clear-sans size-16px">Clear Sans default fallback</div></td>
+                    <td>ALL elements without explicit font-family</td>
+                    <td class="proposed">var(--tpl-font-family-primary)</td>
+                    <td>Foundation-level change affects entire app</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">Component</span></td>
+                    <td><div class="font-example franklin size-16px weight-700">nyt-franklin overrides</div></td>
+                    <td>Explicit component styling (42 instances)</td>
+                    <td class="proposed">TPL Typography components</td>
+                    <td>Component-by-component migration</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>EXPLICIT FONT FAMILY USAGE</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT FONT FAMILY</th>
+                    <th>CURRENT STYLING</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">Clear Sans</span></td>
+                    <td><div class="font-example clear-sans size-16px">Clear Sans Default Root Font</div></td>
+                    <td class="usage-count">∞</td>
+                    <td class="proposed">var(--tpl-font-family-primary)</td>
+                    <td>Root default, inherited by all elements</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-franklin</span></td>
+                    <td><div class="font-example franklin weight-700">Sample Text - Bold Franklin</div></td>
+                    <td class="usage-count">42</td>
+                    <td class="proposed">Text/*, Body/*, Label/*</td>
+                    <td>Primary UI font, buttons, content</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-franklin-400</span></td>
+                    <td><div class="font-example franklin-300">Sample Text - Franklin Light</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">Text/* (300 weight)</td>
+                    <td>Body text, light weight</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-franklin-500</span></td>
+                    <td><div class="font-example franklin-500">Sample Text - Franklin 500</div></td>
+                    <td class="usage-count">5</td>
+                    <td class="proposed">Label/* (500 weight)</td>
+                    <td>Medium weight labels</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-franklin-600</span></td>
+                    <td><div class="font-example franklin-600">Sample Text - Franklin 600</div></td>
+                    <td class="usage-count">3</td>
+                    <td class="proposed">Headline/* (600 weight)</td>
+                    <td>Semi-bold headings</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-karnak</span></td>
+                    <td><div class="font-example karnak">Sample Text - Karnak</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">TitleKarnak/*</td>
+                    <td>Display text, welcome screens</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">nyt-karnakcondensed</span></td>
+                    <td><div class="font-example karnak-condensed">Sample Text - Karnak Condensed</div></td>
+                    <td class="usage-count">4</td>
+                    <td class="proposed">HeadlineKarnak/*</td>
+                    <td>Condensed headings</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>FONT SIZE PATTERNS</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT SIZE</th>
+                    <th>CURRENT STYLING</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">2rem</span></td>
+                    <td><div class="font-example franklin size-2rem weight-bold">W</div></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">Headline/32</td>
+                    <td>Game tile letters</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">1.25em</span></td>
+                    <td><div class="font-example franklin size-1-25em weight-bold">Q</div></td>
+                    <td class="usage-count">12</td>
+                    <td class="proposed">Text/20</td>
+                    <td>Keyboard keys</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">16px</span></td>
+                    <td><div class="font-example franklin size-16px weight-500">Standard body text content</div></td>
+                    <td class="usage-count">25</td>
+                    <td class="proposed">Text/16</td>
+                    <td>Standard body text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">20px</span></td>
+                    <td><div class="font-example franklin size-20px weight-500">Help and instruction text</div></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">Text/20</td>
+                    <td>Help content</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">28px</span></td>
+                    <td><div class="font-example karnak-condensed size-28px weight-700">Modal Heading</div></td>
+                    <td class="usage-count">3</td>
+                    <td class="proposed">Headline/28</td>
+                    <td>Section headings</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">36px</span></td>
+                    <td><div class="font-example karnak-condensed size-36px weight-700">Welcome Display</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">Display/36</td>
+                    <td>Large display text</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>FONT WEIGHT PATTERNS</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT WEIGHT</th>
+                    <th>CURRENT STYLING</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">bold</span></td>
+                    <td><div class="font-example franklin size-16px weight-bold">Bold Weight Text</div></td>
+                    <td class="usage-count">15</td>
+                    <td class="proposed">var(--tpl-font-weight-bold)</td>
+                    <td>Game tiles, keyboard keys</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">700</span></td>
+                    <td><div class="font-example franklin size-16px weight-700">Weight 700 Headings</div></td>
+                    <td class="usage-count">22</td>
+                    <td class="proposed">var(--tpl-font-weight-bold)</td>
+                    <td>Headings, emphasized text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">500</span></td>
+                    <td><div class="font-example franklin size-16px weight-500">Weight 500 Labels</div></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">var(--tpl-font-weight-medium)</td>
+                    <td>Medium emphasis labels</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">600</span></td>
+                    <td><div class="font-example franklin size-16px weight-600">Weight 600 Semi-bold</div></td>
+                    <td class="usage-count">3</td>
+                    <td class="proposed">var(--tpl-font-weight-semibold)</td>
+                    <td>Semi-bold content</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">400</span></td>
+                    <td><div class="font-example franklin size-16px weight-300">Weight 400 → 300 Normal</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">var(--tpl-font-weight-light)</td>
+                    <td>Normal weight text (use 300)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>LINE HEIGHT INCONSISTENCIES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT LINE HEIGHT</th>
+                    <th>CURRENT STYLING</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>NOTES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">1</span></td>
+                    <td><div class="font-example franklin size-16px weight-500 lh-1">Tight line height<br>Multiple lines example</div></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">var(--tpl-line-height-tight)</td>
+                    <td>Tile letters, tight spacing</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">115%</span></td>
+                    <td><div class="font-example karnak-condensed size-20px lh-115">Heading with 115%<br>line height spacing</div></td>
+                    <td class="usage-count">3</td>
+                    <td class="proposed">var(--tpl-line-height-tight)</td>
+                    <td>Heading text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">120%</span></td>
+                    <td><div class="font-example karnak size-18px lh-120">Subheading with 120%<br>line height spacing</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td>Subheading text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">28px</span></td>
+                    <td><div class="font-example franklin size-16px weight-500 lh-28px">Button text with<br>28px line height</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">var(--tpl-line-height-relaxed)</td>
+                    <td>Button line height</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">20px</span></td>
+                    <td><div class="font-example franklin size-16px weight-500 lh-20px">Help content with<br>20px line height</div></td>
+                    <td class="usage-count">12</td>
+                    <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td>Help content text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">20.8px</span></td>
+                    <td><div class="font-example franklin size-16px weight-500 lh-20-8px">Link text with<br>specific 20.8px height</div></td>
+                    <td class="usage-count">1</td>
+                    <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td>Link text, specific value</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>LETTER SPACING PATTERNS</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT SPACING</th>
+                    <th>CURRENT STYLING</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">0.05em</span></td>
+                    <td><div class="font-example franklin size-16px weight-700" style="letter-spacing: 0.05em;">BUTTON TEXT</div></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">var(--tpl-letter-spacing-wide)</td>
+                    <td>Button text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">0.5px</span></td>
+                    <td><div class="font-example franklin size-16px weight-700" style="letter-spacing: 0.5px;">MODAL HEADING</div></td>
+                    <td class="usage-count">2</td>
+                    <td class="proposed">var(--tpl-letter-spacing-normal)</td>
+                    <td>Modal headings</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">0</span></td>
+                    <td><div class="font-example franklin size-16px weight-400" style="letter-spacing: 0;">Normal text spacing</div></td>
+                    <td class="usage-count">12</td>
+                    <td class="proposed">var(--tpl-letter-spacing-normal)</td>
+                    <td>Normal text, no spacing</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>SUMMARY</h2>
+    <p>TOTAL TYPOGRAPHY ANALYZED: 7 font families (including Clear Sans root) + 6 font sizes + 5 font weights + 6 line heights = 24 typography patterns</p>
+    
+    <h3>CLEAR SANS ROOT ANALYSIS</h3>
+    <p>- Clear Sans is set as :root font-family in index.scss:79</p>
+    <p>- Serves as DEFAULT fallback for all elements without explicit font-family</p>
+    <p>- Currently inherits to any component that doesn't override with nyt-franklin/karnak</p>
+    <p>- CRITICAL: Changing root font affects entire application typography baseline</p>
+    
+    <h3>FONT FAMILY CONSOLIDATION</h3>
+    <p>- Clear Sans (root default) → TPL root font-family or Typography component base</p>
+    <p>- nyt-franklin (42 explicit uses) → Text/*, Body/*, Label/* variants</p>
+    <p>- nyt-karnak (2 uses) → TitleKarnak/* variants</p>
+    <p>- nyt-karnakcondensed (4 uses) → HeadlineKarnak/* variants</p>
+    <p>- Multiple franklin weights can be consolidated into TPL typography variants</p>
+    
+    <h3>SIZE STANDARDIZATION OPPORTUNITIES</h3>
+    <p>- 16px (25 uses) → Text/16 (exact match)</p>
+    <p>- 2rem/32px (8 uses) → Headline/32 (exact match)</p>
+    <p>- 20px (8 uses) → Text/20 (exact match)</p>
+    <p>- 28px (3 uses) → Headline/28 (exact match)</p>
+    
+    <h3>WEIGHT & SPACING ALIGNMENT</h3>
+    <p>- All font weights (400, 500, 600, 700) have direct TPL token equivalents</p>
+    <p>- Line height inconsistencies can be resolved with TPL's systematic scale</p>
+    <p>- Letter spacing patterns align well with TPL tokens</p>
+    
+    <h3>IMPLEMENTATION PRIORITY</h3>
+    <p>1. CRITICAL: Evaluate Clear Sans root font alignment with TPL base typography</p>
+    <p>2. IMMEDIATE: Replace font-weight values with TPL tokens (37 instances)</p>
+    <p>3. HIGH IMPACT: Consolidate nyt-franklin usages (42) with TPL Typography component</p>
+    <p>4. MEDIUM IMPACT: Standardize line-height values with TPL scale</p>
+    <p>5. ORGANIZE: Replace font-size px values with TPL variant tokens</p>
+    <p>6. ELIMINATE: Remove 6 @font-face declarations in favor of TPL typography system</p>
+    
+    <h3>CLEAR SANS MIGRATION STRATEGY</h3>
+    <p>- OPTION A: Replace :root font-family with TPL's base font stack</p>
+    <p>- OPTION B: Keep Clear Sans but align with TPL's fallback pattern</p>
+    <p>- OPTION C: Gradually replace with Typography components (preserves Clear Sans where needed)</p>
+
+    <script>
+        // Simple table sorting for usage count columns
+        document.querySelectorAll('.sortable').forEach(header => {
+            header.addEventListener('click', () => {
+                const table = header.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                
+                // Toggle sort direction
+                const isAscending = header.dataset.sortDirection !== 'asc';
+                header.dataset.sortDirection = isAscending ? 'asc' : 'desc';
+                
+                // Update visual indicator
+                document.querySelectorAll('.sortable').forEach(h => {
+                    h.style.background = '';
+                    h.innerHTML = h.innerHTML.replace(/ [↑↓]/, '');
+                });
+                header.style.background = '#e0e0e0';
+                header.innerHTML = header.innerHTML.replace(' ↕', isAscending ? ' ↑' : ' ↓');
+                
+                // Sort rows
+                rows.sort((a, b) => {
+                    const aValue = parseInt(a.children[columnIndex].textContent) || 0;
+                    const bValue = parseInt(b.children[columnIndex].textContent) || 0;
+                    return isAscending ? aValue - bValue : bValue - aValue;
+                });
+                
+                // Re-append sorted rows
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
+
+</body>
+</html>
