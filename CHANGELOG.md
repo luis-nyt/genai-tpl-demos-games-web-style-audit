@@ -1,5 +1,13 @@
 # Changelog
 
+## 2025-09-23
+- fixed font loading issues by correcting all font directory paths in fonts.css and web-fonts.css
+- removed incorrect /fonts/family/ path structure and replaced with proper /fonts/ directory structure 
+- removed hash patterns from font filenames in web-fonts.css to match actual file structure
+- converted absolute font paths (/fonts/) to relative paths (./), fixing compatibility with both local and hosted environments
+- added missing font weight and style variants to fonts.css for Franklin, IBM Plex, and Imperial families
+- ensured all NYT font families (Cheltenham, Franklin, Karnak, IBM Plex, Imperial, Karnak Condensed) load properly
+
 ## 2024-12-20
 
 ### Accurate TPL Data from ios-games

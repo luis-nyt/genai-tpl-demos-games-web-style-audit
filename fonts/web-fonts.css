@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'nyt-athletic-slab';
-  src: url('/fonts/family/athletic-slab/athletic-slab-normal-700.cc218591ef707b20c8395b0c9baab312.woff2') format('woff2');
+  src: url('./athletic-slab/athletic-slab-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-200.64dd3cfc209bc73fb3279ba16dd3d09f.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-300.5278551441f9d1ce9cd247421e26a143.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-400.0020c60e1c956444040efc53cd3e7be0.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-500.c149a85a3db3ccc3cd9e1e217a1e8e4c.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-700.f99a0459024509f157a3352e5de4f873.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-italic-800.f3240492eb08ad76f293c523796ec139.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-italic-800.woff2') format('woff2');
   font-style: italic;
   font-weight: 800;
   font-display: swap;
@@ -56,7 +56,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-200.40ccfe2cc61a71e6617e56162d49b896.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-300.7ea91ebd036309e1fe756ee3aab272da.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -72,7 +72,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-400.a3ed7afe3eaa0a873f3fbd379f8c491b.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -80,7 +80,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-500.e6711d3a9af4e8cc6c129ba9940c081e.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -88,7 +88,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-700.530cfb72378419eedb60da7e266ad5f1.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -96,7 +96,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('/fonts/family/cheltenham/cheltenham-normal-800.78ace43907be7e8789003cfd692c3ba4.woff2') format('woff2');
+  src: url('./cheltenham/cheltenham-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -104,7 +104,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('/fonts/family/cheltenham-cond/cheltenham-cond-normal-300.2cb26d329110670c84ee9a2dd6b7c6b5.woff2') format('woff2');
+  src: url('./cheltenham-cond/cheltenham-cond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -112,7 +112,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('/fonts/family/cheltenham-cond/cheltenham-cond-normal-500.38f188555d0faca9cd04d05711b7d430.woff2') format('woff2');
+  src: url('./cheltenham-cond/cheltenham-cond-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -120,7 +120,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('/fonts/family/cheltenham-cond/cheltenham-cond-normal-700.9d3e47dbcdfcd125da0457426ac86b9b.woff2') format('woff2');
+  src: url('./cheltenham-cond/cheltenham-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -128,7 +128,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-scaps';
-  src: url('/fonts/family/cheltenham-scaps/cheltenham-scaps-normal-300.13fdf410c073060582642dff102318e4.woff2') format('woff2');
+  src: url('./cheltenham-scaps/cheltenham-scaps-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -136,7 +136,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('/fonts/family/cheltenham-small/cheltenham-small-italic-400.cdfa0ec29cca8c2d2f54c79d898e15c1.woff2') format('woff2');
+  src: url('./cheltenham-small/cheltenham-small-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -144,7 +144,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('/fonts/family/cheltenham-small/cheltenham-small-italic-700.4d88cc14057ed010aa281da2202f928c.woff2') format('woff2');
+  src: url('./cheltenham-small/cheltenham-small-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -152,7 +152,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('/fonts/family/cheltenham-small/cheltenham-small-normal-400.108ce298d451197b23fefceb3e36959f.woff2') format('woff2');
+  src: url('./cheltenham-small/cheltenham-small-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -160,7 +160,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('/fonts/family/cheltenham-small/cheltenham-small-normal-700.1a0b316424cdebd18086b8dbbc768eef.woff2') format('woff2');
+  src: url('./cheltenham-small/cheltenham-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -168,7 +168,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-text-cond';
-  src: url('/fonts/family/cheltenham-text-cond/cheltenham-text-cond-normal-700.7e78f9e7e6c2e02d82592c4466929fa3.woff2') format('woff2');
+  src: url('./cheltenham-text-cond/cheltenham-text-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -176,7 +176,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-wide';
-  src: url('/fonts/family/cheltenham-wide/cheltenham-wide-italic-400.19e805a3794fd4f35778d44a2946951a.woff2') format('woff2');
+  src: url('./cheltenham-wide/cheltenham-wide-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -184,7 +184,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-wide';
-  src: url('/fonts/family/cheltenham-wide/cheltenham-wide-normal-400.c5a9ae48f6d972c4f7ebcc149fc97d1f.woff2') format('woff2');
+  src: url('./cheltenham-wide/cheltenham-wide-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -192,7 +192,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-xcond';
-  src: url('/fonts/family/cheltenham-xcond/cheltenham-xcond-normal-700.bffb8d224e2391e6238da2f1d663d77c.woff2') format('woff2');
+  src: url('./cheltenham-xcond/cheltenham-xcond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -200,7 +200,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('/fonts/family/fact/fact-italic-400.5d2889527a70729f99f29ae105e4256d.woff2') format('woff2');
+  src: url('./fact/fact-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -208,7 +208,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('/fonts/family/fact/fact-normal-400.6a83a5be17ef5c648763d91eb3c35f24.woff2') format('woff2');
+  src: url('./fact/fact-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -216,7 +216,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('/fonts/family/fact/fact-normal-700.76e8e60b9be9e83113cffab049549269.woff2') format('woff2');
+  src: url('./fact/fact-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -224,7 +224,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('/fonts/family/fact-deck/fact-deck-normal-400.d0862e99e748e1a826b82efbe5d96589.woff2') format('woff2');
+  src: url('./fact-deck/fact-deck-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -232,7 +232,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('/fonts/family/fact-deck/fact-deck-normal-500.cc9729a718e9dbcb901b9b7a0f280aa9.woff2') format('woff2');
+  src: url('./fact-deck/fact-deck-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -240,7 +240,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('/fonts/family/fact-deck/fact-deck-normal-700.5e63cf15df2ea54c1ce85160f409b4f6.woff2') format('woff2');
+  src: url('./fact-deck/fact-deck-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -248,7 +248,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('/fonts/family/fact-deck-condensed/fact-deck-condensed-normal-400.52bee2457c8325d139d1d9b75d5db962.woff2') format('woff2');
+  src: url('./fact-deck-condensed/fact-deck-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -256,7 +256,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('/fonts/family/fact-deck-condensed/fact-deck-condensed-normal-500.dcf83dbe9fc152ee37ad253f107f3af4.woff2') format('woff2');
+  src: url('./fact-deck-condensed/fact-deck-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -264,7 +264,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('/fonts/family/fact-deck-condensed/fact-deck-condensed-normal-700.bff8033471155254c380febf7d0e27f4.woff2') format('woff2');
+  src: url('./fact-deck-condensed/fact-deck-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -272,7 +272,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-200.f3b3f8705bf0f901a28bf62b6c417a50.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -280,7 +280,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-300.2ee8c2bb364f912a80d2dcdba63a1a42.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -288,7 +288,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-400.b6e0d57d97c9de639d9fe6d4ed27a861.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -296,7 +296,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-500.6d1e723a3adb5ad548f337f90dc5439b.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -304,7 +304,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-700.7d88e15c1079186f4ac62548620c571b.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -312,7 +312,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('/fonts/family/fact-display/fact-display-normal-800.58c94cce24fdaee8447711076a6e3ab8.woff2') format('woff2');
+  src: url('./fact-display/fact-display-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -320,7 +320,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('/fonts/family/fact-display-condensed/fact-display-condensed-normal-400.209c2c8c0815de7d83aa4438f269b6f5.woff2') format('woff2');
+  src: url('./fact-display-condensed/fact-display-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -328,7 +328,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('/fonts/family/fact-display-condensed/fact-display-condensed-normal-500.7b3e82b624a0d2e8d44dfc3f0793ff10.woff2') format('woff2');
+  src: url('./fact-display-condensed/fact-display-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -336,7 +336,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('/fonts/family/fact-display-condensed/fact-display-condensed-normal-700.e896406487ab7b6af200bfc962434efe.woff2') format('woff2');
+  src: url('./fact-display-condensed/fact-display-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -344,7 +344,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('/fonts/family/fact-display-condensed/fact-display-condensed-normal-800.45e3ebbe3c6f78df41f72b5e3e04f0cd.woff2') format('woff2');
+  src: url('./fact-display-condensed/fact-display-condensed-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -352,7 +352,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-300.fb6b1cd2191b4a3104e3c6b15ce6f294.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -360,7 +360,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-500.0fb05587186331cd0a9b0f1a30805e76.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -368,7 +368,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-600.53344665e817d0e6b779b0b12e75db89.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -376,7 +376,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-700.c2f31454e8f67e6a409c1b5a37c42847.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -384,7 +384,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-800.be53478fd7c32b04647c16795817c00a.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-800.woff2') format('woff2');
   font-style: italic;
   font-weight: 800;
   font-display: swap;
@@ -392,7 +392,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-italic-900.93f61fe226df92cc8d8c7aa742f291e7.woff2') format('woff2');
+  src: url('./franklin/franklin-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -400,7 +400,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-300.a6479a5200f9a6352bdb71589c27c9c3.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -408,7 +408,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-500.0f4aea3d462cdb64748629efcbbf36bc.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -416,7 +416,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-600.75739ac267f076931c6da9740386ee6b.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -424,7 +424,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-700.91eaf6b5642463af4091160b4bbfdfcb.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -432,7 +432,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-800.fdc7cad17deeec2db1fe2f9f8c0520ed.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -440,7 +440,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('/fonts/family/franklin/franklin-normal-900.c7663abf5510617900d31a082a9c2e8d.woff2') format('woff2');
+  src: url('./franklin/franklin-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -448,7 +448,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-cword';
-  src: url('/fonts/family/franklin-cword/franklin-cword-normal-500.0064a6e6a668783e309e6d3bea1d46cc.woff2') format('woff2');
+  src: url('./franklin-cword/franklin-cword-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -456,7 +456,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-small';
-  src: url('/fonts/family/franklin-small/franklin-small-normal-500.0c3067e7ff2be53d0645203b6c2d3dd0.woff2') format('woff2');
+  src: url('./franklin-small/franklin-small-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -464,7 +464,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-small';
-  src: url('/fonts/family/franklin-small/franklin-small-normal-700.02e1ddab47b92bab4e740aaaac922204.woff2') format('woff2');
+  src: url('./franklin-small/franklin-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -472,7 +472,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('/fonts/family/franklin-tv/franklin-tv-normal-300.afe95a157afb95a163b72c02724ed615.woff2') format('woff2');
+  src: url('./franklin-tv/franklin-tv-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -480,7 +480,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('/fonts/family/franklin-tv/franklin-tv-normal-500.626994fecf25073d939409b8a1aea453.woff2') format('woff2');
+  src: url('./franklin-tv/franklin-tv-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -488,7 +488,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('/fonts/family/franklin-tv/franklin-tv-normal-600.22f8a0d358c1417a041732eae5cafe6c.woff2') format('woff2');
+  src: url('./franklin-tv/franklin-tv-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -496,7 +496,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('/fonts/family/franklin-tv/franklin-tv-normal-700.9f5d9a89231f67aa612fb6afecd764a6.woff2') format('woff2');
+  src: url('./franklin-tv/franklin-tv-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -504,7 +504,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/family/ibm-plex/ibm-plex-italic-400.115aed71da60412cb404c947ddb6a145.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -512,7 +512,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/family/ibm-plex/ibm-plex-italic-700.88ddbb1dee256b7dc19948fdb0af8f1c.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -520,7 +520,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/family/ibm-plex/ibm-plex-normal-400.6114a47be53bc83c1b20e9fd578e6ae2.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -528,7 +528,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/family/ibm-plex/ibm-plex-normal-700.05968875d877d351be73dd86d35f0ea1.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -536,7 +536,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-italic-400.30d6073613e33e742de4c1325b31065c.woff2') format('woff2');
+  src: url('./imperial/imperial-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -544,7 +544,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-italic-600.ea97a1cb7a4d63c8104929537e8ebbc8.woff2') format('woff2');
+  src: url('./imperial/imperial-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -552,7 +552,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-italic-700.996d951f04d92feac357036afa5da0bc.woff2') format('woff2');
+  src: url('./imperial/imperial-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -560,7 +560,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-normal-400.6131cd77b6e216c7693ed925f4309ffc.woff2') format('woff2');
+  src: url('./imperial/imperial-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -568,7 +568,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-normal-600.d93ee3805e0b842a93c3061849fc1862.woff2') format('woff2');
+  src: url('./imperial/imperial-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -576,7 +576,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('/fonts/family/imperial/imperial-normal-700.024693f96c8f2c457e4a6a8d02a636b7.woff2') format('woff2');
+  src: url('./imperial/imperial-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -584,7 +584,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-100.68318cfe79ed3292eaa8986498e1184c.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-100.woff2') format('woff2');
   font-style: cursive;
   font-weight: 100;
   font-display: swap;
@@ -592,7 +592,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-200.c9e3af78fc17d90acd4c1c556db57338.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-200.woff2') format('woff2');
   font-style: cursive;
   font-weight: 200;
   font-display: swap;
@@ -600,7 +600,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-300.7d2582db82f419e45720d9e28476199d.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-300.woff2') format('woff2');
   font-style: cursive;
   font-weight: 300;
   font-display: swap;
@@ -608,7 +608,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-500.0e939423d2f153db40cca99c956535cf.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-500.woff2') format('woff2');
   font-style: cursive;
   font-weight: 500;
   font-display: swap;
@@ -616,7 +616,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-600.d848d786cf0d4b455700779640afa7e8.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-600.woff2') format('woff2');
   font-style: cursive;
   font-weight: 600;
   font-display: swap;
@@ -624,7 +624,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-700.8f7bd9925d45259466cb9cb526fc9c15.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-700.woff2') format('woff2');
   font-style: cursive;
   font-weight: 700;
   font-display: swap;
@@ -632,7 +632,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-cursive-900.2cf5ce93bf0510b7707cedfaa1ef6316.woff2') format('woff2');
+  src: url('./karnak/karnak-cursive-900.woff2') format('woff2');
   font-style: cursive;
   font-weight: 900;
   font-display: swap;
@@ -640,7 +640,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-100.759139add975b0fd825a1000d3b17307.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-100.woff2') format('woff2');
   font-style: italic;
   font-weight: 100;
   font-display: swap;
@@ -648,7 +648,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-200.ec0493139fe443c700cd5bc51656edcb.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -656,7 +656,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-300.d62989a979215ad49d1d0c3f4f486c79.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -664,7 +664,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-500.f64a02dc6568e52e99a82d91a1fdf8ca.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -672,7 +672,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-600.72c3d19049de86da0bc9c9147f57193a.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -680,7 +680,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-700.6525ea60a7d32466827b652f1a11a08a.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -688,7 +688,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-italic-900.88b63bd51a705930c6cb750d083b782e.woff2') format('woff2');
+  src: url('./karnak/karnak-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -696,7 +696,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-100.1c971167052b6cf7b62837996d7375fa.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-100.woff2') format('woff2');
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -704,7 +704,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-200.5d58c4a8a4e5efec8e4c6ed45090e311.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -712,7 +712,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-300.e92a0bf485a4d57db75604c4bd7ff52a.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -720,7 +720,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-400.b2143e2f1890f4d516078da14aebab03.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -728,7 +728,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-500.7f87722cb5a30e7d78c232ed0369ff58.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -736,7 +736,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-600.dfde90ccdc80d8d2df3d0d8236059f87.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -744,7 +744,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-700.4a0c7e79ac2f009f12f9106482c961c4.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -752,7 +752,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('/fonts/family/karnak/karnak-normal-900.7552fe3fdd9952aeda91e6c5a2adc59f.woff2') format('woff2');
+  src: url('./karnak/karnak-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -760,7 +760,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-200.60e31dbd2579f2f220639ffaf6237e3e.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -768,7 +768,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-300.afd5a3c890c542a83a79bf673b1cf12e.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -776,7 +776,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-400.7890e96b4fedc59dd9ae79a4ddddda2f.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -784,7 +784,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-500.e2484a0513198a37b20a26bb176b1249.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -792,7 +792,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-600.767594ec4de30a98edf6830817505c8a.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -800,7 +800,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-700.ff903d65d851ee5575c74f1e2436e058.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -808,7 +808,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-italic-900.b606ca44d41b1366f8729dcef1f7ea21.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -816,7 +816,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-200.c13e053ab916e8ee240f7b00c1132a11.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -824,7 +824,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-300.d7d2e2defdd2dac130707ceeff5f9a85.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -832,7 +832,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-400.0dd6b65d16da708957bf0729fc5297d4.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -840,7 +840,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-500.fa1ff7db2a1753f6a098295a78a506bb.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -848,7 +848,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-600.46bd33562d07e1939956e25b9800003a.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -856,7 +856,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-700.6fb39146057c3d3c86e9d33d5470e4e6.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -864,7 +864,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('/fonts/family/karnak-cond/karnak-cond-normal-900.a23c1baec42bbdb05459e4abd5e78fc6.woff2') format('woff2');
+  src: url('./karnak-cond/karnak-cond-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -872,7 +872,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-small';
-  src: url('/fonts/family/karnak-small/karnak-small-normal-400.c909a35022008e989e12f943950cb610.woff2') format('woff2');
+  src: url('./karnak-small/karnak-small-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -880,7 +880,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-small';
-  src: url('/fonts/family/karnak-small/karnak-small-normal-700.b619f38a330814d65ff0b4c50603ed45.woff2') format('woff2');
+  src: url('./karnak-small/karnak-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -888,7 +888,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('/fonts/family/kippenberger/kippenberger-normal-400.f7a78c5c172da46cd47c4770efce7fb4.woff2') format('woff2');
+  src: url('./kippenberger/kippenberger-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -896,7 +896,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('/fonts/family/kippenberger/kippenberger-normal-500.61348fec329c54c077228f564405cc45.woff2') format('woff2');
+  src: url('./kippenberger/kippenberger-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -904,7 +904,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('/fonts/family/kippenberger/kippenberger-normal-700.a9bdcb1e9d3fa26cc208ff990d3323ed.woff2') format('woff2');
+  src: url('./kippenberger/kippenberger-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -912,7 +912,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('/fonts/family/kippenberger/kippenberger-normal-900.73d8cffdebf511efdadfe18e211f554f.woff2') format('woff2');
+  src: url('./kippenberger/kippenberger-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -920,7 +920,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('/fonts/family/kippenberger-condensed/kippenberger-condensed-normal-400.6b293905be519d2924ab3150ef2e948a.woff2') format('woff2');
+  src: url('./kippenberger-condensed/kippenberger-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -928,7 +928,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('/fonts/family/kippenberger-condensed/kippenberger-condensed-normal-500.aed0c99ef47b52bf523770c08aff88c3.woff2') format('woff2');
+  src: url('./kippenberger-condensed/kippenberger-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -936,7 +936,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('/fonts/family/kippenberger-condensed/kippenberger-condensed-normal-700.51324832188e83c97a86a5066e18146b.woff2') format('woff2');
+  src: url('./kippenberger-condensed/kippenberger-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -944,7 +944,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('/fonts/family/kippenberger-condensed/kippenberger-condensed-normal-900.629fa1ec756f6d66246f243758ab2830.woff2') format('woff2');
+  src: url('./kippenberger-condensed/kippenberger-condensed-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -952,7 +952,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-poster';
-  src: url('/fonts/family/kippenberger-poster/kippenberger-poster-normal-700.a5cf8180d14195fc15e4db1abc8e8118.woff2') format('woff2');
+  src: url('./kippenberger-poster/kippenberger-poster-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -960,7 +960,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-poster';
-  src: url('/fonts/family/kippenberger-poster/kippenberger-poster-normal-900.ccadc5b8ad4bb1689d99cd644f3b5334.woff2') format('woff2');
+  src: url('./kippenberger-poster/kippenberger-poster-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -968,7 +968,7 @@
 
 @font-face {
   font-family: 'nyt-magsans';
-  src: url('/fonts/family/magsans/magsans-normal-500.4f26f7d03a65d1d6e0888e034bd3bcca.woff2') format('woff2');
+  src: url('./magsans/magsans-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -976,7 +976,7 @@
 
 @font-face {
   font-family: 'nyt-magsans';
-  src: url('/fonts/family/magsans/magsans-normal-700.540b6986e349e0c3584cf51bbcda1224.woff2') format('woff2');
+  src: url('./magsans/magsans-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -984,7 +984,7 @@
 
 @font-face {
   font-family: 'nyt-magserif';
-  src: url('/fonts/family/magserif/magserif-normal-700.db190e43f947d485c782ddcb3eb2d0ca.woff2') format('woff2');
+  src: url('./magserif/magserif-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -992,7 +992,7 @@
 
 @font-face {
   font-family: 'nyt-magslab';
-  src: url('/fonts/family/magslab/magslab-normal-700.32ddc16a2c925830897e56e134696ade.woff2') format('woff2');
+  src: url('./magslab/magslab-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1000,7 +1000,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-s';
-  src: url('/fonts/family/schnyder-s/schnyder-s-normal-600.9c12687a0244f74a50ae23a2dfe25626.woff2') format('woff2');
+  src: url('./schnyder-s/schnyder-s-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -1008,7 +1008,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-s';
-  src: url('/fonts/family/schnyder-s/schnyder-s-normal-700.bc2cfae168f0438ed4f677e1d95aa615.woff2') format('woff2');
+  src: url('./schnyder-s/schnyder-s-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1016,7 +1016,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('/fonts/family/schnyder-scond/schnyder-scond-normal-300.ee2843eac9f368c56a0efe5fe4121bdf.woff2') format('woff2');
+  src: url('./schnyder-scond/schnyder-scond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -1024,7 +1024,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('/fonts/family/schnyder-scond/schnyder-scond-normal-600.e1209a23462c0d9a75909f8fcec860ae.woff2') format('woff2');
+  src: url('./schnyder-scond/schnyder-scond-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -1032,7 +1032,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('/fonts/family/schnyder-scond/schnyder-scond-normal-700.a9c82a5a3fe90803076759bb1f40c95f.woff2') format('woff2');
+  src: url('./schnyder-scond/schnyder-scond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
