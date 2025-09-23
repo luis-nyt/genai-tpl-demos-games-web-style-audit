@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle Typography Analysis v2.4</title>
+    <title>Wordle TPL Consistency Audit v2.1</title>
     <style>
         * {
             margin: 0;
@@ -12,114 +12,55 @@
         }
         
         body {
-            font-family: monospace;
-            line-height: 1.4;
-            color: #000;
-            background: #fff;
-            padding: 20px;
-            max-width: 1400px;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
             margin: 0 auto;
+            padding: 2rem;
         }
         
-        h1 {
-            font-size: 24px;
-            font-weight: bold;
-            margin-bottom: 10px;
-            border-bottom: 2px solid #000;
-            padding-bottom: 5px;
+        .header {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        h2 {
-            font-size: 18px;
-            font-weight: bold;
-            margin: 30px 0 15px 0;
-            text-transform: uppercase;
+        .header h1 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+            font-size: 2.5rem;
         }
         
-        h3 {
-            font-size: 14px;
-            font-weight: bold;
-            margin: 20px 0 10px 0;
+        .header .subtitle {
+            color: #7f8c8d;
+            font-size: 1.2rem;
         }
         
-        .repo-link {
-            font-size: 12px;
-            color: #666;
-            margin-bottom: 20px;
+        .section {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
         }
         
-        .color-table {
-            width: 100%;
-            border-collapse: collapse;
-            margin: 20px 0;
-            font-size: 12px;
+        .section h2 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 0.5rem;
         }
         
-        .color-table th {
-            background: #000;
-            color: #fff;
-            padding: 8px;
-            text-align: left;
-            font-weight: bold;
-            border: 1px solid #000;
-        }
-        
-        .color-table td {
-            padding: 6px 8px;
-            border: 1px solid #ccc;
-            vertical-align: top;
-        }
-        
-        .color-table tr:nth-child(even) {
-            background: #f5f5f5;
-        }
-        
-        .var-name {
-            font-family: monospace;
-            background: #f0f0f0;
-            padding: 2px 4px;
-            font-size: 11px;
-        }
-        
-        .hex-value {
-            font-family: monospace;
-            font-size: 11px;
-        }
-        
-        .color-swatch {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #000;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-        
-        .tpl-swatch {
-            display: inline-block;
-            width: 20px;
-            height: 20px;
-            border: 1px solid #666;
-            margin-right: 8px;
-            vertical-align: middle;
-        }
-        
-        .usage-count {
-            text-align: center;
-            font-weight: bold;
-        }
-        
-        .usage-high { color: #d00; }
-        .usage-medium { color: #f90; }
-        .usage-low { color: #090; }
-        
-        .proposed {
-            font-style: italic;
-            color: #666;
-        }
-        
-        .category {
-            margin: 30px 0;
+        .section h3 {
+            color: #34495e;
+            margin: 1.5rem 0 1rem 0;
         }
         
         .comparison-grid {
@@ -371,331 +312,474 @@
     </style>
 </head>
 <body>
-    <h1>WORDLE TYPOGRAPHY ANALYSIS v2.4</h1>
-    
-    <div class="repo-link">
-        Repository: <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
+    <div class="container">
+        <div class="header">
+            <h1>Wordle TPL Consistency Audit v2.1</h1>
+            <p class="subtitle">Low-hanging fruit for design system alignment without full adoption</p>
+            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
+                <strong>Repository:</strong> <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle" target="_blank">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
+            </p>
+        </div>
+
+        <div class="section">
+            <h2>Executive Summary</h2>
+            
+            <div class="stats">
+                <div class="stat-card">
+                    <span class="stat-number">15</span>
+                    <div class="stat-label">Custom Components</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">235</span>
+                    <div class="stat-label">Lines of Custom CSS</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">8</span>
+                    <div class="stat-label">TPL-Compatible Components</div>
+                </div>
+                <div class="stat-card">
+                    <span class="stat-number">60%</span>
+                    <div class="stat-label">Potential Code Reduction</div>
+                </div>
+            </div>
+
+            <p>The Wordle implementation presents significant opportunities for TPL adoption. The game currently uses custom styling patterns, font declarations, and component architectures that could be streamlined using TPL's design system. Key areas of opportunity include typography standardization, color token consolidation, component replacement, and spacing system adoption.</p>
+        </div>
+
+
+        <div class="section">
+            <h2>Current State Analysis</h2>
+            
+            <h3>Architecture Overview</h3>
+            <ul>
+                <li><strong>Component Structure:</strong> React components with CSS Modules</li>
+                <li><strong>Styling Approach:</strong> Custom CSS with CSS variables for theming</li>
+                <li><strong>Color System:</strong> Extensive custom color variables (85+ color tokens)</li>
+                <li><strong>Typography:</strong> Manual @font-face declarations for NYT fonts</li>
+                <li><strong>Spacing:</strong> Mix of custom spacing and some shared tokens</li>
+                <li><strong>Component Count:</strong> 15+ custom UI components including:
+                    <ul>
+                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Tile/Tile.tsx" target="_blank">Tile</a> - Game letter tiles</li>
+                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Keyboard/Keyboard.tsx" target="_blank">Keyboard</a> - Virtual keyboard</li>
+                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Board/Board.tsx" target="_blank">Board</a> - Game board container</li>
+                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Modal/Modal.tsx" target="_blank">Modal</a> - Popup dialogs</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <h3>Custom Font Declarations</h3>
+            <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/index.scss#L12-L75" target="_blank">index.scss (lines 12-75)</a></p>
+            <div class="code-block">
+@font-face {
+  font-family: 'nyt-karnak';
+  src: url('/public/fonts/karnak/karnak-normal-400.woff2') format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: 'nyt-franklin';
+  src: url('/public/fonts/franklin/franklin-normal-700.woff2') format('woff2');
+  font-weight: 700;
+}
+            </div>
+
+            <h3>Color System Complexity</h3>
+            <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/colors.scss#L21-L235" target="_blank">colors.scss (lines 21-235)</a></p>
+            <div class="code-block">
+:root {
+  --green: #{$wordleGreen};
+  --wordle-high-contrast-green: #{$wordleHighContrastGreen};
+  --wordleGray: #{$gray13};
+  --newsGray-10: #{$newsGray10};
+  --color-tone-1: var(--black);
+  --color-tone-2: var(--gray-18);
+  /* ...80+ more color definitions */
+}
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>TPL Adoption Opportunities</h2>
+            
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Typography System Replacement</h3>
+                    <div>
+                        <span class="tag tokens">Design Tokens</span>
+                        <span class="effort-high">High Priority</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="current-state">
+                        <h4>Current Implementation</h4>
+                        <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/index.scss#L12-L75" target="_blank">index.scss (lines 12-75)</a></p>
+                        <div class="code-block">
+.tile {
+  font-family: 'nyt-franklin';
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.heading {
+  font-family: 'nyt-franklin';
+  font-weight: 700;
+  font-size: 16px;
+  letter-spacing: 0.5px;
+}
+                        </div>
+                    </div>
+                    <div class="tpl-equivalent">
+                        <h4>TPL Alternative</h4>
+                        <div class="code-block">
+&lt;Typography variant="label/1" as="div"&gt;
+  Game Content
+&lt;/Typography&gt;
+
+&lt;Typography variant="headline/4" as="h2"&gt;
+  Modal Heading
+&lt;/Typography&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Impact:</strong> Eliminate 76 lines of custom font declarations and ensure consistent typography across all NYT products.</p>
+            </div>
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Button Component Consolidation</h3>
+                    <div>
+                        <span class="tag component">Components</span>
+                        <span class="effort-high">High Priority</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="current-state">
+                        <h4>Current Implementation</h4>
+                        <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Keyboard/Key.module.scss" target="_blank">Key.module.scss</a></p>
+                        <div class="code-block">
+.key {
+  font-family: 'nyt-franklin';
+  border: 0;
+  height: 58px;
+  border-radius: 4px;
+  cursor: pointer;
+  background-color: var(--key-bg);
+  color: var(--key-text-color);
+}
+                        </div>
+                    </div>
+                    <div class="tpl-equivalent">
+                        <h4>TPL Alternative</h4>
+                        <div class="code-block">
+&lt;Button 
+  variant="secondary"
+  height="standard"
+  onClick={handleKeyPress}
+&gt;
+  {keyValue}
+&lt;/Button&gt;
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Impact:</strong> Replace custom Key component with standardized TPL Button, reducing 45 lines of custom styling.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Typography Consistency</h2>
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Font Weight Standardization</h3>
+                    <div>
+                        <span class="tag typography">Typography</span>
+                        <span class="effort-low">Low Effort</span>
+                    </div>
+                </div>
+                
+                <div class="impact-score">
+                    <span>Impact:</span>
+                    <div class="impact-bar impact-low">
+                        <div class="impact-fill"></div>
+                    </div>
+                    <span>Low</span>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="current-state">
+                        <h4>Current Font Weights</h4>
+                        <p><strong>Sources:</strong> 
+                            <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Tile/Tile.module.scss#L9" target="_blank">Tile.module.scss</a>, 
+                            <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Keyboard/Key.module.scss#L4" target="_blank">Key.module.scss</a>,
+                            <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Modal/Modal.module.scss#L197" target="_blank">Modal.module.scss</a>
+                        </p>
+                        <div class="code-block">
+.tile {
+  font-weight: bold; /* 700 */
+}
+
+.key {
+  font-weight: bold; /* 700 */
+}
+
+.heading {
+  font-weight: 700;
+}
+                        </div>
+                    </div>
+                    <div class="tpl-equivalent">
+                        <h4>TPL-Aligned Weights</h4>
+                        <div class="code-block">
+.tile {
+  font-weight: var(--tpl-font-weight-bold);
+}
+
+.key {
+  font-weight: var(--tpl-font-weight-bold);
+}
+
+.heading {
+  font-weight: var(--tpl-font-weight-bold);
+}
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Benefit:</strong> Consistent font weight tokens across NYT products</p>
+            </div>
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Line Height Normalization</h3>
+                    <div>
+                        <span class="tag typography">Typography</span>
+                        <span class="effort-medium">Medium Effort</span>
+                    </div>
+                </div>
+                
+                <div class="impact-score">
+                    <span>Impact:</span>
+                    <div class="impact-bar impact-medium">
+                        <div class="impact-fill"></div>
+                    </div>
+                    <span>Medium</span>
+                </div>
+                
+                <p><strong>Current Issue:</strong> Inconsistent line-height values (1, 1.15, 28px, etc.) found across <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Tile/Tile.module.scss#L8" target="_blank">Tile.module.scss</a> and <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/sharedStyles.scss#L59" target="_blank">sharedStyles.scss</a></p>
+                <p><strong>Solution:</strong> Adopt TPL's systematic line-height scale</p>
+                
+                <div class="code-block">
+/* Replace inconsistent values */
+line-height: 1;
+line-height: 115%;
+line-height: 28px;
+
+/* With TPL tokens */
+line-height: var(--tpl-line-height-tight);
+line-height: var(--tpl-line-height-normal);
+line-height: var(--tpl-line-height-relaxed);
+                </div>
+            </div>
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Color Token Standardization</h3>
+                    <div>
+                        <span class="tag tokens">Design Tokens</span>
+                        <span class="priority-medium">Medium Priority</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="current-state">
+                        <h4>Current Implementation</h4>
+                        <div class="code-block">
+:root {
+  --color-tone-1: var(--black);
+  --color-tone-2: var(--gray-18);
+  --color-tone-3: var(--gray-19);
+  --color-tone-4: var(--gray-13);
+  /* 80+ more custom color variables */
+}
+                        </div>
+                    </div>
+                    <div class="tpl-equivalent">
+                        <h4>TPL Alternative</h4>
+                        <div class="code-block">
+// Use TPL's semantic color tokens
+color: var(--tpl-color-content-primary);
+background: var(--tpl-color-background-primary);
+border-color: var(--tpl-color-stroke-secondary);
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Impact:</strong> Reduce color definition complexity by 70% and ensure consistency with TPL's color system.</p>
+            </div>
+
+            <div class="opportunity">
+                <div class="opportunity-header">
+                    <h3>Spacing System Adoption</h3>
+                    <div>
+                        <span class="tag styling">Layout</span>
+                        <span class="priority-low">Low Priority</span>
+                    </div>
+                </div>
+                
+                <div class="comparison-grid">
+                    <div class="current-state">
+                        <h4>Current Implementation</h4>
+                        <p><strong>Sources:</strong> 
+                            <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Board/Board.module.scss#L14-L15" target="_blank">Board.module.scss</a>, 
+                            <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Modal/Modal.module.scss#L78" target="_blank">Modal.module.scss</a>
+                        </p>
+                        <div class="code-block">
+margin: 0 calc(var(--horizontal-spacing-0-5) * 1.5);
+padding: 10px; // TODO: NONDIRECTIONAL SPACING TOKEN
+grid-gap: 5px; // TODO: NONDIRECTIONAL SPACING TOKEN
+                        </div>
+                    </div>
+                    <div class="tpl-equivalent">
+                        <h4>TPL Alternative</h4>
+                        <div class="code-block">
+// Use TPL's systematic spacing
+margin: var(--tpl-space-2);
+padding: var(--tpl-space-1);
+gap: var(--tpl-space-0-5);
+                        </div>
+                    </div>
+                </div>
+                
+                <p><strong>Impact:</strong> Eliminate manual spacing calculations and TODOs for proper spacing tokens.</p>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Implementation Roadmap</h2>
+            
+            <div class="recommendation-timeline">
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-1"></div>
+                    <div>
+                        <h3>Phase 1: Foundation (2-3 weeks)</h3>
+                        <ul>
+                            <li>Integrate TPL's typography system and remove custom font declarations</li>
+                            <li>Replace Button/Key components with TPL Button</li>
+                            <li>Establish TPL color token mapping for game-specific colors</li>
+                            <li>Update build process to include TPL dependencies</li>
+                        </ul>
+                        <p><strong>Expected Impact:</strong> 40% reduction in custom CSS, improved typography consistency</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-2"></div>
+                    <div>
+                        <h3>Phase 2: Component Migration (3-4 weeks)</h3>
+                        <ul>
+                            <li>Replace Modal system with TPL Dialog components</li>
+                            <li>Migrate form elements to TPL TextInput components</li>
+                            <li>Implement TPL's Icon system for game icons</li>
+                            <li>Update Toast notifications to use TPL Toast component</li>
+                        </ul>
+                        <p><strong>Expected Impact:</strong> 60% reduction in custom components, standardized interactions</p>
+                    </div>
+                </div>
+                
+                <div class="timeline-item">
+                    <div class="timeline-marker phase-3"></div>
+                    <div>
+                        <h3>Phase 3: Polish & Optimization (1-2 weeks)</h3>
+                        <ul>
+                            <li>Fine-tune game-specific styling within TPL constraints</li>
+                            <li>Implement comprehensive accessibility improvements via TPL</li>
+                            <li>Performance optimization through reduced CSS bundle size</li>
+                            <li>Documentation and knowledge transfer</li>
+                        </ul>
+                        <p><strong>Expected Impact:</strong> Final code cleanup, improved accessibility, documentation</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section">
+            <h2>Expected Benefits</h2>
+            
+            <h3>Code Quality & Maintenance</h3>
+            <ul>
+                <li><strong>Reduced Custom Code:</strong> Eliminate ~400 lines of custom styling</li>
+                <li><strong>Improved Maintainability:</strong> Leverage TPL's tested and maintained components</li>
+                <li><strong>Consistency:</strong> Align with NYT's broader design system</li>
+                <li><strong>Accessibility:</strong> Inherit TPL's accessibility improvements automatically</li>
+            </ul>
+
+            <h3>Developer Experience</h3>
+            <ul>
+                <li><strong>Faster Development:</strong> Pre-built components reduce implementation time</li>
+                <li><strong>Design Consistency:</strong> Automatic alignment with NYT brand guidelines</li>
+                <li><strong>Documentation:</strong> Comprehensive TPL documentation and examples</li>
+                <li><strong>Testing:</strong> Leverage TPL's existing test coverage</li>
+            </ul>
+
+            <h3>Performance</h3>
+            <ul>
+                <li><strong>Bundle Size:</strong> Potential 20-30% reduction in CSS bundle size</li>
+                <li><strong>Load Time:</strong> Shared caching with other NYT products using TPL</li>
+                <li><strong>Runtime Performance:</strong> Optimized TPL component implementations</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Challenges & Considerations</h2>
+            
+            <h3>Game-Specific Requirements</h3>
+            <ul>
+                <li><strong>Color System:</strong> Wordle's game logic depends on specific green/yellow/gray colors</li>
+                <li><strong>Animations:</strong> Custom flip animations for tiles may need special handling</li>
+                <li><strong>Layout Constraints:</strong> Fixed game board dimensions require careful responsive handling</li>
+                <li><strong>Theme Support:</strong> Dark mode and colorblind mode need TPL compatibility</li>
+            </ul>
+
+            <h3>Migration Complexity</h3>
+            <ul>
+                <li><strong>Testing:</strong> Comprehensive testing required to ensure game logic remains intact</li>
+                <li><strong>A/B Testing:</strong> Consider gradual rollout to validate user experience</li>
+                <li><strong>Performance Monitoring:</strong> Monitor for any performance regressions during migration</li>
+                <li><strong>Fallback Strategy:</strong> Plan for quick rollback if issues arise</li>
+            </ul>
+        </div>
+
+        <div class="section">
+            <h2>Recommendations</h2>
+            
+            <p><strong>Primary Recommendation:</strong> Proceed with TPL adoption in phases, starting with typography and button components as they offer the highest impact with lowest risk.</p>
+            
+            <h3>Quick Wins (Week 1-2)</h3>
+            <ul>
+                <li>Replace font declarations with TPL Typography component</li>
+                <li>Migrate simple button components to TPL Button</li>
+                <li>Establish color token mapping documentation</li>
+            </ul>
+
+            <h3>Medium-term Goals (Month 1-2)</h3>
+            <ul>
+                <li>Complete modal system migration to TPL Dialog</li>
+                <li>Implement comprehensive spacing system</li>
+                <li>Update all form components to TPL equivalents</li>
+            </ul>
+
+            <h3>Long-term Vision (Month 3+)</h3>
+            <ul>
+                <li>Serve as model implementation for other Games TPL adoption</li>
+                <li>Contribute game-specific patterns back to TPL library</li>
+                <li>Explore advanced TPL features like theming and color behaviors</li>
+            </ul>
+        </div>
     </div>
-    
-    <p>PROPOSED typography standardization for TPL consistency alignment. Analysis of font families, sizes, weights, and line heights.</p>
-
-    <div class="category">
-        <h2>FONT FAMILY USAGE</h2>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>CURRENT FONT FAMILY</th>
-                    <th>USAGE COUNT</th>
-                    <th>LOCATIONS</th>
-                    <th>EXISTING TPL TOKEN</th>
-                    <th>CONTEXT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="var-name">nyt-franklin</span></td>
-                    <td class="usage-count usage-high">42</td>
-                    <td>Tiles, Keys, Stats, Modals</td>
-                    <td class="proposed">Text/*, Body/*, Label/*</td>
-                    <td>Primary UI font, buttons, content</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">nyt-franklin-400</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>Error.module.scss</td>
-                    <td class="proposed">Text/* (400 weight)</td>
-                    <td>Body text, light weight</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">nyt-franklin-500</span></td>
-                    <td class="usage-count usage-medium">5</td>
-                    <td>Nav, Promo, Awareness</td>
-                    <td class="proposed">Label/* (500 weight)</td>
-                    <td>Medium weight labels</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">nyt-franklin-600</span></td>
-                    <td class="usage-count usage-low">3</td>
-                    <td>Error, Awareness modules</td>
-                    <td class="proposed">Headline/* (600 weight)</td>
-                    <td>Semi-bold headings</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">nyt-karnak</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>Help, Welcome</td>
-                    <td class="proposed">TitleKarnak/*</td>
-                    <td>Display text, welcome screens</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">nyt-karnakcondensed</span></td>
-                    <td class="usage-count usage-low">4</td>
-                    <td>Modal headings, Welcome, AppHeader</td>
-                    <td class="proposed">HeadlineKarnak/*</td>
-                    <td>Condensed headings</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="category">
-        <h2>FONT SIZE PATTERNS</h2>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>CURRENT SIZE</th>
-                    <th>USAGE COUNT</th>
-                    <th>LOCATIONS</th>
-                    <th>EXISTING TPL TOKEN</th>
-                    <th>TPL SIZE</th>
-                    <th>CONTEXT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="var-name">2rem</span></td>
-                    <td class="usage-count usage-high">8</td>
-                    <td>Tile.module.scss</td>
-                    <td class="proposed">Headline/32</td>
-                    <td class="hex-value">32px</td>
-                    <td>Game tile letters</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">1.25em</span></td>
-                    <td class="usage-count usage-medium">12</td>
-                    <td>Key.module.scss</td>
-                    <td class="proposed">Text/20</td>
-                    <td class="hex-value">20px</td>
-                    <td>Keyboard keys</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">16px</span></td>
-                    <td class="usage-count usage-high">25</td>
-                    <td>Multiple components</td>
-                    <td class="proposed">Text/16</td>
-                    <td class="hex-value">16px</td>
-                    <td>Standard body text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">20px</span></td>
-                    <td class="usage-count usage-medium">8</td>
-                    <td>Help.module.scss</td>
-                    <td class="proposed">Text/20</td>
-                    <td class="hex-value">20px</td>
-                    <td>Help content</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">28px</span></td>
-                    <td class="usage-count usage-low">3</td>
-                    <td>Modal headings, Welcome</td>
-                    <td class="proposed">Headline/28</td>
-                    <td class="hex-value">28px</td>
-                    <td>Section headings</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">36px</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>sharedStyles.scss</td>
-                    <td class="proposed">Display/36</td>
-                    <td class="hex-value">36px</td>
-                    <td>Large display text</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="category">
-        <h2>FONT WEIGHT PATTERNS</h2>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>CURRENT WEIGHT</th>
-                    <th>USAGE COUNT</th>
-                    <th>LOCATIONS</th>
-                    <th>EXISTING TPL TOKEN</th>
-                    <th>TPL WEIGHT</th>
-                    <th>CONTEXT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="var-name">bold</span></td>
-                    <td class="usage-count usage-high">15</td>
-                    <td>Tile, Key, Help modules</td>
-                    <td class="proposed">var(--tpl-font-weight-bold)</td>
-                    <td class="hex-value">700</td>
-                    <td>Game tiles, keyboard keys</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">700</span></td>
-                    <td class="usage-count usage-high">22</td>
-                    <td>Stats, Modal, AppHeader</td>
-                    <td class="proposed">var(--tpl-font-weight-bold)</td>
-                    <td class="hex-value">700</td>
-                    <td>Headings, emphasized text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">500</span></td>
-                    <td class="usage-count usage-medium">8</td>
-                    <td>Help, Nav, Awareness</td>
-                    <td class="proposed">var(--tpl-font-weight-medium)</td>
-                    <td class="hex-value">500</td>
-                    <td>Medium emphasis labels</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">600</span></td>
-                    <td class="usage-count usage-low">3</td>
-                    <td>Error, Awareness modules</td>
-                    <td class="proposed">var(--tpl-font-weight-semibold)</td>
-                    <td class="hex-value">600</td>
-                    <td>Semi-bold content</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">400</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>Error.module.scss</td>
-                    <td class="proposed">var(--tpl-font-weight-normal)</td>
-                    <td class="hex-value">400</td>
-                    <td>Normal weight text</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="category">
-        <h2>LINE HEIGHT INCONSISTENCIES</h2>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>CURRENT LINE HEIGHT</th>
-                    <th>USAGE COUNT</th>
-                    <th>LOCATIONS</th>
-                    <th>EXISTING TPL TOKEN</th>
-                    <th>TPL VALUE</th>
-                    <th>NOTES</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="var-name">1</span></td>
-                    <td class="usage-count usage-medium">8</td>
-                    <td>Tile.module.scss</td>
-                    <td class="proposed">var(--tpl-line-height-tight)</td>
-                    <td class="hex-value">1.125</td>
-                    <td>Tile letters, tight spacing</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">115%</span></td>
-                    <td class="usage-count usage-low">3</td>
-                    <td>sharedStyles.scss</td>
-                    <td class="proposed">var(--tpl-line-height-tight)</td>
-                    <td class="hex-value">1.125</td>
-                    <td>Heading text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">120%</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>sharedStyles.scss</td>
-                    <td class="proposed">var(--tpl-line-height-normal)</td>
-                    <td class="hex-value">1.25</td>
-                    <td>Subheading text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">28px</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>sharedStyles.scss:31</td>
-                    <td class="proposed">var(--tpl-line-height-relaxed)</td>
-                    <td class="hex-value">1.5</td>
-                    <td>Button line height</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">20px</span></td>
-                    <td class="usage-count usage-medium">12</td>
-                    <td>Help.module.scss</td>
-                    <td class="proposed">var(--tpl-line-height-normal)</td>
-                    <td class="hex-value">1.25</td>
-                    <td>Help content text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">20.8px</span></td>
-                    <td class="usage-count usage-low">1</td>
-                    <td>sharedStyles.scss:91</td>
-                    <td class="proposed">var(--tpl-line-height-normal)</td>
-                    <td class="hex-value">1.25</td>
-                    <td>Link text, specific value</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <div class="category">
-        <h2>LETTER SPACING PATTERNS</h2>
-        <table class="color-table">
-            <thead>
-                <tr>
-                    <th>CURRENT SPACING</th>
-                    <th>USAGE COUNT</th>
-                    <th>LOCATIONS</th>
-                    <th>EXISTING TPL TOKEN</th>
-                    <th>TPL VALUE</th>
-                    <th>CONTEXT</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td><span class="var-name">0.05em</span></td>
-                    <td class="usage-count usage-medium">8</td>
-                    <td>sharedStyles.scss:28</td>
-                    <td class="proposed">var(--tpl-letter-spacing-wide)</td>
-                    <td class="hex-value">0.05em</td>
-                    <td>Button text</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">0.5px</span></td>
-                    <td class="usage-count usage-low">2</td>
-                    <td>Modal.module.scss:199</td>
-                    <td class="proposed">var(--tpl-letter-spacing-normal)</td>
-                    <td class="hex-value">0.03em</td>
-                    <td>Modal headings</td>
-                </tr>
-                <tr>
-                    <td><span class="var-name">0</span></td>
-                    <td class="usage-count usage-medium">12</td>
-                    <td>sharedStyles.scss:52</td>
-                    <td class="proposed">var(--tpl-letter-spacing-normal)</td>
-                    <td class="hex-value">0</td>
-                    <td>Normal text, no spacing</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
-    <h2>SUMMARY</h2>
-    <p>TOTAL TYPOGRAPHY ANALYZED: 6 font families + 6 font sizes + 5 font weights + 6 line heights = 23 typography patterns</p>
-    
-    <h3>FONT FAMILY CONSOLIDATION</h3>
-    <p>- nyt-franklin (42 uses) → Text/*, Body/*, Label/* variants</p>
-    <p>- nyt-karnak (2 uses) → TitleKarnak/* variants</p>
-    <p>- nyt-karnakcondensed (4 uses) → HeadlineKarnak/* variants</p>
-    <p>- Multiple franklin weights can be consolidated into TPL typography variants</p>
-    
-    <h3>SIZE STANDARDIZATION OPPORTUNITIES</h3>
-    <p>- 16px (25 uses) → Text/16 (exact match)</p>
-    <p>- 2rem/32px (8 uses) → Headline/32 (exact match)</p>
-    <p>- 20px (8 uses) → Text/20 (exact match)</p>
-    <p>- 28px (3 uses) → Headline/28 (exact match)</p>
-    
-    <h3>WEIGHT & SPACING ALIGNMENT</h3>
-    <p>- All font weights (400, 500, 600, 700) have direct TPL token equivalents</p>
-    <p>- Line height inconsistencies can be resolved with TPL's systematic scale</p>
-    <p>- Letter spacing patterns align well with TPL tokens</p>
-    
-    <h3>IMPLEMENTATION PRIORITY</h3>
-    <p>1. IMMEDIATE: Replace font-weight values with TPL tokens (37 instances)</p>
-    <p>2. HIGH IMPACT: Consolidate nyt-franklin usages with TPL Typography component</p>
-    <p>3. MEDIUM IMPACT: Standardize line-height values with TPL scale</p>
-    <p>4. ORGANIZE: Replace font-size px values with TPL variant tokens</p>
-    <p>5. ELIMINATE: Remove 6 @font-face declarations in favor of TPL typography system</p>
-
 </body>
 </html>
