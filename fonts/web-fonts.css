@@ -1,6 +1,6 @@
 @font-face {
   font-family: 'nyt-athletic-slab';
-  src: url('./athletic-slab/athletic-slab-normal-700.woff2') format('woff2');
+  src: url('/fonts/athletic-slab/athletic-slab-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -8,7 +8,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-200.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -16,7 +16,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-300.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -24,7 +24,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -32,7 +32,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-500.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -40,7 +40,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -48,7 +48,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-italic-800.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-italic-800.woff2') format('woff2');
   font-style: italic;
   font-weight: 800;
   font-display: swap;
@@ -56,7 +56,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-200.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -64,7 +64,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-300.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -72,7 +72,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -80,7 +80,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-500.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -88,7 +88,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -96,7 +96,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham';
-  src: url('./cheltenham/cheltenham-normal-800.woff2') format('woff2');
+  src: url('/fonts/cheltenham/cheltenham-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -104,7 +104,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('./cheltenham-cond/cheltenham-cond-normal-300.woff2') format('woff2');
+  src: url('/fonts/cheltenham-cond/cheltenham-cond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -112,7 +112,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('./cheltenham-cond/cheltenham-cond-normal-500.woff2') format('woff2');
+  src: url('/fonts/cheltenham-cond/cheltenham-cond-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -120,7 +120,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-cond';
-  src: url('./cheltenham-cond/cheltenham-cond-normal-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham-cond/cheltenham-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -128,7 +128,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-scaps';
-  src: url('./cheltenham-scaps/cheltenham-scaps-normal-300.woff2') format('woff2');
+  src: url('/fonts/cheltenham-scaps/cheltenham-scaps-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -136,7 +136,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('./cheltenham-small/cheltenham-small-italic-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham-small/cheltenham-small-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -144,7 +144,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('./cheltenham-small/cheltenham-small-italic-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham-small/cheltenham-small-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -152,7 +152,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('./cheltenham-small/cheltenham-small-normal-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham-small/cheltenham-small-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -160,7 +160,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-small';
-  src: url('./cheltenham-small/cheltenham-small-normal-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham-small/cheltenham-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -168,7 +168,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-text-cond';
-  src: url('./cheltenham-text-cond/cheltenham-text-cond-normal-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham-text-cond/cheltenham-text-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -176,7 +176,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-wide';
-  src: url('./cheltenham-wide/cheltenham-wide-italic-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham-wide/cheltenham-wide-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -184,7 +184,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-wide';
-  src: url('./cheltenham-wide/cheltenham-wide-normal-400.woff2') format('woff2');
+  src: url('/fonts/cheltenham-wide/cheltenham-wide-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -192,7 +192,7 @@
 
 @font-face {
   font-family: 'nyt-cheltenham-xcond';
-  src: url('./cheltenham-xcond/cheltenham-xcond-normal-700.woff2') format('woff2');
+  src: url('/fonts/cheltenham-xcond/cheltenham-xcond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -200,7 +200,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('./fact/fact-italic-400.woff2') format('woff2');
+  src: url('/fonts/fact/fact-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -208,7 +208,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('./fact/fact-normal-400.woff2') format('woff2');
+  src: url('/fonts/fact/fact-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -216,7 +216,7 @@
 
 @font-face {
   font-family: 'nyt-fact';
-  src: url('./fact/fact-normal-700.woff2') format('woff2');
+  src: url('/fonts/fact/fact-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -224,7 +224,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('./fact-deck/fact-deck-normal-400.woff2') format('woff2');
+  src: url('/fonts/fact-deck/fact-deck-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -232,7 +232,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('./fact-deck/fact-deck-normal-500.woff2') format('woff2');
+  src: url('/fonts/fact-deck/fact-deck-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -240,7 +240,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck';
-  src: url('./fact-deck/fact-deck-normal-700.woff2') format('woff2');
+  src: url('/fonts/fact-deck/fact-deck-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -248,7 +248,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('./fact-deck-condensed/fact-deck-condensed-normal-400.woff2') format('woff2');
+  src: url('/fonts/fact-deck-condensed/fact-deck-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -256,7 +256,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('./fact-deck-condensed/fact-deck-condensed-normal-500.woff2') format('woff2');
+  src: url('/fonts/fact-deck-condensed/fact-deck-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -264,7 +264,7 @@
 
 @font-face {
   font-family: 'nyt-fact-deck-condensed';
-  src: url('./fact-deck-condensed/fact-deck-condensed-normal-700.woff2') format('woff2');
+  src: url('/fonts/fact-deck-condensed/fact-deck-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -272,7 +272,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-200.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -280,7 +280,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-300.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -288,7 +288,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-400.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -296,7 +296,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-500.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -304,7 +304,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-700.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -312,7 +312,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display';
-  src: url('./fact-display/fact-display-normal-800.woff2') format('woff2');
+  src: url('/fonts/fact-display/fact-display-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -320,7 +320,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('./fact-display-condensed/fact-display-condensed-normal-400.woff2') format('woff2');
+  src: url('/fonts/fact-display-condensed/fact-display-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -328,7 +328,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('./fact-display-condensed/fact-display-condensed-normal-500.woff2') format('woff2');
+  src: url('/fonts/fact-display-condensed/fact-display-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -336,7 +336,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('./fact-display-condensed/fact-display-condensed-normal-700.woff2') format('woff2');
+  src: url('/fonts/fact-display-condensed/fact-display-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -344,7 +344,7 @@
 
 @font-face {
   font-family: 'nyt-fact-display-condensed';
-  src: url('./fact-display-condensed/fact-display-condensed-normal-800.woff2') format('woff2');
+  src: url('/fonts/fact-display-condensed/fact-display-condensed-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -352,7 +352,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-300.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -360,7 +360,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-500.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -368,7 +368,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-600.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -376,7 +376,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-700.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -384,7 +384,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-800.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-800.woff2') format('woff2');
   font-style: italic;
   font-weight: 800;
   font-display: swap;
@@ -392,7 +392,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-italic-900.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -400,7 +400,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-300.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -408,7 +408,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-500.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -416,7 +416,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-600.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -424,7 +424,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-700.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -432,7 +432,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-800.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-800.woff2') format('woff2');
   font-style: normal;
   font-weight: 800;
   font-display: swap;
@@ -440,7 +440,7 @@
 
 @font-face {
   font-family: 'nyt-franklin';
-  src: url('./franklin/franklin-normal-900.woff2') format('woff2');
+  src: url('/fonts/franklin/franklin-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -448,7 +448,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-cword';
-  src: url('./franklin-cword/franklin-cword-normal-500.woff2') format('woff2');
+  src: url('/fonts/franklin-cword/franklin-cword-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -456,7 +456,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-small';
-  src: url('./franklin-small/franklin-small-normal-500.woff2') format('woff2');
+  src: url('/fonts/franklin-small/franklin-small-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -464,7 +464,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-small';
-  src: url('./franklin-small/franklin-small-normal-700.woff2') format('woff2');
+  src: url('/fonts/franklin-small/franklin-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -472,7 +472,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('./franklin-tv/franklin-tv-normal-300.woff2') format('woff2');
+  src: url('/fonts/franklin-tv/franklin-tv-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -480,7 +480,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('./franklin-tv/franklin-tv-normal-500.woff2') format('woff2');
+  src: url('/fonts/franklin-tv/franklin-tv-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -488,7 +488,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('./franklin-tv/franklin-tv-normal-600.woff2') format('woff2');
+  src: url('/fonts/franklin-tv/franklin-tv-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -496,7 +496,7 @@
 
 @font-face {
   font-family: 'nyt-franklin-tv';
-  src: url('./franklin-tv/franklin-tv-normal-700.woff2') format('woff2');
+  src: url('/fonts/franklin-tv/franklin-tv-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -504,7 +504,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-italic-400.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -512,7 +512,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-italic-700.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -520,7 +520,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -528,7 +528,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('./ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
+  src: url('/fonts/ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -536,7 +536,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-italic-400.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -544,7 +544,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-italic-600.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -552,7 +552,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-italic-700.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -560,7 +560,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-normal-400.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -568,7 +568,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-normal-600.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -576,7 +576,7 @@
 
 @font-face {
   font-family: 'nyt-imperial';
-  src: url('./imperial/imperial-normal-700.woff2') format('woff2');
+  src: url('/fonts/imperial/imperial-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -584,7 +584,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-100.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-100.woff2') format('woff2');
   font-style: cursive;
   font-weight: 100;
   font-display: swap;
@@ -592,7 +592,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-200.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-200.woff2') format('woff2');
   font-style: cursive;
   font-weight: 200;
   font-display: swap;
@@ -600,7 +600,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-300.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-300.woff2') format('woff2');
   font-style: cursive;
   font-weight: 300;
   font-display: swap;
@@ -608,7 +608,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-500.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-500.woff2') format('woff2');
   font-style: cursive;
   font-weight: 500;
   font-display: swap;
@@ -616,7 +616,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-600.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-600.woff2') format('woff2');
   font-style: cursive;
   font-weight: 600;
   font-display: swap;
@@ -624,7 +624,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-700.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-700.woff2') format('woff2');
   font-style: cursive;
   font-weight: 700;
   font-display: swap;
@@ -632,7 +632,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-cursive-900.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-cursive-900.woff2') format('woff2');
   font-style: cursive;
   font-weight: 900;
   font-display: swap;
@@ -640,7 +640,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-100.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-100.woff2') format('woff2');
   font-style: italic;
   font-weight: 100;
   font-display: swap;
@@ -648,7 +648,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-200.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -656,7 +656,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-300.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -664,7 +664,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-500.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -672,7 +672,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-600.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -680,7 +680,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-700.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -688,7 +688,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-italic-900.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -696,7 +696,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-100.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-100.woff2') format('woff2');
   font-style: normal;
   font-weight: 100;
   font-display: swap;
@@ -704,7 +704,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-200.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -712,7 +712,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-300.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -720,7 +720,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-400.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -728,7 +728,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-500.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -736,7 +736,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-600.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -744,7 +744,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-700.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -752,7 +752,7 @@
 
 @font-face {
   font-family: 'nyt-karnak';
-  src: url('./karnak/karnak-normal-900.woff2') format('woff2');
+  src: url('/fonts/karnak/karnak-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -760,7 +760,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-200.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-200.woff2') format('woff2');
   font-style: italic;
   font-weight: 200;
   font-display: swap;
@@ -768,7 +768,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-300.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-300.woff2') format('woff2');
   font-style: italic;
   font-weight: 300;
   font-display: swap;
@@ -776,7 +776,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-400.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -784,7 +784,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-500.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-500.woff2') format('woff2');
   font-style: italic;
   font-weight: 500;
   font-display: swap;
@@ -792,7 +792,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-600.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-600.woff2') format('woff2');
   font-style: italic;
   font-weight: 600;
   font-display: swap;
@@ -800,7 +800,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-700.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -808,7 +808,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-italic-900.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-italic-900.woff2') format('woff2');
   font-style: italic;
   font-weight: 900;
   font-display: swap;
@@ -816,7 +816,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-200.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-200.woff2') format('woff2');
   font-style: normal;
   font-weight: 200;
   font-display: swap;
@@ -824,7 +824,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-300.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -832,7 +832,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-400.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -840,7 +840,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-500.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -848,7 +848,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-600.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -856,7 +856,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-700.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -864,7 +864,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-cond';
-  src: url('./karnak-cond/karnak-cond-normal-900.woff2') format('woff2');
+  src: url('/fonts/karnak-cond/karnak-cond-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -872,7 +872,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-small';
-  src: url('./karnak-small/karnak-small-normal-400.woff2') format('woff2');
+  src: url('/fonts/karnak-small/karnak-small-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -880,7 +880,7 @@
 
 @font-face {
   font-family: 'nyt-karnak-small';
-  src: url('./karnak-small/karnak-small-normal-700.woff2') format('woff2');
+  src: url('/fonts/karnak-small/karnak-small-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -888,7 +888,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('./kippenberger/kippenberger-normal-400.woff2') format('woff2');
+  src: url('/fonts/kippenberger/kippenberger-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -896,7 +896,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('./kippenberger/kippenberger-normal-500.woff2') format('woff2');
+  src: url('/fonts/kippenberger/kippenberger-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -904,7 +904,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('./kippenberger/kippenberger-normal-700.woff2') format('woff2');
+  src: url('/fonts/kippenberger/kippenberger-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -912,7 +912,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger';
-  src: url('./kippenberger/kippenberger-normal-900.woff2') format('woff2');
+  src: url('/fonts/kippenberger/kippenberger-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -920,7 +920,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('./kippenberger-condensed/kippenberger-condensed-normal-400.woff2') format('woff2');
+  src: url('/fonts/kippenberger-condensed/kippenberger-condensed-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -928,7 +928,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('./kippenberger-condensed/kippenberger-condensed-normal-500.woff2') format('woff2');
+  src: url('/fonts/kippenberger-condensed/kippenberger-condensed-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -936,7 +936,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('./kippenberger-condensed/kippenberger-condensed-normal-700.woff2') format('woff2');
+  src: url('/fonts/kippenberger-condensed/kippenberger-condensed-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -944,7 +944,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-condensed';
-  src: url('./kippenberger-condensed/kippenberger-condensed-normal-900.woff2') format('woff2');
+  src: url('/fonts/kippenberger-condensed/kippenberger-condensed-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -952,7 +952,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-poster';
-  src: url('./kippenberger-poster/kippenberger-poster-normal-700.woff2') format('woff2');
+  src: url('/fonts/kippenberger-poster/kippenberger-poster-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -960,7 +960,7 @@
 
 @font-face {
   font-family: 'nyt-kippenberger-poster';
-  src: url('./kippenberger-poster/kippenberger-poster-normal-900.woff2') format('woff2');
+  src: url('/fonts/kippenberger-poster/kippenberger-poster-normal-900.woff2') format('woff2');
   font-style: normal;
   font-weight: 900;
   font-display: swap;
@@ -968,7 +968,7 @@
 
 @font-face {
   font-family: 'nyt-magsans';
-  src: url('./magsans/magsans-normal-500.woff2') format('woff2');
+  src: url('/fonts/magsans/magsans-normal-500.woff2') format('woff2');
   font-style: normal;
   font-weight: 500;
   font-display: swap;
@@ -976,7 +976,7 @@
 
 @font-face {
   font-family: 'nyt-magsans';
-  src: url('./magsans/magsans-normal-700.woff2') format('woff2');
+  src: url('/fonts/magsans/magsans-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -984,7 +984,7 @@
 
 @font-face {
   font-family: 'nyt-magserif';
-  src: url('./magserif/magserif-normal-700.woff2') format('woff2');
+  src: url('/fonts/magserif/magserif-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -992,7 +992,7 @@
 
 @font-face {
   font-family: 'nyt-magslab';
-  src: url('./magslab/magslab-normal-700.woff2') format('woff2');
+  src: url('/fonts/magslab/magslab-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1000,7 +1000,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-s';
-  src: url('./schnyder-s/schnyder-s-normal-600.woff2') format('woff2');
+  src: url('/fonts/schnyder-s/schnyder-s-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -1008,7 +1008,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-s';
-  src: url('./schnyder-s/schnyder-s-normal-700.woff2') format('woff2');
+  src: url('/fonts/schnyder-s/schnyder-s-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -1016,7 +1016,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('./schnyder-scond/schnyder-scond-normal-300.woff2') format('woff2');
+  src: url('/fonts/schnyder-scond/schnyder-scond-normal-300.woff2') format('woff2');
   font-style: normal;
   font-weight: 300;
   font-display: swap;
@@ -1024,7 +1024,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('./schnyder-scond/schnyder-scond-normal-600.woff2') format('woff2');
+  src: url('/fonts/schnyder-scond/schnyder-scond-normal-600.woff2') format('woff2');
   font-style: normal;
   font-weight: 600;
   font-display: swap;
@@ -1032,7 +1032,7 @@
 
 @font-face {
   font-family: 'nyt-schnyder-scond';
-  src: url('./schnyder-scond/schnyder-scond-normal-700.woff2') format('woff2');
+  src: url('/fonts/schnyder-scond/schnyder-scond-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
