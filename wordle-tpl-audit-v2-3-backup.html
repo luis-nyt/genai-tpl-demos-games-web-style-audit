@@ -4,56 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wordle Typography Analysis v2.4</title>
-    <link rel="stylesheet" href="./fonts/fonts.css">
     <style>
-        /* Font definitions for typography examples */
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./fonts/franklin/franklin-normal-300.woff2') format('woff2'),
-                 url('./fonts/franklin/franklin-normal-300.woff') format('woff');
-            font-weight: 300;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./fonts/franklin/franklin-normal-500.woff2') format('woff2'),
-                 url('./fonts/franklin/franklin-normal-500.woff') format('woff');
-            font-weight: 500;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./fonts/franklin/franklin-normal-600.woff2') format('woff2'),
-                 url('./fonts/franklin/franklin-normal-600.woff') format('woff');
-            font-weight: 600;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-franklin';
-            src: url('./fonts/franklin/franklin-normal-700.woff2') format('woff2'),
-                 url('./fonts/franklin/franklin-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnak';
-            src: url('./fonts/karnak/karnak-normal-400.woff2') format('woff2'),
-                 url('./fonts/karnak/karnak-normal-400.woff') format('woff');
-            font-weight: 400;
-            font-style: normal;
-        }
-        
-        @font-face {
-            font-family: 'nyt-karnak-cond';
-            src: url('./fonts/karnak-cond/karnak-cond-normal-700.woff2') format('woff2'),
-                 url('./fonts/karnak-cond/karnak-cond-normal-700.woff') format('woff');
-            font-weight: 700;
-            font-style: normal;
-        }
         * {
             margin: 0;
             padding: 0;
@@ -158,19 +109,9 @@
             font-weight: bold;
         }
         
-        .sortable {
-            cursor: pointer;
-            user-select: none;
-        }
-        
-        .sortable:hover {
-            background: #f0f0f0;
-        }
-        
-        .sortable::after {
-            content: ' ↕';
-            opacity: 0.5;
-        }
+        .usage-high { color: #d00; }
+        .usage-medium { color: #f90; }
+        .usage-low { color: #090; }
         
         .proposed {
             font-style: italic;
@@ -180,67 +121,6 @@
         .category {
             margin: 30px 0;
         }
-        
-        .font-example {
-            padding: 8px;
-            border: 1px solid #ccc;
-            margin: 4px 0;
-            background: #f9f9f9;
-        }
-        
-        .font-example.franklin {
-            font-family: 'nyt-franklin', Arial, sans-serif;
-        }
-        
-        .font-example.franklin-300 {
-            font-family: 'nyt-franklin', Arial, sans-serif;
-            font-weight: 300;
-        }
-        
-        .font-example.franklin-500 {
-            font-family: 'nyt-franklin', Arial, sans-serif;
-            font-weight: 500;
-        }
-        
-        .font-example.franklin-600 {
-            font-family: 'nyt-franklin', Arial, sans-serif;
-            font-weight: 600;
-        }
-        
-        .font-example.franklin-700 {
-            font-family: 'nyt-franklin', Arial, sans-serif;
-            font-weight: 700;
-        }
-        
-        .font-example.karnak {
-            font-family: 'nyt-karnak', Georgia, serif;
-            font-weight: 400;
-        }
-        
-        .font-example.karnak-condensed {
-            font-family: 'nyt-karnak-cond', Georgia, serif;
-            font-weight: 700;
-        }
-        
-        .size-2rem { font-size: 2rem; }
-        .size-1-25em { font-size: 1.25em; }
-        .size-16px { font-size: 16px; }
-        .size-20px { font-size: 20px; }
-        .size-28px { font-size: 28px; }
-        .size-36px { font-size: 36px; }
-        
-        .weight-300 { font-weight: 300; }
-        .weight-500 { font-weight: 500; }
-        .weight-600 { font-weight: 600; }
-        .weight-700 { font-weight: 700; }
-        .weight-bold { font-weight: bold; }
-        
-        .lh-1 { line-height: 1; }
-        .lh-115 { line-height: 115%; }
-        .lh-120 { line-height: 120%; }
-        .lh-28px { line-height: 28px; }
-        .lh-20px { line-height: 20px; }
-        .lh-20-8px { line-height: 20.8px; }
         
         .comparison-grid {
             display: grid;
@@ -505,52 +385,52 @@
             <thead>
                 <tr>
                     <th>CURRENT FONT FAMILY</th>
-                    <th>CURRENT STYLING</th>
-                    <th class="sortable">USAGE COUNT</th>
-                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>USAGE COUNT</th>
+                    <th>LOCATIONS</th>
+                    <th>EXISTING TPL TOKEN</th>
                     <th>CONTEXT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span class="var-name">nyt-franklin</span></td>
-                    <td><div class="font-example franklin weight-700">Sample Text - Bold Franklin</div></td>
-                    <td class="usage-count">42</td>
+                    <td class="usage-count usage-high">42</td>
+                    <td>Tiles, Keys, Stats, Modals</td>
                     <td class="proposed">Text/*, Body/*, Label/*</td>
                     <td>Primary UI font, buttons, content</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-franklin-400</span></td>
-                    <td><div class="font-example franklin-300">Sample Text - Franklin Light</div></td>
-                    <td class="usage-count">2</td>
-                    <td class="proposed">Text/* (300 weight)</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>Error.module.scss</td>
+                    <td class="proposed">Text/* (400 weight)</td>
                     <td>Body text, light weight</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-franklin-500</span></td>
-                    <td><div class="font-example franklin-500">Sample Text - Franklin 500</div></td>
-                    <td class="usage-count">5</td>
+                    <td class="usage-count usage-medium">5</td>
+                    <td>Nav, Promo, Awareness</td>
                     <td class="proposed">Label/* (500 weight)</td>
                     <td>Medium weight labels</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-franklin-600</span></td>
-                    <td><div class="font-example franklin-600">Sample Text - Franklin 600</div></td>
-                    <td class="usage-count">3</td>
+                    <td class="usage-count usage-low">3</td>
+                    <td>Error, Awareness modules</td>
                     <td class="proposed">Headline/* (600 weight)</td>
                     <td>Semi-bold headings</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-karnak</span></td>
-                    <td><div class="font-example karnak">Sample Text - Karnak</div></td>
-                    <td class="usage-count">2</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>Help, Welcome</td>
                     <td class="proposed">TitleKarnak/*</td>
                     <td>Display text, welcome screens</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-karnakcondensed</span></td>
-                    <td><div class="font-example karnak-condensed">Sample Text - Karnak Condensed</div></td>
-                    <td class="usage-count">4</td>
+                    <td class="usage-count usage-low">4</td>
+                    <td>Modal headings, Welcome, AppHeader</td>
                     <td class="proposed">HeadlineKarnak/*</td>
                     <td>Condensed headings</td>
                 </tr>
@@ -564,53 +444,60 @@
             <thead>
                 <tr>
                     <th>CURRENT SIZE</th>
-                    <th>CURRENT STYLING</th>
-                    <th class="sortable">USAGE COUNT</th>
-                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>USAGE COUNT</th>
+                    <th>LOCATIONS</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL SIZE</th>
                     <th>CONTEXT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span class="var-name">2rem</span></td>
-                    <td><div class="font-example franklin size-2rem weight-bold">W</div></td>
-                    <td class="usage-count">8</td>
+                    <td class="usage-count usage-high">8</td>
+                    <td>Tile.module.scss</td>
                     <td class="proposed">Headline/32</td>
+                    <td class="hex-value">32px</td>
                     <td>Game tile letters</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">1.25em</span></td>
-                    <td><div class="font-example franklin size-1-25em weight-bold">Q</div></td>
-                    <td class="usage-count">12</td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td>Key.module.scss</td>
                     <td class="proposed">Text/20</td>
+                    <td class="hex-value">20px</td>
                     <td>Keyboard keys</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">16px</span></td>
-                    <td><div class="font-example franklin size-16px weight-500">Standard body text content</div></td>
-                    <td class="usage-count">25</td>
+                    <td class="usage-count usage-high">25</td>
+                    <td>Multiple components</td>
                     <td class="proposed">Text/16</td>
+                    <td class="hex-value">16px</td>
                     <td>Standard body text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">20px</span></td>
-                    <td><div class="font-example franklin size-20px weight-500">Help and instruction text</div></td>
-                    <td class="usage-count">8</td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td>Help.module.scss</td>
                     <td class="proposed">Text/20</td>
+                    <td class="hex-value">20px</td>
                     <td>Help content</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">28px</span></td>
-                    <td><div class="font-example karnak-condensed size-28px weight-700">Modal Heading</div></td>
-                    <td class="usage-count">3</td>
+                    <td class="usage-count usage-low">3</td>
+                    <td>Modal headings, Welcome</td>
                     <td class="proposed">Headline/28</td>
+                    <td class="hex-value">28px</td>
                     <td>Section headings</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">36px</span></td>
-                    <td><div class="font-example karnak-condensed size-36px weight-700">Welcome Display</div></td>
-                    <td class="usage-count">2</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>sharedStyles.scss</td>
                     <td class="proposed">Display/36</td>
+                    <td class="hex-value">36px</td>
                     <td>Large display text</td>
                 </tr>
             </tbody>
@@ -623,47 +510,53 @@
             <thead>
                 <tr>
                     <th>CURRENT WEIGHT</th>
-                    <th>CURRENT STYLING</th>
-                    <th class="sortable">USAGE COUNT</th>
-                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>USAGE COUNT</th>
+                    <th>LOCATIONS</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL WEIGHT</th>
                     <th>CONTEXT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span class="var-name">bold</span></td>
-                    <td><div class="font-example franklin size-16px weight-bold">Bold Weight Text</div></td>
-                    <td class="usage-count">15</td>
+                    <td class="usage-count usage-high">15</td>
+                    <td>Tile, Key, Help modules</td>
                     <td class="proposed">var(--tpl-font-weight-bold)</td>
+                    <td class="hex-value">700</td>
                     <td>Game tiles, keyboard keys</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">700</span></td>
-                    <td><div class="font-example franklin size-16px weight-700">Weight 700 Headings</div></td>
-                    <td class="usage-count">22</td>
+                    <td class="usage-count usage-high">22</td>
+                    <td>Stats, Modal, AppHeader</td>
                     <td class="proposed">var(--tpl-font-weight-bold)</td>
+                    <td class="hex-value">700</td>
                     <td>Headings, emphasized text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">500</span></td>
-                    <td><div class="font-example franklin size-16px weight-500">Weight 500 Labels</div></td>
-                    <td class="usage-count">8</td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td>Help, Nav, Awareness</td>
                     <td class="proposed">var(--tpl-font-weight-medium)</td>
+                    <td class="hex-value">500</td>
                     <td>Medium emphasis labels</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">600</span></td>
-                    <td><div class="font-example franklin size-16px weight-600">Weight 600 Semi-bold</div></td>
-                    <td class="usage-count">3</td>
+                    <td class="usage-count usage-low">3</td>
+                    <td>Error, Awareness modules</td>
                     <td class="proposed">var(--tpl-font-weight-semibold)</td>
+                    <td class="hex-value">600</td>
                     <td>Semi-bold content</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">400</span></td>
-                    <td><div class="font-example franklin size-16px weight-300">Weight 400 → 300 Normal</div></td>
-                    <td class="usage-count">2</td>
-                    <td class="proposed">var(--tpl-font-weight-light)</td>
-                    <td>Normal weight text (use 300)</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>Error.module.scss</td>
+                    <td class="proposed">var(--tpl-font-weight-normal)</td>
+                    <td class="hex-value">400</td>
+                    <td>Normal weight text</td>
                 </tr>
             </tbody>
         </table>
@@ -675,53 +568,60 @@
             <thead>
                 <tr>
                     <th>CURRENT LINE HEIGHT</th>
-                    <th>CURRENT STYLING</th>
-                    <th class="sortable">USAGE COUNT</th>
-                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>USAGE COUNT</th>
+                    <th>LOCATIONS</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL VALUE</th>
                     <th>NOTES</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span class="var-name">1</span></td>
-                    <td><div class="font-example franklin size-16px weight-500 lh-1">Tight line height<br>Multiple lines example</div></td>
-                    <td class="usage-count">8</td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td>Tile.module.scss</td>
                     <td class="proposed">var(--tpl-line-height-tight)</td>
+                    <td class="hex-value">1.125</td>
                     <td>Tile letters, tight spacing</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">115%</span></td>
-                    <td><div class="font-example karnak-condensed size-20px lh-115">Heading with 115%<br>line height spacing</div></td>
-                    <td class="usage-count">3</td>
+                    <td class="usage-count usage-low">3</td>
+                    <td>sharedStyles.scss</td>
                     <td class="proposed">var(--tpl-line-height-tight)</td>
+                    <td class="hex-value">1.125</td>
                     <td>Heading text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">120%</span></td>
-                    <td><div class="font-example karnak size-18px lh-120">Subheading with 120%<br>line height spacing</div></td>
-                    <td class="usage-count">2</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>sharedStyles.scss</td>
                     <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td class="hex-value">1.25</td>
                     <td>Subheading text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">28px</span></td>
-                    <td><div class="font-example franklin size-16px weight-500 lh-28px">Button text with<br>28px line height</div></td>
-                    <td class="usage-count">2</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>sharedStyles.scss:31</td>
                     <td class="proposed">var(--tpl-line-height-relaxed)</td>
+                    <td class="hex-value">1.5</td>
                     <td>Button line height</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">20px</span></td>
-                    <td><div class="font-example franklin size-16px weight-500 lh-20px">Help content with<br>20px line height</div></td>
-                    <td class="usage-count">12</td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td>Help.module.scss</td>
                     <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td class="hex-value">1.25</td>
                     <td>Help content text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">20.8px</span></td>
-                    <td><div class="font-example franklin size-16px weight-500 lh-20-8px">Link text with<br>specific 20.8px height</div></td>
-                    <td class="usage-count">1</td>
+                    <td class="usage-count usage-low">1</td>
+                    <td>sharedStyles.scss:91</td>
                     <td class="proposed">var(--tpl-line-height-normal)</td>
+                    <td class="hex-value">1.25</td>
                     <td>Link text, specific value</td>
                 </tr>
             </tbody>
@@ -734,32 +634,36 @@
             <thead>
                 <tr>
                     <th>CURRENT SPACING</th>
-                    <th>CURRENT STYLING</th>
-                    <th class="sortable">USAGE COUNT</th>
-                    <th>RECOMMENDED TPL TOKEN SWAP</th>
+                    <th>USAGE COUNT</th>
+                    <th>LOCATIONS</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL VALUE</th>
                     <th>CONTEXT</th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td><span class="var-name">0.05em</span></td>
-                    <td><div class="font-example franklin size-16px weight-700" style="letter-spacing: 0.05em;">BUTTON TEXT</div></td>
-                    <td class="usage-count">8</td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td>sharedStyles.scss:28</td>
                     <td class="proposed">var(--tpl-letter-spacing-wide)</td>
+                    <td class="hex-value">0.05em</td>
                     <td>Button text</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">0.5px</span></td>
-                    <td><div class="font-example franklin size-16px weight-700" style="letter-spacing: 0.5px;">MODAL HEADING</div></td>
-                    <td class="usage-count">2</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td>Modal.module.scss:199</td>
                     <td class="proposed">var(--tpl-letter-spacing-normal)</td>
+                    <td class="hex-value">0.03em</td>
                     <td>Modal headings</td>
                 </tr>
                 <tr>
                     <td><span class="var-name">0</span></td>
-                    <td><div class="font-example franklin size-16px weight-400" style="letter-spacing: 0;">Normal text spacing</div></td>
-                    <td class="usage-count">12</td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td>sharedStyles.scss:52</td>
                     <td class="proposed">var(--tpl-letter-spacing-normal)</td>
+                    <td class="hex-value">0</td>
                     <td>Normal text, no spacing</td>
                 </tr>
             </tbody>
@@ -792,40 +696,6 @@
     <p>3. MEDIUM IMPACT: Standardize line-height values with TPL scale</p>
     <p>4. ORGANIZE: Replace font-size px values with TPL variant tokens</p>
     <p>5. ELIMINATE: Remove 6 @font-face declarations in favor of TPL typography system</p>
-
-    <script>
-        // Simple table sorting for usage count columns
-        document.querySelectorAll('.sortable').forEach(header => {
-            header.addEventListener('click', () => {
-                const table = header.closest('table');
-                const tbody = table.querySelector('tbody');
-                const rows = Array.from(tbody.querySelectorAll('tr'));
-                const columnIndex = Array.from(header.parentNode.children).indexOf(header);
-                
-                // Toggle sort direction
-                const isAscending = header.dataset.sortDirection !== 'asc';
-                header.dataset.sortDirection = isAscending ? 'asc' : 'desc';
-                
-                // Update visual indicator
-                document.querySelectorAll('.sortable').forEach(h => {
-                    h.style.background = '';
-                    h.innerHTML = h.innerHTML.replace(/ [↑↓]/, '');
-                });
-                header.style.background = '#e0e0e0';
-                header.innerHTML = header.innerHTML.replace(' ↕', isAscending ? ' ↑' : ' ↓');
-                
-                // Sort rows
-                rows.sort((a, b) => {
-                    const aValue = parseInt(a.children[columnIndex].textContent) || 0;
-                    const bValue = parseInt(b.children[columnIndex].textContent) || 0;
-                    return isAscending ? aValue - bValue : bValue - aValue;
-                });
-                
-                // Re-append sorted rows
-                rows.forEach(row => tbody.appendChild(row));
-            });
-        });
-    </script>
 
 </body>
 </html>
