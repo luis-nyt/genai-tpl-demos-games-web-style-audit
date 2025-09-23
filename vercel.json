@@ -1,5 +1,4 @@
 {
-  "name": "tpl-consistency-opportunities",
   "buildCommand": "echo 'Static site - no build needed'",
   "outputDirectory": ".",
   "headers": [

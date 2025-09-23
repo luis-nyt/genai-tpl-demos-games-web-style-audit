@@ -1,0 +1,60 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as IntroStories from './index.stories';
+
+<Meta title="Tutorials/Intro to Story List/Section 3: Sections & Typography" />
+
+# Intro to Story List
+
+Learn about the views that make up TPL Story List and try them out for the first time.
+
+## Section 3: Sections & Typography
+
+Add additional structure and visual interest to our story list.
+
+### Step 1
+
+Wrap the first item’s `<LinkBox.Link>`, which contains the headline, in `<HeadlineFeature as="h3" size={28}>`.
+
+<Canvas of={IntroStories.Section3Step1} sourceState="shown" />
+
+`<HeadlineFeature>` is one of several TPL [typography](/docs/typography-overview--docs) components, by the way!
+
+You can pass any element you want to `<StoryListItemContent>`, and thus you can customize typography, **HTML semantics**, text color and more, just as you would with any other child element.
+
+### Step 2
+
+Wrap the other two `<LinkBox.Link>` elements in `<h3>` tags.
+
+<Canvas of={IntroStories.Section3Step2} sourceState="shown" />
+
+Here in Storybook, at least, the `<h3>` elements still have some browser default styling applied to them, so let’s fix that.
+
+### Step 3
+
+Add `style={{ fontWeight: 'inherit', margin: 0 }}` to the `<h3>` tags.
+
+<Canvas of={IntroStories.Section3Step3} sourceState="shown" />
+
+You can also use any of TPL’s [typography](/docs/typography-overview--docs) components, of course.
+
+### Step 4
+
+Wrap the last two items in a `<StoryListSection>`.
+
+<Canvas of={IntroStories.Section3Step4} sourceState="shown" />
+
+The section adds a heavier divider and, since it comes after the first story, additional spacing.
+
+### Step 5
+
+Finally, add a `header` to the section.
+
+<Canvas of={IntroStories.Section3Step5} sourceState="shown" />
+
+As with other views in this tutorial, the section header comes with default typography.
+
+----
+
+_At this point, we’ve explored most of TPL Story List’s core concepts, which make building lists of stories efficient, polished, flexible _and_ **accessible**._
+
+_Thanks for joining us for this tutorial! We can’t wait to see what you make on your own!_

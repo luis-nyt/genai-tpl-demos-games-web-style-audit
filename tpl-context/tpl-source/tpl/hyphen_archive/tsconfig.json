@@ -1,0 +1,18 @@
+{
+  "extends": "../../../tsconfig.settings.json",
+  "compilerOptions": {
+    /* Basic Options */
+    "noImplicitAny": false, // TODO
+    "noUncheckedIndexedAccess": false, // TODO
+    "resolveJsonModule": false,
+    /* Incremental Build Options */
+    "composite": false,
+    "incremental": false,
+    "emitDeclarationOnly": false,
+    "noEmit": true,
+    "rootDir": "src",
+    "outDir": "lib"
+  },
+  "references": [{ "path": "../../foundation/web" }, { "path": ".." }],
+  "include": ["src", "../@types"]
+}

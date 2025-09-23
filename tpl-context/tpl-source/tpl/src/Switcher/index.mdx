@@ -1,0 +1,22 @@
+import { Canvas, Meta } from '@storybook/addon-docs';
+import * as SwitcherStories from './index.stories';
+
+<Meta of={SwitcherStories} />
+
+# Switcher
+
+Sometimes you want a layout to _switch_ between a stacked vertical layout and flex layout. This can be easily achieved
+using the [Flex](/docs/layout-box-flex--page) component, but this relies on media queries; it switches layouts based
+on the width of the screen.
+
+Often, however, we want the layout to change based on the width of element container. `Switcher` wraps a `Flex` component
+with one key addition: it takes a `switchWidth` parameter which dictates at which container width the child elements
+should reconfigure themselves between a stacked layout and a flex row.
+
+Children of Switcher may set a `max-width` property to constrain their width. The `Box` component and its `maxWidth`
+property work well here.
+
+See [Every Layout](https://every-layout.dev/layouts/switcher/) for more about the inspiration for, and the theory behind
+this component.
+
+<Canvas of={SwitcherStories.Default} />

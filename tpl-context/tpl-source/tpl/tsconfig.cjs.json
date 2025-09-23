@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    /* Output Options */
+    "module": "CommonJS",
+    "outDir": "cjs",
+    /* Incremental Build Options */
+    "tsBuildInfoFile": ".caches/tsconfig.cjs.tsbuildinfo"
+  },
+  "references": [{ "path": "../foundation/web/tsconfig.cjs.json" }]
+}

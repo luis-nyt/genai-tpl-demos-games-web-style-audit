@@ -1,0 +1,36 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Layout/Breakpoints" />
+
+# Breakpoints
+
+`@nyt/tpl`'s components do not use responsive layout by default. However, multiple components support responsive sizing and spacing via the `sx` prop.
+
+Thus, `@nyt/tpl` provides two default breakpoints:
+
+- medium at `481px` and;
+- large at `1025px`
+
+## Usage
+
+You can import `BreakpointContext` or `useBreakpointContext()` from `@nyt/tpl` to both access and customize breakpoints using React context. Please see `@nyt/foundation`'s docs on [BreakpointContext](https://foundation.nyt.net/?path=/docs/breakpointcontext--docs) for more.
+
+To access the raw token values, please use the `breakpoints` or `minWidths` imports:
+
+```js
+import { breakpoints, minWidths } from '@nyt/tpl';
+
+/**
+ * access breakpoint min widths:
+ */
+minWidths[0]; // '481px'
+minWidth[1]; // '1025px'
+
+/**
+ * access breakpoints:
+ */
+const [medium, large] = mediaQueries;
+
+medium; // '@media (min-width: 481px)'
+large; // '@media (min-width: 1025px)'
+```

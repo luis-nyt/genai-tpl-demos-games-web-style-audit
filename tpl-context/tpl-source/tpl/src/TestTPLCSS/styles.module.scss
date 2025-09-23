@@ -1,0 +1,5 @@
+@use '../../node_modules/@nyt/sass-utils/src/responsive' as *;
+
+.tpl1 {
+  @include responsive(color, blue, green, purple);
+}

@@ -1,0 +1,103 @@
+import { ArgsTable, Canvas, Meta, Story, Source } from '@storybook/addon-docs';
+import { RadioItem, Radio } from '../../../src';
+import { RadioStory, RadioItemStory, TiledItemStory, StatefulRadioStory } from './stories';
+
+<Meta title="Radio" component={Radio} />
+
+# Radio
+
+`Radio` wraps a `<fieldset>` element. It is used to present multiple discreet options to a user.
+
+Child elements of `Radio` must be two or more of either:
+
+- [Radio.Item](?path=/docs/components-radio--radio-item)
+- [Radio.TiledItem](?path=/docs/components-radio--radio-tiled-item)
+
+`Radio` takes `label` and `secondaryLabel`. `label` is required, but setting the `showLabel` prop to `false` will
+render this as visually hidden in the DOM.
+
+### Layout
+
+the `flexDirection` prop may be used to give the `Radio` a `row` or `column` layout.
+
+If you want to use either a row or column layout depending on the container width, the `List.Item` uses the `Switcher`
+component, by default. You may pass in a `switchWidth` prop. If the container is smaller than the width defined therein,
+it will be a column; if it is larger, it will be a row. Note that the `flexDirection` prop will override this behavior.
+
+See [Switcher](/docs/layout-switcher--default-story) for more info.
+
+<Canvas>
+  <Story name="Radio">{RadioStory}</Story>
+</Canvas>
+
+<ArgsTable of={Radio} />
+
+## Radio.Item
+
+`Radio.Item` wraps an input of `type="radio"`
+
+required fields are
+
+- `label`: string field that wraps the primary label of the input. A `secondaryLabel` label is also allowed.
+- `name`: the "name" property of the `<input>` element. `Radio.Item`s must match in order for the browser to know that the selections
+  are all mutually exclusive
+- `value` the "value" property of the `<input>` element. to be recorded by the form. These must be unique.
+
+An `id` may be passed as well, but if not, the `id` will be derived from the required `name` and `value` props.
+
+To preselect a default option add the attribute `checked`.
+
+<Canvas>
+  <Story name="Radio.Item">{RadioItemStory}</Story>
+</Canvas>
+
+<ArgsTable of={RadioItem} />
+
+### State
+
+On a [controlled](https://reactjs.org/docs/forms.html#controlled-components) form, use the Radio's `onChange` prop to handle changes to the radio items within.
+
+```jsx
+const Form = () => {
+  const [value, setValue] = useState();
+
+  const onChange = event => {
+    if (event.target instanceof HTMLInputElement) {
+      // event.target.value will give you access to the value that has changed
+    }
+  };
+
+  return (
+    <form>
+      <Radio onChange={onChange}>
+        <Radio.Item name="example" label="one" value={1} checked={value === 1}></Radio.Item>
+        <Radio.Item name="example" label="two" value={2} checked={value === 2}></Radio.Item>
+        <Radio.Item name="example" label="three" value={3} checked={value === 3}></Radio.Item>
+      </Radio>
+    </form>
+  );
+};
+```
+
+Here's an interactive demo, based on the same principles shown above:
+
+<!-- Storybook 6.5's source code display is misleading for this story, so turn it off -->
+
+<Canvas withSource="none">
+  <Story name="State">{StatefulRadioStory}</Story>
+</Canvas>
+
+## Radio.TiledItem
+
+`Radio.TiledItem` is very similar to the vanilla `Radio.Item` except for two things:
+
+1. It has a thin border.
+2. It may take the `label` and `secondaryLabel` props, but in some cases there may be a need to bypass these and
+   render custom content in the list item. You may use the `children` slot to render any content
+   you like. Ensure that some child element contains a "for" prop referring to the `<input>`, however.
+
+<Canvas>
+  <Story name="Radio.TiledItem">{TiledItemStory}</Story>
+</Canvas>
+
+<ArgsTable of={RadioItem} />

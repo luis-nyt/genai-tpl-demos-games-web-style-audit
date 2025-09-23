@@ -1,0 +1,19 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Link } from '../../../src';
+import { Default } from './stories'
+
+<Meta title="Link" component={Link} />
+
+# Link
+
+Link wraps the `<a>` tag. Buttons may also be links. See [Button](/docs/button--default-story).
+
+Use the color `accent` for links within larger blocks of text so they stand out. Use `directional` for navigational links.
+
+<Canvas>
+  <Story name="Default">
+    {Default}
+  </Story>
+</Canvas>
+
+<ArgsTable of={Link} />

@@ -1,0 +1,112 @@
+import { ArgsTable, Meta, Title, IconGallery, IconItem, Canvas, Story } from '@storybook/addon-docs';
+import { icons } from '../../../src/Icons/icons';
+import * as IconMap from '../../../src/generated/Icons';
+import { MenuIcon } from '../../../src/generated/Icons';
+import { Icon } from '../../../src/Icons/Icon';
+
+
+import { BaseExample, SizeExample, ScaledExample, ButtonExample, InlineExample } from './stories';
+
+<Meta
+  title="Icon"
+  component={Icon}
+  argTypes={{
+    icon: { control: 'select', options: Object.keys(IconMap) },
+    color: { control: 'select' },
+    size: { control: 'select' },
+  }}
+/>
+
+# Icons
+
+Hpyhen Icons are broken into three different categories, UI Icons, Brand Icons, and Social Icons. Each icon is available in three different sizes, `sm`, `md`, and `lg`. By default, the icons will inherit the color of the parent element. You can override the color of the icon by passing in a `color` prop using the Hyphen Color Tokens.
+
+## Icon Gallery
+<section>{
+  Object.keys(icons).map((cat)=>{
+    return (
+      <div key={cat}>
+        <h3>{cat} Icons</h3>
+        <IconGallery>{
+          icons[`${cat}`].map((icon,i)=>{
+            const Component = IconMap[icon];
+            return (
+                <IconItem name={icon} key={i}><Component size="md" /></IconItem>
+              )
+          })
+        }</IconGallery>
+      </div>
+    )
+  })
+}</section>
+
+## Usage
+
+All icon components are the icon name followed by `Icon`. For example, the `AlertIcon` component is the `Alert` icon.
+
+```js
+import { AlertIcon } from '@nyt/hyphen';
+
+<AlertIcon size="sm" />
+```
+
+<Canvas>
+  <Story name="Icon">
+    {BaseExample}
+  </Story>
+</Canvas>
+
+### Accessible Icons in Buttons
+
+If you are using an icon along with text inside a button or link, you should apply the `aria-hidden` attribute to the icon. This will hide the icon from screen readers, since the text content of the button or link will be used as the accessible name. For example:
+
+```js
+<button><MenuIcon size="sm" aria-hidden="true" />Menu</button>
+```
+
+If you are using an icon as the only element inside of a button, you should use the `label` prop to provide a label for the icon. This will ensure that the button and icon are accessible to screen readers, by using the icon's label as the accessible name for the button. For example:
+
+```js
+<button><MenuIcon size="sm" label="Menu" /></button>
+```
+
+> It is important to keep in mind that the name you provide to the icon should describe what the button does, not what the icon is. For example, you wouldn't want to label it `hamburger icon`, instead it should be labeled `menu`.
+
+## Props
+
+### Size
+
+<Canvas withSource="open">
+  <Story name="Icon Sizing">
+    {SizeExample}
+  </Story>
+</Canvas>
+
+There are three standard sizes available for icons: `sm`, `md`, and `lg`. The default size is `lg`. The `sm` size is `16px`, the `md` size is `20px`, and the `lg` size is `24px`. The icon will display at the size requested unless it is overridden with styles.
+
+For example if you set the size to `lg` and then set the height and width to `42px`, the icon will scale and display at `42px`. You can scale the icon up or down, it is recommended to use the standard size that closest matches the design.
+
+<Canvas withSource="open">
+  <Story name="Icon Scaling">
+    {ScaledExample}
+  </Story>
+</Canvas>
+
+> The same icon might be slightly different at each size. For example, the `AlertIcon` is a circle with an exclamation point in it. The spacing of the exclamation point is slightly smaller at the `sm` size, and the width of the mark stays the same.
+
+### Color
+Unless a color is inherent to the icon, e.g., it expresses a brand identity, the color of the icon will be inherited from the parent element using `currentColor`. You can override the color of the icon by passing in a `color` prop using the Hyphen Color Tokens: `primary`, `secondary`, `tertiary`, `positive`, `negative`, and `accent`. Otherwise the color cannot be modified.
+
+### Inline
+
+The `inline` prop is used to display the icon inline with text. This is useful for icons that are used inside buttons or links. When the `inline` prop is included the icon will be vertically aligned with and scaled down to the size of the text. The size of the icon will be based on the parent fontsize. The `inline` prop work inside any text element or flexbox based element. By default the `inline` prop is not set on Hyphen Icons.
+
+<Canvas>
+  <Story name="Inline Icon">
+    {InlineExample}
+  </Story>
+</Canvas>
+
+### All Props
+
+<ArgsTable of={Icon} />

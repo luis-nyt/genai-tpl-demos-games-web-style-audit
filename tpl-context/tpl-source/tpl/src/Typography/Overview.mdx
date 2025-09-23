@@ -1,0 +1,95 @@
+import { Meta, Canvas } from '@storybook/blocks';
+
+<Meta title="Typography/Overview" />
+
+# Typography Overview
+
+There are three ways to implement typography in TPL:
+- [Typography React components](#typography-components)
+- [CSS-in-JS variables](#css-in-js)
+- The `typography` (aka `typ`) [property](#sxtypography) on the
+  [`sx` prop](https://foundation.nyt.net/?path=/docs/system-props--page) found on most TPL components
+
+Please see [the full TPL Typography docs](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I/Typography_suKq-#_lu4hX) for usage guidelines. Find the [complete set of Typography tokens here](/docs/typography-typography-component-advanced--catalog).
+
+## Typography components
+TPL offers 8 Typography components:
+- [Text](/docs/typography-text--default)
+- [Title](/docs/typography-title--default)
+- [TitleKarnak](/docs/typography-titlekarnak--default)
+- [Label](/docs/typography-label--default)
+- [Body](/docs/typography-body--default)
+- [Headline](/docs/typography-headline--default)
+- [HeadlineNews](/docs/typography-headlinenews--default)
+- [HeadlineFeature](/docs/typography-headlinefeature--default)
+- [HeadlineOpinion](/docs/typography-headlineopinion--default)
+
+Each (except `Label`) respond to a `size` prop that accepts all of the allowed font sizes for that specific component. The component will render font-size as a `rem` value, but this prop is a number and represents the size of the Typography component in pixels (at the default font size for most browsers, 16px). The `size` property may also be a [facepaint](https://github.com/emotion-js/facepaint)-style array for responsive values.
+
+These components all render `<p>` tags by default. You can change the markup using the `as` prop in order to optimize for SEO and accessibility without affecting visuals.
+
+Examples:
+
+```jsx
+import { Headline, HeadlineNews } from '@nyt/tpl';
+
+/**
+* Basic usage of `Headline`
+*/
+<Headline size={28}>This will render a headline at 26px.</Headline>
+
+/**
+* Responsive example. This will render an 18px headline on mobile (default) and a
+* 24px headline at your second-breakpoint's min-width
+*/
+<Headline size={[18, null, 24]}>Some headline text</Headline>
+
+/**
+* the `as` property changes the markup of the rendered component. This will render as an <h1>
+*/
+<HeadlineNews size={48} as="h1">Main article headline</HeadlineNews>
+```
+
+### Typography base component
+All Typography components wrap the base `Typography` component. The base `Typography` component may be used on its own too. `Typography` takes the full path of a Typography token as its `variant` property. `variant` can take a facepaint-style array and responds to all of the same props.
+
+Example:
+```jsx
+<Headline size={[18, null, 24]} as="h3">Some headline text</Headline>
+
+/**
+* This is equivalent to the `Headline` element above.
+*/
+<Typography variant={["Headline/18", null, "Headline/24"]} as="h3">Some headline text</Typography>
+```
+
+## CSS-in-JS
+Typography may also be used directly in your CSS.
+
+Example:
+```jsx
+
+const myTypographyStyle = css({
+    ...typography["Headline/18"],
+    whiteSpace: 'nowrap'
+});
+```
+
+## sx.typography
+The `sx` prop, which is available on most components in TPL, can use the `typography` property to access the Typography tokens responsively.
+
+Example:
+```jsx
+/**
+* This will render a div whose contents look like Text/14 with padding 2 (on the space scale)
+*/
+<Box sx={{ typography: "Text/14", padding: 2 }}>Some content.</Box>
+
+/**
+* "typography" is aliased to "typ" if you're into the whole brevity thing.
+*/
+<Box sx={{ typ: "Text/14", p: 2 }}>Some content.</Box>
+```
+
+
+

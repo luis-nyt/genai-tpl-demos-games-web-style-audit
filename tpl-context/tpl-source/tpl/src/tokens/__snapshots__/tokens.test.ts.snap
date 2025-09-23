@@ -1,0 +1,321 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generated tokens borderWidth 1`] = `
+Map {
+  1 => "0.0625rem",
+  2 => "0.125rem",
+  1.5 => "0.09375rem",
+}
+`;
+
+exports[`generated tokens cssVars 1`] = `
+Object {
+  "--cheltenham": "\\"nyt-cheltenham\\",var(--serif)",
+  "--cheltenham-condensed": "\\"nyt-cheltenham-cond\\",var(--serif)",
+  "--cheltenham-text-condensed": "\\"nyt-cheltenham-text-cond\\",var(--serif)",
+  "--franklin": "\\"nyt-franklin\\",var(--sans-serif)",
+  "--imperial": "\\"nyt-imperial\\",var(--serif)",
+  "--karnak": "\\"nyt-karnak\\",var(--serif)",
+  "--sans-serif": "helvetica, arial, sans-serif",
+  "--serif": "georgia, 'times new roman', times, serif",
+}
+`;
+
+exports[`generated tokens darkInput 1`] = `
+Object {
+  "background": Object {
+    "highlight": "#35352F",
+    "primary": "#121212",
+    "scrim": Array [
+      0,
+      0,
+      7,
+      0.6,
+    ],
+    "secondary": "#2A2A2A",
+    "tertiary": "#424242",
+  },
+  "content": Object {
+    "accent": "#6BA1DD",
+    "accentDim": "#7CA7C8",
+    "breaking": "#E14E5B",
+    "negative": "#EA7980",
+    "placeholder": "#8B8B8B",
+    "positive": "#63A859",
+    "primary": "#F8F8F8",
+    "primaryDim": "#DFDFDF",
+    "secondary": "#BBBBBB",
+    "secondaryDim": "#A3A3A3",
+  },
+  "stroke": Object {
+    "primary": "#F8F8F8",
+    "secondary": "#979797",
+    "tertiary": "#424242",
+  },
+}
+`;
+
+exports[`generated tokens fontSize 1`] = `
+Array [
+  "0.6875rem",
+  "0.75rem",
+  "0.875rem",
+  "1rem",
+  "1.125rem",
+  "1.25rem",
+  "1.375rem",
+  "1.5rem",
+  "1.75rem",
+  "2rem",
+  "2.25rem",
+  "2.5rem",
+  "3rem",
+  "3.5rem",
+  "4rem",
+  "4.5rem",
+]
+`;
+
+exports[`generated tokens fontWeight 1`] = `
+Object {
+  "black": 900,
+  "bold": 700,
+  "book": 400,
+  "extraBold": 800,
+  "extraLight": 200,
+  "light": 300,
+  "medium": 500,
+  "normal": 400,
+  "regular": 400,
+  "semiBold": 600,
+}
+`;
+
+exports[`generated tokens lightInput 1`] = `
+Object {
+  "background": Object {
+    "highlight": "#FEFAD1",
+    "primary": "#FFFFFF",
+    "scrim": Array [
+      0,
+      0,
+      7,
+      0.6,
+    ],
+    "secondary": "#F8F8F8",
+    "tertiary": "#EBEBEB",
+  },
+  "content": Object {
+    "accent": "#346EB7",
+    "accentDim": "#326891",
+    "breaking": "#D0021B",
+    "negative": "#A90111",
+    "placeholder": "#8B8B8B",
+    "positive": "#267C30",
+    "primary": "#121212",
+    "primaryDim": "#363636",
+    "secondary": "#5A5A5A",
+    "secondaryDim": "#727272",
+  },
+  "stroke": Object {
+    "primary": "#121212",
+    "secondary": "#979797",
+    "tertiary": "#DFDFDF",
+  },
+}
+`;
+
+exports[`generated tokens ruleTokens 1`] = `
+Object {
+  "horizontal": Object {
+    "primary": "0.125rem solid var(--color-stroke-primary, #121212)",
+    "secondary": "0.0625rem solid var(--color-stroke-primary, #121212)",
+    "tertiary": "0.0625rem solid var(--color-stroke-tertiary, #DFDFDF)",
+  },
+  "vertical": Object {
+    "primary": "0.0625rem solid var(--color-stroke-primary, #121212)",
+    "secondary": "0.0625rem solid var(--color-stroke-tertiary, #DFDFDF)",
+  },
+}
+`;
+
+exports[`generated tokens spaceScale 1`] = `
+Map {
+  1 => "0.5rem",
+  2 => "1rem",
+  3 => "1.5rem",
+  4 => "2rem",
+  5 => "2.5rem",
+  6 => "3rem",
+  7 => "3.5rem",
+  8 => "4rem",
+  9 => "4.5rem",
+  10 => "5rem",
+  0.5 => "0.25rem",
+  1.5 => "0.75rem",
+  2.5 => "1.25rem",
+}
+`;
+
+exports[`generated tokens typography 1`] = `
+Object {
+  "Body/14": Object {
+    "font": "400 0.875rem/1.39 nyt-imperial, georgia, 'times new roman', times, serif",
+  },
+  "Body/16": Object {
+    "font": "400 1rem/1.39 nyt-imperial, georgia, 'times new roman', times, serif",
+  },
+  "Body/18": Object {
+    "font": "400 1.125rem/1.39 nyt-imperial, georgia, 'times new roman', times, serif",
+  },
+  "Body/20": Object {
+    "font": "400 1.25rem/1.5 nyt-imperial, georgia, 'times new roman', times, serif",
+  },
+  "Headline/16": Object {
+    "font": "500 1rem/1.2 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.01em",
+  },
+  "Headline/18": Object {
+    "font": "400 1.125rem/1.2 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.01em",
+  },
+  "Headline/24": Object {
+    "font": "400 1.5rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "Headline/28": Object {
+    "font": "400 1.75rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineFeature/24": Object {
+    "font": "300 1.5rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineFeature/28": Object {
+    "font": "200 1.75rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineFeature/32": Object {
+    "font": "200 2rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineFeature/48": Object {
+    "font": "200 3rem/1.1 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineFeature/56": Object {
+    "font": "200 3.5rem/1 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/16": Object {
+    "font": "700 1rem/1.2 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.01em",
+  },
+  "HeadlineNews/18": Object {
+    "font": "700 1.125rem/1.2 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.01em",
+  },
+  "HeadlineNews/20": Object {
+    "font": "700 1.25rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.01em",
+  },
+  "HeadlineNews/22": Object {
+    "font": "700 1.375rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/28": Object {
+    "font": "700 1.75rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/32": Object {
+    "font": "700 2rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/36": Object {
+    "font": "700 2.25rem/1.15 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/40": Object {
+    "font": "700 2.5rem/1.1 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineNews/48": Object {
+    "font": "700 3rem/1.1 nyt-cheltenham, cheltenham-fallback-georgia, cheltenham-fallback-noto, georgia, 'times new roman', times, serif",
+  },
+  "HeadlineOpinion/18": Object {
+    "font": "700 1.125rem/1.15 nyt-cheltenham-text-cond, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.0025em",
+  },
+  "HeadlineOpinion/20": Object {
+    "font": "700 1.25rem/1.15 nyt-cheltenham-text-cond, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.0025em",
+  },
+  "HeadlineOpinion/22": Object {
+    "font": "700 1.375rem/1.15 nyt-cheltenham-text-cond, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.0025em",
+  },
+  "HeadlineOpinion/24": Object {
+    "font": "700 1.5rem/1.15 nyt-cheltenham-text-cond, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.0025em",
+  },
+  "HeadlineOpinion/36": Object {
+    "font": "700 2.25rem/1.15 nyt-cheltenham-text-cond, georgia, 'times new roman', times, serif",
+    "letterSpacing": "0.0025em",
+  },
+  "HeadlineOpinion/56": Object {
+    "font": "700 3.5rem/1.1 nyt-cheltenham-cond, georgia, 'times new roman', times, serif",
+  },
+  "Label/Emphasis": Object {
+    "font": "800 0.6875rem/1.25 nyt-franklin, helvetica, arial, sans-serif",
+    "letterSpacing": "0.1em",
+    "textTransform": "uppercase",
+  },
+  "Label/Regular": Object {
+    "font": "500 0.6875rem/1.25 nyt-franklin, helvetica, arial, sans-serif",
+    "letterSpacing": "0.1em",
+    "textTransform": "uppercase",
+  },
+  "Text/12": Object {
+    "font": "500 0.75rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Text/14": Object {
+    "font": "500 0.875rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Text/16": Object {
+    "font": "500 1rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Text/18": Object {
+    "font": "500 1.125rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Text/20": Object {
+    "font": "500 1.25rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/12": Object {
+    "font": "600 0.75rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/14": Object {
+    "font": "600 0.875rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/16": Object {
+    "font": "600 1rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/18": Object {
+    "font": "600 1.125rem/1.3 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/20": Object {
+    "font": "600 1.25rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/22": Object {
+    "font": "600 1.375rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/24": Object {
+    "font": "600 1.5rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/28": Object {
+    "font": "600 1.75rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/32": Object {
+    "font": "600 2rem/1.2 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/48": Object {
+    "font": "600 3rem/1.1 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "Title/56": Object {
+    "font": "600 3.5rem/1 nyt-franklin, helvetica, arial, sans-serif",
+  },
+  "TitleKarnak/16": Object {
+    "font": "700 1rem/1.15 nyt-karnak, georgia, 'times new roman', times, serif",
+  },
+  "TitleKarnak/18": Object {
+    "font": "700 1.125rem/1.15 nyt-karnak, georgia, 'times new roman', times, serif",
+  },
+}
+`;

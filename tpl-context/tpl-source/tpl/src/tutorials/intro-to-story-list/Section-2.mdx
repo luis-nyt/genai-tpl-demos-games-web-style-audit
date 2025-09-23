@@ -1,0 +1,58 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as IntroStories from './index.stories';
+
+<Meta title="Tutorials/Intro to Story List/Section 2: Add Media to Story List Items" />
+
+# Intro to Story List
+
+Learn about the views that make up TPL Story List and try them out for the first time.
+
+## Section 2: Add Media to Story List Items
+
+See what we can do with media and positioning.
+
+### Step 1
+
+Let’s add an image to the first item, using `<StoryListItem>`’s `media` prop.
+
+<Canvas of={IntroStories.Section2Step1} sourceState="shown" />
+
+The image is a bit big, but it shows us that `<StoryListItem>` doesn’t have an opinion on media sizing.
+
+### Step 2
+
+Set the first item’s `mediaPosition` prop to `'top'` and add `width: 100%` to the first image.
+
+<Canvas of={IntroStories.Section2Step2} sourceState="shown" />
+
+This big promo image at the top of the list looks good, but what about **full bleed**?
+
+### Step 3
+
+Change the `mediaPosition` to `'topFullBleed'`.
+
+<Canvas of={IntroStories.Section2Step3} sourceState="shown" />
+
+The `mediaPosition` prop has several other options. You can turn on full bleed _just like that(!)_ with most of them.
+
+### Step 4
+
+Add `media` to the other items in the list.
+
+<Canvas of={IntroStories.Section2Step4} sourceState="shown" />
+
+Here we can see that `'trailing'` is the default media position. (Well, kind of.)
+
+### Step 5
+
+Add `width: 95px` to the other items’ images.
+
+<Canvas of={IntroStories.Section2Step5} sourceState="shown" />
+
+Once again, story list item doesn’t have an opinion on media sizing, so it’s up to us!
+
+----
+
+_Our story list now has a lively mix of text and images. What about sections? Typography? What else can we do here?_
+
+[Continue to Section 3](/docs/tutorials-intro-to-story-list-section-3-sections-typography--docs) 🤩

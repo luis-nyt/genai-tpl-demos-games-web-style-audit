@@ -1,0 +1,25 @@
+import { ArgsTable, Meta, Title, Canvas, Story } from '@storybook/addon-docs';
+import { Spinner } from '../../../src/';
+
+import { BaseExample } from './stories';
+
+<Meta
+  title="Spinner"
+  component={Spinner}
+/>
+
+# Spinner
+
+The Hyphen Spinner is a simple loading indicator that can be used to indicate that a process is in progress. It will take the color of the parent element, typically a black or white.
+
+When a user has reduced motion enabled, the spinner will animate at a signicantly slower speed.
+
+<Canvas>
+  <Story name="Spinner">
+    {BaseExample.bind({})}
+  </Story>
+</Canvas>
+
+### All Props
+
+<ArgsTable of={Spinner} />

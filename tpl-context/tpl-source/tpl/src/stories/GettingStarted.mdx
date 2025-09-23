@@ -1,0 +1,54 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Getting Started" />
+
+# @nyt/tpl
+
+`@nyt/tpl` is a React-based web implementation of [Times Product Language (TPL)](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I).
+
+**Big changes are coming to TPL Web!** Please see [TPL Web 2.0 Deprecation Notices](?path=/docs/tpl-web-2-0-deprecation-notices--docs) and the [TPL Web 2.0 Release Plan](https://docs.google.com/document/d/12T5bEefMJDYoLY8gtg0cokrNco53h5t8Ofj8rn5uaV4/edit?tab=t.2tb2mnrxg2u6) for more information.
+
+# Getting Started
+
+## Installation
+
+If you use [npm](https://www.npmjs.com/) in your local development environment, install `@nyt/tpl` and its peer dependencies with the following command:
+
+```bash
+npm i --save @nyt/tpl @babel/runtime pretty-lights prop-types react
+```
+
+You can also install it with [pnpm](https://pnpm.io/):
+
+```bash
+pnpm add @nyt/tpl @babel/runtime pretty-lights prop-types react
+```
+
+_`@nyt/tpl` is a private package. To access it, please see the JS+Web CoP's docs on [Accessing private packages](https://web.tech.nyt.net/resources/private-packages/)._
+
+## Render the Root component
+
+After installing, import and render `@nyt/tpl`'s `Root` component at the root of your project:
+
+```jsx
+import { Root } from '@nyt/tpl';
+
+export const App = () => (
+  <Root>
+    <div>Hello, world</div>
+  </Root>
+)
+```
+
+This `Root` component sets up key parts of the `@nyt/tpl` library:
+
+- CSS variable declarations for color and typography tokens
+- A React context provider for breakpoints
+- Dark Mode support (enabled by default)
+- Accessible focus styles for all child elements
+
+Learn more about customizing [Root components](https://foundation.nyt.net/?path=/docs/root-components--page) in the Foundation Storybook.
+
+# Built on `@nyt/foundation`
+
+Please visit the [`@nyt/foundation` Storybook](https://foundation.nyt.net) to learn more about several underlying concepts and software we reuse here in `@nyt/tpl`.

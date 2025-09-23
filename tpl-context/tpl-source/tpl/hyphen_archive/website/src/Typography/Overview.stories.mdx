@@ -1,0 +1,122 @@
+import { css } from 'pretty-lights';
+import { Meta } from '@storybook/addon-docs';
+import { Text, typography, Body, Subtitle, Title, Headline } from '../../../src';
+
+<Meta title="Typography/Overview" />
+
+# Typography
+
+## Usage
+
+Generally speaking, using [Hyphen's text components](/docs/typography-text--body) will be better practice, but if you need to use the tokens directly,
+you can do so by importing the tokens from the `typography` module from `@nyt/hyphen`.
+
+Import `typography` from Hyphen use the desired type token in your CSS. The returned CSS properties used the `font` shorthand to combine `font-family`, `font-size`, `font-weight`, and `line-height`. You can then combine this return value with other styles:
+
+```js
+import { css } from 'pretty-lights';
+import { typography } from '@nyt/hyphen';
+
+/** Combine font CSS with additional CSS properties */
+const contentClass = css`
+  font: ${typography.core.headline[1]};
+`;
+```
+
+The above code produces the equivalent CSS:
+
+```css
+.contentClass {
+  font: 400 1.625rem/1.3 'nyt-franklin', helvetica, arial, sans-serif;
+}
+```
+
+## Tokens
+
+### Core
+
+Below is a list of the core type tokens and their values.
+
+export const textTokensTableClass = css`
+  td:first-child {
+    text-transform: capitalize;
+    white-space: nowrap;
+  }
+`;
+
+<table className={textTokensTableClass}>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Token</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(typography.core).flatMap(([variant, sizeOptions]) =>
+      Object.entries(sizeOptions).map(([size, fontValue]) => (
+        <tr key={`${variant}-${size}`}>
+          <td>
+            <Text variant={variant} size={size}>
+              {variant} {size}
+            </Text>
+          </td>
+          <td>
+            <code>
+              typography.core.{variant}[{size}]
+            </code>
+          </td>
+          <td>
+            <code>{fontValue}</code>
+          </td>
+        </tr>
+      ))
+    )}
+  </tbody>
+</table>
+
+### Specialty
+
+Additionally, Hyphen supports a number of more situational specialty tokens. Note that some of these change in size and line height at different breakpoints. They are as follows:
+
+<table className={textTokensTableClass}>
+  <thead>
+    <tr>
+      <th>Example</th>
+      <th>Token</th>
+      <th>CSS</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(typography.specialty).flatMap(([variant, sizeOptions]) =>
+      Object.entries(sizeOptions).map(([size, fontValue], index, sizeOptionsArr) => (
+        <tr key={`${variant}-${size}`}>
+          <td>
+            <Text variant={variant} size={size}>
+              {variant}
+              {sizeOptionsArr.length > 1 ? ` ${size}` : ''}
+            </Text>
+          </td>
+          <td>
+            <code>
+              typography.specialty.{variant}[{size}]
+            </code>
+          </td>
+          <td>
+            {Array.isArray(fontValue) ? (
+              <ol start={0}>
+                {fontValue.map(responsiveValue => (
+                  <li key={responsiveValue}>
+                    <code>{responsiveValue}</code>
+                  </li>
+                ))}
+              </ol>
+            ) : (
+              <code>{fontValue}</code>
+            )}
+          </td>
+        </tr>
+      ))
+    )}
+  </tbody>
+</table>

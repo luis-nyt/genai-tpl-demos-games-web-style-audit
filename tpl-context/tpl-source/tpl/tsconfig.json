@@ -1,0 +1,15 @@
+{
+  "extends": "../../tsconfig.settings.json",
+  "compilerOptions": {
+    /* Basic Options */
+    "rootDir": "src",
+    "noImplicitAny": false, // TODO
+    "noUncheckedIndexedAccess": false, // TODO
+    /* Output Options */
+    "outDir": "lib",
+    /* Incremental Build Options */
+    "tsBuildInfoFile": ".caches/tsconfig.tsbuildinfo"
+  },
+  "references": [{ "path": "../foundation/web" }],
+  "include": ["src", "@types"]
+}

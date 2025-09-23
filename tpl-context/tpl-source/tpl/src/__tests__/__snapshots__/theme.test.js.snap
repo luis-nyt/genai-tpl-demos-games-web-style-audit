@@ -1,0 +1,392 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`generated theme color getter 1`] = `
+Object {
+  "background": Object {
+    "highlight": "var(--tpl-color-background-highlight,#FEFAD1)",
+    "primary": "var(--tpl-color-background-primary,#FFFFFF)",
+    "scrim": "var(--tpl-color-background-scrim,hsla(0, 0%, 7%, 0.6))",
+    "secondary": "var(--tpl-color-background-secondary,#F8F8F8)",
+    "tertiary": "var(--tpl-color-background-tertiary,#EBEBEB)",
+  },
+  "content": Object {
+    "accent": "var(--tpl-color-content-accent,#346EB7)",
+    "accentDim": "var(--tpl-color-content-accentDim,#326891)",
+    "breaking": "var(--tpl-color-content-breaking,#D0021B)",
+    "negative": "var(--tpl-color-content-negative,#A90111)",
+    "placeholder": "var(--tpl-color-content-placeholder,#8B8B8B)",
+    "positive": "var(--tpl-color-content-positive,#267C30)",
+    "primary": "var(--tpl-color-content-primary,#121212)",
+    "primaryDim": "var(--tpl-color-content-primaryDim,#363636)",
+    "secondary": "var(--tpl-color-content-secondary,#5A5A5A)",
+    "secondaryDim": "var(--tpl-color-content-secondaryDim,#727272)",
+  },
+  "stroke": Object {
+    "primary": "var(--tpl-color-stroke-primary,#121212)",
+    "secondary": "var(--tpl-color-stroke-secondary,#979797)",
+    "tertiary": "var(--tpl-color-stroke-tertiary,#DFDFDF)",
+  },
+}
+`;
+
+exports[`generated theme dark color instance getter 1`] = `
+Theme {
+  "Color": [Function],
+  "colors": Object {
+    "background": Object {
+      "highlight": Color {
+        "alpha": 1,
+        "hue": 60,
+        "lightness": 19.61,
+        "name": "background-highlight",
+        "namespace": "tpl",
+        "saturation": 6,
+      },
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 7.06,
+        "name": "background-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "scrim": Color {
+        "alpha": 0.6,
+        "hue": 0,
+        "lightness": 7,
+        "name": "background-scrim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 16.48,
+        "name": "background-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "tertiary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 25.89,
+        "name": "background-tertiary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+    "content": Object {
+      "accent": Color {
+        "alpha": 1,
+        "hue": 211.58,
+        "lightness": 64.32,
+        "name": "content-accent",
+        "namespace": "tpl",
+        "saturation": 62.64,
+      },
+      "accentDim": Color {
+        "alpha": 1,
+        "hue": 206.06,
+        "lightness": 63.53,
+        "name": "content-accentDim",
+        "namespace": "tpl",
+        "saturation": 40.87,
+      },
+      "breaking": Color {
+        "alpha": 1,
+        "hue": 354.7,
+        "lightness": 59.42,
+        "name": "content-breaking",
+        "namespace": "tpl",
+        "saturation": 71.02,
+      },
+      "negative": Color {
+        "alpha": 1,
+        "hue": 356.29,
+        "lightness": 69.61,
+        "name": "content-negative",
+        "namespace": "tpl",
+        "saturation": 72.91,
+      },
+      "placeholder": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 54.51,
+        "name": "content-placeholder",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "positive": Color {
+        "alpha": 1,
+        "hue": 112.41,
+        "lightness": 50.4,
+        "name": "content-positive",
+        "namespace": "tpl",
+        "saturation": 31.23,
+      },
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 97.26,
+        "name": "content-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "primaryDim": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 87.46,
+        "name": "content-primaryDim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 73.34,
+        "name": "content-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondaryDim": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 63.93,
+        "name": "content-secondaryDim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+    "stroke": Object {
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 97.26,
+        "name": "stroke-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 59.22,
+        "name": "stroke-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "tertiary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 25.89,
+        "name": "stroke-tertiary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+  },
+  "namespace": "tpl",
+}
+`;
+
+exports[`generated theme dark theme CSS 1`] = `
+"--tpl-color-content-primary: hsla(0, 0%, 97.26%, 1);
+--tpl-color-content-primaryDim: hsla(0, 0%, 87.46%, 1);
+--tpl-color-content-secondary: hsla(0, 0%, 73.34%, 1);
+--tpl-color-content-secondaryDim: hsla(0, 0%, 63.93%, 1);
+--tpl-color-content-accent: hsla(211.58, 62.64%, 64.32%, 1);
+--tpl-color-content-accentDim: hsla(206.06, 40.87%, 63.53%, 1);
+--tpl-color-content-positive: hsla(112.41, 31.23%, 50.4%, 1);
+--tpl-color-content-negative: hsla(356.29, 72.91%, 69.61%, 1);
+--tpl-color-content-breaking: hsla(354.7, 71.02%, 59.42%, 1);
+--tpl-color-content-placeholder: hsla(0, 0%, 54.51%, 1);
+--tpl-color-stroke-primary: hsla(0, 0%, 97.26%, 1);
+--tpl-color-stroke-secondary: hsla(0, 0%, 59.22%, 1);
+--tpl-color-stroke-tertiary: hsla(0, 0%, 25.89%, 1);
+--tpl-color-background-primary: hsla(0, 0%, 7.06%, 1);
+--tpl-color-background-secondary: hsla(0, 0%, 16.48%, 1);
+--tpl-color-background-tertiary: hsla(0, 0%, 25.89%, 1);
+--tpl-color-background-highlight: hsla(60, 6%, 19.61%, 1);
+--tpl-color-background-scrim: hsla(0, 0%, 7%, 0.6);
+"
+`;
+
+exports[`generated theme default theme CSS 1`] = `
+"--tpl-color-content-primary: hsla(0, 0%, 7.06%, 1);
+--tpl-color-content-primaryDim: hsla(0, 0%, 21.18%, 1);
+--tpl-color-content-secondary: hsla(0, 0%, 35.3%, 1);
+--tpl-color-content-secondaryDim: hsla(0, 0%, 44.71%, 1);
+--tpl-color-content-accent: hsla(213.44, 55.75%, 46.08%, 1);
+--tpl-color-content-accentDim: hsla(205.9, 48.72%, 38.24%, 1);
+--tpl-color-content-positive: hsla(126.98, 53.09%, 31.77%, 1);
+--tpl-color-content-negative: hsla(354.29, 98.83%, 33.34%, 1);
+--tpl-color-content-breaking: hsla(352.72, 98.1%, 41.18%, 1);
+--tpl-color-content-placeholder: hsla(0, 0%, 54.51%, 1);
+--tpl-color-stroke-primary: hsla(0, 0%, 7.06%, 1);
+--tpl-color-stroke-secondary: hsla(0, 0%, 59.22%, 1);
+--tpl-color-stroke-tertiary: hsla(0, 0%, 87.46%, 1);
+--tpl-color-background-primary: hsla(0, 0%, 100%, 1);
+--tpl-color-background-secondary: hsla(0, 0%, 97.26%, 1);
+--tpl-color-background-tertiary: hsla(0, 0%, 92.16%, 1);
+--tpl-color-background-highlight: hsla(54.67, 95.75%, 90.79%, 1);
+--tpl-color-background-scrim: hsla(0, 0%, 7%, 0.6);
+"
+`;
+
+exports[`generated theme light color instance getter 1`] = `
+Theme {
+  "Color": [Function],
+  "colors": Object {
+    "background": Object {
+      "highlight": Color {
+        "alpha": 1,
+        "hue": 54.67,
+        "lightness": 90.79,
+        "name": "background-highlight",
+        "namespace": "tpl",
+        "saturation": 95.75,
+      },
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 100,
+        "name": "background-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "scrim": Color {
+        "alpha": 0.6,
+        "hue": 0,
+        "lightness": 7,
+        "name": "background-scrim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 97.26,
+        "name": "background-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "tertiary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 92.16,
+        "name": "background-tertiary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+    "content": Object {
+      "accent": Color {
+        "alpha": 1,
+        "hue": 213.44,
+        "lightness": 46.08,
+        "name": "content-accent",
+        "namespace": "tpl",
+        "saturation": 55.75,
+      },
+      "accentDim": Color {
+        "alpha": 1,
+        "hue": 205.9,
+        "lightness": 38.24,
+        "name": "content-accentDim",
+        "namespace": "tpl",
+        "saturation": 48.72,
+      },
+      "breaking": Color {
+        "alpha": 1,
+        "hue": 352.72,
+        "lightness": 41.18,
+        "name": "content-breaking",
+        "namespace": "tpl",
+        "saturation": 98.1,
+      },
+      "negative": Color {
+        "alpha": 1,
+        "hue": 354.29,
+        "lightness": 33.34,
+        "name": "content-negative",
+        "namespace": "tpl",
+        "saturation": 98.83,
+      },
+      "placeholder": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 54.51,
+        "name": "content-placeholder",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "positive": Color {
+        "alpha": 1,
+        "hue": 126.98,
+        "lightness": 31.77,
+        "name": "content-positive",
+        "namespace": "tpl",
+        "saturation": 53.09,
+      },
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 7.06,
+        "name": "content-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "primaryDim": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 21.18,
+        "name": "content-primaryDim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 35.3,
+        "name": "content-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondaryDim": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 44.71,
+        "name": "content-secondaryDim",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+    "stroke": Object {
+      "primary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 7.06,
+        "name": "stroke-primary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "secondary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 59.22,
+        "name": "stroke-secondary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+      "tertiary": Color {
+        "alpha": 1,
+        "hue": 0,
+        "lightness": 87.46,
+        "name": "stroke-tertiary",
+        "namespace": "tpl",
+        "saturation": 0,
+      },
+    },
+  },
+  "namespace": "tpl",
+}
+`;

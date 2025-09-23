@@ -1,0 +1,124 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Flex, Box } from '@nyt/foundation';
+import { light, dark, Button } from '../../../src';
+import { AlignmentStory,
+  ButtonForArgsTable,
+  ButtonStory,
+  ButtonVariantText,
+  ButtonVariantOutline,
+  ButtonVariantFilled,
+  ButtonVariantOutlineDark,
+  ButtonVariantFilledDark,
+  ButtonVariantTextDark,
+  DisabledStory,
+  IconButtonStory,
+  ProcessingStory
+ } from './stories';
+
+export const Template = (props) => <Button {...props} />;
+
+<Meta
+  title="Button"
+  component={Button}
+  decorators={[
+    (Story, context) => (
+      <Box p={1}>
+        {Story()}
+      </Box>
+    ),
+  ]}
+/>
+
+# Button
+
+- [States](#states)
+- [Accessibility](#accessibility)
+- [Layout](#layout)
+
+[Buttons](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/button) communicate actions that users can take.
+
+<Canvas>
+  <Story name="Default">
+    {ButtonStory}
+  </Story>
+</Canvas>
+
+### Variants
+
+The [Hyphen Button](https://hyphen.tech.nyt.net/components/button/button) comes in the the `text` variant as well as two variants that have "dark" counterparts: `filled`, `filledDark`, `outline`, `outlineDark`, and `textDark`.
+
+<Canvas>
+  <Story name="Filled">{ButtonVariantFilled}</Story>
+  <Story name="Outline">{ButtonVariantOutline}</Story>
+  <Story name="Text">{ButtonVariantText}</Story>
+</Canvas>
+
+#### Always dark variants
+
+The "dark" variants are intended to be used on dark backgrounds that remain dark regardless of color theme.
+
+<Canvas>
+  <Story name="FilledDark">{ButtonVariantFilledDark}</Story>
+  <Story name="OutlineDark">{ButtonVariantOutlineDark}</Story>
+  <Story name="TextDark">{ButtonVariantTextDark}</Story>
+</Canvas>
+
+
+### Button with Icon
+
+`Button` may take an `icon` prop which takes an Icon component (not element!). It will render this icon beside the button.
+[See Icons](?path=/docs/components-icons--icon) for more info.
+
+Example usage:
+```jsx
+import { AlertIcon } from '@nyt/hyphen';
+
+<Button icon={AlertIcon}>Alert!</Button>
+```
+
+<Canvas>
+  <Story name="with Icon">
+    {IconButtonStory}
+  </Story>
+</Canvas>
+
+### States
+
+The Button interface provides flexibility to implement stateful buttons with accessibility built in.
+
+First, Buttons may be disabled with the `disabled` prop.
+
+<Canvas withSource="open">
+  <Story name="Disabled state">
+    {DisabledStory}
+  </Story>
+</Canvas>
+
+The [processing state](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I/Button_suQpZ#_lu4UA) can be implemented by setting the `processing` prop.
+
+<Canvas withSource="open">
+  <Story name="Processing state">
+    {ProcessingStory}
+  </Story>
+</Canvas>
+
+## Accessibility
+
+Note that the button text in the above example uses the `aria-hidden` [attribute](https://w3c.github.io/aria/#aria-hidden) to hide the hidden button text from screen readers (check developer tools). The `ariaLabel` [prop](https://w3c.github.io/aria/#aria-label) should also be set if the button label is not set or doesn't reflect the state of the button. Alternatively, if the button label can be described by another element(s) in the DOM, you may also list the element ID(s) the `ariaLabelledBy` [prop](https://w3c.github.io/aria/#aria-labelledby) for concise labels or the `ariaDescribedBy` [prop](https://w3c.github.io/aria/#aria-describedby) for verbose descriptions.
+
+## Layout
+
+Use [CSS Flexible Box Layout](https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout), or the `Flex` [component](https://foundation.nyt.net/?path=/docs/layout-flex--basic) to achieve [alignment and stacking](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I/Button_suQpZ#_lu9zq).
+
+The `Button`'s `max-width` property is set to "fit-content," by default. Set it to "none" or some other valid
+css value if you want it to fill a larger space. It's `display` property is "inline-block" but this likewise may be
+overriden to any valid css display property. Note that `maxWidth` and `display` may take responsive array values.
+
+
+<Canvas isColumn>
+  <Story name="Button layout">
+    {AlignmentStory}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ButtonForArgsTable} />

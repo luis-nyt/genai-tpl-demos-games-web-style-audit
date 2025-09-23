@@ -1,0 +1,61 @@
+import React from 'react';
+import { Meta } from '@storybook/blocks';
+import { DeprecatedSymbolsTable } from './DeprecatedSymbolsTable.js';
+
+<Meta title="TPL Web 2.0 Deprecation Notices" />
+
+# TPL Web 2.0 Deprecation Notices
+
+The next major version of `@nyt/tpl` (“TPL Web 2.0”) will migrate to NYT's new CSS standard, which uses **CSS Modules and Sass**.
+
+At minimum, this involves converting existing component styles. Some TPL Web 1.0 features depend upon a CSS-in-JS “runtime”, which the new CSS standard intentionally lacks. **This means we must also carefully replace or remove certain features.**
+
+Please refer to the [**TPL 2.0 Release Plan**](https://docs.google.com/document/d/12T5bEefMJDYoLY8gtg0cokrNco53h5t8Ofj8rn5uaV4/edit?tab=t.2tb2mnrxg2u6) on Google Docs for more information. We've reproduced the list of [deprecated exports](#deprecated-tpl-web-symbols--component-props) and [components with deprecated props](#tpl-web-components-with-deprecated-props) below for convenience.
+
+For more info on the new CSS standard, please see [Styling - Times Tech Standards](https://standards.tech.nyt.net/standards/web/styling/) and [RFC: Adopting CSS Modules with Sass as NYT Standard](https://docs.google.com/document/d/1KghooikS8RzyKa84N4Fh_tQ0MJpYRGhf1bHGDjfCUik/edit).
+
+## Deprecated TPL Web Symbols & Component Props
+
+[_View in Google Docs._](https://docs.google.com/document/d/12T5bEefMJDYoLY8gtg0cokrNco53h5t8Ofj8rn5uaV4/edit?tab=t.2tb2mnrxg2u6#heading=h.zcws4qcea3tx)
+
+<DeprecatedSymbolsTable />
+
+## TPL Web Components with Deprecated Props
+
+[_View in Google Docs._](https://docs.google.com/document/d/12T5bEefMJDYoLY8gtg0cokrNco53h5t8Ofj8rn5uaV4/edit?tab=t.2tb2mnrxg2u6#heading=h.crsma8h1l1m7)
+
+**Note:** Many of these components' props extend a common type declaration which itself defines the `colorBehavior` and `sx` props.
+
+- [Body](?path=/story/typography-body--default)
+- [Box](?path=/docs/layout-box--docs)
+- [Button](?path=/docs/buttons-button-docs)
+- [Dialog](?path=/docs/dialog--docs)
+- [DialogContent](?path=/docs/dialog-dialogcontent--docs)
+- [Flex](?path=/docs/layout-flex--docs)
+- [Headline](?path=/story/typography-headline--default)
+- [HeadlineFeature](?path=/story/typography-headlinefeature--default)
+- [HeadlineNews](?path=/story/typography-headlinenews--default)
+- [HeadlineOpinion](?path=/story/typography-headlineopinion--default)
+- [HRule](?path=/docs/rule-horizontal-rule-hrule--docs)
+- [Icon](?path=/docs/icon--docs)
+- [IconButton](?path=/docs/buttons-icon-button--docs)
+- [Label](?path=/story/typography-label--default)
+- [Link](?path=/docs/link--docs)
+- [LinkBox](?path=/docs/linkbox--docs)
+- [PasswordInput](?path=/docs/forms-passwordinput--docs)
+- [Radio](?path=/docs/radio-radio--docs)
+- [RadioGroup](?path=/docs/radio-radiogroup--docs)
+- [Spinner](?path=/docs/spinner--docs)
+- [StoryList](?path=/docs/storylist-storylist--docs)
+- [StoryListItem](?path=/docs/storylist-storylistitem--docs)
+- [StoryListItemContent](?path=/docs/storylist-storylistitemcontent--docs)
+- [StoryListSection](?path=/story/storylist-storylistsection--without-title)
+- [Switcher](?path=/docs/layout-switcher--docs)
+- [Text](?path=/story/typography-text--default)
+- [TextButton](?path=/docs/buttons-text-button--docs)
+- [TextInput](?path=/docs/forms-textinput--docs)
+- [Title](?path=/story/typography-title--default)
+- [TitleKarnak](?path=/story/typography-titlekarnak--default)
+- [Toast](?path=/docs/toast--docs)
+- [Typography](?path=/story/typography-typography-component-advanced--default)
+- [VRule](?path=/docs/rule-vertical-rule-vrule--docs)

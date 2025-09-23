@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/blocks';
+import { spaceScale } from '../../../src'; // ? is it good?
+
+<Meta title="Layout/Spacing" />
+
+# Spacing
+
+Please see also: the full [TPL Spacing docs](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I/Spacing_suC2K#_lu0x9).
+
+`@nyt/tpl`'s space scale is stored as a `Map`. It has these values:
+
+<table>
+  <thead>
+  <tr>
+    <th>Scale</th>
+    <th>Value</th>
+    <th>Pixels (computed*)</th>
+  </tr>
+  </thead>
+  <tbody>
+  {Array.from(spaceScale).map(([key, rems]) => {
+    return (
+      <tr key={key}>
+        <td>{key}</td>
+        <td>{rems}</td>
+        <td>{key * 8}</td>
+      </tr>
+    );
+  })}
+  </tbody>
+</table>
+<p>
+  <em>
+    <small>* w/16px base font size</small>
+  </em>
+</p>
+
+You may use `spaceScale.get` to pull values from the space scale. This will add a margin top/bottom of `${spaceScale}`
+
+```js
+import { spaceScale } from '@nyt/tpl';
+import { css } from 'pretty-lights';
+
+const containerClass = css`
+  margin: ${spaceScale.get(1.5)} auto;
+  padding: ${spaceScale.get(1)} ${spaceScale.get(2)};
+`;
+```

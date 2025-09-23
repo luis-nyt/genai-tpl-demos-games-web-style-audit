@@ -1,0 +1,139 @@
+import { css } from 'pretty-lights';
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { typography, Text } from '../../../../src';
+
+import {
+  BodyStory,
+  SubtitleStory,
+  TitleStory,
+  HeadlineStory,
+  ResponsiveStory,
+  TextStory,
+  DisplayStory,
+  SubscriptionStory,
+  LegalStory,
+  args,
+  argTypes,
+  defaultText,
+} from './stories';
+
+<Meta title="Typography/Text" component={Text} args={args} argTypes={argTypes} />
+
+# Typography
+
+## Core Typography
+
+The core Hyphen text components are broken down by style `<Body>`, `<Subtitle>`, `<Title>`, and `<Headline>`.
+
+### Body
+
+Body text is most commonly used for body copy and paragraphs of text.
+
+<Canvas withSource="open">
+  <Story name="Body">{BodyStory}</Story>
+</Canvas>
+
+### Subtitle
+
+<Canvas withSource="open">
+  <Story name="Subtitle">{SubtitleStory}</Story>
+</Canvas>
+
+### Title
+
+<Canvas withSource="open">
+  <Story name="Title">{TitleStory}</Story>
+</Canvas>
+
+### Headline
+
+<Canvas withSource="open">
+  <Story name="Headline">{HeadlineStory}</Story>
+</Canvas>
+
+## Specialty Typography
+
+The specialty typography styles are used for specific products or use cases.
+
+### Display
+
+<Canvas withSource="open">
+  <Story name="Display">{DisplayStory}</Story>
+</Canvas>
+
+### Subscription
+
+<Canvas withSource="open">
+  <Story name="Subscription">{SubscriptionStory}</Story>
+</Canvas>
+
+### Legal
+
+<Canvas withSource="open">
+  <Story name="Legal">{LegalStory}</Story>
+</Canvas>
+
+## Responsive Text
+
+If you need different sizes at different breakpoints, `size` may be expressed as an array. Passing `[3, 2, 1]`, for example, will output different sizes at their [respective breakpoints](/docs/layout-breakpoints--page). See the [`size` prop documentation](#size) for more info..
+
+> Note: Hyphen text sizes work similarly to heading levels. The smaller the size the size number correlate to larger the text sizes.
+
+<Canvas withSource="open">
+  <Story name="Responsive Text">{ResponsiveStory}</Story>
+</Canvas>
+
+## Props
+
+### As
+
+By default these elements are a `<p>` element, but that can be changed using the `as` prop and assigning it to the element you need.
+
+> Accessibility Note: If you are using a heading element, make sure to use the correct heading level for the content and the document outline.
+
+### Size
+
+The `size` prop is used to set the size of the text. The `size` prop can be a number or an array of numbers. If only one number is passed, it will be used for all breakpoints. If an array is passed, the first number will be the base size (mobile), the second number will be the size at the first breakpoint (tablet), and the third number will set the size for the second breakpoint (desktop). If only two numbers are passed, the first number will be the smallest size and the second will be set at the first breakpoint and remain on larger size screens. If you want to set the same size for the two smallest sizes and a different size for the largest breakpoint, you can pass an array with the same number in two slots or `null` as the second slot: `[3, 3, 1]` or `[2, null, 1]`.
+
+export const cursedFontSizeRegex = /\b(\S+)\/\S+\b/;
+
+export const textStyleTableClass = css`
+  td:first-child {
+    text-transform: capitalize;
+  }
+`;
+
+<table className={textStyleTableClass}>
+  <thead>
+    <tr>
+      <th>Text Style</th>
+      <th>Size Options</th>
+      <th>Size Values</th>
+    </tr>
+  </thead>
+  <tbody>
+    {Object.entries(typography.core).map(([textStyle, sizeOptions]) => (
+      <tr key={textStyle}>
+        <td>{textStyle}</td>
+        <td>{Object.keys(sizeOptions).join(', ')}</td>
+        <td>
+          {Object.values(sizeOptions)
+            .map(fontValue => fontValue.match(cursedFontSizeRegex)?.[1])
+            .join(', ')}
+        </td>
+      </tr>
+    ))}
+  </tbody>
+</table>
+
+## The Text component
+
+All of the above components are thin wrappers around the `Text` component. `Text` is
+very similar except that it takes a `variant` property. This is useful for more advanced, parameterized
+layouts, where the text variant and/or size could change based on input data.
+
+<Canvas>
+  <Story name="The Text component">{TextStory}</Story>
+</Canvas>
+
+<ArgsTable of={Text} />

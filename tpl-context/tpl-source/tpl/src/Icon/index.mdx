@@ -1,0 +1,97 @@
+import { ArgTypes, Meta, IconGallery, IconItem, Canvas } from '@storybook/blocks';
+import { icons } from './icons';
+import * as IconMap from '../generated/Icons';
+import * as IconStories from './index.stories';
+
+<Meta of={IconStories} />
+
+# Icons
+
+Icons fall into three categories: Standard icons, Brand icons, and Third-party icons. All icons are available in four sizes: `12px`, `16px`, `20px`, and `24px`. Icons inherit the color of the parent element by default, though some icons have specifically colored artwork. Icons can accept any content color token using the `color` prop.
+
+## Icon Catalog
+
+<section>
+  {Object.entries(icons).map(([cat, iconNames]) => (
+    <div key={cat}>
+      <h3>{cat} Icons</h3>
+      <IconGallery>
+        {iconNames.map((icon, i) => {
+          const Component = IconMap[icon];
+          return (
+            <IconItem name={icon} key={i}>
+              {/* TODO: Remove `colorBehavior="alwaysLight"` someday, if possible */}
+              <Component size={20} colorBehavior="alwaysLight" />
+            </IconItem>
+          );
+        })}
+      </IconGallery>
+    </div>
+  ))}
+</section>
+
+## Usage
+
+All icon components are the icon name followed by `Icon`. For example, the `AlertIcon` component is the `Alert` icon.
+
+```tsx
+import { AlertIcon } from '@nyt/tpl';
+
+<AlertIcon size={16} />;
+```
+
+<Canvas of={IconStories.Icon} />
+
+### Accessible Icons in Buttons & Links
+
+When using an icon alongside text in a button or link, you should apply the `aria-hidden` attribute to the icon. This will hide the icon from screen readers and make the text content the accessible name for the button or link. For example:
+
+```tsx
+import { MenuIcon } from '@nyt/tpl';
+
+<button>
+  <MenuIcon size={16} aria-hidden="true" />
+  Menu
+</button>;
+```
+
+
+If you are using an icon as the only element inside of a button or link, you should use the `aria-label` prop to provide a label for the icon. This will ensure that the button or link is accessible to screen readers by using the icon's label as the accessible name. For example:
+
+```tsx
+import { MenuIcon } from '@nyt/tpl';
+
+<button>
+  <MenuIcon size={16} aria-label="Menu" />
+</button>;
+```
+
+> Keep in mind that the name you provide to the icon should describe what the button or link does, not what the icon is. For example, a useful label for `PersonIcon` might be `Account`.
+
+## Props
+
+### Size
+
+<Canvas of={IconStories.Sizing} sourceState="shown" />
+
+There are four standard sizes available for icons: `12`, `16`, `20`, and `24`.
+
+The icon will display at the size requested unless it is overridden with styles. For example, if you set the size to `12` and then set the height and width to 42px, the icon will scale and display at 42px.
+
+<Canvas of={IconStories.CustomScaling} sourceState="shown" />
+
+> The same icon may be slightly different at each size for better legibility. For example, in `AlertIcon`, the spacing of the exclamation point is slightly smaller at `12`.
+
+### Color
+
+Unless color is inherent to the icon, e.g., it expresses a brand identity, the color of the icon will be inherited from the parent element using `currentColor`. You can override the color of the icon by passing in a `color` prop. Otherwise, the color cannot be modified.
+
+### Inline
+
+The `inline` prop may be used to display the icon inline with text. This is useful for icons that are used inside buttons or links. When the `inline` prop is included the icon will be vertically aligned with and scaled down to the size of the text. The size of the icon will be based on the parent font size. The `inline` prop works inside any text element or flexbox-based element.
+
+<Canvas of={IconStories.InlineProp} />
+
+### All Props
+
+<ArgTypes of={IconStories} />

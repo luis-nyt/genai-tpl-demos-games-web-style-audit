@@ -1,0 +1,17 @@
+{
+  "extends": "../../../tsconfig.settings.json",
+  "compilerOptions": {
+    /**
+     * This is a little weird: we reference this TSConfig in projects/piano/tsconfig.json, so we
+     * can't disable emit — but we don't really "care" about the emitted type declarations. We only
+     * used them as a cache to support the TypeScript compiler's Build Mode. Thus we can hide them
+     * away in the .caches folder.
+     * @see https://www.typescriptlang.org/docs/handbook/project-references.html#build-mode-for-typescript
+     */
+    "outDir": "../../../.caches/tpl/scripts",
+    /* Incremental Build Options */
+    "tsBuildInfoFile": "../../../.caches/tpl/scripts/tsconfig.tsbuildinfo"
+  },
+  "references": [{ "path": ".." }],
+  "include": ["."]
+}

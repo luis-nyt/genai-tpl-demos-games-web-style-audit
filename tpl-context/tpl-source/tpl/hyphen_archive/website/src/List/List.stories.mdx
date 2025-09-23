@@ -1,0 +1,79 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { List, NavigationListItem, ListItem as ListItemComponent } from '../../../src';
+import { ActionItem, ListItem, InfoItem, NavItem } from './ListItem'
+
+<Meta title="List" component={List} />
+
+# List
+The List component presents data as a single-column list of rows cleanly and efficiently. Children of `List` must be two or
+more `List.Item`s or `List.Navigation`s
+
+## List.Item
+
+`List.Item` is a versatile child of `List`. It contains a border, consistent spacing, a `start`, `end`, and
+`children` slot.
+
+### Slots
+
+- `start`
+  - appears at the start of the list item
+  - Used for icons or other graphics
+  - does not flex-grow
+- `children`
+  - can contain any content
+  - fills the remainder of the flex row and should contain the main body of the list item
+- `end`
+  - appears at the end of the list item
+  - used for calls to action, links, or other interactive elements
+  - does not flex-grow, except in a stacked context
+
+### Layout
+
+the `flexDirection` prop may be used to give the `List.Item` a `row` or `column` layout.
+
+If you want to use either a row or column layout depending on the container width, the `List.Item` uses the `Switcher`
+component, by default. You may pass in a `switchWidth` prop. If the container is smaller than the width defined therein,
+it will be a column; if it is larger, it will be a row. Note that the `flexDirection` prop will override this behavior.
+
+See [Switcher](/docs/layout-switcher--default-story) for more info.
+
+<Canvas>
+  <Story name="Default">
+    {ListItem}
+  </Story>
+</Canvas>
+
+<ArgsTable of={ListItemComponent} subComponents={{List}} />
+
+The [Button](?path=/docs/components-buttons--button) component can be used in the `end` slot for lists of actions.
+
+> if you are using the `switchWidth` prop, Give the `Button` a `maxWidth` of "none" so it fills the container in a
+stacked layout.
+
+<Canvas>
+  <Story name="List.Item with action item">
+    {ActionItem}
+  </Story>
+</Canvas>
+
+The [Link](?path=/docs/components-link--default-story) component can be used in the `end` slot for informational lists.
+
+<Canvas>
+  <Story name="List.Item informational">
+    {InfoItem}
+  </Story>
+</Canvas>
+
+## List.Navigation
+
+`List.Nav` is similar to `List.Item`. It is used for navigation presented as a list.
+Remember to wrap your list-type navigation in a `<nav>` element with an aria-label to help identify it for
+screen readers.
+
+<Canvas>
+  <Story name="List.Navigation">
+    {NavItem}
+  </Story>
+</Canvas>
+
+<ArgsTable of={NavigationListItem} subComponents={{List}}/>

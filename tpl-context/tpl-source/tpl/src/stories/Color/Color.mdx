@@ -1,0 +1,113 @@
+import { Meta } from '@storybook/blocks';
+import { TplThemedPalette } from './TplThemedPalette';
+import { light, dark } from '../../../src';
+
+<Meta title="Color" />
+
+# Color
+
+_Please see also: the full [TPL docs on Color](https://coda.io/d/Times-Product-Language-TPL_dH9ZFEaJR9I/Color_suVA7#_lu5bD)._
+
+The following colors are available in `@nyt/tpl`:
+
+## Light theme
+
+<TplThemedPalette theme={light} exclude={['stroke.hover']} />
+
+## Dark theme
+
+<TplThemedPalette theme={dark} exclude={['stroke.hover']} />
+
+## Usage
+
+The `@nyt/tpl` software library implements color tokens as CSS variables. This approach relies on the [Pretty Lights](https://github.com/nytimes/pretty-lights) CSS-in-JS library and allows you to reference color tokens within your own styles.
+
+After rendering the [Root component](/docs/getting-started--page#render-the-root-component), there are a few ways to reference color tokens in your own software.
+
+### The `color` export
+
+Import the `color` to access `@nyt/tpl`'s color tokens with object literal notation:
+
+```js
+import { color } from '@nyt/tpl';
+
+color.background.tertiary; /* var(--color-background-tertiary, #EBEBEB) */
+```
+
+### `light` and `dark` theme exports
+
+Color values are also accessible via the `light` and `dark` theme classes.
+
+The theme classes and their color properties let you access raw color values. As such, your implementation may not rely upon CSS vars being defined on your app by the [Root component](/docs/getting-started--page#render-the-root-component). This approach also gives you more control over how the colors are
+output in your app.
+
+example:
+
+```js
+import { light, dark } from '@nyt/tpl';
+import { css } from 'pretty-lights';
+
+const textClass = css`
+  color: ${light.colors.content.primary.hex}; /* #121212 */
+`;
+
+const backgroundClass = css`
+  color: ${dark.colors.background.primary.rgba}; /* rgba(12, 12, 12, 1) */
+`;
+```
+
+### Customizing the built-in themes
+
+You can extend `@nyt/tpl`'s built-in `light` and `dark` color themes with your own colors. Please see `@nyt/foundation`'s docs on [custom themes](https://foundation.nyt.net/?path=/docs/theme-and-color-classes--page#custom-themes) for more info.
+
+### Color behavior and Dark mode
+
+_See also: [Color Behavior](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luL5B) in the full TPL docs._
+
+The [Root component](/docs/getting-started--page#render-the-root-component) enables **Dark mode** support by default. Thus, colors referenced via [the `color` export](#the-color-export) will automatically switch between Light and Dark mode, according to the user's preferred [display mode](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luQjr).
+
+In some cases, a design may call for "always light", "always dark" or "inverse" colors instead.
+
+**[Always Light](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luLAH)** and **[Always Dark](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luKK0)** implementations are simple: use the [`light` and `dark` theme exports](#light-and-dark-theme-exports) to output static color values that do not respond to the display mode.
+
+For **[User Inverse](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luir8)** color behavior, `@nyt/tpl` exports a **`invertTplColors()`** helper
+function that allows you to do this with css-in-js:
+
+```js
+import { css } from 'pretty-lights';
+import { invertTplColors } from '@nyt/tpl';
+const myInvertedButtonClass = css`
+  ${invertTplColors(inverted => {
+    return `
+      background: ${inverted.background.primary.hex};
+      color: ${inverted.content.primary.hex};
+    `;
+  })}
+`;
+```
+
+For this example, the output CSS will be the Dark theme background and content color values in Light mode. But when the user switches to Dark mode, we'll show the Light theme color values instead.
+
+### Customizing display mode detection
+
+By default, the user's [display mode](https://coda.io/d/_dH9ZFEaJR9I/Color_suVA7#_luQjr) will be determined by the `@media (prefers-color-scheme: "dark")` media query.
+
+If your application uses a container class to implement Dark mode instead, you can use `invertTplColors()`' second argument to specify this:
+
+```js
+import { css } from 'pretty-lights';
+import { invertTplColors } from '@nyt/tpl';
+const myInvertedButtonClass = css`
+  ${(invertTplColors(inverted => {
+    return `
+      background: ${inverted.background.primary.hex};
+      color: ${inverted.content.primary.hex};
+    `;
+  }),
+  content => `[data-color-mode="dark"] & { ${content} }`)}
+`;
+```
+
+### Inverse colors and custom themes
+
+If you've [customized](https://foundation.nyt.net/?path=/docs/theme-and-color-classes--page#custom-themes) `@nyt/tpl`'s color themes and need inverse color support, use `@nyt/foundation`'s [invertColors](https://foundation.nyt.net/?path=/docs/theme-and-color-classes--page#invertColors) function to create a new helper version (like `invertTplColors`) which "knows" about your additional colors.

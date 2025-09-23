@@ -1,0 +1,43 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Flex, LinkBlock, Link, Title, Body } from '../../../src';
+
+<Meta title="Link/LinkBlock" component={LinkBlock} />
+
+# LinkBlock
+`LinkBlock` wraps a [`Flex` component](https://foundation.nyt.net/?path=/docs/tokens-layout-flex--basic#flex).
+It is used to extend the clickable area of a hyperlink to a group of elements by using a nested [`Link` component](/docs/link--default-story).
+
+Use `LinkBlock.Link` to extend a single hyperlink to encompass the entire surface of `LinkBlock` and its child elements.
+Within `LinkBlock`, you can use a plain `Link` to for another secondary hyperlink, e.g., a byline.
+
+This component is the equivalent to a "Card" component in many design systems, but is modified here to structure content only.
+Both are used to create a hyperlink out of content, typically text and images, about a single topic such as an article.
+
+<Canvas>
+  <Story name="LinkBlock">
+    <Flex gap={4} maxWidth={600} justifyContent="space-between">
+      <LinkBlock flex={1} gap={1}>
+        <Title>
+          <LinkBlock.Link href="#">Lorem ipsum consectetur adipiscing</LinkBlock.Link>
+        </Title>
+        <Body>Morbi eu ultricies nulla. Mauris mollis urna eros, eget consequat ante facilisis at.</Body>
+      </LinkBlock>
+      <LinkBlock flex={1} gap={1}>
+        <Title>
+          <LinkBlock.Link href="#">
+            Aliquam vitae orci a ante lobortis semper quis sit amet erat
+          </LinkBlock.Link>
+        </Title>
+        <Body size={3}>
+          By <Link href="#by_samson_chandler">Samson Chandler</Link>
+        </Body>
+        <Body>
+          Nunc vel lacus suscipit, scelerisque dolor sed, mollis sem. Vestibulum non interdum
+          mauris.
+        </Body>
+      </LinkBlock>
+    </Flex>
+  </Story>
+</Canvas>
+
+<ArgsTable of={LinkBlock.Link} />

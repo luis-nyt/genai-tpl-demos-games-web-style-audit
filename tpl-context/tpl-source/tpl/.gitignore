@@ -1,0 +1,16 @@
+.DS_Store
+node_modules
+.idea
+*.log
+*.tsbuildinfo
+.vscode/
+*.xcuserstate
+cjs/
+lib/
+legacy/
+legacy-cjs/
+public/
+generated/
+build_gcloud/
+src/generated/
+src/next/generated/

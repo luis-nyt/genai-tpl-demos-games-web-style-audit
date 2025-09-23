@@ -1,0 +1,64 @@
+import { Canvas, Meta } from '@storybook/blocks';
+import * as IntroStories from './index.stories';
+
+<Meta title="Tutorials/Intro to Story List/Section 1: Create a Story List" />
+
+# Intro to Story List
+
+Learn about the views that make up TPL Story List and try them out for the first time.
+
+## Section 1: Create a Story List
+
+Let's make a story list and fill it with a few items to start.
+
+### Step 1
+
+First, create a `<StoryList>` with three `<div>` elements within it.
+
+<Canvas of={IntroStories.Section1Step1} sourceState="shown" />
+
+Hey, that’s cool — `<StoryList>` automatically inserts dividers in between items for us.
+
+### Step 2
+
+Replace the `<div>`s with `<StoryListItem>`.
+
+<Canvas of={IntroStories.Section1Step2} sourceState="shown" />
+
+`<StoryListItem>` adds padding, so the text is now aligned with the dividers and no longer crashes in to the left edge of the container.
+
+### Step 3
+
+Wrap each of the text strings in `<StoryListItemContent>`.
+
+<Canvas of={IntroStories.Section1Step3} sourceState="shown" />
+
+Holy cannoli, we’ve got headlines now! We can see here that ``<StoryListItemContent>``’s `children` prop corresponds to the story headline.
+
+### Step 4
+
+Add a `topLabel` or "kicker" to each content component.
+
+<Canvas of={IntroStories.Section1Step4} sourceState="shown" />
+
+### Step 5
+
+Add a `summary` to each of the ``<StoryListItemContent>`` components.
+
+<Canvas of={IntroStories.Section1Step5} sourceState="shown" />
+
+Like the headline and top label, `summary` has a default look. We’ll learn how to customize this later.
+
+### Step 6
+
+Add links to each story with `<LinkBox>` and `<LinkBox.Link subtle>`.
+
+<Canvas of={IntroStories.Section1Step6} sourceState="shown" />
+
+`<LinkBox>` makes the whole story clickable while still following best practices for **accessibility** and HTML semantics.
+
+----
+
+_At this point we’ve seen that TPL Story List is a family of views that work together. Our list is off to a great start!_
+
+[Continue to Section 2](/docs/tutorials-intro-to-story-list-section-2-add-media-to-story-list-items--docs) 🎉

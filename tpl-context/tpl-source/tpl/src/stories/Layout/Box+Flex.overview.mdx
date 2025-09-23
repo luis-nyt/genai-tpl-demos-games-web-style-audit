@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Layout/Box + Flex" />
+
+# Box + Flex
+
+`Box` and `Flex` are two components that empower you to flexibly and responsively lay out your components
+without the need for any CSS. `Box` and `Flex`:
+
+- are responsive by design
+- use the space scale as first class unit
+- have a terse, easy to read interface
+- make it easy to reason about responsive spacing without having to context-switch between css and jsx
+- polymorphic; can use an "as" prop to change the underlying markup
+
+example:
+
+```js
+import { Flex, Box } from '@nyt/tpl';
+
+<Flex flexWrap="wrap" marginBottom={1} justifyContent="space-between">
+  <Box flex={[1, 0.5]}>Some content</Box>
+  <Box as="aside" flex={[1, 0.45]}>
+    Some more content
+  </Box>
+</Flex>;
+```
+
+For more info, please see:
+- [Box](/story/layout-box--default)
+- [Flex](/story/layout-flex--default)

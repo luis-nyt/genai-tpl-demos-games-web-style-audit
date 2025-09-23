@@ -1,0 +1,84 @@
+import { ArgsTable, Canvas, Meta, Story } from '@storybook/addon-docs';
+import { Grid } from '../../../../src';
+import { Default, Responsive, Layout } from './stories';
+
+export const spanControl = {
+  control: {
+    type: 'number',
+    min: 1,
+    max: 6,
+  },
+};
+
+<Meta title="Layout/Grid" component={Grid} />
+
+# Grid
+
+The Grid is Hyphen's page layout component.
+
+At the small breakpoint, `Grid` is a single column container. At the medium and large breakpoints, `Grid`
+is a 6 column grid with columns gutter of `2` on the [space scale](https://hyphen.tech.nyt.net/tokens/layout/layout/) (or `1rem`).
+The grid columns have flexible widths that are roughly 1/6th the width of the containing grid
+
+When the `pageMargin` property is set on `Grid` it takes Hyphen's [5% page margin](https://hyphen.tech.nyt.net/tokens/breakpoints/breakpoints/#margins) as padding.
+
+### Grid.Item
+
+`Grid` is meant to be used with `Grid.Item` as its immediate children.
+
+Set `Grid.Item`'s `span` prop to indicate its column width. For example, a `span` of 3 will extend to half the width of
+the grid. Another `Grid.Item` with a `span` of 3 will extend to the remaining 3 columns of the grid minus the width of the
+gutter. `Grid.Items` that extend past the Grid width will wrap onto a new line. By default, `Grid.Item` has a `span` of
+6 meaning it will be the full width of the `Grid` unless otherwise set.
+
+<Canvas withSource="open">
+  <Story
+    name="Default"
+    args={{ pageMargin: true, box1Span: 4, box2Span: 2, box3Span: 6 }}
+    argTypes={{
+      box1Span: spanControl,
+      box2Span: spanControl,
+      box3Span: spanControl,
+    }}
+  >
+    {Default.bind({})}
+  </Story>
+</Canvas>
+
+## Responsive Grid
+
+You may need more control over the layout at the large breakpoint than just setting the `span`. For example, on a large
+screen size a design may call for more elements on a single row. The `spanLg` prop will override the `span` value at the
+large breakpoint.
+
+<Canvas>
+  <Story name="Responsive" args={{ pageMargin: true }}>
+    {Responsive.bind({})}
+  </Story>
+</Canvas>
+
+## Page layout with Grid
+
+`Grid.Item` extends Foundation's `Box` component so `Grid` and `Grid.Item` together give you a lot of power to quickly
+scaffold a full page layout. For example, you may use the `Grid.Item` component to
+
+- set an `as` property on any `Grid.Item` so you can create page level semantic markup without the need for any additional
+  elements
+- add padding and margin responsively to any `Grid.Item` using the space scale.
+- set a `max-width` property.
+
+<Canvas>
+  <Story name="Layout" args={{ pageMargin: true }}>
+    {Layout.bind({})}
+  </Story>
+</Canvas>
+
+The above example looks quite different between the small and medium breakpoints. Not only do the column widths shift,
+and margins change, we have also moved the Ad unit to appear between the `main` element and the `nav` element on mobile
+but appear in a right rail on larger sizes.
+
+`Grid.Item` has a responsive `order` prop that allows us to easily do this.
+
+## Props
+
+<ArgsTable of={Grid} />
