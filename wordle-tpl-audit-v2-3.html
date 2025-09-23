@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wordle Color Swapping Analysis v2.3</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: monospace;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+        
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+        }
+        
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
+        }
+        
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
+        }
+        
+        .repo-link {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+        
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
+        }
+        
+        .color-table th {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        
+        .color-table td {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+        
+        .color-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .var-name {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 2px 4px;
+            font-size: 11px;
+        }
+        
+        .hex-value {
+            font-family: monospace;
+            font-size: 11px;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .tpl-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #666;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .usage-count {
+            text-align: center;
+            font-weight: bold;
+        }
+        
+        .usage-high { color: #d00; }
+        .usage-medium { color: #f90; }
+        .usage-low { color: #090; }
+        
+        .proposed {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .category {
+            margin: 30px 0;
+        }
+        
+        .comparison-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .current-state, .tpl-equivalent {
+            padding: 1rem;
+            border-radius: 6px;
+        }
+        
+        .current-state {
+            background: #fff3cd;
+            border-left: 4px solid #ffc107;
+        }
+        
+        .tpl-equivalent {
+            background: #d4edda;
+            border-left: 4px solid #28a745;
+        }
+        
+        .code-block {
+            background: #f4f4f4;
+            padding: 1rem;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+            margin: 0.5rem 0;
+        }
+        
+        .effort-low {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .effort-medium {
+            color: #ffc107;
+            font-weight: bold;
+        }
+        
+        .effort-high {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .opportunity {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 1rem;
+            margin: 1rem 0;
+            background: #fafafa;
+        }
+        
+        .opportunity-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 0.5rem;
+        }
+        
+        .tag {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            text-transform: uppercase;
+        }
+        
+        .tag.component {
+            background: #3498db;
+            color: white;
+        }
+        
+        .tag.styling {
+            background: #9b59b6;
+            color: white;
+        }
+        
+        .tag.tokens {
+            background: #e67e22;
+            color: white;
+        }
+        
+        .tag.colors {
+            background: #8e44ad;
+            color: white;
+        }
+        
+        .tag.spacing {
+            background: #2ecc71;
+            color: white;
+        }
+        
+        .tag.typography {
+            background: #3498db;
+            color: white;
+        }
+        
+        .token-mapping {
+            display: grid;
+            grid-template-columns: 1fr auto 1fr;
+            gap: 1rem;
+            align-items: center;
+            margin: 0.5rem 0;
+            padding: 0.75rem;
+            background: #f8f9fa;
+            border-radius: 4px;
+        }
+        
+        .token-current {
+            font-family: monospace;
+            background: #fff3cd;
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #ffeaa7;
+        }
+        
+        .token-tpl {
+            font-family: monospace;
+            background: #d4edda;
+            padding: 0.5rem;
+            border-radius: 3px;
+            border: 1px solid #b3d7b8;
+        }
+        
+        .token-arrow {
+            font-size: 1.2rem;
+            color: #666;
+        }
+        
+        .impact-score {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+        
+        .impact-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e9ecef;
+            flex: 1;
+            overflow: hidden;
+        }
+        
+        .impact-fill {
+            height: 100%;
+            border-radius: 4px;
+        }
+        
+        .impact-low .impact-fill {
+            width: 30%;
+            background: #ffc107;
+        }
+        
+        .impact-medium .impact-fill {
+            width: 60%;
+            background: #fd7e14;
+        }
+        
+        .impact-high .impact-fill {
+            width: 90%;
+            background: #dc3545;
+        }
+        
+        .quick-wins {
+            background: linear-gradient(135deg, #28a745, #20c997);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1rem 0;
+        }
+        
+        .quick-wins h3 {
+            color: white;
+            margin-top: 0;
+        }
+        
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .stat-card {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            display: block;
+        }
+        
+        .stat-label {
+            margin-top: 0.5rem;
+            opacity: 0.9;
+        }
+        
+        ul {
+            padding-left: 1.5rem;
+        }
+        
+        li {
+            margin: 0.5rem 0;
+        }
+        
+        .recommendation-timeline {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        
+        .timeline-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+        }
+        
+        .timeline-marker {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            flex-shrink: 0;
+            margin-top: 0.5rem;
+        }
+        
+        .phase-1 {
+            background: #e74c3c;
+        }
+        
+        .phase-2 {
+            background: #f39c12;
+        }
+        
+        .phase-3 {
+            background: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>WORDLE COLOR SWAPPING ANALYSIS v2.3</h1>
+    
+    <div class="repo-link">
+        Repository: <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
+    </div>
+    
+    <p>PROPOSED color variable changes for TPL consistency alignment. Focus: typography, colors, spacing, borders.</p>
+
+    <div class="category">
+        <h2>CORE GAME COLORS</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>CURRENT COLOR</th>
+                    <th>USAGE COUNT</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL COLOR</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--green</span></td>
+                    <td><span class="color-swatch" style="background: #6aaa64;"></span><span class="hex-value">#6aaa64</span></td>
+                    <td class="usage-count usage-high">18</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #6aaa64;"></span>Keep as --wordle-color-correct</td>
+                    <td>Correct letter state, preserve game logic</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--yellow-3</span></td>
+                    <td><span class="color-swatch" style="background: #c9b458;"></span><span class="hex-value">#c9b458</span></td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #c9b458;"></span>Keep as --wordle-color-present</td>
+                    <td>Present letter state, light mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--yellow-4</span></td>
+                    <td><span class="color-swatch" style="background: #b49c3a;"></span><span class="hex-value">#b49c3a</span></td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #b49c3a;"></span>Keep as --wordle-color-present-dark</td>
+                    <td>Present letter state, dark mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--green-4</span></td>
+                    <td><span class="color-swatch" style="background: #538c4e;"></span><span class="hex-value">#538c4e</span></td>
+                    <td class="usage-count usage-medium">6</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #538c4e;"></span>Keep as --wordle-color-correct-dark</td>
+                    <td>Correct letter state, dark mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--orange</span></td>
+                    <td><span class="color-swatch" style="background: #f5793a;"></span><span class="hex-value">#f5793a</span></td>
+                    <td class="usage-count usage-low">4</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #f5793a;"></span>Keep as --wordle-color-correct-cb</td>
+                    <td>Colorblind mode correct</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--blue</span></td>
+                    <td><span class="color-swatch" style="background: #85c0f9;"></span><span class="hex-value">#85c0f9</span></td>
+                    <td class="usage-count usage-low">4</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #85c0f9;"></span>Keep as --wordle-color-present-cb</td>
+                    <td>Colorblind mode present</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>SEMANTIC COLOR TONES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>LIGHT MODE COLOR</th>
+                    <th>DARK MODE COLOR</th>
+                    <th>USAGE COUNT</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL COLORS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--color-tone-1</span></td>
+                    <td><span class="color-swatch" style="background: #000;"></span><span class="hex-value">#000000</span></td>
+                    <td><span class="color-swatch" style="background: #F8F8F8;"></span><span class="hex-value">#F8F8F8</span></td>
+                    <td class="usage-count usage-high">45</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span><span class="tpl-swatch" style="background: #F8F8F8;"></span>L: #121212 D: #F8F8F8</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-2</span></td>
+                    <td><span class="color-swatch" style="background: #787c7e;"></span><span class="hex-value">#787c7e</span></td>
+                    <td><span class="color-swatch" style="background: #565656;"></span><span class="hex-value">#565656</span></td>
+                    <td class="usage-count usage-high">32</td>
+                    <td class="proposed">--tpl-color-content-secondary</td>
+                    <td><span class="tpl-swatch" style="background: #5A5A5A;"></span><span class="tpl-swatch" style="background: #BBBBBB;"></span>L: #5A5A5A D: #BBBBBB</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-4</span></td>
+                    <td><span class="color-swatch" style="background: #d3d6da;"></span><span class="hex-value">#d3d6da</span></td>
+                    <td><span class="color-swatch" style="background: #3a3a3c;"></span><span class="hex-value">#3a3a3c</span></td>
+                    <td class="usage-count usage-high">28</td>
+                    <td class="proposed">--tpl-color-stroke-secondary</td>
+                    <td><span class="tpl-swatch" style="background: #979797;"></span><span class="tpl-swatch" style="background: #979797;"></span>L: #979797 D: #979797</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-7</span></td>
+                    <td><span class="color-swatch" style="background: #fff;"></span><span class="hex-value">#ffffff</span></td>
+                    <td><span class="color-swatch" style="background: #121213;"></span><span class="hex-value">#121213</span></td>
+                    <td class="usage-count usage-high">35</td>
+                    <td class="proposed">--tpl-color-background-primary</td>
+                    <td><span class="tpl-swatch" style="background: #FFFFFF;"></span><span class="tpl-swatch" style="background: #121212;"></span>L: #FFFFFF D: #121212</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-100</span></td>
+                    <td><span class="color-swatch" style="background: #121212;"></span><span class="hex-value">#121212</span></td>
+                    <td><span class="color-swatch" style="background: #121212;"></span><span class="hex-value">#121212</span></td>
+                    <td class="usage-count usage-high">25</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span>Same as --color-tone-1</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>HARDCODED HEX VALUES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT HEX</th>
+                    <th>COLOR</th>
+                    <th>LOCATION</th>
+                    <th>USAGE COUNT</th>
+                    <th>EXISTING TPL TOKEN</th>
+                    <th>TPL COLOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hex-value">#d0021b</td>
+                    <td><span class="color-swatch" style="background: #d0021b;"></span></td>
+                    <td>colors.scss:109</td>
+                    <td class="usage-count usage-medium">5</td>
+                    <td class="proposed">--tpl-color-content-breaking</td>
+                    <td><span class="tpl-swatch" style="background: #D0021B;"></span>#D0021B (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#ea7980</td>
+                    <td><span class="color-swatch" style="background: #ea7980;"></span></td>
+                    <td>colors.scss:142</td>
+                    <td class="usage-count usage-medium">5</td>
+                    <td class="proposed">--tpl-color-content-negative</td>
+                    <td><span class="tpl-swatch" style="background: #ED9099;"></span>#ED9099 (close match)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#121212</td>
+                    <td><span class="color-swatch" style="background: #121212;"></span></td>
+                    <td>Multiple files</td>
+                    <td class="usage-count usage-medium">8</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span>#121212 (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#dfdfdf</td>
+                    <td><span class="color-swatch" style="background: #dfdfdf;"></span></td>
+                    <td>Stats, Nav modules</td>
+                    <td class="usage-count usage-low">3</td>
+                    <td class="proposed">--tpl-color-stroke-tertiary</td>
+                    <td><span class="tpl-swatch" style="background: #DFDFDF;"></span>#DFDFDF (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#0051b7</td>
+                    <td><span class="color-swatch" style="background: #0051b7;"></span></td>
+                    <td>NextGameCTA.module.scss</td>
+                    <td class="usage-count usage-low">1</td>
+                    <td class="proposed">--tpl-color-content-accent</td>
+                    <td><span class="tpl-swatch" style="background: #346EB7;"></span>#346EB7 (close match)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#323232</td>
+                    <td><span class="color-swatch" style="background: #323232;"></span></td>
+                    <td>Error.module.scss</td>
+                    <td class="usage-count usage-low">1</td>
+                    <td class="proposed">--tpl-color-content-primaryDim</td>
+                    <td><span class="tpl-swatch" style="background: #363636;"></span>#363636 (close match)</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>GRAY SCALE CONSOLIDATION</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>SASS SOURCE</th>
+                    <th>USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>CONSOLIDATION NOTES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--gray-18</span></td>
+                    <td class="hex-value">#{$gray18}</td>
+                    <td class="usage-count usage-high">22</td>
+                    <td class="proposed">var(--tpl-color-content-secondary)</td>
+                    <td>Primary gray for secondary text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-19</span></td>
+                    <td class="hex-value">#{$gray19}</td>
+                    <td class="usage-count usage-medium">15</td>
+                    <td class="proposed">var(--tpl-color-content-tertiary)</td>
+                    <td>Similar to gray-18, consolidate</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-13</span></td>
+                    <td class="hex-value">#{$gray13}</td>
+                    <td class="usage-count usage-high">18</td>
+                    <td class="proposed">var(--tpl-color-stroke-primary)</td>
+                    <td>Border and stroke color</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-6</span></td>
+                    <td class="hex-value">#{$gray6}</td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td class="proposed">var(--tpl-color-background-secondary)</td>
+                    <td>Light background color</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-100</span></td>
+                    <td class="hex-value">#{$newsGray100}</td>
+                    <td class="usage-count usage-high">25</td>
+                    <td class="proposed">var(--tpl-color-background-primary)</td>
+                    <td>News-specific, align with TPL</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-10</span></td>
+                    <td class="hex-value">#{$newsGray10}</td>
+                    <td class="usage-count usage-medium">14</td>
+                    <td class="proposed">var(--tpl-color-content-primary)</td>
+                    <td>News-specific, align with TPL</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="category">
+        <h2>RGBA/HSLA VALUES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VALUE</th>
+                    <th>LOCATION</th>
+                    <th>USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.3)</td>
+                    <td>Key, Stats modules</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-30)</td>
+                    <td>Tap highlight color</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.2)</td>
+                    <td>Modal.module.scss:31, Welcome</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-shadow-20)</td>
+                    <td>Box shadow, border overlay</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(255, 255, 255, 0.5)</td>
+                    <td>colors.scss:101</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-light-50)</td>
+                    <td>Light mode overlay</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.5)</td>
+                    <td>colors.scss:129</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-dark-50)</td>
+                    <td>Dark mode overlay</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <h2>SUMMARY</h2>
+    <p>TOTAL VARIABLES ANALYZED: 25 high-impact color variables with actual color references and EXISTING TPL mappings</p>
+    
+    <h3>EXACT TPL MATCHES FOUND</h3>
+    <p>- #d0021b → --tpl-color-content-breaking (EXACT)</p>
+    <p>- #121212 → --tpl-color-content-primary (EXACT)</p>
+    <p>- #dfdfdf → --tpl-color-stroke-tertiary (EXACT)</p>
+    
+    <h3>CLOSE TPL MATCHES</h3>
+    <p>- #787c7e → --tpl-color-content-secondary (#5A5A5A)</p>
+    <p>- #d3d6da → --tpl-color-stroke-secondary (#979797)</p>
+    <p>- #0051b7 → --tpl-color-content-accent (#346EB7)</p>
+    
+    <h3>GAME-SPECIFIC COLORS (NO TPL EQUIVALENTS)</h3>
+    <p>- Wordle green/yellow game colors: Keep with --wordle-color-* naming</p>
+    <p>- Colorblind orange/blue: Keep with --wordle-color-*-cb naming</p>
+    
+    <h3>IMPLEMENTATION PRIORITY</h3>
+    <p>1. IMMEDIATE: Replace exact matches (#d0021b, #121212, #dfdfdf) with TPL tokens</p>
+    <p>2. HIGH IMPACT: Map --color-tone-1, --color-tone-2, --color-tone-7 to TPL content/background</p>
+    <p>3. MEDIUM IMPACT: Replace close matches with TPL equivalents after visual review</p>
+    <p>4. ORGANIZE: Rename game colors to --wordle-color-* pattern for clarity</p>
+    <p>5. PRESERVE: Keep game-specific colors for functional requirements</p>
+
+</body>
+</html>
