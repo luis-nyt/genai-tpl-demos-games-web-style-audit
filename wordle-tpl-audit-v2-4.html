@@ -134,18 +134,18 @@
             font-family: 'nyt-franklin', Arial, sans-serif;
         }
         
-        .font-example.franklin-400 {
-            font-family: 'nyt-franklin-400', Arial, sans-serif;
-            font-weight: 400;
+        .font-example.franklin-300 {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            font-weight: 300;
         }
         
         .font-example.franklin-500 {
-            font-family: 'nyt-franklin-500', Arial, sans-serif;
+            font-family: 'nyt-franklin', Arial, sans-serif;
             font-weight: 500;
         }
         
         .font-example.franklin-600 {
-            font-family: 'nyt-franklin-600', Arial, sans-serif;
+            font-family: 'nyt-franklin', Arial, sans-serif;
             font-weight: 600;
         }
         
@@ -171,7 +171,7 @@
         .size-28px { font-size: 28px; }
         .size-36px { font-size: 36px; }
         
-        .weight-400 { font-weight: 400; }
+        .weight-300 { font-weight: 300; }
         .weight-500 { font-weight: 500; }
         .weight-600 { font-weight: 600; }
         .weight-700 { font-weight: 700; }
@@ -463,9 +463,9 @@
                 </tr>
                 <tr>
                     <td><span class="var-name">nyt-franklin-400</span></td>
-                    <td><div class="font-example franklin-400">Sample Text - Franklin 400</div></td>
+                    <td><div class="font-example franklin-300">Sample Text - Franklin Light</div></td>
                     <td class="usage-count usage-low">2</td>
-                    <td class="proposed">Text/* (400 weight)</td>
+                    <td class="proposed">Text/* (300 weight)</td>
                     <td>Body text, light weight</td>
                 </tr>
                 <tr>
@@ -602,10 +602,10 @@
                 </tr>
                 <tr>
                     <td><span class="var-name">400</span></td>
-                    <td><div class="font-example franklin size-16px weight-400">Weight 400 Normal</div></td>
+                    <td><div class="font-example franklin size-16px weight-300">Weight 400 → 300 Normal</div></td>
                     <td class="usage-count usage-low">2</td>
-                    <td class="proposed">var(--tpl-font-weight-normal)</td>
-                    <td>Normal weight text</td>
+                    <td class="proposed">var(--tpl-font-weight-light)</td>
+                    <td>Normal weight text (use 300)</td>
                 </tr>
             </tbody>
         </table>
