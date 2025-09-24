@@ -3,8 +3,57 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wordle TPL Consistency Audit v2.1</title>
+    <title>Wordle Color Swapping Analysis v2.3</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
     <style>
+        /* Font definitions for typography examples */
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-300.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-300.woff') format('woff');
+            font-weight: 300;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-500.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-500.woff') format('woff');
+            font-weight: 500;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-600.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-600.woff') format('woff');
+            font-weight: 600;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-franklin';
+            src: url('./fonts/franklin/franklin-normal-700.woff2') format('woff2'),
+                 url('./fonts/franklin/franklin-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak';
+            src: url('./fonts/karnak/karnak-normal-400.woff2') format('woff2'),
+                 url('./fonts/karnak/karnak-normal-400.woff') format('woff');
+            font-weight: 400;
+            font-style: normal;
+        }
+        
+        @font-face {
+            font-family: 'nyt-karnak-cond';
+            src: url('./fonts/karnak-cond/karnak-cond-normal-700.woff2') format('woff2'),
+                 url('./fonts/karnak-cond/karnak-cond-normal-700.woff') format('woff');
+            font-weight: 700;
+            font-style: normal;
+        }
         * {
             margin: 0;
             padding: 0;
@@ -12,55 +61,125 @@
         }
         
         body {
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            background: #f8f9fa;
-        }
-        
-        .container {
-            max-width: 1200px;
+            font-family: monospace;
+            line-height: 1.4;
+            color: #000;
+            background: #fff;
+            padding: 20px;
+            max-width: 1400px;
             margin: 0 auto;
-            padding: 2rem;
         }
         
-        .header {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        h1 {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
         }
         
-        .header h1 {
-            color: #2c3e50;
-            margin-bottom: 0.5rem;
-            font-size: 2.5rem;
+        h2 {
+            font-size: 18px;
+            font-weight: bold;
+            margin: 30px 0 15px 0;
+            text-transform: uppercase;
         }
         
-        .header .subtitle {
-            color: #7f8c8d;
-            font-size: 1.2rem;
+        h3 {
+            font-size: 14px;
+            font-weight: bold;
+            margin: 20px 0 10px 0;
         }
         
-        .section {
-            background: white;
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        .repo-link {
+            font-size: 12px;
+            color: #666;
+            margin-bottom: 20px;
         }
         
-        .section h2 {
-            color: #2c3e50;
-            margin-bottom: 1rem;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 0.5rem;
+        .color-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+            font-size: 12px;
         }
         
-        .section h3 {
-            color: #34495e;
-            margin: 1.5rem 0 1rem 0;
+        .color-table th {
+            background: #000;
+            color: #fff;
+            padding: 8px;
+            text-align: left;
+            font-weight: bold;
+            border: 1px solid #000;
+        }
+        
+        .color-table td {
+            padding: 6px 8px;
+            border: 1px solid #ccc;
+            vertical-align: top;
+        }
+        
+        .color-table tr:nth-child(even) {
+            background: #f5f5f5;
+        }
+        
+        .var-name {
+            font-family: monospace;
+            background: #f0f0f0;
+            padding: 2px 4px;
+            font-size: 11px;
+        }
+        
+        .hex-value {
+            font-family: monospace;
+            font-size: 11px;
+        }
+        
+        .usage-count {
+            text-align: center;
+            font-weight: bold;
+            color: #000;
+        }
+        
+        .sortable {
+            cursor: pointer;
+            user-select: none;
+        }
+        
+        .sortable:hover {
+            background: #fafafa;
+        }
+        
+        .sortable::after {
+            content: ' ↕';
+            opacity: 0.5;
+        }
+        
+        .color-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #000;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .tpl-swatch {
+            display: inline-block;
+            width: 20px;
+            height: 20px;
+            border: 1px solid #666;
+            margin-right: 8px;
+            vertical-align: middle;
+        }
+        
+        .proposed {
+            font-style: italic;
+            color: #666;
+        }
+        
+        .category {
+            margin: 30px 0;
         }
         
         .comparison-grid {
@@ -312,93 +431,365 @@
     </style>
 </head>
 <body>
-    <div class="container">
-        <div class="header">
-            <h1>Wordle TPL Consistency Audit v2.1</h1>
-            <p class="subtitle">Low-hanging fruit for design system alignment without full adoption</p>
-            <p style="margin-top: 1rem; font-size: 0.9rem; opacity: 0.8;">
-                <strong>Repository:</strong> <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle" target="_blank">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
-            </p>
+    <h1>WORDLE COLOR SWAPPING ANALYSIS v2.3</h1>
+        
+    <div class="repo-link">
+        Repository: <a href="https://github.com/nytimes/games-phoenix/tree/main/src/games/wordle">github.com/nytimes/games-phoenix/tree/main/src/games/wordle</a>
         </div>
+        
+    <p>PROPOSED color variable changes for TPL consistency alignment. Visual analysis of color tokens, hex values, and existing TPL mappings.</p>
 
-        <div class="section">
-            <h2>Executive Summary</h2>
-            
-            <div class="stats">
-                <div class="stat-card">
-                    <span class="stat-number">15</span>
-                    <div class="stat-label">Custom Components</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">235</span>
-                    <div class="stat-label">Lines of Custom CSS</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">8</span>
-                    <div class="stat-label">TPL-Compatible Components</div>
-                </div>
-                <div class="stat-card">
-                    <span class="stat-number">60%</span>
-                    <div class="stat-label">Potential Code Reduction</div>
-                </div>
-            </div>
+    <div class="category">
+        <h2>CORE GAME COLORS</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>CURRENT COLOR</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>TPL COLOR</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--green</span></td>
+                    <td><span class="color-swatch" style="background: #6aaa64;"></span><span class="hex-value">#6aaa64</span></td>
+                    <td class="usage-count">18</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #6aaa64;"></span>Keep as --wordle-color-correct</td>
+                    <td>Correct letter state, preserve game logic</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--yellow-3</span></td>
+                    <td><span class="color-swatch" style="background: #c9b458;"></span><span class="hex-value">#c9b458</span></td>
+                    <td class="usage-count">12</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #c9b458;"></span>Keep as --wordle-color-present</td>
+                    <td>Present letter state, light mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--yellow-4</span></td>
+                    <td><span class="color-swatch" style="background: #b49c3a;"></span><span class="hex-value">#b49c3a</span></td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #b49c3a;"></span>Keep as --wordle-color-present-dark</td>
+                    <td>Present letter state, dark mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--green-4</span></td>
+                    <td><span class="color-swatch" style="background: #538c4e;"></span><span class="hex-value">#538c4e</span></td>
+                    <td class="usage-count">6</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #538c4e;"></span>Keep as --wordle-color-correct-dark</td>
+                    <td>Correct letter state, dark mode</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--orange</span></td>
+                    <td><span class="color-swatch" style="background: #f5793a;"></span><span class="hex-value">#f5793a</span></td>
+                    <td class="usage-count">4</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #f5793a;"></span>Keep as --wordle-color-correct-cb</td>
+                    <td>Colorblind mode correct</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--blue</span></td>
+                    <td><span class="color-swatch" style="background: #85c0f9;"></span><span class="hex-value">#85c0f9</span></td>
+                    <td class="usage-count">4</td>
+                    <td class="proposed">GAME-SPECIFIC - NO TPL MATCH</td>
+                    <td><span class="tpl-swatch" style="background: #85c0f9;"></span>Keep as --wordle-color-present-cb</td>
+                    <td>Colorblind mode present</td>
+                </tr>
+            </tbody>
+        </table>
+                    </div>
+                    
+    <div class="category">
+        <h2>SEMANTIC COLOR TONES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>LIGHT MODE COLOR</th>
+                    <th>DARK MODE COLOR</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>TPL COLORS</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--color-tone-1</span></td>
+                    <td><span class="color-swatch" style="background: #000;"></span><span class="hex-value">#000000</span></td>
+                    <td><span class="color-swatch" style="background: #F8F8F8;"></span><span class="hex-value">#F8F8F8</span></td>
+                    <td class="usage-count">45</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span><span class="tpl-swatch" style="background: #F8F8F8;"></span>L: #121212 D: #F8F8F8</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-2</span></td>
+                    <td><span class="color-swatch" style="background: #787c7e;"></span><span class="hex-value">#787c7e</span></td>
+                    <td><span class="color-swatch" style="background: #565656;"></span><span class="hex-value">#565656</span></td>
+                    <td class="usage-count">32</td>
+                    <td class="proposed">--tpl-color-content-secondary</td>
+                    <td><span class="tpl-swatch" style="background: #5A5A5A;"></span><span class="tpl-swatch" style="background: #BBBBBB;"></span>L: #5A5A5A D: #BBBBBB</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-4</span></td>
+                    <td><span class="color-swatch" style="background: #d3d6da;"></span><span class="hex-value">#d3d6da</span></td>
+                    <td><span class="color-swatch" style="background: #3a3a3c;"></span><span class="hex-value">#3a3a3c</span></td>
+                    <td class="usage-count">28</td>
+                    <td class="proposed">--tpl-color-stroke-secondary</td>
+                    <td><span class="tpl-swatch" style="background: #979797;"></span><span class="tpl-swatch" style="background: #979797;"></span>L: #979797 D: #979797</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--color-tone-7</span></td>
+                    <td><span class="color-swatch" style="background: #fff;"></span><span class="hex-value">#ffffff</span></td>
+                    <td><span class="color-swatch" style="background: #121213;"></span><span class="hex-value">#121213</span></td>
+                    <td class="usage-count">35</td>
+                    <td class="proposed">--tpl-color-background-primary</td>
+                    <td><span class="tpl-swatch" style="background: #FFFFFF;"></span><span class="tpl-swatch" style="background: #121212;"></span>L: #FFFFFF D: #121212</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-100</span></td>
+                    <td><span class="color-swatch" style="background: #121212;"></span><span class="hex-value">#121212</span></td>
+                    <td><span class="color-swatch" style="background: #121212;"></span><span class="hex-value">#121212</span></td>
+                    <td class="usage-count">25</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span>Same as --color-tone-1</td>
+                </tr>
+            </tbody>
+        </table>
+                        </div>
 
-            <p>The Wordle implementation presents significant opportunities for TPL adoption. The game currently uses custom styling patterns, font declarations, and component architectures that could be streamlined using TPL's design system. Key areas of opportunity include typography standardization, color token consolidation, component replacement, and spacing system adoption.</p>
-        </div>
+    <div class="category">
+        <h2>HARDCODED HEX VALUES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT HEX</th>
+                    <th>COLOR</th>
+                    <th>LOCATION</th>
+                    <th class="sortable">USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>TPL COLOR</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hex-value">#d0021b</td>
+                    <td><span class="color-swatch" style="background: #d0021b;"></span></td>
+                    <td>colors.scss:109</td>
+                    <td class="usage-count">5</td>
+                    <td class="proposed">--tpl-color-content-breaking</td>
+                    <td><span class="tpl-swatch" style="background: #D0021B;"></span>#D0021B (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#ea7980</td>
+                    <td><span class="color-swatch" style="background: #ea7980;"></span></td>
+                    <td>colors.scss:142</td>
+                    <td class="usage-count">5</td>
+                    <td class="proposed">--tpl-color-content-negative</td>
+                    <td><span class="tpl-swatch" style="background: #ED9099;"></span>#ED9099 (close match)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#121212</td>
+                    <td><span class="color-swatch" style="background: #121212;"></span></td>
+                    <td>Multiple files</td>
+                    <td class="usage-count">8</td>
+                    <td class="proposed">--tpl-color-content-primary</td>
+                    <td><span class="tpl-swatch" style="background: #121212;"></span>#121212 (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#dfdfdf</td>
+                    <td><span class="color-swatch" style="background: #dfdfdf;"></span></td>
+                    <td>Stats, Nav modules</td>
+                    <td class="usage-count">3</td>
+                    <td class="proposed">--tpl-color-stroke-tertiary</td>
+                    <td><span class="tpl-swatch" style="background: #DFDFDF;"></span>#DFDFDF (exact match!)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#0051b7</td>
+                    <td><span class="color-swatch" style="background: #0051b7;"></span></td>
+                    <td>NextGameCTA.module.scss</td>
+                    <td class="usage-count">1</td>
+                    <td class="proposed">--tpl-color-content-accent</td>
+                    <td><span class="tpl-swatch" style="background: #346EB7;"></span>#346EB7 (close match)</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">#323232</td>
+                    <td><span class="color-swatch" style="background: #323232;"></span></td>
+                    <td>Error.module.scss</td>
+                    <td class="usage-count">1</td>
+                    <td class="proposed">--tpl-color-content-primaryDim</td>
+                    <td><span class="tpl-swatch" style="background: #363636;"></span>#363636 (close match)</td>
+                </tr>
+            </tbody>
+        </table>
+                    </div>
+                    
+    <div class="category">
+        <h2>GRAY SCALE CONSOLIDATION</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VARIABLE</th>
+                    <th>SASS SOURCE</th>
+                    <th>USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>CONSOLIDATION NOTES</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><span class="var-name">--gray-18</span></td>
+                    <td class="hex-value">#{$gray18}</td>
+                    <td class="usage-count usage-high">22</td>
+                    <td class="proposed">var(--tpl-color-content-secondary)</td>
+                    <td>Primary gray for secondary text</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-19</span></td>
+                    <td class="hex-value">#{$gray19}</td>
+                    <td class="usage-count usage-medium">15</td>
+                    <td class="proposed">var(--tpl-color-content-tertiary)</td>
+                    <td>Similar to gray-18, consolidate</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-13</span></td>
+                    <td class="hex-value">#{$gray13}</td>
+                    <td class="usage-count usage-high">18</td>
+                    <td class="proposed">var(--tpl-color-stroke-primary)</td>
+                    <td>Border and stroke color</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--gray-6</span></td>
+                    <td class="hex-value">#{$gray6}</td>
+                    <td class="usage-count usage-medium">12</td>
+                    <td class="proposed">var(--tpl-color-background-secondary)</td>
+                    <td>Light background color</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-100</span></td>
+                    <td class="hex-value">#{$newsGray100}</td>
+                    <td class="usage-count usage-high">25</td>
+                    <td class="proposed">var(--tpl-color-background-primary)</td>
+                    <td>News-specific, align with TPL</td>
+                </tr>
+                <tr>
+                    <td><span class="var-name">--newsGray-10</span></td>
+                    <td class="hex-value">#{$newsGray10}</td>
+                    <td class="usage-count usage-medium">14</td>
+                    <td class="proposed">var(--tpl-color-content-primary)</td>
+                    <td>News-specific, align with TPL</td>
+                </tr>
+            </tbody>
+        </table>
+                        </div>
 
+    <div class="category">
+        <h2>RGBA/HSLA VALUES</h2>
+        <table class="color-table">
+            <thead>
+                <tr>
+                    <th>CURRENT VALUE</th>
+                    <th>LOCATION</th>
+                    <th>USAGE COUNT</th>
+                    <th>PROPOSED TPL MAPPING</th>
+                    <th>CONTEXT</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.3)</td>
+                    <td>Key, Stats modules</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-30)</td>
+                    <td>Tap highlight color</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.2)</td>
+                    <td>Modal.module.scss:31, Welcome</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-shadow-20)</td>
+                    <td>Box shadow, border overlay</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(255, 255, 255, 0.5)</td>
+                    <td>colors.scss:101</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-light-50)</td>
+                    <td>Light mode overlay</td>
+                </tr>
+                <tr>
+                    <td class="hex-value">rgba(0, 0, 0, 0.5)</td>
+                    <td>colors.scss:129</td>
+                    <td class="usage-count usage-low">2</td>
+                    <td class="proposed">var(--tpl-color-overlay-dark-50)</td>
+                    <td>Dark mode overlay</td>
+                </tr>
+            </tbody>
+        </table>
+                    </div>
+                    
+    <h2>SUMMARY</h2>
+    <p>TOTAL VARIABLES ANALYZED: 25 high-impact color variables with actual color references and EXISTING TPL mappings</p>
+    
+    <h3>EXACT TPL MATCHES FOUND</h3>
+    <p>- #d0021b → --tpl-color-content-breaking (EXACT)</p>
+    <p>- #121212 → --tpl-color-content-primary (EXACT)</p>
+    <p>- #dfdfdf → --tpl-color-stroke-tertiary (EXACT)</p>
+    
+    <h3>CLOSE TPL MATCHES</h3>
+    <p>- #787c7e → --tpl-color-content-secondary (#5A5A5A)</p>
+    <p>- #d3d6da → --tpl-color-stroke-secondary (#979797)</p>
+    <p>- #0051b7 → --tpl-color-content-accent (#346EB7)</p>
+    
+    <h3>GAME-SPECIFIC COLORS (NO TPL EQUIVALENTS)</h3>
+    <p>- Wordle green/yellow game colors: Keep with --wordle-color-* naming</p>
+    <p>- Colorblind orange/blue: Keep with --wordle-color-*-cb naming</p>
+    
+    <h3>IMPLEMENTATION PRIORITY</h3>
+    <p>1. IMMEDIATE: Replace exact matches (#d0021b, #121212, #dfdfdf) with TPL tokens</p>
+    <p>2. HIGH IMPACT: Map --color-tone-1, --color-tone-2, --color-tone-7 to TPL content/background</p>
+    <p>3. MEDIUM IMPACT: Replace close matches with TPL equivalents after visual review</p>
+    <p>4. ORGANIZE: Rename game colors to --wordle-color-* pattern for clarity</p>
+    <p>5. PRESERVE: Keep game-specific colors for functional requirements</p>
 
-        <div class="section">
-            <h2>Current State Analysis</h2>
-            
-            <h3>Architecture Overview</h3>
-            <ul>
-                <li><strong>Component Structure:</strong> React components with CSS Modules</li>
-                <li><strong>Styling Approach:</strong> Custom CSS with CSS variables for theming</li>
-                <li><strong>Color System:</strong> Extensive custom color variables (85+ color tokens)</li>
-                <li><strong>Typography:</strong> Manual @font-face declarations for NYT fonts</li>
-                <li><strong>Spacing:</strong> Mix of custom spacing and some shared tokens</li>
-                <li><strong>Component Count:</strong> 15+ custom UI components including:
-                    <ul>
-                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Tile/Tile.tsx" target="_blank">Tile</a> - Game letter tiles</li>
-                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Keyboard/Keyboard.tsx" target="_blank">Keyboard</a> - Virtual keyboard</li>
-                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Board/Board.tsx" target="_blank">Board</a> - Game board container</li>
-                        <li><a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/js/components/Modal/Modal.tsx" target="_blank">Modal</a> - Popup dialogs</li>
-                    </ul>
-                </li>
-            </ul>
+    <script>
+        // Simple table sorting for usage count columns
+        document.querySelectorAll('.sortable').forEach(header => {
+            header.addEventListener('click', () => {
+                const table = header.closest('table');
+                const tbody = table.querySelector('tbody');
+                const rows = Array.from(tbody.querySelectorAll('tr'));
+                const columnIndex = Array.from(header.parentNode.children).indexOf(header);
+                
+                // Toggle sort direction
+                const isAscending = header.dataset.sortDirection !== 'asc';
+                header.dataset.sortDirection = isAscending ? 'asc' : 'desc';
+                
+                // Update visual indicator
+                document.querySelectorAll('.sortable').forEach(h => {
+                    h.style.background = '';
+                    h.innerHTML = h.innerHTML.replace(/ [↑↓]/, '');
+                });
+                header.style.background = '#e0e0e0';
+                header.innerHTML = header.innerHTML.replace(' ↕', isAscending ? ' ↑' : ' ↓');
+                
+                // Sort rows
+                rows.sort((a, b) => {
+                    const aValue = parseInt(a.children[columnIndex].textContent) || 0;
+                    const bValue = parseInt(b.children[columnIndex].textContent) || 0;
+                    return isAscending ? aValue - bValue : bValue - aValue;
+                });
+                
+                // Re-append sorted rows
+                rows.forEach(row => tbody.appendChild(row));
+            });
+        });
+    </script>
 
-            <h3>Custom Font Declarations</h3>
-            <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/index.scss#L12-L75" target="_blank">index.scss (lines 12-75)</a></p>
-            <div class="code-block">
-@font-face {
-  font-family: 'nyt-karnak';
-  src: url('/public/fonts/karnak/karnak-normal-400.woff2') format('woff2');
-  font-weight: 400;
-}
-
-@font-face {
-  font-family: 'nyt-franklin';
-  src: url('/public/fonts/franklin/franklin-normal-700.woff2') format('woff2');
-  font-weight: 700;
-}
-            </div>
-
-            <h3>Color System Complexity</h3>
-            <p><strong>Source:</strong> <a href="https://github.com/nytimes/games-phoenix/blob/main/src/games/wordle/colors.scss#L21-L235" target="_blank">colors.scss (lines 21-235)</a></p>
-            <div class="code-block">
-:root {
-  --green: #{$wordleGreen};
-  --wordle-high-contrast-green: #{$wordleHighContrastGreen};
-  --wordleGray: #{$gray13};
-  --newsGray-10: #{$newsGray10};
-  --color-tone-1: var(--black);
-  --color-tone-2: var(--gray-18);
-  /* ...80+ more color definitions */
-}
-            </div>
-        </div>
-
-
-    </div>
 </body>
 </html>
