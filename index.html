@@ -31,14 +31,13 @@
 
         .experiment-item {
             display: flex;
-            align-items: baseline;
-            margin-bottom: 20px;
-            padding: 15px 0;
-            border-bottom: 1px solid #f0f0f0;
+            align-items: flex-start;
+            margin-bottom: 30px;
+            padding: 0;
         }
 
         .experiment-item:last-child {
-            border-bottom: none;
+            margin-bottom: 0;
         }
 
         .date {
@@ -58,11 +57,26 @@
         .experiment-title a {
             color: #333;
             text-decoration: none;
+            font-weight: bold;
         }
 
         .experiment-title a:hover {
             color: #0066cc;
             text-decoration: underline;
+        }
+        
+        .screenshot-placeholder {
+            width: 100%;
+            height: 60px;
+            background: #f5f5f5;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.8rem;
+            color: #999;
         }
 
         @media (max-width: 600px) {
@@ -90,6 +104,7 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-5.html">Wordle Typography Analysis v2.5</a>
+                <div class="screenshot-placeholder">Typography patterns with Clear Sans root font analysis</div>
             </div>
         </li>
         
@@ -97,6 +112,7 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-4.html">Wordle Typography Analysis v2.4</a>
+                <div class="screenshot-placeholder">Font families, weights, and line height analysis</div>
             </div>
         </li>
         
@@ -104,6 +120,7 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-3-colors.html">Wordle Color Swapping Analysis v2.3</a>
+                <div class="screenshot-placeholder">Color tokens and hex values with visual swatches</div>
             </div>
         </li>
         
@@ -111,6 +128,7 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-1.html">Wordle TPL Consistency Audit v2.1</a>
+                <div class="screenshot-placeholder">Low-hanging fruit token swaps and quick wins</div>
             </div>
         </li>
         
@@ -118,6 +136,7 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-0.html">Wordle TPL Adoption Audit v2.0</a>
+                <div class="screenshot-placeholder">Full component replacement and adoption strategy</div>
             </div>
         </li>
         
@@ -125,6 +144,7 @@
             <div class="date">9-8-2025</div>
             <div class="experiment-title">
                 <a href="./messaging-moments-audit.html">iOS Games Messaging Moments</a>
+                <div class="screenshot-placeholder">iOS messaging catalog with TPL usage tracking</div>
             </div>
         </li>
         
@@ -132,6 +152,7 @@
             <div class="date">8-21-2025</div>
             <div class="experiment-title">
                 <a href="./border-radius-audit.html">Border Radius Audit</a>
+                <div class="screenshot-placeholder">Border radius consistency analysis</div>
             </div>
         </li>
         
@@ -139,13 +160,15 @@
             <div class="date">8-21-2025</div>
             <div class="experiment-title">
                 <a href="./typography-comparison.html">Typography Comparison</a>
+                <div class="screenshot-placeholder">Font family comparison and analysis</div>
             </div>
         </li>
         
         <li class="experiment-item">
             <div class="date">8-21-2025</div>
             <div class="experiment-title">
-                <a href="./wordle-tpl-audit.html">Wordle TPL Audit</a>
+                <a href="./messaging-tpl-stats.html">Messaging TPL Stats</a>
+                <div class="screenshot-placeholder">Messaging statistics and TPL adoption metrics</div>
             </div>
         </li>
     </ul>
