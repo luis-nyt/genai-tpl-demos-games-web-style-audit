@@ -67,10 +67,10 @@ async function captureScreenshots() {
       await page.waitForLoadState('networkidle');
       await page.waitForTimeout(2000); // Extra time for font rendering
       
-      // Capture screenshot of the top portion (good for preview)
+      // Capture screenshot with standardized dimensions
       await page.screenshot({
         path: doc.output,
-        clip: { x: 0, y: 0, width: 1200, height: 600 }, // Top 600px
+        clip: { x: 0, y: 0, width: 1200, height: 480 }, // Standardized 1200x480 (2.5:1 ratio)
         type: 'png'
       });
       
