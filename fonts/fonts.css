@@ -160,7 +160,7 @@
 /* IBM Plex Family */
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-normal-400.woff2') format('woff2');
   font-style: normal;
   font-weight: 400;
   font-display: swap;
@@ -168,7 +168,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-normal-700.woff2') format('woff2');
   font-style: normal;
   font-weight: 700;
   font-display: swap;
@@ -176,7 +176,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/ibm-plex/ibm-plex-italic-400.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-italic-400.woff2') format('woff2');
   font-style: italic;
   font-weight: 400;
   font-display: swap;
@@ -184,7 +184,7 @@
 
 @font-face {
   font-family: 'nyt-ibm-plex';
-  src: url('/fonts/ibm-plex/ibm-plex-italic-700.woff2') format('woff2');
+  src: url('./ibm-plex/ibm-plex-italic-700.woff2') format('woff2');
   font-style: italic;
   font-weight: 700;
   font-display: swap;
