@@ -30,11 +30,8 @@
         }
 
         .experiment-item {
-            display: flex;
-            align-items: flex-start;
             margin-bottom: 30px;
             padding: 0;
-            height: 240px;
             width: fit-content;
             max-width: 100%;
         }
@@ -43,22 +40,17 @@
             margin-bottom: 0;
         }
 
-        .date {
-            font-family: 'nyt-ibm-plex', 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
-            font-size: 0.9rem;
-            color: #999;
-            width: 120px;
-            flex-shrink: 0;
-            margin-right: 20px;
-        }
-
         .experiment-title {
             font-size: 1.1rem;
             font-weight: 500;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            height: 100%;
+            margin-bottom: 4px;
+        }
+
+        .date {
+            font-family: 'nyt-ibm-plex', 'IBM Plex Mono', 'SF Mono', Monaco, monospace;
+            font-size: 0.8rem;
+            color: #999;
+            margin-bottom: 8px;
         }
 
         .experiment-title a {
@@ -82,6 +74,14 @@
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+            display: block;
+            text-decoration: none;
+        }
+        
+        .screenshot-placeholder:hover {
+            transform: scale(1.02);
         }
 
         @media (max-width: 600px) {
@@ -113,75 +113,75 @@
     
     <ul class="experiment-list">
         <li class="experiment-item">
-            <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-5.html">Wordle Typography Analysis v2.5</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/v2-5-typography.png');"></div>
+                <div class="date">9-23-2025</div>
             </div>
+            <a href="./wordle-tpl-audit-v2-5.html" class="screenshot-placeholder" style="background-image: url('./screenshots/v2-5-typography.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-4.html">Wordle Typography Analysis v2.4</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/v2-4-typography.png');"></div>
+                <div class="date">9-23-2025</div>
             </div>
+            <a href="./wordle-tpl-audit-v2-4.html" class="screenshot-placeholder" style="background-image: url('./screenshots/v2-4-typography.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-3-colors.html">Wordle Color Swapping Analysis v2.3</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/v2-3-colors.png');"></div>
+                <div class="date">9-23-2025</div>
             </div>
+            <a href="./wordle-tpl-audit-v2-3-colors.html" class="screenshot-placeholder" style="background-image: url('./screenshots/v2-3-colors.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-1.html">Wordle TPL Consistency Audit v2.1</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/v2-1-consistency.png');"></div>
+                <div class="date">9-23-2025</div>
             </div>
+            <a href="./wordle-tpl-audit-v2-1.html" class="screenshot-placeholder" style="background-image: url('./screenshots/v2-1-consistency.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-0.html">Wordle TPL Adoption Audit v2.0</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/v2-0-adoption.png');"></div>
+                <div class="date">9-23-2025</div>
             </div>
+            <a href="./wordle-tpl-audit-v2-0.html" class="screenshot-placeholder" style="background-image: url('./screenshots/v2-0-adoption.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">9-8-2025</div>
             <div class="experiment-title">
                 <a href="./messaging-moments-audit.html">iOS Games Messaging Moments</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/messaging-moments.png');"></div>
+                <div class="date">9-8-2025</div>
             </div>
+            <a href="./messaging-moments-audit.html" class="screenshot-placeholder" style="background-image: url('./screenshots/messaging-moments.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">8-21-2025</div>
             <div class="experiment-title">
                 <a href="./border-radius-audit.html">Border Radius Audit</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/border-radius.png');"></div>
+                <div class="date">8-21-2025</div>
             </div>
+            <a href="./border-radius-audit.html" class="screenshot-placeholder" style="background-image: url('./screenshots/border-radius.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">8-21-2025</div>
             <div class="experiment-title">
                 <a href="./typography-comparison.html">Typography Comparison</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/typography-comparison.png');"></div>
+                <div class="date">8-21-2025</div>
             </div>
+            <a href="./typography-comparison.html" class="screenshot-placeholder" style="background-image: url('./screenshots/typography-comparison.png');"></a>
         </li>
         
         <li class="experiment-item">
-            <div class="date">8-21-2025</div>
             <div class="experiment-title">
                 <a href="./messaging-tpl-stats.html">Messaging TPL Stats</a>
-                <div class="screenshot-placeholder" style="background-image: url('./screenshots/messaging-stats.png');"></div>
+                <div class="date">8-21-2025</div>
             </div>
+            <a href="./messaging-tpl-stats.html" class="screenshot-placeholder" style="background-image: url('./screenshots/messaging-stats.png');"></a>
         </li>
     </ul>
 </body>
