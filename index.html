@@ -64,6 +64,29 @@
             color: #0066cc;
             text-decoration: underline;
         }
+        
+        .experiment-description {
+            font-size: 0.85rem;
+            color: #666;
+            margin-top: 5px;
+            line-height: 1.4;
+        }
+        
+        .screenshot {
+            width: 60px;
+            height: 40px;
+            border: 1px solid #ddd;
+            border-radius: 2px;
+            margin-left: 15px;
+            flex-shrink: 0;
+            background: #f8f8f8;
+            cursor: pointer;
+            transition: transform 0.1s ease;
+        }
+        
+        .screenshot:hover {
+            transform: scale(1.05);
+        }
 
         @media (max-width: 600px) {
             .experiment-item {
@@ -90,35 +113,55 @@
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-5.html">Wordle Typography Analysis v2.5</a>
+                <div class="experiment-description">
+                    Comprehensive typography analysis including Clear Sans as root font discovery. Features visual font examples, sortable usage counts, and migration strategy options for foundation-level typography changes.
+                </div>
             </div>
+            <div class="screenshot" onclick="window.open('./wordle-tpl-audit-v2-5.html', '_blank')" title="Preview v2.5"></div>
         </li>
         
         <li class="experiment-item">
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-4.html">Wordle Typography Analysis v2.4</a>
+                <div class="experiment-description">
+                    Font family, size, weight, and line height analysis with visual typography examples. Includes actual NYT font rendering and sortable impact prioritization tables.
+                </div>
             </div>
+            <div class="screenshot" onclick="window.open('./wordle-tpl-audit-v2-4.html', '_blank')" title="Preview v2.4"></div>
         </li>
         
         <li class="experiment-item">
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-3-colors.html">Wordle Color Swapping Analysis v2.3</a>
+                <div class="experiment-description">
+                    Comprehensive color token analysis with visual color swatches. Maps existing TPL colors to Wordle variables and identifies exact matches for immediate implementation.
+                </div>
             </div>
+            <div class="screenshot" onclick="window.open('./wordle-tpl-audit-v2-3-colors.html', '_blank')" title="Preview v2.3"></div>
         </li>
         
         <li class="experiment-item">
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-1.html">Wordle TPL Consistency Audit v2.1</a>
+                <div class="experiment-description">
+                    Low-hanging fruit approach focusing on incremental token swaps and styling consistency without architectural changes. Emphasizes quick wins and minimal risk improvements.
+                </div>
             </div>
+            <div class="screenshot" onclick="window.open('./wordle-tpl-audit-v2-1.html', '_blank')" title="Preview v2.1"></div>
         </li>
         
         <li class="experiment-item">
             <div class="date">9-23-2025</div>
             <div class="experiment-title">
                 <a href="./wordle-tpl-audit-v2-0.html">Wordle TPL Adoption Audit v2.0</a>
+                <div class="experiment-description">
+                    Comprehensive TPL component replacement strategy with full design system integration. Includes component migration roadmap and implementation timeline for complete adoption.
+                </div>
             </div>
+            <div class="screenshot" onclick="window.open('./wordle-tpl-audit-v2-0.html', '_blank')" title="Preview v2.0"></div>
         </li>
         
         <li class="experiment-item">
