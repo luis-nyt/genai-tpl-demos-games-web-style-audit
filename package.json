@@ -1,0 +1,16 @@
+{
+  "name": "tpl-consistency-opportunities",
+  "version": "1.0.0",
+  "description": "TPL consistency analysis and audit tools",
+  "main": "index.js",
+  "scripts": {
+    "screenshots": "node scripts/capture-screenshots.js",
+    "dev": "python -m http.server 8000",
+    "test": "echo \"No tests specified\""
+  },
+  "devDependencies": {
+    "playwright": "^1.55.1"
+  },
+  "author": "NYT TPL Team",
+  "license": "MIT"
+}
