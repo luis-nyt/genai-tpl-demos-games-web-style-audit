@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TPL Consistency Workflow Diagram</title>
+    <link rel="stylesheet" href="./fonts/fonts.css">
+    <style>
+        body {
+            font-family: 'nyt-franklin', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #fff;
+            padding: 40px 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            font-family: 'nyt-ibm-plex', monospace;
+            font-size: 2rem;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .workflow-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 40px 0;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+
+        .workflow-step {
+            background: #f8f9fa;
+            border: 2px solid #dee2e6;
+            border-radius: 8px;
+            padding: 20px;
+            text-align: center;
+            min-width: 200px;
+            flex: 1;
+        }
+
+        .workflow-step.cursor {
+            border-color: #007acc;
+            background: #e7f3ff;
+        }
+
+        .workflow-step.github {
+            border-color: #333;
+            background: #f6f8fa;
+        }
+
+        .workflow-step.vercel {
+            border-color: #000;
+            background: #fafafa;
+        }
+
+        .step-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .step-title {
+            font-weight: bold;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+        }
+
+        .step-description {
+            font-size: 0.9rem;
+            color: #666;
+            margin-bottom: 15px;
+        }
+
+        .step-actions {
+            font-size: 0.8rem;
+            font-family: 'nyt-ibm-plex', monospace;
+            background: rgba(0,0,0,0.05);
+            padding: 8px;
+            border-radius: 4px;
+        }
+
+        .arrow {
+            font-size: 2rem;
+            color: #666;
+            margin: 0 10px;
+        }
+
+        .process-flow {
+            margin: 40px 0;
+            padding: 20px;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+
+        .process-step {
+            display: flex;
+            align-items: center;
+            margin: 15px 0;
+            padding: 10px;
+            background: white;
+            border-radius: 4px;
+            border-left: 4px solid #007acc;
+        }
+
+        .step-number {
+            background: #007acc;
+            color: white;
+            width: 24px;
+            height: 24px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 0.8rem;
+            margin-right: 15px;
+            flex-shrink: 0;
+        }
+
+        .tools-used {
+            margin: 30px 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .tool-card {
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            padding: 15px;
+            background: white;
+        }
+
+        .tool-name {
+            font-weight: bold;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .tool-purpose {
+            font-size: 0.9rem;
+            color: #666;
+        }
+
+        @media (max-width: 768px) {
+            .workflow-container {
+                flex-direction: column;
+            }
+            
+            .arrow {
+                transform: rotate(90deg);
+                margin: 10px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>TPL CONSISTENCY OPPORTUNITIES - WORKFLOW DIAGRAM</h1>
+
+    <div class="workflow-container">
+        <div class="workflow-step cursor">
+            <span class="step-icon">💻</span>
+            <div class="step-title">CURSOR IDE</div>
+            <div class="step-description">Development Environment</div>
+            <div class="step-actions">
+                • Code audit documents<br>
+                • Generate analysis tables<br>
+                • Create screenshots<br>
+                • git add . && git commit
+            </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="workflow-step github">
+            <span class="step-icon">🐙</span>
+            <div class="step-title">GITHUB</div>
+            <div class="step-description">Source Control & CI/CD</div>
+            <div class="step-actions">
+                • git push origin main<br>
+                • Store source code<br>
+                • Trigger deployments<br>
+                • Version control
+            </div>
+        </div>
+
+        <span class="arrow">→</span>
+
+        <div class="workflow-step vercel">
+            <span class="step-icon">▲</span>
+            <div class="step-title">VERCEL</div>
+            <div class="step-description">Static Site Hosting</div>
+            <div class="step-actions">
+                • Auto-deploy on push<br>
+                • Serve HTML/CSS/fonts<br>
+                • CDN distribution<br>
+                • Live site updates
+            </div>
+        </div>
+    </div>
+
+    <div class="process-flow">
+        <h2>DETAILED WORKFLOW PROCESS</h2>
+        
+        <div class="process-step">
+            <div class="step-number">1</div>
+            <div>
+                <strong>Code Analysis in Cursor:</strong> Use AI assistant to analyze Wordle codebase, extract color/typography patterns, and generate comprehensive audit documents with tables, visual examples, and TPL mappings.
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">2</div>
+            <div>
+                <strong>Screenshot Generation:</strong> Run <code>npm run screenshots</code> to use Playwright automation for capturing consistent 1200×480 preview images of all audit documents with proper font rendering.
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">3</div>
+            <div>
+                <strong>Git Workflow:</strong> Commit changes with descriptive messages, push to GitHub main branch. All font files, HTML documents, screenshots, and automation scripts included.
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">4</div>
+            <div>
+                <strong>Automatic Deployment:</strong> Vercel detects GitHub push, builds static site, deploys to CDN. No manual deployment steps required - changes go live automatically.
+            </div>
+        </div>
+
+        <div class="process-step">
+            <div class="step-number">5</div>
+            <div>
+                <strong>Live Site Updates:</strong> Index page and all audit documents immediately available at Vercel URL with working NYT fonts, interactive tables, and screenshot previews.
+            </div>
+        </div>
+    </div>
+
+    <div class="tools-used">
+        <div class="tool-card">
+            <div class="tool-name">Cursor AI Assistant</div>
+            <div class="tool-purpose">Codebase analysis, document generation, pattern extraction, TPL mapping recommendations</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-name">Playwright</div>
+            <div class="tool-purpose">Automated screenshot capture with proper font rendering and consistent dimensions</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-name">Git/GitHub</div>
+            <div class="tool-purpose">Version control, source storage, deployment triggering, collaboration</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-name">Vercel</div>
+            <div class="tool-purpose">Static site hosting, automatic deployment, CDN distribution, live updates</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-name">NYT Font Stack</div>
+            <div class="tool-purpose">Franklin, Karnak, IBM Plex fonts for authentic NYT typography in analysis examples</div>
+        </div>
+
+        <div class="tool-card">
+            <div class="tool-name">CSS/HTML/JS</div>
+            <div class="tool-purpose">Brutalist design, sortable tables, responsive layout, interactive features</div>
+        </div>
+    </div>
+
+    <div style="margin-top: 40px; padding: 20px; background: #e9f7ef; border-radius: 8px;">
+        <h3>Key Benefits of This Workflow:</h3>
+        <ul>
+            <li><strong>Automated:</strong> Push to GitHub = live site update</li>
+            <li><strong>Consistent:</strong> Standardized screenshots and typography</li>
+            <li><strong>Collaborative:</strong> Git history tracks all analysis iterations</li>
+            <li><strong>Scalable:</strong> Easy to add new audits and regenerate previews</li>
+            <li><strong>Professional:</strong> Live site for sharing with Games team</li>
+        </ul>
+    </div>
+
+    <p style="text-align: center; margin-top: 30px; color: #666;">
+        <a href="./index.html">← Back to TPL Consistency Opportunities</a>
+    </p>
+</body>
+</html>
